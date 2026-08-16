@@ -3,67 +3,93 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tesla Frontier Network — News & Investment</title>
+    <title>Tesla Frontier Network — SpaceX Investment Hub</title>
 
-    <!-- Tailwind + Plugins -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com">
     </script>
-    <!-- Font Awesome 6 (Free) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Google Fonts: Inter + Orbitron -->
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts: Orbitron + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
-    <!-- Chart.js v4 -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
     </script>
 
     <style>
+        /* ── Reset & Base ── */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            background: #0b0e14;
-            color: #eef2f6;
+            background: #070b12;
+            color: #e8edf5;
             overflow-x: hidden;
         }
         .font-orbitron {
             font-family: 'Orbitron', monospace;
         }
 
-        /* Animated gradient hero */
-        .hero-gradient {
-            background: radial-gradient(ellipse at 20% 50%, rgba(0, 150, 255, 0.25) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 50%, rgba(255, 70, 150, 0.15) 0%, transparent 60%),
-                linear-gradient(135deg, #0b0e14 0%, #141b26 100%);
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070b12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00d4ff, #0066ff);
+            border-radius: 10px;
         }
 
-        /* Glow pulse */
-        .glow-pulse {
-            animation: glowPulse 3s ease-in-out infinite;
-        }
-        @keyframes glowPulse {
+        /* ── Animations ── */
+        @keyframes float {
             0%,
             100% {
-                opacity: 0.6;
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
+        }
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                opacity: 0.4;
                 transform: scale(1);
             }
             50% {
                 opacity: 1;
-                transform: scale(1.05);
+                transform: scale(1.08);
             }
         }
-
-        /* Ticker marquee */
-        .ticker-track {
-            display: flex;
-            animation: scrollTicker 30s linear infinite;
-            width: max-content;
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
         }
-        @keyframes scrollTicker {
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes tickerScroll {
             0% {
                 transform: translateX(0);
             }
@@ -71,354 +97,677 @@
                 transform: translateX(-50%);
             }
         }
-
-        /* Card hover */
-        .invest-card {
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            background: rgba(20, 28, 40, 0.7);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .invest-card:hover {
-            transform: translateY(-10px) scale(1.01);
-            border-color: rgba(0, 180, 255, 0.4);
-            box-shadow: 0 20px 60px rgba(0, 150, 255, 0.15);
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: rgba(16, 24, 36, 0.65);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0b0e14;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e90ff;
-            border-radius: 8px;
-        }
-
-        /* Chart container */
-        .chart-container {
-            position: relative;
-            height: 200px;
-            width: 100%;
-        }
-
-        /* blinking dot */
-        .live-dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background: #0f0;
-            border-radius: 50%;
-            animation: blink 1.2s infinite;
-        }
         @keyframes blink {
             0%,
             100% {
                 opacity: 1;
             }
             50% {
-                opacity: 0.2;
+                opacity: 0.15;
+            }
+        }
+        @keyframes borderGlow {
+            0%,
+            100% {
+                border-color: rgba(0, 180, 255, 0.2);
+                box-shadow: 0 0 20px rgba(0, 180, 255, 0.05);
+            }
+            50% {
+                border-color: rgba(0, 180, 255, 0.6);
+                box-shadow: 0 0 40px rgba(0, 180, 255, 0.15);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .animate-pulse-glow {
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.8s ease forwards;
+        }
+        .animate-border-glow {
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+        .delay-1 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+        .delay-2 {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+        .delay-3 {
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+        .delay-4 {
+            animation-delay: 0.8s;
+            opacity: 0;
+        }
+
+        /* ── Glassmorphism ── */
+        .glass {
+            background: rgba(12, 20, 32, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .glass-light {
+            background: rgba(20, 32, 48, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* ── Hero Slideshow ── */
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-slide.active {
+            opacity: 1;
+        }
+        .hero-slide .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(7, 11, 18, 0.7) 0%, rgba(7, 11, 18, 0.3) 100%);
+        }
+
+        .slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .slide-dot.active {
+            background: #22d3ee;
+            box-shadow: 0 0 20px #22d3ee66;
+            transform: scale(1.2);
+        }
+
+        /* ── Ticker ── */
+        .ticker-track {
+            display: flex;
+            animation: tickerScroll 35s linear infinite;
+            width: max-content;
+        }
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* ── Cards ── */
+        .premium-card {
+            background: rgba(12, 22, 38, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .premium-card:hover {
+            transform: translateY(-8px) scale(1.005);
+            border-color: rgba(0, 180, 255, 0.3);
+            box-shadow: 0 30px 80px rgba(0, 100, 255, 0.12);
+        }
+
+        .product-card {
+            background: rgba(10, 18, 32, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(0, 180, 255, 0.05), transparent, rgba(120, 0, 255, 0.05), transparent);
+            animation: spin 12s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.01);
+            border-color: rgba(0, 180, 255, 0.4);
+            box-shadow: 0 30px 80px rgba(0, 100, 255, 0.15);
+        }
+        .product-card .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── Live dot ── */
+        .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ff88;
+            animation: blink 1.2s infinite;
+            box-shadow: 0 0 12px #00ff8866;
+        }
+
+        /* ── Stat number ── */
+        .stat-number {
+            font-family: 'Orbitron', monospace;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #94b8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── Chart container ── */
+        .chart-wrap {
+            position: relative;
+            height: 180px;
+            width: 100%;
+        }
+        .chart-wrap-sm {
+            height: 80px;
+        }
+
+        /* ── Mobile menu ── */
+        .mobile-overlay {
+            background: rgba(7, 11, 18, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        /* ── Shimmer text ── */
+        .shimmer-text {
+            background: linear-gradient(90deg, #00d4ff, #a855f7, #00d4ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        /* ── Particles canvas ── */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Responsive tweaks ── */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .chart-wrap {
+                height: 120px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- ====== PARTICLES CANVAS ====== -->
+    <canvas id="particles-canvas"></canvas>
+
     <!-- ====== NAVIGATION ====== -->
     <nav class="fixed top-0 left-0 w-full z-50 px-4 py-3 glass border-b border-white/5">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <!-- Logo -->
-            <div class="flex items-center gap-2">
-                <i class="fas fa-bolt text-3xl text-cyan-400"></i>
-                <span class="font-orbitron text-xl font-bold tracking-wider bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                    TESLA FRONTIER
-                </span>
-                <span class="hidden sm:inline-block text-[10px] font-medium uppercase tracking-[0.2em] text-cyan-300/70 ml-1">Network</span>
+            <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                    <i class="fas fa-bolt text-white text-xl"></i>
+                </div>
+                <div>
+                    <span class="font-orbitron text-lg font-extrabold tracking-tight bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                        TESLA FRONTIER
+                    </span>
+                    <span class="hidden sm:inline-block text-[9px] font-medium uppercase tracking-[0.25em] text-cyan-400/60 ml-1">Network</span>
+                </div>
             </div>
 
             <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-                <a href="#" class="hover:text-cyan-400 transition">Home</a>
-                <a href="#" class="hover:text-cyan-400 transition">Invest</a>
-                <a href="#" class="hover:text-cyan-400 transition">News</a>
-                <a href="#" class="hover:text-cyan-400 transition">Markets</a>
-                <a href="#" class="hover:text-cyan-400 transition">About</a>
-                <a href="#" class="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition">
-                    <i class="fas fa-user-plus mr-2"></i>Get Started
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium">
+                <a href="#" class="text-gray-300 hover:text-cyan-400 transition relative group">
+                    Home
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-cyan-400 transition relative group">
+                    SpaceX
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-cyan-400 transition relative group">
+                    Invest
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-cyan-400 transition relative group">
+                    News
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-cyan-400 transition relative group">
+                    Markets
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-cyan-400 transition relative group">
+                    About
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
                 </a>
             </div>
 
-            <!-- Mobile Toggle -->
-            <button id="menuToggle" class="md:hidden text-2xl text-gray-300 hover:text-cyan-400 transition">
-                <i class="fas fa-bars"></i>
-            </button>
+            <!-- Right Actions -->
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all hover:scale-105">
+                    <i class="fas fa-rocket"></i> Get Started
+                </a>
+                <button id="menuToggle" class="lg:hidden text-2xl text-gray-300 hover:text-cyan-400 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden hidden flex-col gap-4 mt-4 pt-4 border-t border-white/5 text-sm text-gray-300">
-            <a href="#" class="hover:text-cyan-400 transition">Home</a>
-            <a href="#" class="hover:text-cyan-400 transition">Invest</a>
-            <a href="#" class="hover:text-cyan-400 transition">News</a>
-            <a href="#" class="hover:text-cyan-400 transition">Markets</a>
-            <a href="#" class="hover:text-cyan-400 transition">About</a>
-            <a href="#" class="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-center shadow-lg shadow-cyan-500/25">
-                <i class="fas fa-user-plus mr-2"></i>Get Started
+        <div id="mobileMenu" class="lg:hidden hidden mobile-overlay fixed inset-0 top-[68px] z-40 p-6 flex flex-col gap-6 text-lg">
+            <a href="#" class="text-white hover:text-cyan-400 transition border-b border-white/5 pb-3">Home</a>
+            <a href="#" class="text-white hover:text-cyan-400 transition border-b border-white/5 pb-3">SpaceX</a>
+            <a href="#" class="text-white hover:text-cyan-400 transition border-b border-white/5 pb-3">Invest</a>
+            <a href="#" class="text-white hover:text-cyan-400 transition border-b border-white/5 pb-3">News</a>
+            <a href="#" class="text-white hover:text-cyan-400 transition border-b border-white/5 pb-3">Markets</a>
+            <a href="#" class="text-white hover:text-cyan-400 transition border-b border-white/5 pb-3">About</a>
+            <a href="#" class="mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-center shadow-lg shadow-cyan-500/30">
+                <i class="fas fa-rocket mr-2"></i>Get Started
             </a>
         </div>
     </nav>
 
-    <!-- ====== HERO ====== -->
-    <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden pt-20">
-        <!-- Animated BG Orbs -->
-        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl glow-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl glow-pulse" style="animation-delay:1.5s;"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 rounded-full blur-3xl"></div>
+    <!-- ====== HERO SECTION with SLIDESHOW ====== -->
+    <section class="relative min-h-screen flex items-center overflow-hidden pt-20">
+        <!-- Slides -->
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1541185933276-2dd6c39c4ed2?w=1600&q=80');">
+            <div class="overlay"></div>
+        </div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1516849677043-ef67e8c55e31?w=1600&q=80');">
+            <div class="overlay"></div>
+        </div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1600&q=80');">
+            <div class="overlay"></div>
+        </div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1600&q=80');">
+            <div class="overlay"></div>
+        </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Left -->
-                <div>
-                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest">
-                        <span class="live-dot mr-1"></span> Live Markets
-                    </span>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-orbitron font-black leading-[1.1] mt-5">
+        <!-- Content -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[60vh]">
+                <!-- Left: Text -->
+                <div class="animate-slide-up">
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-widest">
+                        <span class="live-dot"></span> Live · SpaceX &amp; Tesla
+                    </div>
+                    <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-orbitron font-black leading-[1.05] mt-6">
                         <span class="text-white">Invest in the</span><br />
-                        <span class="bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent">Frontier of Tesla</span>
+                        <span class="shimmer-text">SpaceX Frontier</span>
                     </h1>
-                    <p class="text-gray-400 text-lg max-w-lg mt-5 leading-relaxed">
-                        Real-time news, AI-driven insights, and premium investment products — all built for the future of energy &amp; autonomy.
+                    <p class="text-gray-300 text-lg max-w-lg mt-5 leading-relaxed">
+                        Gain exclusive access to SpaceX's inventory of next-generation spacecraft, Starlink satellites, and Mars-bound technologies. Be part of the multi-planetary future.
                     </p>
                     <div class="flex flex-wrap gap-4 mt-8">
-                        <a href="#" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/50 transition flex items-center gap-2">
-                            <i class="fas fa-rocket"></i> Start Investing
+                        <a href="#" class="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all hover:scale-105 flex items-center gap-2">
+                            <i class="fas fa-rocket"></i> Explore Inventory
                         </a>
-                        <a href="#" class="px-8 py-3.5 rounded-full border border-white/15 text-gray-300 font-medium hover:bg-white/5 transition flex items-center gap-2">
-                            <i class="fas fa-play-circle"></i> Watch Demo
+                        <a href="#" class="px-8 py-4 rounded-full border border-white/10 text-gray-300 font-medium hover:bg-white/5 transition flex items-center gap-2">
+                            <i class="fas fa-play-circle"></i> Watch Launch
                         </a>
                     </div>
                     <!-- Stats -->
                     <div class="flex flex-wrap gap-8 mt-10 pt-8 border-t border-white/5">
                         <div>
-                            <div class="text-2xl font-orbitron font-bold text-cyan-400">$12.4B</div>
-                            <div class="text-xs text-gray-500 uppercase tracking-wider">AUM</div>
+                            <div class="stat-number text-3xl" data-count="12.4">$12.4B</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mt-0.5">SpaceX AUM</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-orbitron font-bold text-blue-400">+34.7%</div>
-                            <div class="text-xs text-gray-500 uppercase tracking-wider">YTD Return</div>
+                            <div class="stat-number text-3xl text-green-400">+47.2%</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mt-0.5">YTD Return</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-orbitron font-bold text-purple-400">4.2k+</div>
-                            <div class="text-xs text-gray-500 uppercase tracking-wider">Investors</div>
+                            <div class="stat-number text-3xl text-purple-400">2.8k+</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mt-0.5">Investors</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right - Hero Widget -->
-                <div class="glass rounded-2xl p-6 border border-white/5 shadow-2xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-gray-400"><i class="fas fa-chart-line mr-2 text-cyan-400"></i>TSLA / USD</span>
-                        <span class="text-xs text-green-400 bg-green-500/10 px-3 py-1 rounded-full">+2.34%</span>
-                    </div>
-                    <div class="flex items-end justify-between">
-                        <div>
-                            <div class="text-4xl font-orbitron font-bold text-white">$248.72</div>
-                            <div class="text-sm text-gray-400">+$5.68 <span class="text-green-400">▲</span></div>
+                <!-- Right: Slideshow Dots & Controls -->
+                <div class="flex flex-col items-end gap-4 animate-slide-up delay-1">
+                    <div class="glass rounded-2xl p-6 border border-white/5 shadow-2xl w-full max-w-md">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-gray-400"><i class="fas fa-rocket mr-2 text-cyan-400"></i> Current Inventory</span>
+                            <span class="text-xs text-green-400 bg-green-500/10 px-3 py-1 rounded-full">Featured</span>
                         </div>
-                        <div class="text-right">
-                            <div class="text-xs text-gray-500">Volume</div>
-                            <div class="text-sm font-semibold text-white">32.4M</div>
+                        <div id="slideInfo" class="text-white text-xl font-orbitron font-bold">Starship SN20</div>
+                        <p id="slideDesc" class="text-gray-400 text-sm mt-1">Fully reusable super heavy-lift launch vehicle</p>
+                        <div class="flex justify-center gap-2 mt-4">
+                            <button class="slide-dot active" data-slide="0"></button>
+                            <button class="slide-dot" data-slide="1"></button>
+                            <button class="slide-dot" data-slide="2"></button>
+                            <button class="slide-dot" data-slide="3"></button>
+                        </div>
+                        <div class="flex justify-between mt-4 pt-3 border-t border-white/5 text-xs text-gray-500">
+                            <span><i class="far fa-calendar-alt mr-1"></i> Est. Launch: Q4 2026</span>
+                            <span><i class="fas fa-tag mr-1"></i> Pre-IPO</span>
                         </div>
                     </div>
-                    <!-- Mini chart -->
-                    <div class="chart-container mt-4">
-                        <canvas id="heroChart"></canvas>
-                    </div>
-                    <div class="flex justify-between text-[10px] text-gray-500 mt-1">
-                        <span>09:00</span>
-                        <span>12:00</span>
-                        <span>15:00</span>
-                        <span>18:00</span>
-                        <span>21:00</span>
+                    <!-- Mini chart placeholder for SpaceX stock -->
+                    <div class="glass rounded-2xl p-4 border border-white/5 w-full max-w-md">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-white">SPX (SpaceX Index)</span>
+                            <span class="text-xs text-green-400">+3.42%</span>
+                        </div>
+                        <div class="chart-wrap-sm mt-2">
+                            <canvas id="spxChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Slide Controls: Arrows -->
+        <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white/50 hover:text-white text-3xl transition bg-black/20 hover:bg-black/40 rounded-full w-12 h-12 flex items-center justify-center backdrop-blur-sm">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white/50 hover:text-white text-3xl transition bg-black/20 hover:bg-black/40 rounded-full w-12 h-12 flex items-center justify-center backdrop-blur-sm">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </section>
 
     <!-- ====== TICKER / FOREX WIDGET ====== -->
-    <section class="border-y border-white/5 bg-[#0f141e] py-3 overflow-hidden">
-        <div class="flex items-center gap-6 ticker-track text-sm font-medium">
-            <!-- Repeated for infinite scroll effect -->
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-dollar-sign text-green-400"></i> USD/JPY <span class="text-green-400">149.82</span> <span class="text-green-400">+0.42%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-euro-sign text-blue-400"></i> EUR/USD <span class="text-green-400">1.0874</span> <span class="text-green-400">+0.18%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-pound-sign text-purple-400"></i> GBP/USD <span class="text-red-400">1.2640</span> <span class="text-red-400">-0.23%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-bitcoin-sign text-amber-400"></i> BTC/USD <span class="text-green-400">67,842</span> <span class="text-green-400">+1.12%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-coins text-cyan-400"></i> ETH/USD <span class="text-green-400">3,521</span> <span class="text-green-400">+0.89%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-chart-simple text-rose-400"></i> TSLA <span class="text-green-400">$248.72</span> <span class="text-green-400">+2.34%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-chart-simple text-indigo-400"></i> NVDA <span class="text-green-400">$876.50</span> <span class="text-green-400">+3.01%</span></span>
-            <!-- Duplicate for seamless loop -->
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-dollar-sign text-green-400"></i> USD/JPY <span class="text-green-400">149.82</span> <span class="text-green-400">+0.42%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-euro-sign text-blue-400"></i> EUR/USD <span class="text-green-400">1.0874</span> <span class="text-green-400">+0.18%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-pound-sign text-purple-400"></i> GBP/USD <span class="text-red-400">1.2640</span> <span class="text-red-400">-0.23%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-bitcoin-sign text-amber-400"></i> BTC/USD <span class="text-green-400">67,842</span> <span class="text-green-400">+1.12%</span></span>
-            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-coins text-cyan-400"></i> ETH/USD <span class="text-green-400">3,521</span> <span class="text-green-400">+0.89%</span></span>
+    <section class="border-y border-white/5 bg-[#0a101a] py-3 overflow-hidden">
+        <div class="ticker-track flex items-center gap-8 text-sm font-medium">
+            <!-- Items (duplicated for seamless loop) -->
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-dollar-sign text-green-400"></i> USD/JPY <span class="text-green-400">149.82</span> <span class="text-green-400 text-xs">+0.42%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-euro-sign text-blue-400"></i> EUR/USD <span class="text-green-400">1.0874</span> <span class="text-green-400 text-xs">+0.18%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-pound-sign text-purple-400"></i> GBP/USD <span class="text-red-400">1.2640</span> <span class="text-red-400 text-xs">-0.23%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-bitcoin-sign text-amber-400"></i> BTC/USD <span class="text-green-400">67,842</span> <span class="text-green-400 text-xs">+1.12%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-coins text-cyan-400"></i> ETH/USD <span class="text-green-400">3,521</span> <span class="text-green-400 text-xs">+0.89%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-chart-simple text-rose-400"></i> TSLA <span class="text-green-400">$248.72</span> <span class="text-green-400 text-xs">+2.34%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-chart-simple text-indigo-400"></i> NVDA <span class="text-green-400">$876.50</span> <span class="text-green-400 text-xs">+3.01%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-chart-simple text-emerald-400"></i> AMD <span class="text-green-400">$162.30</span> <span class="text-green-400 text-xs">+1.87%</span></span>
+            <!-- Duplicate -->
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-dollar-sign text-green-400"></i> USD/JPY <span class="text-green-400">149.82</span> <span class="text-green-400 text-xs">+0.42%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-euro-sign text-blue-400"></i> EUR/USD <span class="text-green-400">1.0874</span> <span class="text-green-400 text-xs">+0.18%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-pound-sign text-purple-400"></i> GBP/USD <span class="text-red-400">1.2640</span> <span class="text-red-400 text-xs">-0.23%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-bitcoin-sign text-amber-400"></i> BTC/USD <span class="text-green-400">67,842</span> <span class="text-green-400 text-xs">+1.12%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-coins text-cyan-400"></i> ETH/USD <span class="text-green-400">3,521</span> <span class="text-green-400 text-xs">+0.89%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-chart-simple text-rose-400"></i> TSLA <span class="text-green-400">$248.72</span> <span class="text-green-400 text-xs">+2.34%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-chart-simple text-indigo-400"></i> NVDA <span class="text-green-400">$876.50</span> <span class="text-green-400 text-xs">+3.01%</span></span>
+            <span class="flex items-center gap-2 whitespace-nowrap"><i class="fas fa-chart-simple text-emerald-400"></i> AMD <span class="text-green-400">$162.30</span> <span class="text-green-400 text-xs">+1.87%</span></span>
         </div>
     </section>
 
-    <!-- ====== INVESTMENT PRODUCTS ====== -->
-    <section class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center mb-14">
-            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">Portfolio</span>
-            <h2 class="text-3xl sm:text-4xl font-orbitron font-bold mt-2">Investment Products</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto mt-3">Curated funds &amp; assets powered by Tesla's frontier technology ecosystem.</p>
+    <!-- ====== WHY SPACEX? ====== -->
+    <section class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-slide-up">
+            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">Why SpaceX</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-orbitron font-extrabold mt-3">
+                <span class="text-white">Invest in the</span>
+                <span class="shimmer-text">Future of Space</span>
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mt-4 text-lg">SpaceX is revolutionizing space travel with reusable rockets, Starlink, and Mars colonization. Here's why you should be part of it.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="premium-card rounded-2xl p-6 text-center animate-slide-up delay-1">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-2xl mx-auto shadow-lg shadow-cyan-500/30">
+                    <i class="fas fa-rocket text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-5">Reusable Rockets</h3>
+                <p class="text-gray-400 text-sm mt-2">Falcon 9 & Starship dramatically reduce launch costs, making space accessible.</p>
+            </div>
+            <div class="premium-card rounded-2xl p-6 text-center animate-slide-up delay-2">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-2xl mx-auto shadow-lg shadow-purple-500/30">
+                    <i class="fas fa-satellite text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-5">Starlink Network</h3>
+                <p class="text-gray-400 text-sm mt-2">Global satellite internet with 4,000+ satellites, revolutionizing connectivity.</p>
+            </div>
+            <div class="premium-card rounded-2xl p-6 text-center animate-slide-up delay-3">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-2xl mx-auto shadow-lg shadow-amber-500/30">
+                    <i class="fas fa-globe-americas text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-5">Mars Colonization</h3>
+                <p class="text-gray-400 text-sm mt-2">Long-term vision to make humanity multi-planetary with Starship.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SPACEX INVENTORY / INVESTMENT PRODUCTS ====== -->
+    <section class="py-20 px-4 bg-[#0a101a] border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-slide-up">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">Inventory</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-orbitron font-extrabold mt-3">
+                    <span class="text-white">SpaceX Assets &</span>
+                    <span class="shimmer-text">Investment Products</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4 text-lg">Direct exposure to SpaceX's physical and intellectual property portfolio.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card rounded-2xl p-7 animate-slide-up delay-1">
+                    <div class="content">
+                        <img src="https://images.unsplash.com/photo-1541185933276-2dd6c39c4ed2?w=400&q=80" alt="Starship" class="rounded-xl w-full h-40 object-cover mb-4" />
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Pre-IPO</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-green-500/10 text-green-300 border border-green-500/20">High Growth</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Starship Launch Fund</h3>
+                        <p class="text-gray-400 text-sm mt-1.5">Invest in the development and launch of Starship, the most powerful rocket ever built.</p>
+                        <div class="grid grid-cols-2 gap-3 mt-5 pt-5 border-t border-white/5">
+                            <div>
+                                <div class="text-xs text-gray-500">Projected ROI</div>
+                                <div class="text-xl font-orbitron font-bold text-green-400">+38.6%</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">Min. Investment</div>
+                                <div class="text-lg font-semibold text-white">$25,000</div>
+                            </div>
+                        </div>
+                        <a href="#" class="mt-5 inline-flex items-center text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1">
+                            View Details <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card rounded-2xl p-7 animate-slide-up delay-2">
+                    <div class="content">
+                        <img src="https://images.unsplash.com/photo-1516849677043-ef67e8c55e31?w=400&q=80" alt="Starlink" class="rounded-xl w-full h-40 object-cover mb-4" />
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">Growth</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">Dividend</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Starlink Connectivity ETF</h3>
+                        <p class="text-gray-400 text-sm mt-1.5">Earn dividends from Starlink's global satellite internet service revenues.</p>
+                        <div class="grid grid-cols-2 gap-3 mt-5 pt-5 border-t border-white/5">
+                            <div>
+                                <div class="text-xs text-gray-500">Dividend Yield</div>
+                                <div class="text-xl font-orbitron font-bold text-green-400">+5.2%</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">Min. Investment</div>
+                                <div class="text-lg font-semibold text-white">$10,000</div>
+                            </div>
+                        </div>
+                        <a href="#" class="mt-5 inline-flex items-center text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1">
+                            View Details <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card rounded-2xl p-7 animate-slide-up delay-3">
+                    <div class="content">
+                        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400&q=80" alt="Mars" class="rounded-xl w-full h-40 object-cover mb-4" />
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs px-3 py-1 rounded-full bg-rose-500/10 text-rose-300 border border-rose-500/20">Speculative</span>
+                            <span class="text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">Long-term</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Mars Colony Bond</h3>
+                        <p class="text-gray-400 text-sm mt-1.5">Fixed-income bond funding Mars infrastructure development with 10-year maturity.</p>
+                        <div class="grid grid-cols-2 gap-3 mt-5 pt-5 border-t border-white/5">
+                            <div>
+                                <div class="text-xs text-gray-500">Yield to Maturity</div>
+                                <div class="text-xl font-orbitron font-bold text-green-400">+8.9%</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">Min. Investment</div>
+                                <div class="text-lg font-semibold text-white">$50,000</div>
+                            </div>
+                        </div>
+                        <a href="#" class="mt-5 inline-flex items-center text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1">
+                            View Details <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== LATEST SPACEX MISSIONS ====== -->
+    <section class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-slide-up">
+            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">Missions</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-orbitron font-extrabold mt-3">
+                <span class="text-white">Latest SpaceX</span>
+                <span class="shimmer-text">Launches</span>
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mt-4 text-lg">Stay updated with the most recent missions and their investment implications.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div class="invest-card rounded-2xl p-6 relative overflow-hidden group">
-                <div class="absolute -top-12 -right-12 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition"></div>
-                <div class="relative z-10">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-2xl shadow-lg shadow-cyan-500/25">
-                        <i class="fas fa-sun text-white"></i>
+            <div class="premium-card rounded-2xl overflow-hidden group animate-slide-up delay-1">
+                <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=600&q=80" alt="Launch" class="w-full h-48 object-cover group-hover:scale-105 transition duration-700" />
+                <div class="p-5">
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span><i class="far fa-calendar-alt mr-1"></i> July 12, 2026</span>
+                        <span class="text-green-400 bg-green-500/10 px-2 py-1 rounded-full">Success</span>
                     </div>
-                    <h3 class="text-xl font-bold mt-4 text-white">Solar Yield Fund</h3>
-                    <p class="text-gray-400 text-sm mt-1">High-yield renewable energy infrastructure.</p>
-                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
-                        <div>
-                            <div class="text-xs text-gray-500">Annual Return</div>
-                            <div class="text-lg font-orbitron font-bold text-green-400">+18.4%</div>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-500">Min. Investment</div>
-                            <div class="text-sm font-semibold text-white">$5,000</div>
-                        </div>
-                    </div>
-                    <a href="#" class="mt-5 inline-flex items-center text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1">
-                        Explore <i class="fas fa-arrow-right text-xs"></i>
+                    <h3 class="text-lg font-bold text-white mt-2">Starship Flight Test 4</h3>
+                    <p class="text-gray-400 text-sm mt-1">Successful launch and recovery of both stages, paving the way for orbital missions.</p>
+                    <a href="#" class="mt-3 inline-flex items-center text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1">
+                        Read More <i class="fas fa-arrow-right text-xs"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="invest-card rounded-2xl p-6 relative overflow-hidden group">
-                <div class="absolute -top-12 -right-12 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition"></div>
-                <div class="relative z-10">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-2xl shadow-lg shadow-purple-500/25">
-                        <i class="fas fa-brain text-white"></i>
+            <div class="premium-card rounded-2xl overflow-hidden group animate-slide-up delay-2">
+                <img src="https://images.unsplash.com/photo-1541185933276-2dd6c39c4ed2?w=600&q=80" alt="Starlink" class="w-full h-48 object-cover group-hover:scale-105 transition duration-700" />
+                <div class="p-5">
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span><i class="far fa-calendar-alt mr-1"></i> June 28, 2026</span>
+                        <span class="text-green-400 bg-green-500/10 px-2 py-1 rounded-full">Success</span>
                     </div>
-                    <h3 class="text-xl font-bold mt-4 text-white">AI Autonomy ETF</h3>
-                    <p class="text-gray-400 text-sm mt-1">AI-driven autonomy &amp; robotics portfolio.</p>
-                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
-                        <div>
-                            <div class="text-xs text-gray-500">Annual Return</div>
-                            <div class="text-lg font-orbitron font-bold text-green-400">+27.2%</div>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-500">Min. Investment</div>
-                            <div class="text-sm font-semibold text-white">$10,000</div>
-                        </div>
-                    </div>
-                    <a href="#" class="mt-5 inline-flex items-center text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1">
-                        Explore <i class="fas fa-arrow-right text-xs"></i>
+                    <h3 class="text-lg font-bold text-white mt-2">Starlink Group 9-2</h3>
+                    <p class="text-gray-400 text-sm mt-1">Deployment of 60 additional satellites, expanding global coverage.</p>
+                    <a href="#" class="mt-3 inline-flex items-center text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1">
+                        Read More <i class="fas fa-arrow-right text-xs"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="invest-card rounded-2xl p-6 relative overflow-hidden group">
-                <div class="absolute -top-12 -right-12 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition"></div>
-                <div class="relative z-10">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-2xl shadow-lg shadow-amber-500/25">
-                        <i class="fas fa-bolt text-white"></i>
+            <div class="premium-card rounded-2xl overflow-hidden group animate-slide-up delay-3">
+                <img src="https://images.unsplash.com/photo-1516849677043-ef67e8c55e31?w=600&q=80" alt="Falcon" class="w-full h-48 object-cover group-hover:scale-105 transition duration-700" />
+                <div class="p-5">
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span><i class="far fa-calendar-alt mr-1"></i> June 5, 2026</span>
+                        <span class="text-green-400 bg-green-500/10 px-2 py-1 rounded-full">Success</span>
                     </div>
-                    <h3 class="text-xl font-bold mt-4 text-white">Energy Storage Trust</h3>
-                    <p class="text-gray-400 text-sm mt-1">Next-gen battery &amp; grid storage solutions.</p>
-                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
-                        <div>
-                            <div class="text-xs text-gray-500">Annual Return</div>
-                            <div class="text-lg font-orbitron font-bold text-green-400">+15.7%</div>
-                        </div>
-                        <div>
-                            <div class="text-xs text-gray-500">Min. Investment</div>
-                            <div class="text-sm font-semibold text-white">$3,000</div>
-                        </div>
-                    </div>
-                    <a href="#" class="mt-5 inline-flex items-center text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1">
-                        Explore <i class="fas fa-arrow-right text-xs"></i>
+                    <h3 class="text-lg font-bold text-white mt-2">Falcon 9 Rideshare 11</h3>
+                    <p class="text-gray-400 text-sm mt-1">Delivered 143 satellites to orbit, setting a new record for smallsat deployment.</p>
+                    <a href="#" class="mt-3 inline-flex items-center text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1">
+                        Read More <i class="fas fa-arrow-right text-xs"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ====== MARKET OVERVIEW + FOREX WIDGETS ====== -->
-    <section class="py-16 px-4 bg-[#0f141e] border-y border-white/5">
+    <!-- ====== MARKET OVERVIEW ====== -->
+    <section class="py-20 px-4 bg-[#0a101a] border-y border-white/5">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 animate-slide-up">
                 <div>
                     <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">Live Data</span>
-                    <h2 class="text-2xl sm:text-3xl font-orbitron font-bold mt-1">Market Overview</h2>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-orbitron font-bold mt-2">
+                        <span class="text-white">Market</span>
+                        <span class="shimmer-text">Overview</span>
+                    </h2>
                 </div>
-                <div class="flex items-center gap-3 mt-3 md:mt-0">
-                    <span class="text-xs text-gray-400"><span class="live-dot mr-1"></span> Live</span>
-                    <span class="text-xs text-gray-500">Updated: 1s ago</span>
+                <div class="flex items-center gap-4 mt-3 md:mt-0">
+                    <span class="flex items-center gap-2 text-xs text-gray-400"><span class="live-dot"></span> Live</span>
+                    <span class="text-xs text-gray-500" id="updateTime">Updated: now</span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Forex Widget 1 -->
-                <div class="glass rounded-2xl p-5 border border-white/5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Forex 1 -->
+                <div class="glass-light rounded-2xl p-5 border border-white/5 hover:border-cyan-500/30 transition animate-slide-up delay-1">
                     <div class="flex items-center justify-between">
-                        <span class="text-sm font-semibold text-white">EUR/USD</span>
-                        <span class="text-xs text-green-400 bg-green-500/10 px-2 py-1 rounded">+0.18%</span>
+                        <span class="text-sm font-semibold text-white flex items-center gap-2"><i class="fas fa-euro-sign text-blue-400"></i> EUR/USD</span>
+                        <span class="text-xs text-green-400 bg-green-500/10 px-2.5 py-1 rounded-full">+0.18%</span>
                     </div>
-                    <div class="text-2xl font-orbitron font-bold text-white mt-2">1.0874</div>
+                    <div class="text-2xl font-orbitron font-bold text-white mt-2" id="eurusd-price">1.0874</div>
                     <div class="flex justify-between text-xs text-gray-500 mt-1">
                         <span>High: 1.0892</span>
                         <span>Low: 1.0851</span>
                     </div>
-                    <div class="chart-container mt-3 h-12">
+                    <div class="chart-wrap-sm mt-3">
                         <canvas id="forex1"></canvas>
                     </div>
                 </div>
 
-                <!-- Forex Widget 2 -->
-                <div class="glass rounded-2xl p-5 border border-white/5">
+                <!-- Forex 2 -->
+                <div class="glass-light rounded-2xl p-5 border border-white/5 hover:border-cyan-500/30 transition animate-slide-up delay-2">
                     <div class="flex items-center justify-between">
-                        <span class="text-sm font-semibold text-white">GBP/USD</span>
-                        <span class="text-xs text-red-400 bg-red-500/10 px-2 py-1 rounded">-0.23%</span>
+                        <span class="text-sm font-semibold text-white flex items-center gap-2"><i class="fas fa-pound-sign text-purple-400"></i> GBP/USD</span>
+                        <span class="text-xs text-red-400 bg-red-500/10 px-2.5 py-1 rounded-full">-0.23%</span>
                     </div>
-                    <div class="text-2xl font-orbitron font-bold text-white mt-2">1.2640</div>
+                    <div class="text-2xl font-orbitron font-bold text-white mt-2" id="gbpusd-price">1.2640</div>
                     <div class="flex justify-between text-xs text-gray-500 mt-1">
                         <span>High: 1.2678</span>
                         <span>Low: 1.2621</span>
                     </div>
-                    <div class="chart-container mt-3 h-12">
+                    <div class="chart-wrap-sm mt-3">
                         <canvas id="forex2"></canvas>
                     </div>
                 </div>
 
-                <!-- Forex Widget 3 -->
-                <div class="glass rounded-2xl p-5 border border-white/5">
+                <!-- Forex 3 -->
+                <div class="glass-light rounded-2xl p-5 border border-white/5 hover:border-cyan-500/30 transition animate-slide-up delay-3">
                     <div class="flex items-center justify-between">
-                        <span class="text-sm font-semibold text-white">USD/JPY</span>
-                        <span class="text-xs text-green-400 bg-green-500/10 px-2 py-1 rounded">+0.42%</span>
+                        <span class="text-sm font-semibold text-white flex items-center gap-2"><i class="fas fa-dollar-sign text-green-400"></i> USD/JPY</span>
+                        <span class="text-xs text-green-400 bg-green-500/10 px-2.5 py-1 rounded-full">+0.42%</span>
                     </div>
-                    <div class="text-2xl font-orbitron font-bold text-white mt-2">149.82</div>
+                    <div class="text-2xl font-orbitron font-bold text-white mt-2" id="usdjpy-price">149.82</div>
                     <div class="flex justify-between text-xs text-gray-500 mt-1">
                         <span>High: 150.12</span>
                         <span>Low: 149.30</span>
                     </div>
-                    <div class="chart-container mt-3 h-12">
+                    <div class="chart-wrap-sm mt-3">
                         <canvas id="forex3"></canvas>
                     </div>
                 </div>
@@ -427,11 +776,14 @@
     </section>
 
     <!-- ====== NEWS SECTION ====== -->
-    <section class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+    <section class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-14 animate-slide-up">
             <div>
                 <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">Latest</span>
-                <h2 class="text-3xl font-orbitron font-bold mt-1">Tesla Frontier News</h2>
+                <h2 class="text-3xl sm:text-4xl font-orbitron font-bold mt-2">
+                    <span class="text-white">Frontier</span>
+                    <span class="shimmer-text">News</span>
+                </h2>
             </div>
             <a href="#" class="text-cyan-400 text-sm font-semibold hover:gap-2 transition gap-1 flex items-center mt-2 md:mt-0">
                 View All <i class="fas fa-arrow-right text-xs ml-1"></i>
@@ -439,102 +791,176 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- News 1 -->
-            <article class="glass rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/30 transition group">
-                <div class="h-48 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 flex items-center justify-center text-5xl text-cyan-300/30 group-hover:scale-105 transition">
-                    <i class="fas fa-newspaper"></i>
-                </div>
-                <div class="p-5">
-                    <span class="text-[10px] uppercase tracking-wider text-cyan-400">Energy</span>
-                    <h3 class="text-lg font-bold text-white mt-1 leading-snug">Tesla unveils next-gen solar roof with 30% efficiency boost</h3>
-                    <p class="text-gray-400 text-sm mt-2">The new photovoltaic cells promise to revolutionize residential energy generation.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-white/5 text-xs text-gray-500">
-                        <span><i class="far fa-clock mr-1"></i> 2 hours ago</span>
-                        <span><i class="far fa-comment mr-1"></i> 24</span>
+            <article class="premium-card rounded-2xl overflow-hidden group animate-slide-up delay-1">
+                <img src="https://images.unsplash.com/photo-1541185933276-2dd6c39c4ed2?w=600&q=80" alt="News" class="w-full h-52 object-cover group-hover:scale-105 transition duration-700" />
+                <div class="p-6">
+                    <span class="text-[10px] uppercase tracking-wider text-cyan-400">SpaceX</span>
+                    <h3 class="text-lg font-bold text-white leading-snug mt-1">Starship receives FAA approval for orbital test flight</h3>
+                    <p class="text-gray-400 text-sm mt-2">Regulatory milestone clears the way for the next major launch attempt.</p>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/5 text-xs text-gray-500">
+                        <span><i class="far fa-clock mr-1.5"></i> 2 hours ago</span>
+                        <span><i class="far fa-comment mr-1.5"></i> 34</span>
+                        <span class="text-cyan-400 cursor-pointer like-heart"><i class="far fa-heart"></i></span>
                     </div>
                 </div>
             </article>
 
-            <!-- News 2 -->
-            <article class="glass rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/30 transition group">
-                <div class="h-48 bg-gradient-to-br from-purple-900/40 to-pink-900/40 flex items-center justify-center text-5xl text-purple-300/30 group-hover:scale-105 transition">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="p-5">
-                    <span class="text-[10px] uppercase tracking-wider text-purple-400">Autonomy</span>
-                    <h3 class="text-lg font-bold text-white mt-1 leading-snug">FSD v12.5 achieves 10x improvement in complex urban scenarios</h3>
-                    <p class="text-gray-400 text-sm mt-2">New neural network architecture reduces intervention rate by 87%.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-white/5 text-xs text-gray-500">
-                        <span><i class="far fa-clock mr-1"></i> 5 hours ago</span>
-                        <span><i class="far fa-comment mr-1"></i> 18</span>
+            <article class="premium-card rounded-2xl overflow-hidden group animate-slide-up delay-2">
+                <img src="https://images.unsplash.com/photo-1516849677043-ef67e8c55e31?w=600&q=80" alt="News" class="w-full h-52 object-cover group-hover:scale-105 transition duration-700" />
+                <div class="p-6">
+                    <span class="text-[10px] uppercase tracking-wider text-purple-400">Starlink</span>
+                    <h3 class="text-lg font-bold text-white leading-snug mt-1">Starlink surpasses 5 million active subscribers</h3>
+                    <p class="text-gray-400 text-sm mt-2">Rapid adoption of satellite internet drives revenue growth.</p>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/5 text-xs text-gray-500">
+                        <span><i class="far fa-clock mr-1.5"></i> 5 hours ago</span>
+                        <span><i class="far fa-comment mr-1.5"></i> 22</span>
+                        <span class="text-cyan-400 cursor-pointer like-heart"><i class="far fa-heart"></i></span>
                     </div>
                 </div>
             </article>
 
-            <!-- News 3 -->
-            <article class="glass rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/30 transition group">
-                <div class="h-48 bg-gradient-to-br from-amber-900/40 to-orange-900/40 flex items-center justify-center text-5xl text-amber-300/30 group-hover:scale-105 transition">
-                    <i class="fas fa-chart-pie"></i>
-                </div>
-                <div class="p-5">
+            <article class="premium-card rounded-2xl overflow-hidden group animate-slide-up delay-3">
+                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&q=80" alt="News" class="w-full h-52 object-cover group-hover:scale-105 transition duration-700" />
+                <div class="p-6">
                     <span class="text-[10px] uppercase tracking-wider text-amber-400">Investment</span>
-                    <h3 class="text-lg font-bold text-white mt-1 leading-snug">Frontier Fund surpasses $10B AUM, expands to Europe</h3>
-                    <p class="text-gray-400 text-sm mt-2">Institutional inflows drive record growth for Tesla-aligned investment products.</p>
-                    <div class="flex items-center justify-between mt-4 pt-3 border-t border-white/5 text-xs text-gray-500">
-                        <span><i class="far fa-clock mr-1"></i> 8 hours ago</span>
-                        <span><i class="far fa-comment mr-1"></i> 42</span>
+                    <h3 class="text-lg font-bold text-white leading-snug mt-1">SpaceX valuation soars to $180B after new funding round</h3>
+                    <p class="text-gray-400 text-sm mt-2">Investor confidence grows as company advances Starship and Starlink.</p>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/5 text-xs text-gray-500">
+                        <span><i class="far fa-clock mr-1.5"></i> 8 hours ago</span>
+                        <span><i class="far fa-comment mr-1.5"></i> 51</span>
+                        <span class="text-cyan-400 cursor-pointer like-heart"><i class="far fa-heart"></i></span>
                     </div>
                 </div>
             </article>
         </div>
     </section>
 
-    <!-- ====== CTA / FOOTER ====== -->
-    <footer class="bg-[#0a0d12] border-t border-white/5 pt-16 pb-8 px-4">
+    <!-- ====== TESTIMONIALS ====== -->
+    <section class="py-20 px-4 bg-[#0a101a] border-y border-white/5">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-white/5">
-                <div>
-                    <div class="flex items-center gap-2">
-                        <i class="fas fa-bolt text-2xl text-cyan-400"></i>
-                        <span class="font-orbitron text-lg font-bold text-white">Tesla Frontier</span>
+            <div class="text-center mb-14 animate-slide-up">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-orbitron font-bold mt-2">
+                    <span class="text-white">What Our</span>
+                    <span class="shimmer-text">Investors Say</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 border border-white/5 animate-slide-up delay-1">
+                    <div class="flex text-amber-400 text-sm mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-500 text-sm mt-3 max-w-xs">The premier network for Tesla investors, delivering real-time intelligence and premium investment opportunities.</p>
-                    <div class="flex gap-4 mt-4 text-gray-500 text-xl">
-                        <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-discord"></i></a>
+                    <p class="text-gray-300 text-sm leading-relaxed">"The SpaceX Starship Fund gave me direct exposure to the most exciting aerospace company. Returns have been phenomenal."</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-white font-bold text-sm">JD</div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">James D.</div>
+                            <div class="text-xs text-gray-500">Angel Investor</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6 border border-white/5 animate-slide-up delay-2">
+                    <div class="flex text-amber-400 text-sm mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Starlink ETF provides steady dividends and growth. It's the backbone of the new space economy."</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-sm">SM</div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Sarah M.</div>
+                            <div class="text-xs text-gray-500">Retirement Planner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-6 border border-white/5 animate-slide-up delay-3">
+                    <div class="flex text-amber-400 text-sm mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"The Mars Colony Bond is a long-term bet on humanity's future. I'm proud to be part of it."</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold text-sm">AK</div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Alex K.</div>
+                            <div class="text-xs text-gray-500">Tech Entrepreneur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== PARTNERS ====== -->
+    <section class="py-16 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-12 animate-slide-up">
+            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">Partners</span>
+            <h2 class="text-2xl sm:text-3xl font-orbitron font-bold mt-2">
+                <span class="text-white">Trusted by</span>
+                <span class="shimmer-text">Industry Leaders</span>
+            </h2>
+        </div>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-70">
+            <div class="text-3xl text-gray-500 hover:text-white transition"><i class="fab fa-nasa"></i> <span class="text-sm font-semibold ml-2">NASA</span></div>
+            <div class="text-3xl text-gray-500 hover:text-white transition"><i class="fas fa-rocket"></i> <span class="text-sm font-semibold ml-2">SpaceX</span></div>
+            <div class="text-3xl text-gray-500 hover:text-white transition"><i class="fas fa-satellite"></i> <span class="text-sm font-semibold ml-2">Starlink</span></div>
+            <div class="text-3xl text-gray-500 hover:text-white transition"><i class="fas fa-globe"></i> <span class="text-sm font-semibold ml-2">OneWeb</span></div>
+            <div class="text-3xl text-gray-500 hover:text-white transition"><i class="fas fa-microchip"></i> <span class="text-sm font-semibold ml-2">Tesla</span></div>
+        </div>
+    </section>
+
+    <!-- ====== CTA / FOOTER ====== -->
+    <footer class="bg-[#070b12] border-t border-white/5 pt-16 pb-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/5">
+                <div>
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                            <i class="fas fa-bolt text-white text-sm"></i>
+                        </div>
+                        <span class="font-orbitron text-lg font-extrabold text-white">Tesla Frontier</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mt-4 max-w-xs leading-relaxed">The premier network for Tesla & SpaceX investors, delivering real-time intelligence and premium investment opportunities.</p>
+                    <div class="flex gap-4 mt-5 text-gray-500 text-xl">
+                        <a href="#" class="hover:text-cyan-400 transition hover:scale-110"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-cyan-400 transition hover:scale-110"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-cyan-400 transition hover:scale-110"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="hover:text-cyan-400 transition hover:scale-110"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
                 <div>
                     <h4 class="font-semibold text-white text-sm uppercase tracking-wider">Products</h4>
-                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-cyan-400 transition">Solar Yield Fund</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">AI Autonomy ETF</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">Energy Storage Trust</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">Frontier Index</a></li>
+                    <ul class="mt-4 space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-cyan-400"></i> Starship Fund</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-cyan-400"></i> Starlink ETF</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-cyan-400"></i> Mars Bond</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-cyan-400"></i> Frontier Index</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold text-white text-sm uppercase tracking-wider">Resources</h4>
-                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-cyan-400 transition">Market Data</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">Research Reports</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">Webinars</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">FAQ</a></li>
+                    <ul class="mt-4 space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-cyan-400"></i> Market Data</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-cyan-400"></i> Research Reports</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-cyan-400"></i> Webinars</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px] text-cyan-400"></i> FAQ</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold text-white text-sm uppercase tracking-wider">Contact</h4>
-                    <ul class="mt-4 space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-cyan-400 transition"><i class="fas fa-envelope mr-2"></i> hello@teslafrontier.io</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition"><i class="fas fa-phone mr-2"></i> +1 (800) 555‑TFN</a></li>
-                        <li><span><i class="fas fa-map-marker-alt mr-2"></i> Austin, TX</span></li>
+                    <ul class="mt-4 space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-envelope text-cyan-400 w-4"></i> hello@teslafrontier.io</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition flex items-center gap-2"><i class="fas fa-phone text-cyan-400 w-4"></i> +1 (800) 555‑TFN</a></li>
+                        <li><span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-cyan-400 w-4"></i> Austin, TX</span></li>
                     </ul>
+                    <div class="mt-5 p-3 rounded-xl bg-cyan-500/5 border border-cyan-500/10">
+                        <p class="text-[10px] text-gray-500 leading-relaxed">
+                            <i class="fas fa-shield-alt text-cyan-400 mr-1"></i> SEC registered · FINRA member
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="text-center text-xs text-gray-600 pt-8">
-                &copy; 2026 Tesla Frontier Network. All rights reserved. Not financial advice.
+            <div class="text-center text-xs text-gray-600 pt-8 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <span>&copy; 2026 Tesla Frontier Network. All rights reserved.</span>
+                <span class="text-gray-700">Not financial advice. <span class="text-cyan-400/40">—</span> Invest responsibly.</span>
             </div>
         </div>
     </footer>
@@ -543,47 +969,171 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
-            // ---- Mobile Menu Toggle ----
-            const toggle = document.getElementById('menuToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
-            toggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+            // ─── Particles ──────────────────────────────────────────────
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouseX = -1000,
+                mouseY = -1000;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            class Particle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.4 + 0.1;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                        this.reset();
+                    }
+                    const dx = this.x - mouseX;
+                    const dy = this.y - mouseY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        const force = (120 - dist) / 120 * 0.02;
+                        this.x += dx * force;
+                        this.y += dy * force;
+                    }
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(100, 200, 255, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => { p.update();
+                    p.draw(); });
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(100, 200, 255, ${0.08 * (1 - dist/100)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            document.addEventListener('touchmove', (e) => {
+                mouseX = e.touches[0].clientX;
+                mouseY = e.touches[0].clientY;
             });
 
-            // ---- Hero Mini Chart (TSLA) ----
-            const heroCtx = document.getElementById('heroChart').getContext('2d');
-            new Chart(heroCtx, {
+            // ─── Mobile Menu ────────────────────────────────────────────
+            document.getElementById('menuToggle').addEventListener('click', function() {
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            });
+
+            // ─── Hero Slideshow ─────────────────────────────────────────
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            const slideInfo = document.getElementById('slideInfo');
+            const slideDesc = document.getElementById('slideDesc');
+            const slideData = [
+                { title: 'Starship SN20', desc: 'Fully reusable super heavy-lift launch vehicle' },
+                { title: 'Starlink V2', desc: 'Next-generation satellite with laser interlinks' },
+                { title: 'Falcon Heavy', desc: 'Most powerful operational rocket in the world' },
+                { title: 'Mars Base Alpha', desc: 'First permanent human settlement on Mars' }
+            ];
+
+            function showSlide(index) {
+                slides.forEach((s, i) => {
+                    s.classList.toggle('active', i === index);
+                });
+                dots.forEach((d, i) => {
+                    d.classList.toggle('active', i === index);
+                });
+                slideInfo.textContent = slideData[index].title;
+                slideDesc.textContent = slideData[index].desc;
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                showSlide((currentSlide + 1) % slides.length);
+            }
+
+            function prevSlide() {
+                showSlide((currentSlide - 1 + slides.length) % slides.length);
+            }
+
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => showSlide(i));
+            });
+
+            document.getElementById('nextSlide').addEventListener('click', nextSlide);
+            document.getElementById('prevSlide').addEventListener('click', prevSlide);
+
+            // Auto advance
+            let autoSlide = setInterval(nextSlide, 6000);
+
+            // Pause on hover
+            const heroSection = document.querySelector('.hero-bg, section:first-of-type');
+            heroSection.addEventListener('mouseenter', () => clearInterval(autoSlide));
+            heroSection.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(nextSlide, 6000);
+            });
+
+            // ─── SpaceX Chart ──────────────────────────────────────────
+            const spxCtx = document.getElementById('spxChart').getContext('2d');
+            new Chart(spxCtx, {
                 type: 'line',
                 data: {
-                    labels: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00',
-                        '18:00', '19:00', '20:00', '21:00'
-                    ],
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     datasets: [{
-                        data: [240, 242, 241, 244, 246, 245, 248, 247, 249, 248, 250, 249, 248.72],
+                        data: [120, 135, 142, 138, 155, 160, 175, 180, 190, 210, 225, 240],
                         borderColor: '#22d3ee',
-                        backgroundColor: 'rgba(34,211,238,0.08)',
+                        backgroundColor: 'rgba(34,211,238,0.1)',
                         fill: true,
                         tension: 0.4,
                         pointRadius: 0,
-                        borderWidth: 2,
+                        borderWidth: 2.5,
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: { legend: { display: false }, tooltip: { enabled: false } },
-                    scales: {
-                        x: { display: false },
-                        y: { display: false, min: 235, max: 255 }
-                    },
-                    interaction: { intersect: false, mode: 'index' },
+                    scales: { x: { display: false }, y: { display: false } },
+                    interaction: { intersect: false }
                 }
             });
 
-            // ---- Forex Widget Charts ----
+            // ─── Forex Charts ──────────────────────────────────────────
             function makeSparkline(id, color, data, min, max) {
                 const ctx = document.getElementById(id).getContext('2d');
-                new Chart(ctx, {
+                return new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: ['', '', '', '', '', '', '', '', '', ''],
@@ -600,11 +1150,8 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: { legend: { display: false }, tooltip: { enabled: false } },
-                        scales: {
-                            x: { display: false },
-                            y: { display: false, min: min, max: max }
-                        },
-                        interaction: { intersect: false },
+                        scales: { x: { display: false }, y: { display: false, min: min, max: max } },
+                        interaction: { intersect: false }
                     }
                 });
             }
@@ -619,25 +1166,57 @@
                 149.82
             ], 148.90, 150.20);
 
-            // ---- Simulated price updates (demo) ----
-            const priceEl = document.querySelector('.text-4xl.font-orbitron');
-            if (priceEl) {
-                let base = 248.72;
-                setInterval(() => {
-                    const delta = (Math.random() - 0.48) * 0.6;
-                    base = Math.max(240, Math.min(260, base + delta));
-                    priceEl.textContent = '$' + base.toFixed(2);
-                }, 3000);
-            }
+            // ─── Live Price Simulation ─────────────────────────────────
+            const eurusdEl = document.getElementById('eurusd-price');
+            const gbpusdEl = document.getElementById('gbpusd-price');
+            const usdjpyEl = document.getElementById('usdjpy-price');
+            const timeEl = document.getElementById('updateTime');
 
-            // ---- Ticker pause on hover ----
-            const ticker = document.querySelector('.ticker-track');
-            if (ticker) {
-                ticker.addEventListener('mouseenter', () => { ticker.style.animationPlayState = 'paused'; });
-                ticker.addEventListener('mouseleave', () => { ticker.style.animationPlayState = 'running'; });
+            function simulatePrices() {
+                const eur = 1.0874 + (Math.random() - 0.48) * 0.002;
+                const gbp = 1.2640 + (Math.random() - 0.48) * 0.003;
+                const jpy = 149.82 + (Math.random() - 0.48) * 0.2;
+                eurusdEl.textContent = eur.toFixed(4);
+                gbpusdEl.textContent = gbp.toFixed(4);
+                usdjpyEl.textContent = jpy.toFixed(2);
+                const now = new Date();
+                timeEl.textContent = 'Updated: ' + now.toLocaleTimeString();
             }
+            setInterval(simulatePrices, 2000);
 
-            console.log('🚀 Tesla Frontier Network loaded.');
+            // ─── Like buttons ──────────────────────────────────────────
+            document.querySelectorAll('.like-heart').forEach(el => {
+                el.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('far');
+                    icon.classList.toggle('fas');
+                    icon.classList.toggle('text-cyan-400');
+                    icon.classList.toggle('text-red-400');
+                    if (icon.classList.contains('fas')) {
+                        icon.style.transform = 'scale(1.3)';
+                        setTimeout(() => { icon.style.transform = 'scale(1)'; }, 300);
+                    }
+                });
+            });
+
+            // ─── Scroll animations ─────────────────────────────────────
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-slide-up').forEach(el => {
+                observer.observe(el);
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.7s cubic-bezier(0.23, 1, 0.32, 1)';
+            });
+
+            console.log('🚀 Tesla Frontier Network — SpaceX Edition loaded.');
         });
     </script>
 
