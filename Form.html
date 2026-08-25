@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up — Tesla Frontier Network</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts: Inter + Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ── Reset & Base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: var(--blue-bg);
+            color: var(--text-primary);
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        /* ── Theme Variables ── */
+        :root {
+            --primary: #0052FF;
+            --primary-dark: #0038B8;
+            --primary-light: #4B7FFF;
+            --primary-rgb: 0, 82, 255;
+            --green: #00D484;
+            --green-dark: #00B86B;
+            --green-rgb: 0, 212, 132;
+            --blue-bg: #0A0B1A;
+            --card-bg: rgba(19, 20, 31, 0.7);
+            --border-color: rgba(255, 255, 255, 0.06);
+            --text-primary: #FFFFFF;
+            --text-secondary: #8A8FA8;
+            --text-muted: #5A5F7A;
+            --shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+            --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --glow-primary: 0 0 80px rgba(0, 82, 255, 0.12);
+            --radius: 24px;
+            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        [data-theme="light"] {
+            --blue-bg: #F0F2F8;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --border-color: rgba(0, 0, 0, 0.06);
+            --text-primary: #0B0B1A;
+            --text-secondary: #5A607A;
+            --text-muted: #8A90A8;
+            --shadow: 0 25px 80px rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.04);
+            --glow-primary: 0 0 80px rgba(0, 82, 255, 0.04);
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--blue-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* ── Glassmorphism ── */
+        .glass-premium {
+            background: var(--card-bg);
+            backdrop-filter: blur(32px) saturate(1.4);
+            -webkit-backdrop-filter: blur(32px) saturate(1.4);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-premium::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 82, 255, 0.06), transparent 60%);
+            pointer-events: none;
+        }
+        .glass-premium:hover {
+            border-color: rgba(0, 82, 255, 0.3);
+        }
+
+        /* ── Theme Toggle ── */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-size: 1.1rem;
+        }
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: rotate(25deg) scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 82, 255, 0.1);
+        }
+
+        /* ── Form Inputs ── */
+        .form-input {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: all var(--transition);
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+        .form-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+        }
+        .form-input.success {
+            border-color: var(--green);
+            box-shadow: 0 0 0 4px rgba(0, 212, 132, 0.12);
+        }
+
+        /* ── Buttons ── */
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all var(--transition);
+            box-shadow: 0 4px 30px rgba(0, 82, 255, 0.35);
+            cursor: pointer;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 50px rgba(0, 82, 255, 0.5);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-google {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.9rem 1.5rem;
+            border-radius: 14px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all var(--transition);
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-google:hover {
+            border-color: var(--primary);
+            background: rgba(0, 82, 255, 0.06);
+            transform: translateY(-2px);
+        }
+        .btn-google i {
+            font-size: 1.2rem;
+            color: #ea4335;
+        }
+
+        .btn-apple {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.9rem 1.5rem;
+            border-radius: 14px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all var(--transition);
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-apple:hover {
+            border-color: var(--primary);
+            background: rgba(0, 82, 255, 0.06);
+            transform: translateY(-2px);
+        }
+        .btn-apple i {
+            font-size: 1.2rem;
+        }
+
+        /* ── Password Strength ── */
+        .password-strength {
+            display: flex;
+            gap: 4px;
+            margin-top: 0.5rem;
+        }
+        .password-strength .bar {
+            flex: 1;
+            height: 3px;
+            border-radius: 4px;
+            background: var(--border-color);
+            transition: background 0.3s ease;
+        }
+        .password-strength .bar.active.weak {
+            background: #ef4444;
+        }
+        .password-strength .bar.active.medium {
+            background: #f59e0b;
+        }
+        .password-strength .bar.active.strong {
+            background: var(--green);
+        }
+        .password-strength-text {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        .password-strength-text.weak {
+            color: #ef4444;
+        }
+        .password-strength-text.medium {
+            color: #f59e0b;
+        }
+        .password-strength-text.strong {
+            color: var(--green);
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+        @keyframes floatSlow {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 82, 255, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(0, 82, 255, 0.2);
+            }
+        }
+
+        .animate-fade {
+            animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+        .animate-float-slow {
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.7s ease forwards;
+        }
+        .animate-pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        .shimmer-text {
+            background: linear-gradient(90deg, var(--primary), var(--green), var(--primary-light), var(--green));
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        /* ── Success state ── */
+        .success-check {
+            display: none;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--green);
+            color: #fff;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 60px rgba(0, 212, 132, 0.3);
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .success-check.show {
+            display: flex;
+        }
+
+        /* ── Terms checkbox ── */
+        .terms-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .terms-check input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            min-width: 18px;
+            accent-color: var(--primary);
+            margin-top: 0.1rem;
+            cursor: pointer;
+        }
+        .terms-check a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .terms-check a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Particles background ── */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Input icons ── */
+        .input-icon-wrap {
+            position: relative;
+        }
+        .input-icon-wrap .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .input-icon-wrap .form-input {
+            padding-left: 2.8rem;
+        }
+        .input-icon-wrap .form-input:focus+.input-icon {
+            color: var(--primary);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            body {
+                padding: 0.75rem;
+            }
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .glass-premium {
+                padding: 1.5rem 1.25rem !important;
+            }
+            .form-input {
+                padding: 0.75rem 1rem;
+                padding-left: 2.6rem !important;
+                font-size: 0.9rem;
+            }
+            .btn-primary,
+            .btn-google,
+            .btn-apple {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 380px) {
+            .glass-premium {
+                padding: 1.25rem 0.75rem !important;
+            }
+            .social-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== PARTICLES ====== -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ====== THEME TOGGLE ====== -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- ====== SIGNUP CARD ====== -->
+    <div class="relative z-10 w-full max-w-[480px] animate-fade">
+        <div class="glass-premium rounded-[32px] p-8 md:p-10">
+
+            <!-- Logo -->
+            <div class="flex items-center justify-center gap-2.5 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/30">
+                    <i class="fas fa-bolt text-white text-lg"></i>
+                </div>
+                <span class="font-orbitron text-lg font-extrabold tracking-tight text-[var(--text-primary)]">
+                    TESLA FRONTIER
+                </span>
+            </div>
+
+            <!-- Header -->
+            <div class="text-center mb-7">
+                <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">
+                    Create your account
+                </h1>
+                <p class="text-[var(--text-secondary)] text-sm mt-1.5">
+                    Start investing in the future of space
+                </p>
+            </div>
+
+            <!-- ====== SIGNUP FORM ====== -->
+            <form id="signupForm" onsubmit="return false;" novalidate>
+
+                <!-- Full Name -->
+                <div class="mb-4 animate-slide-up" style="animation-delay:0.05s;">
+                    <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                        Full Name
+                    </label>
+                    <div class="input-icon-wrap">
+                        <input
+                        type="text"
+                        id="fullName"
+                        class="form-input"
+                        placeholder="John Doe"
+                        required
+                        autocomplete="name"
+                        />
+                        <i class="fas fa-user input-icon"></i>
+                    </div>
+                    <div class="text-xs text-red-400 mt-1 hidden" id="nameError">Please enter your full name</div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-4 animate-slide-up" style="animation-delay:0.1s;">
+                    <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                        Email Address
+                    </label>
+                    <div class="input-icon-wrap">
+                        <input
+                        type="email"
+                        id="email"
+                        class="form-input"
+                        placeholder="you@example.com"
+                        required
+                        autocomplete="email"
+                        />
+                        <i class="fas fa-envelope input-icon"></i>
+                    </div>
+                    <div class="text-xs text-red-400 mt-1 hidden" id="emailError">Please enter a valid email address</div>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-2 animate-slide-up" style="animation-delay:0.15s;">
+                    <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                        Password
+                    </label>
+                    <div class="input-icon-wrap">
+                        <input
+                        type="password"
+                        id="password"
+                        class="form-input pr-12"
+                        placeholder="Create a strong password"
+                        required
+                        autocomplete="new-password"
+                        minlength="8"
+                        />
+                        <i class="fas fa-lock input-icon"></i>
+                        <button
+                        type="button"
+                        id="togglePassword"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+                        aria-label="Toggle password visibility"
+                        >
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="text-xs text-red-400 mt-1 hidden" id="passwordError">Password must be at least 8 characters</div>
+
+                <!-- Password Strength -->
+                <div class="password-strength" id="strengthBars">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <div class="password-strength-text" id="strengthText">Enter a password</div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-4 animate-slide-up" style="animation-delay:0.2s;">
+                <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
+                    Confirm Password
+                </label>
+                <div class="input-icon-wrap">
+                    <input
+                    type="password"
+                    id="confirmPassword"
+                    class="form-input"
+                    placeholder="Confirm your password"
+                    required
+                    autocomplete="new-password"
+                    />
+                    <i class="fas fa-check-circle input-icon"></i>
+                </div>
+                <div class="text-xs text-red-400 mt-1 hidden" id="confirmError">Passwords do not match</div>
+            </div>
+
+            <!-- Terms -->
+            <div class="terms-check mb-6 animate-slide-up" style="animation-delay:0.25s;">
+                <input type="checkbox" id="termsCheck" required />
+                <label for="termsCheck" class="cursor-pointer">
+                    I agree to the
+                    <a href="#">Terms of Service</a>
+                    and
+                    <a href="#">Privacy Policy</a>
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn" class="btn-primary animate-slide-up" style="animation-delay:0.3s;">
+                <span id="submitText">Create Account</span>
+                <span id="submitSpinner" class="hidden">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </span>
+            </button>
+
+            <!-- Divider -->
+            <div class="flex items-center gap-4 my-6 animate-slide-up" style="animation-delay:0.35s;">
+                <span class="flex-1 border-t border-theme"></span>
+                <span class="text-xs text-[var(--text-muted)] uppercase tracking-wider">or continue with</span>
+                <span class="flex-1 border-t border-theme"></span>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="social-buttons grid grid-cols-2 gap-3 animate-slide-up" style="animation-delay:0.4s;">
+                <button type="button" class="btn-google">
+                    <i class="fab fa-google"></i> Google
+                </button>
+                <button type="button" class="btn-apple">
+                    <i class="fab fa-apple"></i> Apple
+                </button>
+            </div>
+
+            <!-- Sign In Link -->
+            <p class="text-center text-sm text-[var(--text-secondary)] mt-6 animate-slide-up" style="animation-delay:0.45s;">
+                Already have an account?
+                <a href="#" id="signInLink" class="text-[var(--primary)] font-semibold hover:underline transition">
+                    Sign in
+                </a>
+            </p>
+        </form>
+
+        <!-- ====== SUCCESS STATE ====== -->
+        <div id="successState" style="display:none;" class="text-center py-4">
+            <div class="success-check show">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-[var(--text-primary)]">Account Created!</h2>
+            <p class="text-[var(--text-secondary)] text-sm mt-2">
+                Welcome to Tesla Frontier Network. You're now ready to start investing.
+            </p>
+            <button id="goToDashboard" class="btn-primary mt-6">
+                Go to Dashboard
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer note -->
+    <p class="text-center text-[10px] text-[var(--text-muted)] mt-6 opacity-60 tracking-wider">
+        <i class="fas fa-shield-alt mr-1"></i> SEC registered · FINRA member
+    </p>
+</div>
+
+<!-- ====== JAVASCRIPT ====== -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ─── Particles ──────────────────────────────────────────────
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouseX = -1000,
+            mouseY = -1000;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.2;
+                this.speedY = (Math.random() - 0.5) * 0.2;
+                this.opacity = Math.random() * 0.35 + 0.05;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+                const dx = this.x - mouseX,
+                    dy = this.y - mouseY,
+                    dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    const force = (120 - dist) / 120 * 0.015;
+                    this.x += dx * force;
+                    this.y += dy * force;
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 82, 255, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+        for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update();
+                p.draw(); });
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x,
+                        dy = particles[i].y - particles[j].y,
+                        dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 82, 255, ${0.05 * (1 - dist/100)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+        document.addEventListener('mousemove', (e) => { mouseX = e.clientX;
+            mouseY = e.clientY; });
+        document.addEventListener('touchmove', (e) => { mouseX = e.touches[0].clientX;
+            mouseY = e.touches[0].clientY; });
+
+        // ─── Theme Toggle ──────────────────────────────────────────
+        const html = document.documentElement;
+        const themeIcon = document.getElementById('themeIcon');
+        const themeToggle = document.getElementById('themeToggle');
+
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        setTheme(localStorage.getItem('theme') || 'dark');
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // ─── Password Toggle ──────────────────────────────────────
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            this.querySelector('i').className = type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
+        });
+
+        // ─── Password Strength ────────────────────────────────────
+        const strengthBars = document.querySelectorAll('#strengthBars .bar');
+        const strengthText = document.getElementById('strengthText');
+
+        function checkStrength(password) {
+            let score = 0;
+            if (password.length >= 8) score++;
+            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) score++;
+            if (password.match(/\d/)) score++;
+            if (password.match(/[^a-zA-Z\d]/)) score++;
+            return score;
+        }
+
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            const score = checkStrength(password);
+
+            strengthBars.forEach((bar, i) => {
+                bar.className = 'bar';
+                if (i < score) {
+                    bar.classList.add('active');
+                    if (score <= 1) bar.classList.add('weak');
+                    else if (score === 2) bar.classList.add('medium');
+                    else if (score >= 3) bar.classList.add('strong');
+                }
+            });
+
+            if (password.length === 0) {
+                strengthText.textContent = 'Enter a password';
+                strengthText.className = 'password-strength-text';
+            } else if (score <= 1) {
+                strengthText.textContent = 'Weak — add more characters, numbers, and symbols';
+                strengthText.className = 'password-strength-text weak';
+            } else if (score === 2) {
+                strengthText.textContent = 'Medium — add symbols for a stronger password';
+                strengthText.className = 'password-strength-text medium';
+            } else {
+                strengthText.textContent = 'Strong — great password!';
+                strengthText.className = 'password-strength-text strong';
+            }
+        });
+
+        // ─── Form Validation ──────────────────────────────────────
+        const form = document.getElementById('signupForm');
+        const fullName = document.getElementById('fullName');
+        const email = document.getElementById('email');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const termsCheck = document.getElementById('termsCheck');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const submitSpinner = document.getElementById('submitSpinner');
+
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const confirmError = document.getElementById('confirmError');
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function validateField(input, errorEl, condition, message) {
+            if (!condition) {
+                input.classList.add('error');
+                input.classList.remove('success');
+                errorEl.textContent = message;
+                errorEl.classList.remove('hidden');
+                return false;
+            } else {
+                input.classList.remove('error');
+                input.classList.add('success');
+                errorEl.classList.add('hidden');
+                return true;
+            }
+        }
+
+        fullName.addEventListener('blur', function() {
+            validateField(this, nameError, this.value.trim().length >= 2, 'Please enter your full name (min 2 characters)');
+        });
+
+        email.addEventListener('blur', function() {
+            validateField(this, emailError, validateEmail(this.value), 'Please enter a valid email address');
+        });
+
+        passwordInput.addEventListener('blur', function() {
+            validateField(this, passwordError, this.value.length >= 8, 'Password must be at least 8 characters');
+        });
+
+        confirmPassword.addEventListener('blur', function() {
+            const match = this.value === passwordInput.value && this.value.length > 0;
+            validateField(this, confirmError, match, 'Passwords do not match');
+        });
+
+        // ─── Form Submit ──────────────────────────────────────────
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate all fields
+            const isNameValid = validateField(fullName, nameError, fullName.value.trim().length >= 2,
+                'Please enter your full name (min 2 characters)');
+            const isEmailValid = validateField(email, emailError, validateEmail(email.value),
+                'Please enter a valid email address');
+            const isPasswordValid = validateField(passwordInput, passwordError, passwordInput.value.length >= 8,
+                'Password must be at least 8 characters');
+            const isConfirmValid = validateField(confirmPassword, confirmError,
+                confirmPassword.value === passwordInput.value && confirmPassword.value.length > 0,
+                'Passwords do not match');
+            const isTermsChecked = termsCheck.checked;
+
+            if (!isTermsChecked) {
+                termsCheck.classList.add('error');
+                termsCheck.style.outline = '2px solid #ef4444';
+                setTimeout(() => {
+                    termsCheck.classList.remove('error');
+                    termsCheck.style.outline = 'none';
+                }, 2000);
+                return;
+            }
+
+            if (!isNameValid || !isEmailValid || !isPasswordValid || !isConfirmValid) {
+                return;
+            }
+
+            // Simulate submission
+            submitBtn.disabled = true;
+            submitText.textContent = 'Creating Account...';
+            submitSpinner.classList.remove('hidden');
+
+            setTimeout(() => {
+                // Success!
+                form.style.display = 'none';
+                document.getElementById('successState').style.display = 'block';
+            }, 1800);
+        });
+
+        // ─── Success: Go to Dashboard ────────────────────────────
+        document.getElementById('goToDashboard').addEventListener('click', function() {
+            alert('🚀 Welcome to your Tesla Frontier dashboard! (Demo)');
+            // In production: window.location.href = '/dashboard';
+        });
+
+        // ─── Sign In Link ──────────────────────────────────────────
+        document.getElementById('signInLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('🔐 Sign in page would open here. (Demo)');
+            // In production: window.location.href = '/login';
+        });
+
+        // ─── Social Buttons ────────────────────────────────────────
+        document.querySelector('.btn-google').addEventListener('click', function() {
+            alert('🌐 Google authentication would open. (Demo)');
+        });
+        document.querySelector('.btn-apple').addEventListener('click', function() {
+            alert('🍎 Apple authentication would open. (Demo)');
+        });
+
+        // ─── Add animation delay to all form elements ─────────────
+        // (Already handled with inline styles)
+
+        console.log('🚀 Tesla Frontier Network — Premium Signup Page loaded.');
+    });
+</script>
+</body>
+</html>
