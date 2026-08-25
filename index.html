@@ -10,7 +10,7 @@
     </script>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <!-- Google Fonts: Inter + Orbitron -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -37,7 +37,7 @@
             font-family: 'Orbitron', monospace;
         }
 
-        /* ── Coinbase-inspired Theme Variables ── */
+        /* ── Theme Variables ── */
         :root {
             --primary: #0052FF;
             --primary-dark: #0038B8;
@@ -47,9 +47,6 @@
             --green-dark: #00B86B;
             --green-rgb: 0, 212, 132;
             --gold: #F5A623;
-            --gold-rgb: 245, 166, 35;
-            --platinum: #E5E4E2;
-            --platinum-rgb: 229, 228, 226;
             --blue-bg: #0A0B1A;
             --card-bg: rgba(19, 20, 31, 0.7);
             --card-hover: rgba(26, 27, 46, 0.85);
@@ -60,8 +57,6 @@
             --shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
             --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.3);
             --glow-primary: 0 0 80px rgba(0, 82, 255, 0.12);
-            --glow-green: 0 0 80px rgba(0, 212, 132, 0.08);
-            --glow-gold: 0 0 80px rgba(245, 166, 35, 0.08);
             --radius: 24px;
             --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
@@ -77,8 +72,6 @@
             --shadow: 0 20px 80px rgba(0, 0, 0, 0.08);
             --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.04);
             --glow-primary: 0 0 80px rgba(0, 82, 255, 0.04);
-            --glow-green: 0 0 80px rgba(0, 212, 132, 0.03);
-            --glow-gold: 0 0 80px rgba(245, 166, 35, 0.03);
         }
 
         body {
@@ -98,9 +91,7 @@
             border-radius: 10px;
         }
 
-        /* ============================================================
-                   PRELOADER
-                   ============================================================ */
+        /* ── Preloader (Tesla-style) ── */
         #preloader {
             position: fixed;
             inset: 0;
@@ -113,6 +104,7 @@
             transition: opacity 0.8s ease, visibility 0.8s ease;
             opacity: 1;
             visibility: visible;
+            gap: 2rem;
         }
         #preloader.hidden {
             opacity: 0;
@@ -120,90 +112,17 @@
             pointer-events: none;
         }
 
-        .preloader-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .tesla-logo-wrapper {
-            position: relative;
-            width: 160px;
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tesla-ring {
-            position: absolute;
-            inset: -10px;
-            border-radius: 50%;
-            border: 3px solid transparent;
-            background: conic-gradient(from 0deg, var(--primary), var(--green), var(--primary-light), var(--green), var(--primary));
-            background-size: 300% 300%;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            padding: 4px;
-            animation: ringRotate 4s linear infinite, ringPulse 2.4s ease-in-out infinite;
-            box-shadow: 0 0 80px rgba(0, 82, 255, 0.15);
-        }
-
-        @keyframes ringRotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        @keyframes ringPulse {
-            0%,
-            100% {
-                opacity: 0.7;
-                transform: rotate(0deg) scale(1);
-            }
-            50% {
-                opacity: 1;
-                transform: rotate(180deg) scale(1.1);
-            }
-        }
-
-        .tesla-ring-inner {
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            border: 1px solid rgba(0, 82, 255, 0.2);
-            animation: ringPulseInner 3s ease-in-out infinite;
-        }
-        @keyframes ringPulseInner {
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.4;
-            }
-            50% {
-                transform: scale(1.15);
-                opacity: 0.9;
-            }
-        }
-
-        .tesla-t {
-            position: relative;
-            z-index: 2;
+        .preloader-t {
             font-family: 'Orbitron', monospace;
-            font-size: 6rem;
+            font-size: 5.5rem;
             font-weight: 900;
-            letter-spacing: -6px;
+            letter-spacing: -4px;
             line-height: 1;
-            animation: breathe 2.6s ease-in-out infinite;
             user-select: none;
+            animation: preloaderBreathe 2.4s ease-in-out infinite;
         }
-        .tesla-t .t-gradient {
-            background: linear-gradient(135deg, var(--primary), var(--green), var(--primary-light), var(--green));
+        .preloader-t .t-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--green), var(--primary-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -211,180 +130,43 @@
             animation: shimmer 3s linear infinite;
         }
 
-        @keyframes breathe {
-            0%,
-            100% {
+        @keyframes preloaderBreathe {
+            0%, 100% {
                 transform: scale(1);
-                text-shadow: 0 0 40px rgba(0, 82, 255, 0.3), 0 0 80px rgba(0, 82, 255, 0.1);
+                text-shadow: 0 0 40px rgba(0, 82, 255, 0.2);
             }
             50% {
-                transform: scale(1.08);
-                text-shadow: 0 0 60px rgba(0, 82, 255, 0.5), 0 0 120px rgba(0, 82, 255, 0.2), 0 0 180px rgba(0, 212, 132, 0.15);
-            }
-        }
-
-        .spark {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--primary);
-            box-shadow: 0 0 16px var(--primary);
-            animation: sparkFloat 3.2s ease-in-out infinite;
-            opacity: 0;
-        }
-        .spark:nth-child(1) {
-            top: 0%;
-            left: 5%;
-            animation-delay: 0s;
-            width: 8px;
-            height: 8px;
-        }
-        .spark:nth-child(2) {
-            top: 10%;
-            right: 2%;
-            animation-delay: 0.5s;
-            width: 5px;
-            height: 5px;
-        }
-        .spark:nth-child(3) {
-            bottom: 15%;
-            left: 2%;
-            animation-delay: 1.0s;
-            width: 7px;
-            height: 7px;
-        }
-        .spark:nth-child(4) {
-            bottom: 5%;
-            right: 8%;
-            animation-delay: 1.5s;
-            width: 4px;
-            height: 4px;
-        }
-        .spark:nth-child(5) {
-            top: 45%;
-            left: -6%;
-            animation-delay: 0.3s;
-            width: 9px;
-            height: 9px;
-            background: var(--green);
-            box-shadow: 0 0 20px var(--green);
-        }
-        .spark:nth-child(6) {
-            top: 40%;
-            right: -6%;
-            animation-delay: 0.9s;
-            width: 6px;
-            height: 6px;
-            background: var(--green);
-            box-shadow: 0 0 20px var(--green);
-        }
-        .spark:nth-child(7) {
-            top: 70%;
-            left: 10%;
-            animation-delay: 1.8s;
-            width: 5px;
-            height: 5px;
-            background: var(--primary-light);
-            box-shadow: 0 0 16px var(--primary-light);
-        }
-        .spark:nth-child(8) {
-            top: 20%;
-            left: 20%;
-            animation-delay: 0.7s;
-            width: 4px;
-            height: 4px;
-            background: var(--primary-light);
-            box-shadow: 0 0 16px var(--primary-light);
-        }
-
-        @keyframes sparkFloat {
-            0% {
-                transform: translate(0, 0) scale(0);
-                opacity: 0;
-            }
-            30% {
-                opacity: 1;
-                transform: translate(12px, -18px) scale(1.4);
-            }
-            70% {
-                opacity: 0.8;
-                transform: translate(-6px, -34px) scale(0.8);
-            }
-            100% {
-                transform: translate(18px, -50px) scale(0);
-                opacity: 0;
-            }
-        }
-
-        .preloader-text {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            animation: textPulse 2.6s ease-in-out infinite;
-            text-align: center;
-        }
-        .preloader-text .highlight {
-            background: linear-gradient(90deg, var(--primary), var(--green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .preloader-sub {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            animation: textPulse 2.6s ease-in-out infinite 0.3s;
-        }
-
-        @keyframes textPulse {
-            0%,
-            100% {
-                opacity: 0.5;
-                transform: translateY(0);
-            }
-            50% {
-                opacity: 1;
-                transform: translateY(-3px);
+                transform: scale(1.06);
+                text-shadow: 0 0 60px rgba(0, 82, 255, 0.4), 0 0 120px rgba(0, 212, 132, 0.1);
             }
         }
 
         .preloader-bar {
-            width: 200px;
-            height: 3px;
+            width: 180px;
+            height: 2px;
             background: var(--border-color);
             border-radius: 4px;
             overflow: hidden;
-            margin-top: 0.5rem;
         }
         .preloader-bar .fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, var(--primary), var(--green), var(--primary-light), var(--green));
-            background-size: 300% 100%;
-            animation: barFill 2s ease-in-out forwards, shimmer 1.8s linear infinite;
+            background: linear-gradient(90deg, var(--primary), var(--green));
             border-radius: 4px;
+            animation: barFill 2s ease-in-out forwards;
         }
         @keyframes barFill {
-            0% {
-                width: 0%;
-            }
-            100% {
-                width: 100%;
-            }
+            0% { width: 0%; }
+            100% { width: 100%; }
         }
 
-        /* ── Glassmorphism Core ── */
+        /* ── Glassmorphism ── */
         .glass {
             background: var(--card-bg);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--border-color);
-            transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+            transition: all var(--transition);
             box-shadow: var(--shadow-sm);
         }
         .glass:hover {
@@ -476,19 +258,8 @@
             color: var(--primary);
             background: rgba(0, 82, 255, 0.05);
         }
-        .btn-gold {
-            background: var(--gold);
-            color: #0B0B1A;
-            border: none;
-            transition: all var(--transition);
-            box-shadow: 0 4px 30px rgba(245, 166, 35, 0.3);
-        }
-        .btn-gold:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 50px rgba(245, 166, 35, 0.4);
-        }
 
-        /* ── Premium Cards ── */
+        /* ── Cards ── */
         .premium-card {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
@@ -522,145 +293,24 @@
             background: var(--card-hover);
         }
 
-        /* ── Investment Tier Cards ── */
-        .tier-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--border-color);
-            transition: all var(--transition);
-            border-radius: var(--radius);
-            padding: 2rem 1.75rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-        .tier-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--green));
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-        .tier-card:hover::before {
-            opacity: 1;
-        }
-        .tier-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 82, 255, 0.5);
-            box-shadow: var(--shadow), var(--glow-primary);
-            background: var(--card-hover);
-        }
-        .tier-card.popular {
-            border-color: rgba(0, 82, 255, 0.3);
-            box-shadow: var(--shadow), var(--glow-primary);
-        }
-        .tier-card.popular::after {
-            content: 'Most Popular';
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--primary);
-            color: #fff;
-            font-size: 0.6rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.3rem 0.8rem;
-            border-radius: 100px;
-        }
-        .tier-card .tier-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            margin-bottom: 1.25rem;
-        }
-        .tier-card .tier-icon.blue {
-            background: rgba(0, 82, 255, 0.15);
-            color: var(--primary);
-        }
-        .tier-card .tier-icon.green {
-            background: rgba(0, 212, 132, 0.15);
-            color: var(--green);
-        }
-        .tier-card .tier-icon.gold {
-            background: rgba(245, 166, 35, 0.15);
-            color: var(--gold);
-        }
-        .tier-card .tier-icon.platinum {
-            background: rgba(229, 228, 226, 0.15);
-            color: var(--platinum);
-        }
-
         /* ── Animations ── */
         @keyframes shimmer {
-            0% {
-                background-position: -200% center;
-            }
-            100% {
-                background-position: 200% center;
-            }
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
         }
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         @keyframes tickerScroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         @keyframes blink {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.15;
-            }
-        }
-        @keyframes floatSlow {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        @keyframes glowPulse {
-            0%,
-            100% {
-                box-shadow: 0 0 20px rgba(0, 82, 255, 0.1);
-            }
-            50% {
-                box-shadow: 0 0 60px rgba(0, 82, 255, 0.2);
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.15; }
         }
 
-        .animate-float-slow {
-            animation: floatSlow 6s ease-in-out infinite;
-        }
-        .animate-glow-pulse {
-            animation: glowPulse 3s ease-in-out infinite;
-        }
         .live-dot {
             display: inline-block;
             width: 8px;
@@ -670,6 +320,7 @@
             animation: blink 1.2s infinite;
             box-shadow: 0 0 20px rgba(0, 212, 132, 0.5);
         }
+
         .shimmer-text {
             background: linear-gradient(90deg, var(--primary), var(--green), var(--primary-light), var(--green));
             background-size: 300% auto;
@@ -678,6 +329,7 @@
             background-clip: text;
             animation: shimmer 4s linear infinite;
         }
+
         .stat-number {
             font-family: 'Orbitron', monospace;
             font-weight: 800;
@@ -686,29 +338,19 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        .chart-wrap-sm {
+            height: 72px;
+        }
+
         .animate-slide-up {
             animation: slideUp 1s ease forwards;
         }
-        .delay-1 {
-            animation-delay: 0.15s;
-            opacity: 0;
-        }
-        .delay-2 {
-            animation-delay: 0.3s;
-            opacity: 0;
-        }
-        .delay-3 {
-            animation-delay: 0.45s;
-            opacity: 0;
-        }
-        .delay-4 {
-            animation-delay: 0.6s;
-            opacity: 0;
-        }
-        .delay-5 {
-            animation-delay: 0.75s;
-            opacity: 0;
-        }
+        .delay-1 { animation-delay: 0.15s; opacity: 0; }
+        .delay-2 { animation-delay: 0.3s; opacity: 0; }
+        .delay-3 { animation-delay: 0.45s; opacity: 0; }
+        .delay-4 { animation-delay: 0.6s; opacity: 0; }
+        .delay-5 { animation-delay: 0.75s; opacity: 0; }
 
         /* ── Hero Slideshow ── */
         .hero-slide {
@@ -718,6 +360,7 @@
             transition: opacity 1.6s ease-in-out;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
         .hero-slide.active {
             opacity: 1;
@@ -725,10 +368,10 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(145deg, rgba(10, 11, 26, 0.85) 0%, rgba(10, 11, 26, 0.15) 50%, rgba(10, 11, 26, 0.65) 100%);
+            background: linear-gradient(145deg, rgba(10, 11, 26, 0.85) 0%, rgba(10, 11, 26, 0.15) 45%, rgba(10, 11, 26, 0.7) 100%);
         }
         [data-theme="light"] .hero-overlay {
-            background: linear-gradient(145deg, rgba(245, 247, 250, 0.85) 0%, rgba(245, 247, 250, 0.15) 50%, rgba(245, 247, 250, 0.65) 100%);
+            background: linear-gradient(145deg, rgba(245, 247, 250, 0.85) 0%, rgba(245, 247, 250, 0.15) 45%, rgba(245, 247, 250, 0.7) 100%);
         }
 
         .slide-dot {
@@ -736,14 +379,20 @@
             height: 12px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.2);
-            border: none;
+            border: 2px solid transparent;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(4px);
         }
         .slide-dot.active {
             background: var(--primary);
+            border-color: rgba(255, 255, 255, 0.2);
             box-shadow: 0 0 30px rgba(0, 82, 255, 0.5);
-            transform: scale(1.3);
+            transform: scale(1.35);
+        }
+        .slide-dot:hover {
+            transform: scale(1.2);
+            border-color: var(--primary);
         }
 
         /* ── Ticker ── */
@@ -853,7 +502,6 @@
             color: var(--primary);
         }
 
-        /* ── Badges ── */
         .badge-gradient {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
@@ -885,25 +533,12 @@
             letter-spacing: 0.05em;
         }
 
-        /* ── Helpers ── */
-        .border-theme {
-            border-color: var(--border-color);
-        }
-        .bg-theme-body {
-            background: var(--blue-bg);
-        }
-        .text-theme-secondary {
-            color: var(--text-secondary);
-        }
-        .text-theme-muted {
-            color: var(--text-muted);
-        }
-        .shadow-theme {
-            box-shadow: var(--shadow);
-        }
-        .radius-theme {
-            border-radius: var(--radius);
-        }
+        .border-theme { border-color: var(--border-color); }
+        .bg-theme-body { background: var(--blue-bg); }
+        .text-theme-secondary { color: var(--text-secondary); }
+        .text-theme-muted { color: var(--text-muted); }
+        .shadow-theme { box-shadow: var(--shadow); }
+        .radius-theme { border-radius: var(--radius); }
         .section-divider {
             width: 60px;
             height: 4px;
@@ -943,175 +578,30 @@
             box-shadow: 0 8px 40px rgba(0, 82, 255, 0.6);
         }
 
-        /* ── Modal ── */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
-        .modal-box {
-            background: var(--card-bg);
-            backdrop-filter: blur(32px);
-            -webkit-backdrop-filter: blur(32px);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            max-width: 440px;
-            width: 100%;
-            padding: 2rem 2rem 2.5rem;
-            box-shadow: var(--shadow);
-            transform: scale(0.95) translateY(20px);
-            transition: transform 0.3s ease;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        .modal-overlay.active .modal-box {
-            transform: scale(1) translateY(0);
-        }
-        .modal-box .close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1.25rem;
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: color 0.2s;
-            background: none;
-            border: none;
-        }
-        .modal-box .close-btn:hover {
-            color: var(--text-primary);
-        }
-        .form-input {
-            width: 100%;
-            padding: 0.85rem 1.2rem;
-            background: var(--blue-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            transition: all var(--transition);
-            outline: none;
-            font-family: 'Inter', sans-serif;
-        }
-        .form-input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.12);
-        }
-        .form-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        /* ── Chart ── */
-        .chart-wrap-sm {
-            height: 72px;
-        }
-
         /* ── Responsive ── */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            .modal-box {
-                padding: 1.5rem 1.25rem 2rem;
-                margin: 1rem;
-            }
-            .fact-number {
-                font-size: 2.2rem;
-            }
-            .tesla-t {
-                font-size: 4.5rem;
-            }
-            .tesla-logo-wrapper {
-                width: 120px;
-                height: 120px;
-            }
-            .preloader-text {
-                font-size: 1.2rem;
-                letter-spacing: 0.3em;
-            }
-            .preloader-bar {
-                width: 160px;
-            }
-            #backToTop {
-                bottom: 20px;
-                right: 20px;
-                width: 42px;
-                height: 42px;
-                font-size: 1rem;
-            }
-            .tier-card {
-                padding: 1.5rem;
-            }
+            .hero-title { font-size: 2.2rem; }
+            .fact-number { font-size: 2.2rem; }
+            #backToTop { bottom: 20px; right: 20px; width: 42px; height: 42px; font-size: 1rem; }
+            .preloader-t { font-size: 4rem; }
+            .preloader-bar { width: 140px; }
         }
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            .modal-box {
-                padding: 1.25rem 1rem 1.75rem;
-            }
-            .tesla-t {
-                font-size: 3.6rem;
-            }
-            .tesla-logo-wrapper {
-                width: 100px;
-                height: 100px;
-            }
-            .preloader-text {
-                font-size: 1rem;
-                letter-spacing: 0.2em;
-            }
-            .preloader-sub {
-                font-size: 0.65rem;
-            }
-            .preloader-bar {
-                width: 130px;
-            }
+            .hero-title { font-size: 1.8rem; }
+            .preloader-t { font-size: 3.2rem; }
+            .preloader-bar { width: 120px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============================================================
-    PRELOADER
-    ============================================================ -->
+    <!-- ====== PRELOADER (Tesla-style) ====== -->
     <div id="preloader">
-        <div class="preloader-content">
-            <div class="tesla-logo-wrapper">
-                <div class="tesla-ring"></div>
-                <div class="tesla-ring-inner"></div>
-                <span class="spark"></span>
-                <span class="spark"></span>
-                <span class="spark"></span>
-                <span class="spark"></span>
-                <span class="spark"></span>
-                <span class="spark"></span>
-                <span class="spark"></span>
-                <span class="spark"></span>
-                <div class="tesla-t">
-                    <span class="t-gradient">T</span>
-                </div>
-            </div>
-            <div class="preloader-text">
-                <span class="highlight">Tesla</span> Frontier
-            </div>
-            <div class="preloader-sub">Loading the future of space</div>
-            <div class="preloader-bar">
-                <div class="fill"></div>
-            </div>
+        <div class="preloader-t">
+            <span class="t-gradient">T</span>
+        </div>
+        <div class="preloader-bar">
+            <div class="fill"></div>
         </div>
     </div>
 
@@ -1164,20 +654,21 @@
                 <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon" id="themeIcon"></i>
                 </button>
-                <button id="loginBtn" class="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--primary)] transition">
+                <a href="login.html" class="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--primary)] transition">
                     Sign In
-                </button>
-                <button id="signupBtn" class="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full btn-primary text-sm font-semibold shadow-lg shadow-[var(--primary)]/30 hover:shadow-[var(--primary)]/50 transition-all hover:scale-105">
+                </a>
+                <a href="signup.html" class="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full btn-primary text-sm font-semibold shadow-lg shadow-[var(--primary)]/30 hover:shadow-[var(--primary)]/50 transition-all hover:scale-105">
                     <i class="fas fa-user-plus text-xs"></i>
                     <span class="hidden xs:inline">Get Started</span>
                     <span class="xs:hidden">Sign Up</span>
-                </button>
+                </a>
                 <button id="menuToggle" class="lg:hidden text-2xl text-[var(--text-secondary)] hover:text-[var(--primary)] transition ml-1">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
 
+        <!-- Mobile Menu -->
         <div id="mobileMenu" class="lg:hidden hidden fixed inset-0 top-[68px] z-40 p-6 flex flex-col gap-5 text-lg bg-[var(--blue-bg)] border-b border-theme overflow-y-auto">
             <a href="#" class="text-[var(--text-primary)] hover:text-[var(--primary)] transition border-b border-theme pb-3">Home</a>
             <a href="#" class="text-[var(--text-primary)] hover:text-[var(--primary)] transition border-b border-theme pb-3">SpaceX</a>
@@ -1186,100 +677,19 @@
             <a href="#" class="text-[var(--text-primary)] hover:text-[var(--primary)] transition border-b border-theme pb-3">Invest</a>
             <a href="#" class="text-[var(--text-primary)] hover:text-[var(--primary)] transition border-b border-theme pb-3">About</a>
             <div class="flex flex-col gap-3 mt-2">
-                <button id="loginBtnMobile" class="w-full py-3 rounded-full border border-theme text-[var(--text-secondary)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition font-medium">
+                <a href="login.html" class="w-full py-3 rounded-full border border-theme text-[var(--text-secondary)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition font-medium text-center">
                     Sign In
-                </button>
-                <button id="signupBtnMobile" class="w-full py-3 rounded-full btn-primary text-sm font-semibold">
+                </a>
+                <a href="signup.html" class="w-full py-3 rounded-full btn-primary text-sm font-semibold text-center">
                     <i class="fas fa-user-plus mr-2"></i>Get Started
-                </button>
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- ====== LOGIN MODAL ====== -->
-    <div id="loginModal" class="modal-overlay">
-        <div class="modal-box relative">
-            <button class="close-btn" id="closeLoginModal">&times;</button>
-            <div class="text-center mb-6">
-                <div class="w-14 h-14 rounded-2xl bg-[var(--primary)] flex items-center justify-center mx-auto shadow-lg shadow-[var(--primary)]/30">
-                    <i class="fas fa-bolt text-white text-2xl"></i>
-                </div>
-                <h2 class="text-2xl font-bold mt-4 text-[var(--text-primary)]">Welcome Back</h2>
-                <p class="text-[var(--text-secondary)] text-sm mt-1">Sign in to your Tesla Frontier account</p>
-            </div>
-            <form id="loginForm" onsubmit="return false;">
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Email Address</label>
-                        <input type="email" class="form-input" placeholder="you@example.com" required />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Password</label>
-                        <input type="password" class="form-input" placeholder="••••••••" required />
-                    </div>
-                    <div class="flex items-center justify-between text-sm">
-                        <label class="flex items-center gap-2 text-[var(--text-secondary)]">
-                            <input type="checkbox" class="accent-[var(--primary)]" /> Remember me
-                        </label>
-                        <a href="#" class="text-[var(--primary)] hover:underline">Forgot password?</a>
-                    </div>
-                    <button type="submit" class="w-full py-3.5 rounded-full btn-primary text-sm font-semibold mt-2">
-                        Sign In
-                    </button>
-                </div>
-            </form>
-            <p class="text-center text-sm text-[var(--text-secondary)] mt-5">
-                Don't have an account? <button class="text-[var(--primary)] font-semibold hover:underline" id="switchToSignup">Sign up</button>
-            </p>
-        </div>
-    </div>
-
-    <!-- ====== SIGNUP MODAL ====== -->
-    <div id="signupModal" class="modal-overlay">
-        <div class="modal-box relative">
-            <button class="close-btn" id="closeSignupModal">&times;</button>
-            <div class="text-center mb-6">
-                <div class="w-14 h-14 rounded-2xl bg-[var(--green)] flex items-center justify-center mx-auto shadow-lg shadow-[var(--green)]/30">
-                    <i class="fas fa-rocket text-white text-2xl"></i>
-                </div>
-                <h2 class="text-2xl font-bold mt-4 text-[var(--text-primary)]">Join the Frontier</h2>
-                <p class="text-[var(--text-secondary)] text-sm mt-1">Start investing in the future of space</p>
-            </div>
-            <form id="signupForm" onsubmit="return false;">
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Full Name</label>
-                        <input type="text" class="form-input" placeholder="John Doe" required />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Email Address</label>
-                        <input type="email" class="form-input" placeholder="you@example.com" required />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Password</label>
-                        <input type="password" class="form-input" placeholder="Create a strong password" required />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">Confirm Password</label>
-                        <input type="password" class="form-input" placeholder="Confirm your password" required />
-                    </div>
-                    <div class="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-                        <input type="checkbox" class="accent-[var(--primary)]" required />
-                        <span>I agree to the <a href="#" class="text-[var(--primary)] hover:underline">Terms of Service</a> and <a href="#" class="text-[var(--primary)] hover:underline">Privacy Policy</a></span>
-                    </div>
-                    <button type="submit" class="w-full py-3.5 rounded-full btn-primary text-sm font-semibold mt-2">
-                        <i class="fas fa-rocket mr-2"></i>Create Account
-                    </button>
-                </div>
-            </form>
-            <p class="text-center text-sm text-[var(--text-secondary)] mt-5">
-                Already have an account? <button class="text-[var(--primary)] font-semibold hover:underline" id="switchToLogin">Sign in</button>
-            </p>
-        </div>
-    </div>
-
-    <!-- ====== HERO SECTION ====== -->
+    <!-- ====== HERO SECTION (5 slides) ====== -->
     <section class="relative min-h-screen flex items-center overflow-hidden pt-20">
+        <!-- Slides -->
         <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1541185933276-2dd6c39c4ed2?w=1600&q=80');">
             <div class="hero-overlay"></div>
         </div>
@@ -1295,10 +705,8 @@
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80');">
             <div class="hero-overlay"></div>
         </div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600&q=80');">
-            <div class="hero-overlay"></div>
-        </div>
 
+        <!-- Content -->
         <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[60vh]">
                 <div class="animate-slide-up">
@@ -1337,7 +745,7 @@
                 </div>
 
                 <div class="flex flex-col items-end gap-4 animate-slide-up delay-1">
-                    <div class="glass-premium rounded-2xl p-6 w-full max-w-md animate-glow-pulse">
+                    <div class="glass-premium rounded-2xl p-6 w-full max-w-md">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]"><i class="fas fa-rocket mr-2 text-[var(--primary)]"></i> Featured Asset</span>
                             <span class="badge-green">Pre-IPO</span>
@@ -1350,7 +758,6 @@
                             <button class="slide-dot" data-slide="2"></button>
                             <button class="slide-dot" data-slide="3"></button>
                             <button class="slide-dot" data-slide="4"></button>
-                            <button class="slide-dot" data-slide="5"></button>
                         </div>
                         <div id="slideMeta" class="flex justify-between mt-4 pt-3 border-t border-theme text-xs text-[var(--text-muted)]">
                             <span><i class="far fa-calendar-alt mr-1"></i> Est. Launch: Q4 2026</span>
@@ -1481,11 +888,11 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Tier 1: Starter -->
-                <div class="tier-card animate-slide-up delay-1">
-                    <div class="tier-icon blue">
+                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-1">
+                    <div class="w-14 h-14 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] text-2xl mb-4">
                         <i class="fas fa-seedling"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-[var(--text-primary)]">Starter</h3>
+                    <h3 class="text-xl font-bold text-[var(--text-primary)]">Starter</h3>
                     <div class="mt-2 mb-4">
                         <span class="text-3xl font-orbitron font-bold text-[var(--text-primary)]">$5k</span>
                         <span class="text-xs text-[var(--text-muted)]">/ min</span>
@@ -1494,19 +901,17 @@
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Access to Starlink ETF</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Quarterly dividends</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Basic market reports</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Email support</span></li>
                     </ul>
-                    <button class="w-full mt-6 py-2.5 rounded-xl btn-outline text-sm font-semibold">
-                        Get Started
-                    </button>
+                    <button class="w-full mt-6 py-2.5 rounded-xl btn-outline text-sm font-semibold">Get Started</button>
                 </div>
 
                 <!-- Tier 2: Growth (Popular) -->
-                <div class="tier-card popular animate-slide-up delay-2">
-                    <div class="tier-icon green">
+                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-2 relative border-[var(--primary)]/30">
+                    <span class="absolute top-3 right-3 bg-[var(--primary)] text-white text-[0.55rem] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
+                    <div class="w-14 h-14 rounded-2xl bg-[var(--green)]/10 flex items-center justify-center text-[var(--green)] text-2xl mb-4">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-[var(--text-primary)]">Growth</h3>
+                    <h3 class="text-xl font-bold text-[var(--text-primary)]">Growth</h3>
                     <div class="mt-2 mb-4">
                         <span class="text-3xl font-orbitron font-bold text-[var(--green)]">$25k</span>
                         <span class="text-xs text-[var(--text-muted)]">/ min</span>
@@ -1516,19 +921,16 @@
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Starlink ETF + dividends</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Premium market reports</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Priority support</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Quarterly investor calls</span></li>
                     </ul>
-                    <button class="w-full mt-6 py-2.5 rounded-xl btn-primary text-sm font-semibold">
-                        Get Started
-                    </button>
+                    <button class="w-full mt-6 py-2.5 rounded-xl btn-primary text-sm font-semibold">Get Started</button>
                 </div>
 
                 <!-- Tier 3: Premium -->
-                <div class="tier-card animate-slide-up delay-3">
-                    <div class="tier-icon gold">
+                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-3">
+                    <div class="w-14 h-14 rounded-2xl bg-[var(--gold)]/10 flex items-center justify-center text-[var(--gold)] text-2xl mb-4">
                         <i class="fas fa-crown"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-[var(--text-primary)]">Premium</h3>
+                    <h3 class="text-xl font-bold text-[var(--text-primary)]">Premium</h3>
                     <div class="mt-2 mb-4">
                         <span class="text-3xl font-orbitron font-bold text-[var(--gold)]">$100k</span>
                         <span class="text-xs text-[var(--text-muted)]">/ min</span>
@@ -1538,21 +940,18 @@
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>All Growth tier benefits</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Exclusive launch events</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Dedicated account manager</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Custom portfolio strategy</span></li>
                     </ul>
-                    <button class="w-full mt-6 py-2.5 rounded-xl btn-gold text-sm font-semibold">
-                        Get Started
-                    </button>
+                    <button class="w-full mt-6 py-2.5 rounded-xl btn-gold text-sm font-semibold">Get Started</button>
                 </div>
 
                 <!-- Tier 4: Institutional -->
-                <div class="tier-card animate-slide-up delay-4">
-                    <div class="tier-icon platinum">
+                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-4">
+                    <div class="w-14 h-14 rounded-2xl bg-[var(--text-muted)]/10 flex items-center justify-center text-[var(--text-muted)] text-2xl mb-4">
                         <i class="fas fa-galaxy"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-[var(--text-primary)]">Institutional</h3>
+                    <h3 class="text-xl font-bold text-[var(--text-primary)]">Institutional</h3>
                     <div class="mt-2 mb-4">
-                        <span class="text-3xl font-orbitron font-bold text-[var(--platinum)]">$500k+</span>
+                        <span class="text-3xl font-orbitron font-bold text-[var(--text-secondary)]">$500k+</span>
                         <span class="text-xs text-[var(--text-muted)]">/ min</span>
                     </div>
                     <ul class="space-y-2.5 text-sm text-[var(--text-secondary)]">
@@ -1560,11 +959,8 @@
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>All Premium tier benefits</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Private SpaceX briefings</span></li>
                         <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Direct investment advisory</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-check-circle text-[var(--green)] mt-0.5"></i> <span>Co-investment opportunities</span></li>
                     </ul>
-                    <button class="w-full mt-6 py-2.5 rounded-xl btn-outline text-sm font-semibold">
-                        Contact Us
-                    </button>
+                    <button class="w-full mt-6 py-2.5 rounded-xl btn-outline text-sm font-semibold">Contact Us</button>
                 </div>
             </div>
         </div>
@@ -2124,14 +1520,14 @@
             const startTime = Date.now();
             window.addEventListener('load', function() {
                 const elapsed = Date.now() - startTime;
-                const minDisplay = 2000;
+                const minDisplay = 1800;
                 if (elapsed >= minDisplay) {
                     hidePreloader();
                 } else {
                     setTimeout(hidePreloader, minDisplay - elapsed);
                 }
             });
-            setTimeout(hidePreloader, 4000);
+            setTimeout(hidePreloader, 3500);
 
             // ─── Theme Toggle ──────────────────────────────────────────
             const html = document.documentElement;
@@ -2237,47 +1633,6 @@
                 });
             });
 
-            // ─── Modal System ──────────────────────────────────────────
-            const loginModal = document.getElementById('loginModal');
-            const signupModal = document.getElementById('signupModal');
-
-            function openModal(modal) { modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; }
-
-            function closeModal(modal) { modal.classList.remove('active');
-                document.body.style.overflow = ''; }
-
-            document.getElementById('loginBtn').addEventListener('click', () => openModal(loginModal));
-            document.getElementById('loginBtnMobile').addEventListener('click', () => openModal(loginModal));
-            document.getElementById('signupBtn').addEventListener('click', () => openModal(signupModal));
-            document.getElementById('signupBtnMobile').addEventListener('click', () => openModal(signupModal));
-            document.getElementById('closeLoginModal').addEventListener('click', () => closeModal(loginModal));
-            document.getElementById('closeSignupModal').addEventListener('click', () => closeModal(signupModal));
-            document.getElementById('switchToSignup').addEventListener('click', () => { closeModal(loginModal);
-                setTimeout(() => openModal(signupModal), 300); });
-            document.getElementById('switchToLogin').addEventListener('click', () => { closeModal(signupModal);
-                setTimeout(() => openModal(loginModal), 300); });
-            [loginModal, signupModal].forEach(m => {
-                m.addEventListener('click', (e) => { if (e.target === m) closeModal(m); });
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    if (loginModal.classList.contains('active')) closeModal(loginModal);
-                    if (signupModal.classList.contains('active')) closeModal(signupModal);
-                }
-            });
-
-            document.getElementById('loginForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('🔐 Login functionality would connect to your account. (Demo)');
-                closeModal(loginModal);
-            });
-            document.getElementById('signupForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('🚀 Account created! Welcome to Tesla Frontier Network. (Demo)');
-                closeModal(signupModal);
-            });
-
             // ─── Hero Slideshow ─────────────────────────────────────────
             let currentSlide = 0;
             const slides = document.querySelectorAll('.hero-slide');
@@ -2291,8 +1646,7 @@
                 { title: 'Starlink V2 Mini', desc: 'Next-generation satellite with laser interlinks', meta: '4,000+ in orbit · 5M+ subscribers' },
                 { title: 'Tesla Roadster', desc: 'Starman\'s ride — first car in space', meta: 'Launched 2018 · Still orbiting' },
                 { title: 'Falcon Heavy', desc: 'Most powerful operational rocket in the world', meta: '64 tonnes to LEO · Reusable' },
-                { title: 'Mars Base Alpha', desc: 'First permanent human settlement on Mars', meta: '2030 target · 10-year bond' },
-                { title: 'Dragon XL', desc: 'Cargo spacecraft for lunar Gateway missions', meta: 'NASA partnership · 2027 debut' }
+                { title: 'Mars Base Alpha', desc: 'First permanent human settlement on Mars', meta: '2030 target · 10-year bond' }
             ];
 
             function showSlide(index) {
@@ -2402,7 +1756,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            console.log('🚀 Tesla Frontier Network — Premium Edition v5.0 loaded.');
+            console.log('🚀 Tesla Frontier Network — Premium Edition with Tesla Preloader loaded.');
         });
     </script>
 </body>
