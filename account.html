@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>Account — Tesla Frontier Network</title>
+    <title>Account · Tesla Frontier Network</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com">
@@ -18,8 +18,8 @@
 
     <style>
         /* ═══════════════════════════════════════════
-                   RESET & BASE
-                   ═══════════════════════════════════════════ */
+           RESET & BASE
+           ═══════════════════════════════════════════ */
         * {
             margin: 0;
             padding: 0;
@@ -30,22 +30,30 @@
             --primary: #0052FF;
             --primary-dark: #0038B8;
             --primary-light: #4B7FFF;
+            --primary-gradient: linear-gradient(135deg, #0052FF, #4B7FFF);
             --green: #00D484;
             --green-dark: #00B86B;
+            --green-gradient: linear-gradient(135deg, #00D484, #00B86B);
             --gold: #F5A623;
+            --gold-gradient: linear-gradient(135deg, #F5A623, #F59E0B);
+            --red: #EF4444;
+            --red-gradient: linear-gradient(135deg, #EF4444, #DC2626);
             --blue-bg: #0A0B1A;
             --card-bg: rgba(19, 20, 31, 0.7);
             --card-hover: rgba(26, 27, 46, 0.85);
             --border-color: rgba(255, 255, 255, 0.06);
+            --border-color-light: rgba(255, 255, 255, 0.04);
             --text-primary: #FFFFFF;
             --text-secondary: #8A8FA8;
             --text-muted: #5A5F7A;
             --shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
             --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 80px rgba(0, 82, 255, 0.08);
             --glow-primary: 0 0 80px rgba(0, 82, 255, 0.12);
             --glow-green: 0 0 80px rgba(0, 212, 132, 0.08);
             --radius: 20px;
             --radius-sm: 12px;
+            --radius-xs: 8px;
             --transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             --glass-bg: rgba(19, 20, 31, 0.55);
             --glass-border: rgba(255, 255, 255, 0.06);
@@ -56,11 +64,13 @@
             --card-bg: rgba(255, 255, 255, 0.75);
             --card-hover: rgba(255, 255, 255, 0.9);
             --border-color: rgba(0, 0, 0, 0.06);
+            --border-color-light: rgba(0, 0, 0, 0.03);
             --text-primary: #0B0B1A;
             --text-secondary: #5A607A;
             --text-muted: #8A90A8;
             --shadow: 0 20px 80px rgba(0, 0, 0, 0.08);
             --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.04);
+            --shadow-glow: 0 0 80px rgba(0, 82, 255, 0.03);
             --glow-primary: 0 0 80px rgba(0, 82, 255, 0.04);
             --glow-green: 0 0 80px rgba(0, 212, 132, 0.03);
             --glass-bg: rgba(255, 255, 255, 0.6);
@@ -96,8 +106,8 @@
         }
 
         /* ═══════════════════════════════════════════
-                   GLASSMORPHISM
-                   ═══════════════════════════════════════════ */
+           GLASSMORPHISM
+           ═══════════════════════════════════════════ */
         .glass-premium {
             background: var(--glass-bg);
             backdrop-filter: blur(28px) saturate(1.4);
@@ -138,9 +148,32 @@
             box-shadow: var(--shadow), var(--glow-primary);
         }
 
+        /* ── Premium glow accent ── */
+        .glow-accent {
+            position: relative;
+        }
+        .glow-accent::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius);
+            padding: 1px;
+            background: linear-gradient(135deg, var(--primary), var(--green));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .glow-accent:hover::after {
+            opacity: 1;
+        }
+
         /* ═══════════════════════════════════════════
-                   THEME TOGGLE
-                   ═══════════════════════════════════════════ */
+           THEME TOGGLE
+           ═══════════════════════════════════════════ */
         .theme-toggle {
             position: fixed;
             top: 1.5rem;
@@ -168,10 +201,10 @@
         }
 
         /* ═══════════════════════════════════════════
-                   BUTTONS
-                   ═══════════════════════════════════════════ */
+           BUTTONS
+           ═══════════════════════════════════════════ */
         .btn-primary {
-            background: var(--primary);
+            background: var(--primary-gradient);
             color: #fff;
             border: none;
             transition: all var(--transition);
@@ -180,13 +213,12 @@
             font-family: 'Inter', sans-serif;
         }
         .btn-primary:hover {
-            background: var(--primary-dark);
             transform: translateY(-3px);
             box-shadow: 0 8px 50px rgba(0, 82, 255, 0.5);
         }
 
         .btn-green {
-            background: var(--green);
+            background: var(--green-gradient);
             color: #fff;
             border: none;
             transition: all var(--transition);
@@ -195,7 +227,6 @@
             font-family: 'Inter', sans-serif;
         }
         .btn-green:hover {
-            background: var(--green-dark);
             transform: translateY(-2px);
             box-shadow: 0 8px 40px rgba(0, 212, 132, 0.4);
         }
@@ -228,38 +259,40 @@
         }
 
         .btn-trade-buy {
-            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            background: var(--green-gradient);
             color: #0B0B1A;
             border: none;
             transition: all var(--transition);
             cursor: pointer;
             font-weight: 700;
             font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 20px rgba(0, 212, 132, 0.25);
         }
         .btn-trade-buy:hover {
             transform: scale(1.02);
-            box-shadow: 0 4px 24px rgba(0, 212, 132, 0.3);
+            box-shadow: 0 8px 40px rgba(0, 212, 132, 0.35);
         }
 
         .btn-trade-sell {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: var(--red-gradient);
             color: #0B0B1A;
             border: none;
             transition: all var(--transition);
             cursor: pointer;
             font-weight: 700;
             font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.25);
         }
         .btn-trade-sell:hover {
             transform: scale(1.02);
-            box-shadow: 0 4px 24px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 8px 40px rgba(239, 68, 68, 0.35);
         }
 
         /* ═══════════════════════════════════════════
-                   BADGES
-                   ═══════════════════════════════════════════ */
+           BADGES
+           ═══════════════════════════════════════════ */
         .badge-gradient {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: var(--primary-gradient);
             color: #fff;
             padding: 0.2rem 0.7rem;
             border-radius: 100px;
@@ -269,8 +302,8 @@
             letter-spacing: 0.05em;
         }
         .badge-green {
-            background: var(--green);
-            color: #fff;
+            background: var(--green-gradient);
+            color: #0B0B1A;
             padding: 0.2rem 0.7rem;
             border-radius: 100px;
             font-size: 0.6rem;
@@ -279,8 +312,18 @@
             letter-spacing: 0.05em;
         }
         .badge-gold {
-            background: var(--gold);
+            background: var(--gold-gradient);
             color: #0B0B1A;
+            padding: 0.2rem 0.7rem;
+            border-radius: 100px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge-red {
+            background: var(--red-gradient);
+            color: #fff;
             padding: 0.2rem 0.7rem;
             border-radius: 100px;
             font-size: 0.6rem;
@@ -290,8 +333,8 @@
         }
 
         /* ═══════════════════════════════════════════
-                   PROGRESS BAR
-                   ═══════════════════════════════════════════ */
+           PROGRESS BAR
+           ═══════════════════════════════════════════ */
         .progress-bar {
             width: 100%;
             height: 6px;
@@ -302,13 +345,13 @@
         .progress-bar .fill {
             height: 100%;
             border-radius: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--green));
-            transition: width 1s ease;
+            background: var(--primary-gradient);
+            transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         /* ═══════════════════════════════════════════
-                   ANIMATIONS
-                   ═══════════════════════════════════════════ */
+           ANIMATIONS
+           ═══════════════════════════════════════════ */
         @keyframes shimmer {
             0% {
                 background-position: -200% center;
@@ -357,6 +400,17 @@
                 transform: translateY(0);
             }
         }
+        @keyframes breathe {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
 
         .shimmer-text {
             background: linear-gradient(90deg, var(--primary), var(--green), var(--primary-light), var(--green));
@@ -375,6 +429,9 @@
         }
         .animate-count-up {
             animation: countUp 0.6s ease forwards;
+        }
+        .animate-breathe {
+            animation: breathe 2.4s ease-in-out infinite;
         }
 
         .delay-1 {
@@ -399,8 +456,8 @@
         }
 
         /* ═══════════════════════════════════════════
-                   TABS
-                   ═══════════════════════════════════════════ */
+           TABS
+           ═══════════════════════════════════════════ */
         .tab-btn {
             padding: 0.6rem 1.5rem;
             border-radius: 40px;
@@ -435,8 +492,8 @@
         }
 
         /* ═══════════════════════════════════════════
-                   TRADING DASHBOARD COMPONENTS
-                   ═══════════════════════════════════════════ */
+           TRADING COMPONENTS
+           ═══════════════════════════════════════════ */
         .watchlist-container {
             display: flex;
             flex-direction: column;
@@ -452,7 +509,7 @@
             padding: 6px 8px;
             border-radius: var(--radius-sm);
             cursor: pointer;
-            transition: var(--transition);
+            transition: all var(--transition);
             border-left: 2px solid transparent;
             font-size: 0.8rem;
         }
@@ -495,7 +552,7 @@
         }
         .watchlist-item .price .change.up {
             color: var(--green);
-            background: var(--green-bg);
+            background: rgba(0, 212, 132, 0.15);
         }
         .watchlist-item .price .change.down {
             color: #ef4444;
@@ -579,7 +636,7 @@
             font-size: 0.85rem;
             font-weight: 500;
             outline: none;
-            transition: var(--transition);
+            transition: all var(--transition);
             font-family: inherit;
         }
         .trade-panel .row input:focus,
@@ -620,7 +677,7 @@
             font-weight: 600;
             color: var(--text-secondary);
             cursor: pointer;
-            transition: var(--transition);
+            transition: all var(--transition);
             font-family: inherit;
         }
         .trade-panel .order-type button.active {
@@ -643,7 +700,7 @@
             font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all var(--transition);
             font-family: inherit;
             letter-spacing: 0.3px;
         }
@@ -704,7 +761,7 @@
         }
         .positions-bar .pos-item .side.long {
             color: var(--green);
-            background: var(--green-bg);
+            background: rgba(0, 212, 132, 0.15);
         }
         .positions-bar .pos-item .side.short {
             color: #ef4444;
@@ -726,7 +783,7 @@
             cursor: pointer;
             font-size: 0.7rem;
             padding: 0 2px;
-            transition: var(--transition);
+            transition: all var(--transition);
         }
         .positions-bar .pos-item .close-btn:hover {
             color: #ef4444;
@@ -778,7 +835,7 @@
             max-width: 360px;
         }
         .toast {
-            background: rgba(16, 28, 48, 0.85);
+            background: rgba(16, 28, 48, 0.9);
             backdrop-filter: blur(24px) saturate(1.6);
             border: 1px solid rgba(255, 255, 255, 0.06);
             padding: 12px 18px;
@@ -817,6 +874,68 @@
             }
         }
 
+        /* ── Stat Card Enhancements ── */
+        .stat-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px) saturate(1.3);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius);
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(0, 82, 255, 0.06), transparent, rgba(0, 212, 132, 0.03));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 82, 255, 0.2);
+            box-shadow: var(--shadow), var(--glow-primary);
+        }
+
+        .stat-card .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .stat-card .stat-icon.blue {
+            background: rgba(0, 82, 255, 0.12);
+            color: var(--primary);
+        }
+        .stat-card .stat-icon.green {
+            background: rgba(0, 212, 132, 0.12);
+            color: var(--green);
+        }
+        .stat-card .stat-icon.gold {
+            background: rgba(245, 166, 35, 0.12);
+            color: var(--gold);
+        }
+        .stat-card .stat-icon.purple {
+            background: rgba(124, 92, 252, 0.12);
+            color: #7c5cfc;
+        }
+
+        .stat-card .stat-value {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
         /* ═══════════════════════════════════════════
                    RESPONSIVE
                    ═══════════════════════════════════════════ */
@@ -826,9 +945,6 @@
             }
             .left-sidebar-desktop {
                 display: none !important;
-            }
-            .watchlist-mobile {
-                display: flex !important;
             }
         }
 
@@ -861,6 +977,9 @@
                 font-size: 0.8rem;
                 padding: 8px 0;
             }
+            .stat-card .stat-value {
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -869,13 +988,10 @@
                 gap: 6px !important;
             }
             .stat-card {
-                padding: 10px !important;
+                padding: 0.75rem !important;
             }
-            .stat-card .value {
+            .stat-card .stat-value {
                 font-size: 1rem !important;
-            }
-            .stat-card .label {
-                font-size: 0.55rem !important;
             }
             .tab-btn {
                 font-size: 0.6rem;
@@ -932,10 +1048,10 @@
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 py-6 md:py-8">
 
         <!-- ═══ HEADER ═══ -->
-        <div class="glass-premium rounded-[32px] p-6 md:p-8 mb-6">
+        <div class="glass-premium rounded-[32px] p-6 md:p-8 mb-6 glow-accent">
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/30">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/30 animate-breathe">
                         <i class="fas fa-user-astronaut text-white text-2xl"></i>
                     </div>
                     <div>
@@ -950,7 +1066,7 @@
                 <div class="flex items-center gap-3 w-full md:w-auto flex-wrap">
                     <span class="flex items-center gap-2 text-xs text-[var(--green)] bg-[var(--green)]/10 px-3 py-1.5 rounded-full">
                         <span class="w-2 h-2 rounded-full bg-[var(--green)] animate-pulse"></span>
-                        Online
+                        <span id="connectionStatus">Live</span>
                     </span>
                     <a href="index.html" class="btn-outline text-sm px-4 py-2 rounded-full">
                         <i class="fas fa-home mr-2"></i> Home
@@ -983,50 +1099,50 @@
 
             <!-- Stats Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 stats-grid">
-                <div class="glass-premium p-5 rounded-2xl animate-slide-up delay-1">
+                <div class="stat-card animate-slide-up delay-1">
                     <div class="flex items-center justify-between">
                         <div>
                             <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Portfolio Value</div>
-                            <div class="text-2xl font-orbitron font-bold text-[var(--text-primary)] mt-1" id="dashPortfolioValue">$1,245,890</div>
+                            <div class="stat-value text-[var(--text-primary)] mt-1" id="dashPortfolioValue">$1,245,890</div>
                             <div class="text-[var(--green)] text-xs mt-1"><i class="fas fa-arrow-up mr-1"></i> +12.4% this month</div>
                         </div>
-                        <div class="w-12 h-12 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] text-xl">
+                        <div class="stat-icon blue">
                             <i class="fas fa-wallet"></i>
                         </div>
                     </div>
                 </div>
-                <div class="glass-premium p-5 rounded-2xl animate-slide-up delay-2">
+                <div class="stat-card animate-slide-up delay-2">
                     <div class="flex items-center justify-between">
                         <div>
                             <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Active Investments</div>
-                            <div class="text-2xl font-orbitron font-bold text-[var(--text-primary)] mt-1">8</div>
+                            <div class="stat-value text-[var(--text-primary)] mt-1">8</div>
                             <div class="text-[var(--text-secondary)] text-xs mt-1">Starship, Starlink, +5 more</div>
                         </div>
-                        <div class="w-12 h-12 rounded-xl bg-[var(--green)]/10 flex items-center justify-center text-[var(--green)] text-xl">
+                        <div class="stat-icon green">
                             <i class="fas fa-rocket"></i>
                         </div>
                     </div>
                 </div>
-                <div class="glass-premium p-5 rounded-2xl animate-slide-up delay-3">
+                <div class="stat-card animate-slide-up delay-3">
                     <div class="flex items-center justify-between">
                         <div>
                             <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Total Return</div>
-                            <div class="text-2xl font-orbitron font-bold text-[var(--green)] mt-1">+47.2%</div>
+                            <div class="stat-value text-[var(--green)] mt-1">+47.2%</div>
                             <div class="text-[var(--text-secondary)] text-xs mt-1">Since inception</div>
                         </div>
-                        <div class="w-12 h-12 rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400 text-xl">
+                        <div class="stat-icon gold">
                             <i class="fas fa-chart-line"></i>
                         </div>
                     </div>
                 </div>
-                <div class="glass-premium p-5 rounded-2xl animate-slide-up delay-4">
+                <div class="stat-card animate-slide-up delay-4">
                     <div class="flex items-center justify-between">
                         <div>
                             <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Account Status</div>
-                            <div class="text-2xl font-orbitron font-bold text-[var(--green)] mt-1">Verified</div>
+                            <div class="stat-value text-[var(--green)] mt-1">Verified</div>
                             <div class="text-[var(--text-secondary)] text-xs mt-1">KYC Level 3</div>
                         </div>
-                        <div class="w-12 h-12 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] text-xl">
+                        <div class="stat-icon purple">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                     </div>
@@ -1034,7 +1150,7 @@
             </div>
 
             <!-- Investment Portfolio Table -->
-            <div class="glass-premium p-6 rounded-2xl mb-6 animate-slide-up delay-2">
+            <div class="glass-premium p-6 rounded-2xl mb-6 animate-slide-up delay-2 glow-accent">
                 <div class="flex items-center justify-between mb-4">
                     <div>
                         <h3 class="text-lg font-semibold text-[var(--text-primary)]">Investment Portfolio</h3>
@@ -1104,7 +1220,7 @@
 
             <!-- Goals & Notifications -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-3">
+                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-3 glow-accent">
                     <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-4">Investment Goals</h3>
                     <div class="space-y-4">
                         <div>
@@ -1140,7 +1256,7 @@
                     </div>
                 </div>
 
-                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-4">
+                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-4 glow-accent">
                     <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-4">Notifications</h3>
                     <div class="space-y-3 max-h-[220px] overflow-y-auto pr-2">
                         <div class="flex items-start gap-3 p-2 rounded-xl bg-[var(--primary)]/5 border border-[var(--primary)]/10">
@@ -1170,6 +1286,15 @@
                                 <span class="text-[10px] text-[var(--text-muted)]">1 day ago</span>
                             </div>
                         </div>
+                        <div class="flex items-start gap-3 p-2 rounded-xl bg-[var(--primary)]/5 border border-[var(--primary)]/10">
+                            <div class="w-8 h-8 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] text-sm flex-shrink-0">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-[var(--text-primary)]">New SpaceX pre-IPO round opening soon</p>
+                                <span class="text-[10px] text-[var(--text-muted)]">3 days ago</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1180,41 +1305,88 @@
 
             <!-- Trading Stats -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 stats-grid">
-                <div class="glass-premium p-4 rounded-2xl animate-slide-up delay-1">
-                    <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Balance</div>
-                    <div class="text-xl font-orbitron font-bold text-[var(--text-primary)] mt-1" id="tradeBalance">$100,000.00</div>
+                <div class="stat-card animate-slide-up delay-1">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Balance</div>
+                            <div class="stat-value text-[var(--text-primary)] mt-1" id="tradeBalance">$100,000.00</div>
+                        </div>
+                        <div class="stat-icon blue">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-premium p-4 rounded-2xl animate-slide-up delay-2">
-                    <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Equity</div>
-                    <div class="text-xl font-orbitron font-bold text-[var(--text-primary)] mt-1" id="tradeEquity">$102,450.80</div>
+                <div class="stat-card animate-slide-up delay-2">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Equity</div>
+                            <div class="stat-value text-[var(--text-primary)] mt-1" id="tradeEquity">$102,450.80</div>
+                        </div>
+                        <div class="stat-icon purple">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-premium p-4 rounded-2xl animate-slide-up delay-3">
-                    <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">P&L Today</div>
-                    <div class="text-xl font-orbitron font-bold text-[var(--green)] mt-1" id="tradePnl">+$1,240.50</div>
+                <div class="stat-card animate-slide-up delay-3">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">P&L Today</div>
+                            <div class="stat-value text-[var(--green)] mt-1" id="tradePnl">+$1,240.50</div>
+                        </div>
+                        <div class="stat-icon green">
+                            <i class="fas fa-arrow-trend-up"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-premium p-4 rounded-2xl animate-slide-up delay-4">
-                    <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Open Positions</div>
-                    <div class="text-xl font-orbitron font-bold text-[var(--text-primary)] mt-1" id="tradePositions">0</div>
+                <div class="stat-card animate-slide-up delay-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Open Positions</div>
+                            <div class="stat-value text-[var(--text-primary)] mt-1" id="tradePositions">0</div>
+                        </div>
+                        <div class="stat-icon gold">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Trading Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
                 <!-- Left: Watchlist -->
-                <div class="glass-premium p-4 rounded-2xl lg:col-span-1" style="max-height:600px;overflow:hidden;display:flex;flex-direction:column;">
+                <div class="glass-premium p-4 rounded-2xl lg:col-span-1 glow-accent" style="max-height:600px;overflow:hidden;display:flex;flex-direction:column;">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
                             <i class="fas fa-star text-[var(--gold)] mr-1"></i> Watchlist
                         </span>
-                        <button id="refreshWatchlist" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition text-sm">
-                            <i class="fas fa-sync-alt"></i>
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] text-[var(--text-muted)]" id="watchlistLastUpdate">—</span>
+                            <button id="refreshWatchlist" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition text-sm">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="watchlist-container" id="watchlistContainer"></div>
+
+                    <!-- News Feed -->
+                    <div class="mt-3 pt-3 border-t border-[var(--border-color)]">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+                                <i class="fas fa-newspaper mr-1"></i> Flash News
+                            </span>
+                            <span class="text-[10px] text-[var(--text-muted)]">live</span>
+                        </div>
+                        <div class="news-feed" id="newsFeed">
+                            <div class="news-item">
+                                <div class="headline">Markets open — volatility expected</div>
+                                <div class="time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Center: Chart -->
-                <div class="glass-premium p-4 rounded-2xl lg:col-span-2" style="display:flex;flex-direction:column;">
+                <div class="glass-premium p-4 rounded-2xl lg:col-span-2 glow-accent" style="display:flex;flex-direction:column;">
                     <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
                         <div class="flex items-center gap-3 flex-wrap">
                             <span class="font-orbitron font-bold text-lg" id="chartSymbol">AAPL</span>
@@ -1243,7 +1415,7 @@
                 <!-- Right: Order Book + Trade -->
                 <div class="lg:col-span-1 flex flex-col gap-4">
                     <!-- Order Book -->
-                    <div class="glass-premium p-4 rounded-2xl">
+                    <div class="glass-premium p-4 rounded-2xl glow-accent">
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">Order Book</span>
                             <span class="text-[10px] text-[var(--text-muted)]">depth</span>
@@ -1258,7 +1430,7 @@
                     </div>
 
                     <!-- Trade Panel -->
-                    <div class="glass-premium p-4 rounded-2xl trade-panel">
+                    <div class="glass-premium p-4 rounded-2xl trade-panel glow-accent">
                         <div class="order-type" id="orderTypeBtns">
                             <button class="active" data-type="market">Market</button>
                             <button data-type="limit">Limit</button>
@@ -1281,12 +1453,16 @@
                             <button class="btn-trade-buy flex-1 py-2 rounded-full text-sm" id="buyBtn"><i class="fas fa-arrow-up mr-1"></i> BUY</button>
                             <button class="btn-trade-sell flex-1 py-2 rounded-full text-sm" id="sellBtn"><i class="fas fa-arrow-down mr-1"></i> SELL</button>
                         </div>
+                        <div class="flex justify-between text-[10px] text-[var(--text-muted)] mt-2 px-1">
+                            <span>Min. $10</span>
+                            <span>Estimated cost: <strong id="estimatedCost" class="text-[var(--text-primary)]">$0.00</strong></span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Positions Bar -->
-            <div class="glass-premium p-3 rounded-2xl mt-6">
+            <div class="glass-premium p-3 rounded-2xl mt-6 glow-accent">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">Open Positions</span>
                     <span class="text-xs text-[var(--text-muted)]" id="posCountLabel">0</span>
@@ -1299,7 +1475,7 @@
 
         <!-- ═══ TAB: PORTFOLIO ═══ -->
         <div id="tab-portfolio" class="tab-content">
-            <div class="glass-premium p-8 rounded-2xl text-center">
+            <div class="glass-premium p-8 rounded-2xl text-center glow-accent">
                 <div class="text-6xl mb-4 text-[var(--text-muted)] opacity-30">
                     <i class="fas fa-chart-pie"></i>
                 </div>
@@ -1315,7 +1491,7 @@
 
         <!-- ═══ TAB: SETTINGS ═══ -->
         <div id="tab-settings" class="tab-content">
-            <div class="glass-premium p-8 rounded-2xl">
+            <div class="glass-premium p-8 rounded-2xl glow-accent">
                 <h3 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Account Settings</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -1416,11 +1592,8 @@
                     Object.keys(tabContents).forEach(key => {
                         tabContents[key].classList.toggle('active', key === tab);
                     });
-                    // Resize chart when switching to trading tab
                     if (tab === 'trading' && state.chartInstance) {
-                        setTimeout(() => {
-                            state.chartInstance.resize();
-                        }, 100);
+                        setTimeout(() => state.chartInstance.resize(), 100);
                     }
                 });
             });
@@ -1433,26 +1606,30 @@
             });
 
             // ════════════════════════════════════════════════════════════
-            //  TRADING ENGINE
+            //  TRADING ENGINE WITH LIVE YAHOO FINANCE API
             // ════════════════════════════════════════════════════════════
 
-            // ─── Asset Data ─────────────────────────────────────────────
+            // ─── Asset Data with Yahoo symbols ────────────────────────
             const ASSETS = [
-                { id: 'AAPL', name: 'Apple Inc.', base: 189.54, vol: 1.8, spread: 0.04, digits: 2 },
-                { id: 'MSFT', name: 'Microsoft', base: 418.20, vol: 1.6, spread: 0.06, digits: 2 },
-                { id: 'GOOGL', name: 'Alphabet', base: 152.80, vol: 1.4, spread: 0.04, digits: 2 },
-                { id: 'AMZN', name: 'Amazon', base: 185.90, vol: 2.0, spread: 0.05, digits: 2 },
-                { id: 'TSLA', name: 'Tesla', base: 248.30, vol: 4.2, spread: 0.08, digits: 2 },
-                { id: 'NVDA', name: 'NVIDIA', base: 875.40, vol: 5.0, spread: 0.12, digits: 2 },
-                { id: 'META', name: 'Meta', base: 498.20, vol: 2.2, spread: 0.06, digits: 2 },
-                { id: 'BTC/USD', name: 'Bitcoin', base: 62450, vol: 320, spread: 12, digits: 2 },
-                { id: 'ETH/USD', name: 'Ethereum', base: 3120, vol: 85, spread: 6, digits: 2 },
-                { id: 'SOL/USD', name: 'Solana', base: 168.40, vol: 7.5, spread: 0.4, digits: 2 },
-                { id: 'EUR/USD', name: 'Euro/Dollar', base: 1.0892, vol: 0.0008, spread: 0.0002, digits: 5 },
-                { id: 'GBP/USD', name: 'Pound/Dollar', base: 1.2675, vol: 0.0010, spread: 0.0002, digits: 5 },
-                { id: 'USD/JPY', name: 'Dollar/Yen', base: 149.80, vol: 0.25, spread: 0.02, digits: 2 },
-                { id: 'XRP/USD', name: 'Ripple', base: 0.54, vol: 0.03, spread: 0.002, digits: 4 },
-                { id: 'DOGE/USD', name: 'Dogecoin', base: 0.12, vol: 0.01, spread: 0.0005, digits: 4 },
+                { id: 'AAPL', name: 'Apple Inc.', yahoo: 'AAPL', base: 189.54, vol: 1.8, spread: 0.04, digits: 2 },
+                { id: 'MSFT', name: 'Microsoft', yahoo: 'MSFT', base: 418.20, vol: 1.6, spread: 0.06, digits: 2 },
+                { id: 'GOOGL', name: 'Alphabet', yahoo: 'GOOGL', base: 152.80, vol: 1.4, spread: 0.04, digits: 2 },
+                { id: 'AMZN', name: 'Amazon', yahoo: 'AMZN', base: 185.90, vol: 2.0, spread: 0.05, digits: 2 },
+                { id: 'TSLA', name: 'Tesla', yahoo: 'TSLA', base: 248.30, vol: 4.2, spread: 0.08, digits: 2 },
+                { id: 'NVDA', name: 'NVIDIA', yahoo: 'NVDA', base: 875.40, vol: 5.0, spread: 0.12, digits: 2 },
+                { id: 'META', name: 'Meta', yahoo: 'META', base: 498.20, vol: 2.2, spread: 0.06, digits: 2 },
+                { id: 'BTC/USD', name: 'Bitcoin', yahoo: 'BTC-USD', base: 62450, vol: 320, spread: 12, digits: 2 },
+                { id: 'ETH/USD', name: 'Ethereum', yahoo: 'ETH-USD', base: 3120, vol: 85, spread: 6, digits: 2 },
+                { id: 'SOL/USD', name: 'Solana', yahoo: 'SOL-USD', base: 168.40, vol: 7.5, spread: 0.4, digits: 2 },
+                { id: 'EUR/USD', name: 'Euro/Dollar', yahoo: 'EURUSD=X', base: 1.0892, vol: 0.0008, spread: 0.0002,
+                    digits: 5 },
+                { id: 'GBP/USD', name: 'Pound/Dollar', yahoo: 'GBPUSD=X', base: 1.2675, vol: 0.0010, spread: 0.0002,
+                    digits: 5 },
+                { id: 'USD/JPY', name: 'Dollar/Yen', yahoo: 'USDJPY=X', base: 149.80, vol: 0.25, spread: 0.02,
+                    digits: 2 },
+                { id: 'XRP/USD', name: 'Ripple', yahoo: 'XRP-USD', base: 0.54, vol: 0.03, spread: 0.002, digits: 4 },
+                { id: 'DOGE/USD', name: 'Dogecoin', yahoo: 'DOGE-USD', base: 0.12, vol: 0.01, spread: 0.0005,
+                    digits: 4 },
             ];
 
             function getAsset(id) { return ASSETS.find(a => a.id === id) || ASSETS[0]; }
@@ -1488,15 +1665,21 @@
                 selectedAsset: 'AAPL',
                 chartData: [],
                 chartInstance: null,
-                tickers: {},
+                tickers: {}, // id -> current price
                 orderType: 'market',
-                priceHistory: {},
-                lastPrice: {},
+                priceHistory: {}, // id -> array of prices
+                lastPrice: {}, // id -> previous price for flash
                 lastUpdate: null,
                 isConnected: false,
+                priceInterval: null,
+                updateCount: 0,
+                assetMap: {}, // yahoo -> id
             };
 
-            // ─── Initialize Prices ─────────────────────────────────────
+            // Build yahoo to id map
+            ASSETS.forEach(a => { state.assetMap[a.yahoo] = a.id; });
+
+            // ─── Initialize Prices with base ──────────────────────────
             ASSETS.forEach(a => {
                 state.tickers[a.id] = a.base;
                 state.priceHistory[a.id] = [];
@@ -1506,12 +1689,102 @@
                 state.lastPrice[a.id] = a.base;
             });
 
+            // ─── Yahoo Finance API fetch ──────────────────────────────
+            async function fetchYahooPrice(symbol) {
+                const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`;
+                try {
+                    const resp = await fetch(url);
+                    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                    const data = await resp.json();
+                    const result = data.chart?.result?.[0];
+                    if (!result) throw new Error('No result');
+                    const price = result.meta?.regularMarketPrice;
+                    if (price === undefined || price === null) throw new Error('No price');
+                    return price;
+                } catch (e) {
+                    console.warn(`Yahoo fetch error for ${symbol}:`, e.message);
+                    return null;
+                }
+            }
+
+            async function fetchAllPrices() {
+                const symbols = ASSETS.map(a => a.yahoo);
+                const fetches = symbols.map(async (sym) => {
+                    try {
+                        const price = await fetchYahooPrice(sym);
+                        return { symbol: sym, price };
+                    } catch (e) {
+                        return { symbol: sym, price: null };
+                    }
+                });
+                const settled = await Promise.allSettled(fetches);
+                const results = {};
+                for (const result of settled) {
+                    if (result.status === 'fulfilled') {
+                        const { symbol, price } = result.value;
+                        results[symbol] = price;
+                    }
+                }
+                return results;
+            }
+
+            // ─── Update tickers with live data ────────────────────────
+            async function updateTickers() {
+                try {
+                    const prices = await fetchAllPrices();
+                    let updated = 0;
+                    for (const yahoo in prices) {
+                        const price = prices[yahoo];
+                        const id = state.assetMap[yahoo];
+                        if (id && price !== null && price !== undefined && !isNaN(price) && price > 0) {
+                            state.tickers[id] = price;
+                            updated++;
+                        }
+                    }
+                    if (updated === 0) {
+                        // Fallback to simulated if API fails
+                        for (const a of ASSETS) {
+                            const change = (Math.random() - 0.5) * a.volatility * 0.3;
+                            let p = state.tickers[a.id] + change;
+                            const maxDev = a.volatility * 3;
+                            if (p > a.base + maxDev) p = a.base + maxDev;
+                            if (p < a.base - maxDev) p = a.base - maxDev;
+                            state.tickers[a.id] = p;
+                        }
+                        state.isConnected = false;
+                        document.getElementById('connectionStatus').textContent = 'Simulated';
+                        document.getElementById('statusText').textContent = 'Simulated';
+                    } else {
+                        state.isConnected = true;
+                        document.getElementById('connectionStatus').textContent = 'Live';
+                        document.getElementById('statusText').textContent = 'Live';
+                    }
+
+                    state.lastUpdate = new Date();
+                    const timeStr = state.lastUpdate.toLocaleTimeString();
+                    document.getElementById('watchlistLastUpdate').textContent = timeStr;
+                    document.getElementById('updateTimeText').textContent = timeStr;
+
+                    // Update all UI
+                    renderWatchlist();
+                    updateChart(state.selectedAsset);
+                    renderOrderbook(state.selectedAsset);
+                    updatePositions();
+                    updateTradeStats();
+                } catch (e) {
+                    console.error('Update error:', e);
+                }
+            }
+
             // ─── Chart ──────────────────────────────────────────────────
             function initChart() {
                 const ctx = document.getElementById('priceChart').getContext('2d');
+                const isDark = html.getAttribute('data-theme') === 'dark';
+                const gradColor = isDark ? 'rgba(0, 82, 255, 0.25)' : 'rgba(0, 82, 255, 0.15)';
                 const grad = ctx.createLinearGradient(0, 0, 0, 200);
-                grad.addColorStop(0, 'rgba(0, 82, 255, 0.25)');
+                grad.addColorStop(0, gradColor);
                 grad.addColorStop(1, 'rgba(0, 82, 255, 0.0)');
+
                 state.chartInstance = new Chart(ctx, {
                     type: 'line',
                     data: {
@@ -1533,9 +1806,9 @@
                         plugins: {
                             legend: { display: false },
                             tooltip: {
-                                backgroundColor: 'rgba(16,28,48,0.85)',
-                                titleColor: '#edf2f9',
-                                bodyColor: '#9aa9c9',
+                                backgroundColor: isDark ? 'rgba(16,28,48,0.9)' : 'rgba(255,255,255,0.9)',
+                                titleColor: isDark ? '#edf2f9' : '#0B0B1A',
+                                bodyColor: isDark ? '#9aa9c9' : '#5A607A',
                                 borderColor: 'rgba(255,255,255,0.05)',
                                 borderWidth: 1,
                                 cornerRadius: 10,
@@ -1545,11 +1818,12 @@
                         scales: {
                             x: {
                                 grid: { color: 'rgba(255,255,255,0.02)', drawBorder: false },
-                                ticks: { color: '#5a6f8a', maxTicksLimit: 10, font: { size: 8 } }
+                                ticks: { color: isDark ? '#5a6f8a' : '#8A90A8', maxTicksLimit: 10,
+                                font: { size: 8 } }
                             },
                             y: {
                                 grid: { color: 'rgba(255,255,255,0.02)', drawBorder: false },
-                                ticks: { color: '#5a6f8a', font: { size: 8 } }
+                                ticks: { color: isDark ? '#5a6f8a' : '#8A90A8', font: { size: 8 } }
                             }
                         },
                         interaction: { intersect: false, mode: 'index' },
@@ -1562,6 +1836,11 @@
                 const price = state.tickers[assetId] ?? getAsset(assetId).base;
                 const history = state.priceHistory[assetId] || [];
                 if (history.length === 0) return;
+
+                // Append latest price to history
+                history.push(price);
+                if (history.length > 150) history.shift();
+                state.priceHistory[assetId] = history;
 
                 const labels = history.map((_, i) => {
                     const d = new Date();
@@ -1583,7 +1862,7 @@
                 changeEl.textContent = (change >= 0 ? '+' : '') + change.toFixed(2) + '%';
                 changeEl.className = 'text-sm font-semibold px-2 py-0.5 rounded-full ' + (change >= 0 ?
                     'bg-[var(--green)]/10 text-[var(--green)]' :
-                'bg-red-500/10 text-red-500');
+                    'bg-red-500/10 text-red-500');
                 document.getElementById('chartUpdated').textContent = state.lastUpdate ?
                     'Updated ' + state.lastUpdate.toLocaleTimeString() : '';
 
@@ -1594,9 +1873,12 @@
                 const sma50 = history.slice(-50).reduce((a, b) => a + b, 0) / Math.min(50, history.length);
                 document.getElementById('sma20').textContent = formatPrice(assetId, sma20 || price);
                 document.getElementById('sma50').textContent = formatPrice(assetId, sma50 || price);
-                document.getElementById('rsiVal').textContent = Math.floor(randomBetween(40, 70));
-                document.getElementById('volumeVal').textContent = (Math.floor(randomBetween(0.5, 9.5) * 100) / 100) +
-                    'M';
+                const rsi = Math.floor(randomBetween(40, 70)); // Placeholder
+                document.getElementById('rsiVal').textContent = rsi;
+                const vol = (Math.floor(randomBetween(0.5, 9.5) * 100) / 100);
+                document.getElementById('volumeVal').textContent = vol + 'M';
+
+                updateEstimatedCost();
             }
 
             // ─── Order Book ─────────────────────────────────────────────
@@ -1652,6 +1934,7 @@
                     const active = a.id === state.selectedAsset ? 'active' : '';
                     const flashClass = price > (state.lastPrice?.[a.id] ?? price) ? 'flash-green' :
                         price < (state.lastPrice?.[a.id] ?? price) ? 'flash-red' : '';
+                    state.lastPrice[a.id] = price;
                     return `
                   <div class="watchlist-item ${active}" data-id="${a.id}">
                     <div class="info">
@@ -1665,8 +1948,6 @@
                   </div>
                 `;
                 }).join('');
-
-                list.forEach(a => { state.lastPrice[a.id] = state.tickers[a.id] ?? a.base; });
 
                 container.querySelectorAll('.watchlist-item').forEach(el => {
                     el.addEventListener('click', () => {
@@ -1698,6 +1979,15 @@
                 const price = state.tickers[assetId] ?? getAsset(assetId).base;
                 document.getElementById('tradePriceHint').innerHTML =
                     `<span class="live-dot"></span> @ ${formatPrice(assetId, price)}`;
+                updateEstimatedCost();
+            }
+
+            function updateEstimatedCost() {
+                const assetId = state.selectedAsset;
+                const price = state.tickers[assetId] ?? getAsset(assetId).base;
+                const size = parseFloat(document.getElementById('tradeSize').value) || 0;
+                const cost = size * price;
+                document.getElementById('estimatedCost').textContent = '$' + formatCurrency(cost);
             }
 
             // ─── Execute Trade ─────────────────────────────────────────
@@ -1794,46 +2084,20 @@
                 document.getElementById('tradeBalance').textContent = '$' + formatCurrency(state.balance);
                 document.getElementById('tradeEquity').textContent = '$' + formatCurrency(totalEquity);
                 document.getElementById('tradePnl').textContent = (pnl >= 0 ? '+' : '') + '$' + formatCurrency(pnl);
-                document.getElementById('tradePnl').className = 'text-xl font-orbitron font-bold mt-1 ' + (pnl >= 0 ?
+                document.getElementById('tradePnl').className = 'stat-value mt-1 ' + (pnl >= 0 ?
                     'text-[var(--green)]' : 'text-red-500');
                 document.getElementById('tradePositions').textContent = state.positions.length;
 
-                // Update dashboard stats too
                 document.getElementById('dashPortfolioValue').textContent = '$' + formatCurrency(totalEquity);
             }
 
             // ─── Price Loop ────────────────────────────────────────────
-            let updateCount = 0;
+            async function priceLoop() {
+                state.updateCount++;
+                await updateTickers();
 
-            function priceLoop() {
-                updateCount++;
-                for (const a of ASSETS) {
-                    if (!state.tickers[a.id]) state.tickers[a.id] = a.base;
-                    const change = (Math.random() - 0.5) * a.volatility * 0.3;
-                    let p = state.tickers[a.id] + change;
-                    const maxDev = a.volatility * 3;
-                    if (p > a.base + maxDev) p = a.base + maxDev;
-                    if (p < a.base - maxDev) p = a.base - maxDev;
-                    state.tickers[a.id] = p;
-
-                    const history = state.priceHistory[a.id] || [];
-                    history.push(p);
-                    if (history.length > 150) history.shift();
-                    state.priceHistory[a.id] = history;
-                }
-                state.lastUpdate = new Date();
-
-                renderWatchlist();
-                updateChart(state.selectedAsset);
-                renderOrderbook(state.selectedAsset);
-                updatePositions();
-                updateTradeStats();
-
-                document.getElementById('updateTimeText').textContent = state.lastUpdate.toLocaleTimeString();
-                document.getElementById('statusText').textContent = 'Live';
-
-                if (updateCount % 8 === 0) {
-                    // Random news update
+                // Update news every ~8 cycles
+                if (state.updateCount % 8 === 0) {
                     const newsItems = [
                         'Fed signals cautious approach to rate cuts',
                         'Tech earnings beat expectations, rally continues',
@@ -1846,7 +2110,7 @@
                         'Crypto market cap surpasses $2.5 trillion',
                         'AI boom drives semiconductor stocks',
                     ];
-                    const news = document.querySelector('.news-feed');
+                    const news = document.getElementById('newsFeed');
                     if (news) {
                         const item = newsItems[Math.floor(Math.random() * newsItems.length)];
                         const el = document.createElement('div');
@@ -1887,23 +2151,19 @@
                 document.getElementById('buyBtn').addEventListener('click', () => executeTrade('buy'));
                 document.getElementById('sellBtn').addEventListener('click', () => executeTrade('sell'));
 
+                document.getElementById('tradeSize').addEventListener('input', updateEstimatedCost);
                 document.getElementById('tradeSize').addEventListener('keydown', (e) => {
                     if (e.key === 'Enter') executeTrade('buy');
                 });
 
-                document.getElementById('refreshWatchlist').addEventListener('click', () => {
+                document.getElementById('refreshWatchlist').addEventListener('click', async () => {
                     showToast('Refreshing prices...', 'info');
-                    priceLoop();
-                });
-
-                // Balance pill click
-                document.querySelector('.balance-pill')?.addEventListener('click', () => {
-                    showToast('💰 Balance: $' + formatCurrency(state.balance), 'info');
+                    await updateTickers();
                 });
             }
 
             // ─── Init Trading ──────────────────────────────────────────
-            function initTrading() {
+            async function initTrading() {
                 initChart();
                 renderWatchlist();
                 renderOrderbook('AAPL');
@@ -1912,50 +2172,12 @@
                 renderPositions();
                 initUI();
 
-                // Add news feed to watchlist sidebar for desktop
-                const watchlistContainer = document.getElementById('watchlistContainer');
-                const newsDiv = document.createElement('div');
-                newsDiv.className = 'mt-3 pt-3 border-t border-[var(--border-color)]';
-                newsDiv.innerHTML = `
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
-                    <i class="fas fa-newspaper mr-1"></i> Flash News
-                  </span>
-                  <span class="text-[10px] text-[var(--text-muted)]">live</span>
-                </div>
-                <div class="news-feed" id="newsFeed">
-                  <div class="news-item"><div class="headline">Markets open — volatility expected</div><div class="time">Just now</div></div>
-                </div>
-              `;
-                watchlistContainer.parentNode.appendChild(newsDiv);
+                // Initial fetch
+                await updateTickers();
 
-                // Initial news
-                const newsFeed = document.getElementById('newsFeed');
-                const headlines = [
-                    'Fed signals cautious approach to rate cuts',
-                    'Tech earnings beat expectations',
-                    'Bitcoin volatility spikes',
-                    'Dollar weakens against majors',
-                    'NVIDIA unveils next-gen AI chip',
-                    'Tesla announces new factory',
-                    'Apple explores AI partnerships',
-                    'S&P 500 at new all-time high',
-                    'Crypto market cap surges',
-                    'AI boom drives semiconductor stocks',
-                ];
-                for (let i = 0; i < 4; i++) {
-                    const el = document.createElement('div');
-                    el.className = 'news-item';
-                    el.innerHTML =
-                        `<div class="headline">${headlines[i % headlines.length]}</div><div class="time">${new Date().toLocaleTimeString()}</div>`;
-                    newsFeed.appendChild(el);
-                }
+                state.priceInterval = setInterval(priceLoop, 8000);
 
-                state.isConnected = true;
-                priceLoop();
-                state.priceInterval = setInterval(priceLoop, 3500);
-
-                showToast('🚀 Trading dashboard ready — ' + ASSETS.length + ' assets loaded', 'success');
+                showToast('🚀 Trading dashboard ready — live data from Yahoo Finance', 'success');
             }
 
             // ─── Start ──────────────────────────────────────────────────
@@ -1970,8 +2192,8 @@
                 }, 200);
             });
 
-            console.log('🚀 Tesla Frontier Network — Integrated Account Dashboard loaded.');
-            console.log('ℹ️ Trading engine running with ' + ASSETS.length + ' assets.');
+            console.log('🚀 Tesla Frontier Network — Premium Integrated Dashboard with Live Data.');
+            console.log('ℹ️ Fetching live prices from Yahoo Finance for ' + ASSETS.length + ' assets.');
         });
     </script>
 
