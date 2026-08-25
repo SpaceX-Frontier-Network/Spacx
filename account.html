@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>Account · Tesla Frontier Network</title>
+    <title>Trade · Space X Frontier Network</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com">
@@ -91,8 +91,8 @@
         }
 
         ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
         }
         ::-webkit-scrollbar-track {
             background: transparent;
@@ -148,7 +148,6 @@
             box-shadow: var(--shadow), var(--glow-primary);
         }
 
-        /* ── Premium glow accent ── */
         .glow-accent {
             position: relative;
         }
@@ -219,7 +218,7 @@
 
         .btn-green {
             background: var(--green-gradient);
-            color: #fff;
+            color: #0B0B1A;
             border: none;
             transition: all var(--transition);
             box-shadow: 0 4px 20px rgba(0, 212, 132, 0.3);
@@ -275,7 +274,7 @@
 
         .btn-trade-sell {
             background: var(--red-gradient);
-            color: #0B0B1A;
+            color: #fff;
             border: none;
             transition: all var(--transition);
             cursor: pointer;
@@ -288,15 +287,21 @@
             box-shadow: 0 8px 40px rgba(239, 68, 68, 0.35);
         }
 
+        .btn-sm {
+            padding: 0.25rem 0.75rem;
+            font-size: 0.7rem;
+            border-radius: 30px;
+        }
+
         /* ═══════════════════════════════════════════
            BADGES
            ═══════════════════════════════════════════ */
         .badge-gradient {
             background: var(--primary-gradient);
             color: #fff;
-            padding: 0.2rem 0.7rem;
+            padding: 0.15rem 0.6rem;
             border-radius: 100px;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -304,9 +309,9 @@
         .badge-green {
             background: var(--green-gradient);
             color: #0B0B1A;
-            padding: 0.2rem 0.7rem;
+            padding: 0.15rem 0.6rem;
             border-radius: 100px;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -314,9 +319,9 @@
         .badge-gold {
             background: var(--gold-gradient);
             color: #0B0B1A;
-            padding: 0.2rem 0.7rem;
+            padding: 0.15rem 0.6rem;
             border-radius: 100px;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -324,9 +329,9 @@
         .badge-red {
             background: var(--red-gradient);
             color: #fff;
-            padding: 0.2rem 0.7rem;
+            padding: 0.15rem 0.6rem;
             border-radius: 100px;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -337,7 +342,7 @@
            ═══════════════════════════════════════════ */
         .progress-bar {
             width: 100%;
-            height: 6px;
+            height: 4px;
             background: var(--border-color);
             border-radius: 4px;
             overflow: hidden;
@@ -390,16 +395,6 @@
                 transform: scale(0.8);
             }
         }
-        @keyframes countUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
         @keyframes breathe {
             0%,
             100% {
@@ -409,6 +404,22 @@
             50% {
                 transform: scale(1.05);
                 opacity: 1;
+            }
+        }
+        @keyframes flashGreen {
+            0% {
+                color: var(--green);
+            }
+            100% {
+                color: var(--text-primary);
+            }
+        }
+        @keyframes flashRed {
+            0% {
+                color: #ef4444;
+            }
+            100% {
+                color: var(--text-primary);
             }
         }
 
@@ -426,9 +437,6 @@
         }
         .animate-float-slow {
             animation: floatSlow 5s ease-in-out infinite;
-        }
-        .animate-count-up {
-            animation: countUp 0.6s ease forwards;
         }
         .animate-breathe {
             animation: breathe 2.4s ease-in-out infinite;
@@ -455,13 +463,20 @@
             opacity: 0;
         }
 
+        .flash-green {
+            animation: flashGreen 0.6s ease;
+        }
+        .flash-red {
+            animation: flashRed 0.6s ease;
+        }
+
         /* ═══════════════════════════════════════════
            TABS
            ═══════════════════════════════════════════ */
         .tab-btn {
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 40px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             background: transparent;
             color: var(--text-secondary);
@@ -494,11 +509,34 @@
         /* ═══════════════════════════════════════════
            TRADING COMPONENTS
            ═══════════════════════════════════════════ */
+
+        /* ── Asset Search ── */
+        .asset-search-input {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            padding: 0.4rem 1rem 0.4rem 2.2rem;
+            color: var(--text-primary);
+            font-size: 0.75rem;
+            width: 100%;
+            outline: none;
+            transition: all var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+        .asset-search-input:focus {
+            border-color: rgba(0, 82, 255, 0.3);
+            box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.06);
+        }
+        .asset-search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* ── Watchlist ── */
         .watchlist-container {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            max-height: 320px;
+            gap: 1px;
+            max-height: 340px;
             overflow-y: auto;
             padding-right: 4px;
         }
@@ -506,12 +544,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 6px 8px;
+            padding: 5px 8px;
             border-radius: var(--radius-sm);
             cursor: pointer;
             transition: all var(--transition);
             border-left: 2px solid transparent;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
         }
         .watchlist-item:hover {
             background: rgba(255, 255, 255, 0.04);
@@ -522,49 +560,51 @@
         }
         .watchlist-item .info .symbol {
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
         }
         .watchlist-item .info .name {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: var(--text-muted);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 80px;
+            max-width: 70px;
+        }
+        .watchlist-item .info .cat-tag {
+            font-size: 0.5rem;
+            padding: 0 4px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            margin-left: 4px;
         }
         .watchlist-item .price .value {
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             transition: color 0.2s;
         }
-        .watchlist-item .price .value.flash-green {
-            color: var(--green);
-        }
-        .watchlist-item .price .value.flash-red {
-            color: #ef4444;
-        }
         .watchlist-item .price .change {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 600;
-            padding: 0 6px;
+            padding: 0 4px;
             border-radius: 20px;
             display: inline-block;
         }
         .watchlist-item .price .change.up {
             color: var(--green);
-            background: rgba(0, 212, 132, 0.15);
+            background: rgba(0, 212, 132, 0.12);
         }
         .watchlist-item .price .change.down {
             color: #ef4444;
-            background: rgba(239, 68, 68, 0.15);
+            background: rgba(239, 68, 68, 0.12);
         }
 
-        /* Order Book */
+        /* ── Order Book ── */
         .orderbook-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            max-height: 180px;
+            gap: 8px;
+            max-height: 190px;
             overflow-y: auto;
         }
         .orderbook-grid .side {
@@ -575,15 +615,17 @@
         .orderbook-grid .side .row {
             display: flex;
             justify-content: space-between;
-            font-size: 0.7rem;
-            padding: 2px 4px;
-            border-radius: 4px;
+            font-size: 0.68rem;
+            padding: 1px 4px;
+            border-radius: 3px;
+            position: relative;
         }
         .orderbook-grid .side .row .price {
             font-weight: 500;
         }
         .orderbook-grid .side .row .size {
             color: var(--text-secondary);
+            font-size: 0.6rem;
         }
         .orderbook-grid .side.bids .row .price {
             color: var(--green);
@@ -591,24 +633,25 @@
         .orderbook-grid .side.asks .row .price {
             color: #ef4444;
         }
-        .orderbook-grid .side .depth-bar {
-            height: 2px;
-            border-radius: 4px;
-            margin-top: 1px;
-            background: rgba(255, 255, 255, 0.05);
+        .orderbook-grid .side .depth-bg {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            border-radius: 3px;
+            opacity: 0.12;
+            pointer-events: none;
         }
-        .orderbook-grid .side.bids .depth-bar {
+        .orderbook-grid .side.bids .depth-bg {
             background: var(--green);
-            opacity: 0.25;
         }
-        .orderbook-grid .side.asks .depth-bar {
+        .orderbook-grid .side.asks .depth-bg {
             background: #ef4444;
-            opacity: 0.25;
         }
 
         .orderbook-spread {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
             padding: 4px 0;
             border-top: 1px solid var(--border-color);
@@ -619,11 +662,11 @@
             color: var(--text-primary);
         }
 
-        /* Trade Panel */
+        /* ── Trade Panel ── */
         .trade-panel .row {
             display: flex;
             gap: 6px;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
         .trade-panel .row input,
         .trade-panel .row select {
@@ -631,9 +674,9 @@
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-sm);
-            padding: 8px 10px;
+            padding: 6px 10px;
             color: var(--text-primary);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             outline: none;
             transition: all var(--transition);
@@ -649,31 +692,31 @@
             font-weight: 400;
         }
         .trade-panel .row .input-label {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             color: var(--text-muted);
             display: flex;
             align-items: center;
             padding: 0 4px;
             font-weight: 600;
-            min-width: 30px;
+            min-width: 28px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
         }
         .trade-panel .order-type {
             display: flex;
-            gap: 3px;
+            gap: 2px;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 30px;
             padding: 2px;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
         .trade-panel .order-type button {
             flex: 1;
             background: transparent;
             border: none;
-            padding: 4px 8px;
+            padding: 3px 8px;
             border-radius: 30px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             color: var(--text-secondary);
             cursor: pointer;
@@ -689,15 +732,15 @@
         }
         .trade-btns {
             display: flex;
-            gap: 6px;
-            margin-top: 4px;
+            gap: 5px;
+            margin-top: 3px;
         }
         .trade-btns button {
             flex: 1;
-            padding: 10px 0;
+            padding: 8px 0;
             border: none;
             border-radius: 40px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 700;
             cursor: pointer;
             transition: all var(--transition);
@@ -709,7 +752,7 @@
         }
 
         .trade-panel .price-hint {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
             display: flex;
             align-items: center;
@@ -717,36 +760,36 @@
         }
         .trade-panel .price-hint .live-dot {
             display: inline-block;
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background: var(--green);
             animation: pulseDot 1.8s infinite;
         }
 
-        /* Positions Bar */
+        /* ── Positions ── */
         .positions-bar {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             overflow-x: auto;
             flex-wrap: nowrap;
-            min-height: 38px;
-            padding: 4px 2px;
+            min-height: 34px;
+            padding: 3px 2px;
         }
         .positions-bar .empty {
             color: var(--text-muted);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
         }
         .positions-bar .pos-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: rgba(255, 255, 255, 0.04);
-            padding: 3px 12px 3px 10px;
+            padding: 2px 10px 2px 8px;
             border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.04);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             white-space: nowrap;
             flex-shrink: 0;
         }
@@ -755,8 +798,8 @@
         }
         .positions-bar .pos-item .side {
             font-weight: 600;
-            font-size: 0.55rem;
-            padding: 1px 6px;
+            font-size: 0.5rem;
+            padding: 1px 5px;
             border-radius: 20px;
         }
         .positions-bar .pos-item .side.long {
@@ -769,6 +812,7 @@
         }
         .positions-bar .pos-item .pl {
             font-weight: 600;
+            font-size: 0.6rem;
         }
         .positions-bar .pos-item .pl.pos {
             color: var(--green);
@@ -781,7 +825,7 @@
             border: none;
             color: var(--text-muted);
             cursor: pointer;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             padding: 0 2px;
             transition: all var(--transition);
         }
@@ -789,22 +833,58 @@
             color: #ef4444;
         }
 
-        /* News Feed */
-        .news-feed {
-            max-height: 100px;
+        /* ── Order History ── */
+        .order-history {
+            max-height: 110px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 1px;
+        }
+        .order-history .oh-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 6px;
+            font-size: 0.65rem;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .order-history .oh-item .oh-side {
+            font-weight: 600;
+            font-size: 0.55rem;
+            padding: 0 4px;
+            border-radius: 10px;
+        }
+        .order-history .oh-item .oh-side.buy {
+            color: var(--green);
+            background: rgba(0, 212, 132, 0.12);
+        }
+        .order-history .oh-item .oh-side.sell {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.12);
+        }
+        .order-history .oh-item .oh-time {
+            color: var(--text-muted);
+            font-size: 0.5rem;
+        }
+
+        /* ── News Feed ── */
+        .news-feed {
+            max-height: 80px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
             padding-right: 4px;
         }
         .news-item {
-            padding: 4px 6px;
+            padding: 3px 6px;
             border-radius: var(--radius-sm);
             background: rgba(255, 255, 255, 0.02);
             border-left: 2px solid rgba(255, 255, 255, 0.04);
-            font-size: 0.7rem;
-            line-height: 1.3;
+            font-size: 0.65rem;
+            line-height: 1.2;
         }
         .news-item .headline {
             color: var(--text-primary);
@@ -812,17 +892,17 @@
         }
         .news-item .time {
             color: var(--text-muted);
-            font-size: 0.55rem;
-            margin-top: 2px;
+            font-size: 0.5rem;
+            margin-top: 1px;
         }
 
-        /* Chart */
+        /* ── Chart ── */
         .chart-wrap {
-            height: 220px;
+            height: 200px;
             width: 100%;
         }
 
-        /* Toast */
+        /* ── Toast ── */
         .toast-container {
             position: fixed;
             bottom: 24px;
@@ -832,16 +912,16 @@
             gap: 8px;
             z-index: 9999;
             pointer-events: none;
-            max-width: 360px;
+            max-width: 340px;
         }
         .toast {
-            background: rgba(16, 28, 48, 0.9);
+            background: rgba(16, 28, 48, 0.92);
             backdrop-filter: blur(24px) saturate(1.6);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 12px 18px;
+            padding: 10px 16px;
             border-radius: var(--radius);
             color: var(--text-primary);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
             pointer-events: auto;
@@ -861,7 +941,7 @@
             border-left-color: var(--primary);
         }
         .toast i {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         @keyframes slideIn {
             from {
@@ -874,13 +954,13 @@
             }
         }
 
-        /* ── Stat Card Enhancements ── */
+        /* ── Stat Cards ── */
         .stat-card {
             background: var(--card-bg);
             backdrop-filter: blur(16px) saturate(1.3);
             border: 1px solid var(--border-color);
             border-radius: var(--radius);
-            padding: 1.25rem 1.5rem;
+            padding: 1rem 1.25rem;
             transition: all var(--transition);
             position: relative;
             overflow: hidden;
@@ -904,13 +984,13 @@
         }
 
         .stat-card .stat-icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         .stat-card .stat-icon.blue {
             background: rgba(0, 82, 255, 0.12);
@@ -928,17 +1008,45 @@
             background: rgba(124, 92, 252, 0.12);
             color: #7c5cfc;
         }
+        .stat-card .stat-icon.red {
+            background: rgba(239, 68, 68, 0.12);
+            color: #ef4444;
+        }
 
         .stat-card .stat-value {
             font-family: 'Orbitron', monospace;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
 
-        /* ═══════════════════════════════════════════
-                   RESPONSIVE
-                   ═══════════════════════════════════════════ */
+        /* ── Category Tags ── */
+        .cat-filter {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .cat-filter button {
+            font-size: 0.55rem;
+            padding: 2px 10px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: inherit;
+        }
+        .cat-filter button.active {
+            background: rgba(0, 82, 255, 0.12);
+            border-color: rgba(0, 82, 255, 0.2);
+            color: #fff;
+        }
+        .cat-filter button:hover {
+            color: var(--text-primary);
+        }
+
+        /* ── Responsive ── */
         @media (max-width: 1024px) {
             .trading-grid {
                 grid-template-columns: 1fr !important;
@@ -957,71 +1065,79 @@
                 font-size: 1rem;
             }
             .glass-premium {
-                padding: 1rem !important;
+                padding: 0.75rem !important;
             }
             .tab-btn {
-                font-size: 0.7rem;
-                padding: 0.4rem 1rem;
+                font-size: 0.65rem;
+                padding: 0.3rem 0.8rem;
             }
             .stats-grid {
                 grid-template-columns: 1fr 1fr !important;
-                gap: 8px !important;
+                gap: 6px !important;
             }
             .chart-wrap {
-                height: 160px;
+                height: 140px;
             }
             .orderbook-grid {
-                max-height: 140px;
+                max-height: 120px;
             }
             .trade-btns button {
-                font-size: 0.8rem;
-                padding: 8px 0;
+                font-size: 0.7rem;
+                padding: 6px 0;
             }
             .stat-card .stat-value {
-                font-size: 1.2rem;
+                font-size: 1rem;
+            }
+            .watchlist-container {
+                max-height: 200px;
+            }
+            .stat-card {
+                padding: 0.6rem !important;
+            }
+            .toast-container {
+                max-width: 220px;
+                bottom: 12px;
+                right: 12px;
+            }
+            .toast {
+                font-size: 0.65rem;
+                padding: 6px 10px;
             }
         }
 
         @media (max-width: 480px) {
             .stats-grid {
                 grid-template-columns: 1fr 1fr !important;
-                gap: 6px !important;
-            }
-            .stat-card {
-                padding: 0.75rem !important;
+                gap: 4px !important;
             }
             .stat-card .stat-value {
-                font-size: 1rem !important;
+                font-size: 0.85rem !important;
             }
             .tab-btn {
-                font-size: 0.6rem;
-                padding: 0.3rem 0.7rem;
+                font-size: 0.55rem;
+                padding: 0.2rem 0.6rem;
             }
             .tab-btn i {
-                margin-right: 0.3rem;
+                margin-right: 0.2rem;
             }
             .positions-bar .pos-item {
-                font-size: 0.6rem;
-                padding: 2px 8px 2px 6px;
+                font-size: 0.55rem;
+                padding: 2px 6px 2px 4px;
             }
             .trade-panel .row input {
-                font-size: 0.75rem;
-                padding: 6px 8px;
-            }
-            .toast-container {
-                max-width: 260px;
-                bottom: 12px;
-                right: 12px;
-            }
-            .toast {
                 font-size: 0.7rem;
-                padding: 8px 12px;
+                padding: 4px 6px;
+            }
+            .watchlist-item {
+                font-size: 0.65rem;
+                padding: 3px 4px;
+            }
+            .watchlist-item .info .symbol {
+                font-size: 0.7rem;
             }
         }
 
-        /* ═══════════════════════════════════════════
-                   LIVE CHAT
-                   ═══════════════════════════════════════════ */
+        /* ── Tawk.to positioning ── */
         .tawk-custom-position {
             bottom: 80px !important;
             right: 24px !important;
@@ -1031,6 +1147,39 @@
                 bottom: 70px !important;
                 right: 16px !important;
             }
+        }
+
+        /* ── Scrollbar for watchlist ── */
+        .watchlist-container::-webkit-scrollbar,
+        .orderbook-grid::-webkit-scrollbar,
+        .order-history::-webkit-scrollbar,
+        .news-feed::-webkit-scrollbar {
+            width: 3px;
+            height: 3px;
+        }
+        .watchlist-container::-webkit-scrollbar-thumb,
+        .orderbook-grid::-webkit-scrollbar-thumb,
+        .order-history::-webkit-scrollbar-thumb,
+        .news-feed::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+        }
+
+        /* ── Trade input number arrows ── */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            opacity: 0.5;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        /* ── Loading shimmer for price updates ── */
+        .price-loading {
+            background: linear-gradient(90deg, var(--border-color) 25%, var(--border-color-light) 50%, var(--border-color) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -1045,45 +1194,45 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- ═══ MAIN WRAPPER ═══ -->
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 py-6 md:py-8">
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-3 py-4 md:px-4 md:py-6">
 
         <!-- ═══ HEADER ═══ -->
-        <div class="glass-premium rounded-[32px] p-6 md:p-8 mb-6 glow-accent">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/30 animate-breathe">
-                        <i class="fas fa-user-astronaut text-white text-2xl"></i>
+        <div class="glass-premium rounded-[28px] p-4 md:p-6 mb-4 glow-accent">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/30 animate-breathe">
+                        <i class="fas fa-user-astronaut text-white text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">
-                            Welcome back, <span class="shimmer-text">Admin</span> 👋
+                        <h1 class="text-xl md:text-2xl font-bold text-[var(--text-primary)]">
+                            Welcome back, <span class="shimmer-text">Mr Fischer</span> 👋
                         </h1>
-                        <p class="text-[var(--text-secondary)] text-sm">
+                        <p class="text-[var(--text-secondary)] text-xs">
                             Manage your portfolio and trade assets in real-time
                         </p>
                     </div>
                 </div>
-                <div class="flex items-center gap-3 w-full md:w-auto flex-wrap">
+                <div class="flex items-center gap-2 w-full md:w-auto flex-wrap">
                     <span class="flex items-center gap-2 text-xs text-[var(--green)] bg-[var(--green)]/10 px-3 py-1.5 rounded-full">
                         <span class="w-2 h-2 rounded-full bg-[var(--green)] animate-pulse"></span>
                         <span id="connectionStatus">Live</span>
                     </span>
-                    <a href="index.html" class="btn-outline text-sm px-4 py-2 rounded-full">
-                        <i class="fas fa-home mr-2"></i> Home
+                    <a href="index.html" class="btn-outline text-xs px-3 py-1.5 rounded-full">
+                        <i class="fas fa-home mr-1"></i> Home
                     </a>
-                    <button id="logoutBtn" class="btn-outline-danger text-sm px-4 py-2 rounded-full">
-                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                    <button id="logoutBtn" class="btn-outline-danger text-xs px-3 py-1.5 rounded-full">
+                        <i class="fas fa-sign-out-alt mr-1"></i> Logout
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- ═══ TABS ═══ -->
-        <div class="flex flex-wrap gap-2 mb-6 bg-[var(--glass-bg)] backdrop-blur rounded-2xl p-2 border border-[var(--border-color)]">
-            <button class="tab-btn active" data-tab="dashboard">
+        <div class="flex flex-wrap gap-1 mb-4 bg-[var(--glass-bg)] backdrop-blur rounded-2xl p-1.5 border border-[var(--border-color)]">
+            <button class="tab-btn" data-tab="dashboard">
                 <i class="fas fa-chart-pie"></i> Dashboard
             </button>
-            <button class="tab-btn" data-tab="trading">
+            <button class="tab-btn active" data-tab="trading">
                 <i class="fas fa-chart-line"></i> Trading
             </button>
             <button class="tab-btn" data-tab="portfolio">
@@ -1095,330 +1244,172 @@
         </div>
 
         <!-- ═══ TAB: DASHBOARD ═══ -->
-        <div id="tab-dashboard" class="tab-content active">
-
-            <!-- Stats Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 stats-grid">
-                <div class="stat-card animate-slide-up delay-1">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Portfolio Value</div>
-                            <div class="stat-value text-[var(--text-primary)] mt-1" id="dashPortfolioValue">$1,245,890</div>
-                            <div class="text-[var(--green)] text-xs mt-1"><i class="fas fa-arrow-up mr-1"></i> +12.4% this month</div>
-                        </div>
-                        <div class="stat-icon blue">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                    </div>
+        <div id="tab-dashboard" class="tab-content">
+            <!-- Dashboard content (same as before, kept minimal) -->
+            <div class="glass-premium p-6 rounded-2xl text-center glow-accent">
+                <div class="text-6xl mb-4 text-[var(--text-muted)] opacity-30">
+                    <i class="fas fa-chart-pie"></i>
                 </div>
-                <div class="stat-card animate-slide-up delay-2">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Active Investments</div>
-                            <div class="stat-value text-[var(--text-primary)] mt-1">8</div>
-                            <div class="text-[var(--text-secondary)] text-xs mt-1">Starship, Starlink, +5 more</div>
-                        </div>
-                        <div class="stat-icon green">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="stat-card animate-slide-up delay-3">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Total Return</div>
-                            <div class="stat-value text-[var(--green)] mt-1">+47.2%</div>
-                            <div class="text-[var(--text-secondary)] text-xs mt-1">Since inception</div>
-                        </div>
-                        <div class="stat-icon gold">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="stat-card animate-slide-up delay-4">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Account Status</div>
-                            <div class="stat-value text-[var(--green)] mt-1">Verified</div>
-                            <div class="text-[var(--text-secondary)] text-xs mt-1">KYC Level 3</div>
-                        </div>
-                        <div class="stat-icon purple">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Investment Portfolio Table -->
-            <div class="glass-premium p-6 rounded-2xl mb-6 animate-slide-up delay-2 glow-accent">
-                <div class="flex items-center justify-between mb-4">
-                    <div>
-                        <h3 class="text-lg font-semibold text-[var(--text-primary)]">Investment Portfolio</h3>
-                        <p class="text-xs text-[var(--text-muted)]">Your current holdings and performance</p>
-                    </div>
-                    <button class="btn-green text-sm px-4 py-2 rounded-full">
-                        <i class="fas fa-plus mr-2"></i> Add Investment
-                    </button>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm">
-                        <thead>
-                            <tr class="border-b border-theme">
-                                <th class="text-left py-3 px-2 text-[var(--text-muted)] font-medium">Asset</th>
-                                <th class="text-left py-3 px-2 text-[var(--text-muted)] font-medium">Type</th>
-                                <th class="text-right py-3 px-2 text-[var(--text-muted)] font-medium">Investment</th>
-                                <th class="text-right py-3 px-2 text-[var(--text-muted)] font-medium">Current Value</th>
-                                <th class="text-right py-3 px-2 text-[var(--text-muted)] font-medium">Return</th>
-                                <th class="text-right py-3 px-2 text-[var(--text-muted)] font-medium">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-theme/50 hover:bg-[var(--border-color)]/10 transition">
-                                <td class="py-3 px-2 font-medium text-[var(--text-primary)]">Starship Fund</td>
-                                <td class="py-3 px-2 text-[var(--text-secondary)]">Pre-IPO</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$100,000</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$138,600</td>
-                                <td class="py-3 px-2 text-right text-[var(--green)]">+38.6%</td>
-                                <td class="py-3 px-2 text-right"><span class="badge-green">Active</span></td>
-                            </tr>
-                            <tr class="border-b border-theme/50 hover:bg-[var(--border-color)]/10 transition">
-                                <td class="py-3 px-2 font-medium text-[var(--text-primary)]">Starlink ETF</td>
-                                <td class="py-3 px-2 text-[var(--text-secondary)]">Growth</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$50,000</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$52,600</td>
-                                <td class="py-3 px-2 text-right text-[var(--green)]">+5.2%</td>
-                                <td class="py-3 px-2 text-right"><span class="badge-green">Active</span></td>
-                            </tr>
-                            <tr class="border-b border-theme/50 hover:bg-[var(--border-color)]/10 transition">
-                                <td class="py-3 px-2 font-medium text-[var(--text-primary)]">Mars Colony Bond</td>
-                                <td class="py-3 px-2 text-[var(--text-secondary)]">Fixed Income</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$150,000</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$163,350</td>
-                                <td class="py-3 px-2 text-right text-[var(--green)]">+8.9%</td>
-                                <td class="py-3 px-2 text-right"><span class="badge-gold">Matured</span></td>
-                            </tr>
-                            <tr class="border-b border-theme/50 hover:bg-[var(--border-color)]/10 transition">
-                                <td class="py-3 px-2 font-medium text-[var(--text-primary)]">Tesla Stock</td>
-                                <td class="py-3 px-2 text-[var(--text-secondary)]">Equity</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$25,000</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$29,750</td>
-                                <td class="py-3 px-2 text-right text-[var(--green)]">+19.0%</td>
-                                <td class="py-3 px-2 text-right"><span class="badge-green">Active</span></td>
-                            </tr>
-                            <tr class="hover:bg-[var(--border-color)]/10 transition">
-                                <td class="py-3 px-2 font-medium text-[var(--text-primary)]">SpaceX Pre-IPO</td>
-                                <td class="py-3 px-2 text-[var(--text-secondary)]">Pre-IPO</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$75,000</td>
-                                <td class="py-3 px-2 text-right text-[var(--text-primary)]">$82,500</td>
-                                <td class="py-3 px-2 text-right text-[var(--green)]">+10.0%</td>
-                                <td class="py-3 px-2 text-right"><span class="badge-gradient">Pending</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Goals & Notifications -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-3 glow-accent">
-                    <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-4">Investment Goals</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-[var(--text-secondary)]">Annual Return Target</span>
-                                <span class="text-[var(--text-primary)] font-semibold">32%</span>
-                            </div>
-                            <div class="progress-bar mt-1">
-                                <div class="fill" style="width: 78%;"></div>
-                            </div>
-                            <span class="text-xs text-[var(--text-muted)]">78% achieved</span>
-                        </div>
-                        <div>
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-[var(--text-secondary)]">Portfolio Diversification</span>
-                                <span class="text-[var(--text-primary)] font-semibold">85%</span>
-                            </div>
-                            <div class="progress-bar mt-1">
-                                <div class="fill" style="width: 85%;"></div>
-                            </div>
-                            <span class="text-xs text-[var(--text-muted)]">85% diversified</span>
-                        </div>
-                        <div>
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-[var(--text-secondary)]">Risk Tolerance</span>
-                                <span class="text-[var(--text-primary)] font-semibold">Moderate</span>
-                            </div>
-                            <div class="progress-bar mt-1">
-                                <div class="fill" style="width: 60%;"></div>
-                            </div>
-                            <span class="text-xs text-[var(--text-muted)]">60% risk appetite</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-4 glow-accent">
-                    <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-4">Notifications</h3>
-                    <div class="space-y-3 max-h-[220px] overflow-y-auto pr-2">
-                        <div class="flex items-start gap-3 p-2 rounded-xl bg-[var(--primary)]/5 border border-[var(--primary)]/10">
-                            <div class="w-8 h-8 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] text-sm flex-shrink-0">
-                                <i class="fas fa-info-circle"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-[var(--text-primary)]">Starship launch confirmed for Q4 2026</p>
-                                <span class="text-[10px] text-[var(--text-muted)]">2 hours ago</span>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-2 rounded-xl bg-[var(--green)]/5 border border-[var(--green)]/10">
-                            <div class="w-8 h-8 rounded-full bg-[var(--green)]/20 flex items-center justify-center text-[var(--green)] text-sm flex-shrink-0">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-[var(--text-primary)]">Dividend of $1,240 received from Starlink</p>
-                                <span class="text-[10px] text-[var(--text-muted)]">5 hours ago</span>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-2 rounded-xl bg-amber-400/5 border border-amber-400/10">
-                            <div class="w-8 h-8 rounded-full bg-amber-400/20 flex items-center justify-center text-amber-400 text-sm flex-shrink-0">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-[var(--text-primary)]">Mars Bond maturity in 30 days</p>
-                                <span class="text-[10px] text-[var(--text-muted)]">1 day ago</span>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-2 rounded-xl bg-[var(--primary)]/5 border border-[var(--primary)]/10">
-                            <div class="w-8 h-8 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] text-sm flex-shrink-0">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-[var(--text-primary)]">New SpaceX pre-IPO round opening soon</p>
-                                <span class="text-[10px] text-[var(--text-muted)]">3 days ago</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="text-2xl font-bold text-[var(--text-primary)]">Dashboard Overview</h3>
+                <p class="text-[var(--text-secondary)] mt-2 max-w-md mx-auto">
+                    Switch to the <strong>Trading</strong> tab for live market data and advanced trading tools.
+                </p>
             </div>
         </div>
 
-        <!-- ═══ TAB: TRADING ═══ -->
-        <div id="tab-trading" class="tab-content">
+        <!-- ═══ TAB: TRADING (ENHANCED) ═══ -->
+        <div id="tab-trading" class="tab-content active">
 
-            <!-- Trading Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 stats-grid">
+            <!-- ── Trading Stats ── -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4 stats-grid">
                 <div class="stat-card animate-slide-up delay-1">
                     <div class="flex items-center justify-between">
                         <div>
-                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Balance</div>
-                            <div class="stat-value text-[var(--text-primary)] mt-1" id="tradeBalance">$100,000.00</div>
+                            <div class="text-[var(--text-muted)] text-[10px] uppercase tracking-wider">Balance</div>
+                            <div class="stat-value text-[var(--text-primary)] mt-0.5" id="tradeBalance">$100,000.00</div>
                         </div>
-                        <div class="stat-icon blue">
-                            <i class="fas fa-wallet"></i>
-                        </div>
+                        <div class="stat-icon blue"><i class="fas fa-wallet"></i></div>
                     </div>
                 </div>
                 <div class="stat-card animate-slide-up delay-2">
                     <div class="flex items-center justify-between">
                         <div>
-                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Equity</div>
-                            <div class="stat-value text-[var(--text-primary)] mt-1" id="tradeEquity">$102,450.80</div>
+                            <div class="text-[var(--text-muted)] text-[10px] uppercase tracking-wider">Equity</div>
+                            <div class="stat-value text-[var(--text-primary)] mt-0.5" id="tradeEquity">$100,000.00</div>
                         </div>
-                        <div class="stat-icon purple">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
+                        <div class="stat-icon purple"><i class="fas fa-chart-pie"></i></div>
                     </div>
                 </div>
                 <div class="stat-card animate-slide-up delay-3">
                     <div class="flex items-center justify-between">
                         <div>
-                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">P&L Today</div>
-                            <div class="stat-value text-[var(--green)] mt-1" id="tradePnl">+$1,240.50</div>
+                            <div class="text-[var(--text-muted)] text-[10px] uppercase tracking-wider">P&L Today</div>
+                            <div class="stat-value text-[var(--green)] mt-0.5" id="tradePnl">+$0.00</div>
                         </div>
-                        <div class="stat-icon green">
-                            <i class="fas fa-arrow-trend-up"></i>
-                        </div>
+                        <div class="stat-icon green"><i class="fas fa-arrow-trend-up"></i></div>
                     </div>
                 </div>
                 <div class="stat-card animate-slide-up delay-4">
                     <div class="flex items-center justify-between">
                         <div>
-                            <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Open Positions</div>
-                            <div class="stat-value text-[var(--text-primary)] mt-1" id="tradePositions">0</div>
+                            <div class="text-[var(--text-muted)] text-[10px] uppercase tracking-wider">Open Positions</div>
+                            <div class="stat-value text-[var(--text-primary)] mt-0.5" id="tradePositions">0</div>
                         </div>
-                        <div class="stat-icon gold">
-                            <i class="fas fa-coins"></i>
+                        <div class="stat-icon gold"><i class="fas fa-coins"></i></div>
+                    </div>
+                </div>
+                <div class="stat-card animate-slide-up delay-5">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="text-[var(--text-muted)] text-[10px] uppercase tracking-wider">Data Source</div>
+                            <div class="stat-value text-[var(--text-primary)] mt-0.5 text-sm font-orbitron" id="dataSource">Live Firex Market</div>
                         </div>
+                        <div class="stat-icon blue"><i class="fas fa-satellite-dish"></i></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Trading Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                <!-- Left: Watchlist -->
-                <div class="glass-premium p-4 rounded-2xl lg:col-span-1 glow-accent" style="max-height:600px;overflow:hidden;display:flex;flex-direction:column;">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
-                            <i class="fas fa-star text-[var(--gold)] mr-1"></i> Watchlist
-                        </span>
-                        <div class="flex items-center gap-2">
-                            <span class="text-[10px] text-[var(--text-muted)]" id="watchlistLastUpdate">—</span>
-                            <button id="refreshWatchlist" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition text-sm">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="watchlist-container" id="watchlistContainer"></div>
+            <!-- ── Trading Grid ── -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
 
-                    <!-- News Feed -->
-                    <div class="mt-3 pt-3 border-t border-[var(--border-color)]">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
-                                <i class="fas fa-newspaper mr-1"></i> Flash News
-                            </span>
-                            <span class="text-[10px] text-[var(--text-muted)]">live</span>
+                <!-- LEFT: Watchlist + News (colspan 1) -->
+                <div class="lg:col-span-1 flex flex-col gap-3">
+                    <div class="glass-premium p-3 rounded-2xl glow-accent" style="display:flex;flex-direction:column;max-height:580px;">
+                        <!-- Search & Filter -->
+                        <div class="relative mb-2">
+                            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-xs"></i>
+                            <input type="text" id="assetSearch" class="asset-search-input text-xs" placeholder="Search assets..." />
                         </div>
-                        <div class="news-feed" id="newsFeed">
-                            <div class="news-item">
-                                <div class="headline">Markets open — volatility expected</div>
-                                <div class="time">Just now</div>
+                        <div class="cat-filter mb-2" id="categoryFilter">
+                            <button class="active" data-cat="all">All</button>
+                            <button data-cat="stock">Stocks</button>
+                            <button data-cat="crypto">Crypto</button>
+                            <button data-cat="forex">Forex</button>
+                        </div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+                                <i class="fas fa-star text-[var(--gold)] mr-1"></i> Watchlist
+                            </span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[9px] text-[var(--text-muted)]" id="watchlistLastUpdate">—</span>
+                                <button id="refreshWatchlist" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition text-xs">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="watchlist-container" id="watchlistContainer"></div>
+
+                        <!-- News Feed -->
+                        <div class="mt-2 pt-2 border-t border-[var(--border-color)]">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+                                    <i class="fas fa-newspaper mr-1"></i> Flash News
+                                </span>
+                                <span class="text-[9px] text-[var(--text-muted)]">live</span>
+                            </div>
+                            <div class="news-feed" id="newsFeed">
+                                <div class="news-item">
+                                    <div class="headline">Markets open — volatility expected</div>
+                                    <div class="time">Just now</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Center: Chart -->
-                <div class="glass-premium p-4 rounded-2xl lg:col-span-2 glow-accent" style="display:flex;flex-direction:column;">
-                    <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
-                        <div class="flex items-center gap-3 flex-wrap">
-                            <span class="font-orbitron font-bold text-lg" id="chartSymbol">AAPL</span>
-                            <span class="text-xl font-bold" id="chartPrice">—</span>
-                            <span class="text-sm font-semibold px-2 py-0.5 rounded-full" id="chartChange">—</span>
-                            <span class="text-xs text-[var(--text-muted)]" id="chartUpdated">—</span>
+                <!-- CENTER: Chart (colspan 3) -->
+                <div class="lg:col-span-3 flex flex-col gap-3">
+                    <div class="glass-premium p-3 rounded-2xl glow-accent" style="display:flex;flex-direction:column;">
+                        <!-- Chart Header -->
+                        <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
+                            <div class="flex items-center gap-3 flex-wrap">
+                                <span class="font-orbitron font-bold text-base" id="chartSymbol">AAPL</span>
+                                <span class="text-xl font-bold" id="chartPrice">—</span>
+                                <span class="text-sm font-semibold px-2 py-0.5 rounded-full" id="chartChange">—</span>
+                                <span class="text-[10px] text-[var(--text-muted)]" id="chartUpdated">—</span>
+                            </div>
+                            <div class="flex gap-1 flex-wrap" id="timeframeBtns">
+                                <button class="text-[10px] px-2.5 py-0.5 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] font-semibold active" data-tf="1D">1D</button>
+                                <button class="text-[10px] px-2.5 py-0.5 rounded-full text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition" data-tf="1W">1W</button>
+                                <button class="text-[10px] px-2.5 py-0.5 rounded-full text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition" data-tf="1M">1M</button>
+                                <button class="text-[10px] px-2.5 py-0.5 rounded-full text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition" data-tf="3M">3M</button>
+                            </div>
                         </div>
-                        <div class="flex gap-1" id="timeframeBtns">
-                            <button class="text-xs px-3 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] font-semibold active" data-tf="1D">1D</button>
-                            <button class="text-xs px-3 py-1 rounded-full text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition" data-tf="1W">1W</button>
-                            <button class="text-xs px-3 py-1 rounded-full text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition" data-tf="1M">1M</button>
-                            <button class="text-xs px-3 py-1 rounded-full text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition" data-tf="3M">3M</button>
+                        <div class="chart-wrap">
+                            <canvas id="priceChart"></canvas>
+                        </div>
+                        <!-- Indicators -->
+                        <div class="flex gap-4 mt-2 text-[10px] text-[var(--text-secondary)] flex-wrap">
+                            <span>SMA 20: <strong class="text-[var(--text-primary)]" id="sma20">—</strong></span>
+                            <span>SMA 50: <strong class="text-[var(--text-primary)]" id="sma50">—</strong></span>
+                            <span>RSI: <strong class="text-[var(--text-primary)]" id="rsiVal">—</strong></span>
+                            <span>Vol: <strong class="text-[var(--text-primary)]" id="volumeVal">—</strong></span>
+                            <span>24h High: <strong class="text-[var(--text-primary)]" id="high24h">—</strong></span>
+                            <span>24h Low: <strong class="text-[var(--text-primary)]" id="low24h">—</strong></span>
                         </div>
                     </div>
-                    <div class="chart-wrap">
-                        <canvas id="priceChart"></canvas>
-                    </div>
-                    <div class="flex gap-4 mt-2 text-xs text-[var(--text-secondary)] flex-wrap">
-                        <span>SMA 20: <strong class="text-[var(--text-primary)]" id="sma20">—</strong></span>
-                        <span>SMA 50: <strong class="text-[var(--text-primary)]" id="sma50">—</strong></span>
-                        <span>RSI: <strong class="text-[var(--text-primary)]" id="rsiVal">—</strong></span>
-                        <span>Vol: <strong class="text-[var(--text-primary)]" id="volumeVal">—</strong></span>
+
+                    <!-- Order History -->
+                    <div class="glass-premium p-3 rounded-2xl glow-accent">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+                                <i class="fas fa-clock-rotate-left mr-1"></i> Order History
+                            </span>
+                            <span class="text-[9px] text-[var(--text-muted)]" id="orderCountLabel">0 trades</span>
+                        </div>
+                        <div class="order-history" id="orderHistory">
+                            <div class="text-center text-[var(--text-muted)] text-xs py-2">No trades yet</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right: Order Book + Trade -->
-                <div class="lg:col-span-1 flex flex-col gap-4">
+                <!-- RIGHT: Order Book + Trade Panel (colspan 1) -->
+                <div class="lg:col-span-1 flex flex-col gap-3">
                     <!-- Order Book -->
-                    <div class="glass-premium p-4 rounded-2xl glow-accent">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">Order Book</span>
-                            <span class="text-[10px] text-[var(--text-muted)]">depth</span>
+                    <div class="glass-premium p-3 rounded-2xl glow-accent">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider">Order Book</span>
+                            <span class="text-[9px] text-[var(--text-muted)]">depth</span>
                         </div>
                         <div class="orderbook-grid" id="orderbookGrid">
                             <div class="side bids" id="bidSide"></div>
@@ -1427,10 +1418,14 @@
                         <div class="orderbook-spread">
                             Spread <strong id="spreadValue">—</strong>
                         </div>
+                        <div class="flex justify-between text-[9px] text-[var(--text-muted)] mt-1">
+                            <span>Bid: <strong class="text-[var(--green)]" id="bidPrice">—</strong></span>
+                            <span>Ask: <strong class="text-red-500" id="askPrice">—</strong></span>
+                        </div>
                     </div>
 
                     <!-- Trade Panel -->
-                    <div class="glass-premium p-4 rounded-2xl trade-panel glow-accent">
+                    <div class="glass-premium p-3 rounded-2xl trade-panel glow-accent">
                         <div class="order-type" id="orderTypeBtns">
                             <button class="active" data-type="market">Market</button>
                             <button data-type="limit">Limit</button>
@@ -1438,37 +1433,37 @@
                         </div>
                         <div class="row">
                             <span class="input-label">Size</span>
-                            <input type="number" id="tradeSize" value="1" step="0.1" min="0.1" placeholder="Units"/>
+                            <input type="number" id="tradeSize" value="1" step="0.1" min="0.1" placeholder="Units" />
                         </div>
                         <div class="row" id="limitPriceRow" style="display:none;">
                             <span class="input-label">Price</span>
-                            <input type="number" id="limitPrice" step="0.01" placeholder="Limit price"/>
+                            <input type="number" id="limitPrice" step="0.01" placeholder="Limit price" />
                         </div>
-                        <div class="flex justify-between text-xs text-[var(--text-muted)] px-1 mb-2">
+                        <div class="flex justify-between text-[10px] text-[var(--text-muted)] px-1 mb-1.5">
                             <span>Leverage: 1:1</span>
                             <span>Fee: 0.05%</span>
                             <span class="price-hint" id="tradePriceHint"><span class="live-dot"></span> @ —</span>
                         </div>
                         <div class="trade-btns">
-                            <button class="btn-trade-buy flex-1 py-2 rounded-full text-sm" id="buyBtn"><i class="fas fa-arrow-up mr-1"></i> BUY</button>
-                            <button class="btn-trade-sell flex-1 py-2 rounded-full text-sm" id="sellBtn"><i class="fas fa-arrow-down mr-1"></i> SELL</button>
+                            <button class="btn-trade-buy flex-1 py-1.5 rounded-full text-sm" id="buyBtn"><i class="fas fa-arrow-up mr-1"></i> BUY</button>
+                            <button class="btn-trade-sell flex-1 py-1.5 rounded-full text-sm" id="sellBtn"><i class="fas fa-arrow-down mr-1"></i> SELL</button>
                         </div>
-                        <div class="flex justify-between text-[10px] text-[var(--text-muted)] mt-2 px-1">
+                        <div class="flex justify-between text-[9px] text-[var(--text-muted)] mt-1.5 px-1">
                             <span>Min. $10</span>
-                            <span>Estimated cost: <strong id="estimatedCost" class="text-[var(--text-primary)]">$0.00</strong></span>
+                            <span>Est. cost: <strong id="estimatedCost" class="text-[var(--text-primary)]">$0.00</strong></span>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Positions Bar -->
-            <div class="glass-premium p-3 rounded-2xl mt-6 glow-accent">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">Open Positions</span>
-                    <span class="text-xs text-[var(--text-muted)]" id="posCountLabel">0</span>
-                </div>
-                <div class="positions-bar" id="positionsBar">
-                    <span class="empty"><i class="fas fa-inbox mr-2"></i>No open positions</span>
+                    <!-- Quick Positions -->
+                    <div class="glass-premium p-2.5 rounded-2xl glow-accent">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider">Open Positions</span>
+                            <span class="text-[9px] text-[var(--text-muted)]" id="posCountLabel">0</span>
+                        </div>
+                        <div class="positions-bar" id="positionsBar">
+                            <span class="empty"><i class="fas fa-inbox mr-1"></i>No open positions</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1491,44 +1486,44 @@
 
         <!-- ═══ TAB: SETTINGS ═══ -->
         <div id="tab-settings" class="tab-content">
-            <div class="glass-premium p-8 rounded-2xl glow-accent">
-                <h3 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Account Settings</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-premium p-6 rounded-2xl glow-accent">
+                <h3 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Account Settings</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1">Display Name</label>
-                        <input type="text" value="Admin" class="w-full px-4 py-3 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--primary)]"/>
+                        <input type="text" value="Admin" class="w-full px-4 py-2.5 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--primary)] text-sm" />
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1">Email</label>
-                        <input type="email" value="admin@teslafrontier.io" class="w-full px-4 py-3 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--primary)]"/>
+                        <input type="email" value="admin@teslafrontier.io" class="w-full px-4 py-2.5 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--primary)] text-sm" />
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1">KYC Level</label>
-                        <div class="w-full px-4 py-3 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] text-[var(--green)] font-semibold">
+                        <div class="w-full px-4 py-2.5 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] text-[var(--green)] font-semibold text-sm">
                             <i class="fas fa-check-circle mr-2"></i> Level 3 — Verified
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1">Account Type</label>
-                        <div class="w-full px-4 py-3 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] text-[var(--text-primary)]">
+                        <div class="w-full px-4 py-2.5 rounded-xl bg-[var(--glass-bg)] border border-[var(--border-color)] text-[var(--text-primary)] text-sm">
                             <i class="fas fa-crown text-[var(--gold)] mr-2"></i> Premium
                         </div>
                     </div>
                 </div>
-                <div class="mt-6 pt-6 border-t border-[var(--border-color)] flex gap-4 flex-wrap">
-                    <button class="btn-primary px-6 py-2.5 rounded-full text-sm">Save Changes</button>
-                    <button class="btn-outline px-6 py-2.5 rounded-full text-sm">Change Password</button>
-                    <button class="btn-outline-danger px-6 py-2.5 rounded-full text-sm">Delete Account</button>
+                <div class="mt-4 pt-4 border-t border-[var(--border-color)] flex gap-3 flex-wrap">
+                    <button class="btn-primary px-6 py-2 rounded-full text-sm">Save Changes</button>
+                    <button class="btn-outline px-6 py-2 rounded-full text-sm">Change Password</button>
+                    <button class="btn-outline-danger px-6 py-2 rounded-full text-sm">Delete Account</button>
                 </div>
             </div>
         </div>
 
         <!-- ═══ FOOTER ═══ -->
-        <div class="mt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[var(--text-muted)] border-t border-[var(--border-color)] pt-6">
+        <div class="mt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-[10px] text-[var(--text-muted)] border-t border-[var(--border-color)] pt-4">
             <span>© 2026 Tesla Frontier Network. All rights reserved.</span>
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4">
                 <span class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-[var(--green)] animate-pulse"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[var(--green)] animate-pulse"></span>
                     <span id="statusText">Live</span>
                 </span>
                 <span id="updateTimeText">—</span>
@@ -1568,6 +1563,16 @@
                 html.setAttribute('data-theme', theme);
                 localStorage.setItem('theme', theme);
                 themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+                if (state.chartInstance) {
+                    const isDark = theme === 'dark';
+                    state.chartInstance.options.plugins.tooltip.backgroundColor = isDark ? 'rgba(16,28,48,0.9)' :
+                        'rgba(255,255,255,0.9)';
+                    state.chartInstance.options.plugins.tooltip.titleColor = isDark ? '#edf2f9' : '#0B0B1A';
+                    state.chartInstance.options.plugins.tooltip.bodyColor = isDark ? '#9aa9c9' : '#5A607A';
+                    state.chartInstance.options.scales.x.ticks.color = isDark ? '#5a6f8a' : '#8A90A8';
+                    state.chartInstance.options.scales.y.ticks.color = isDark ? '#5a6f8a' : '#8A90A8';
+                    state.chartInstance.update();
+                }
             }
             setTheme(localStorage.getItem('theme') || 'dark');
             themeToggle.addEventListener('click', () => {
@@ -1593,7 +1598,7 @@
                         tabContents[key].classList.toggle('active', key === tab);
                     });
                     if (tab === 'trading' && state.chartInstance) {
-                        setTimeout(() => state.chartInstance.resize(), 100);
+                        setTimeout(() => state.chartInstance.resize(), 120);
                     }
                 });
             });
@@ -1606,30 +1611,55 @@
             });
 
             // ════════════════════════════════════════════════════════════
-            //  TRADING ENGINE WITH LIVE YAHOO FINANCE API
+            //  ENHANCED TRADING ENGINE WITH LIVE YAHOO FINANCE API
             // ════════════════════════════════════════════════════════════
 
-            // ─── Asset Data with Yahoo symbols ────────────────────────
+            // ─── Asset Data ────────────────────────────────────────────
             const ASSETS = [
-                { id: 'AAPL', name: 'Apple Inc.', yahoo: 'AAPL', base: 189.54, vol: 1.8, spread: 0.04, digits: 2 },
-                { id: 'MSFT', name: 'Microsoft', yahoo: 'MSFT', base: 418.20, vol: 1.6, spread: 0.06, digits: 2 },
-                { id: 'GOOGL', name: 'Alphabet', yahoo: 'GOOGL', base: 152.80, vol: 1.4, spread: 0.04, digits: 2 },
-                { id: 'AMZN', name: 'Amazon', yahoo: 'AMZN', base: 185.90, vol: 2.0, spread: 0.05, digits: 2 },
-                { id: 'TSLA', name: 'Tesla', yahoo: 'TSLA', base: 248.30, vol: 4.2, spread: 0.08, digits: 2 },
-                { id: 'NVDA', name: 'NVIDIA', yahoo: 'NVDA', base: 875.40, vol: 5.0, spread: 0.12, digits: 2 },
-                { id: 'META', name: 'Meta', yahoo: 'META', base: 498.20, vol: 2.2, spread: 0.06, digits: 2 },
-                { id: 'BTC/USD', name: 'Bitcoin', yahoo: 'BTC-USD', base: 62450, vol: 320, spread: 12, digits: 2 },
-                { id: 'ETH/USD', name: 'Ethereum', yahoo: 'ETH-USD', base: 3120, vol: 85, spread: 6, digits: 2 },
-                { id: 'SOL/USD', name: 'Solana', yahoo: 'SOL-USD', base: 168.40, vol: 7.5, spread: 0.4, digits: 2 },
-                { id: 'EUR/USD', name: 'Euro/Dollar', yahoo: 'EURUSD=X', base: 1.0892, vol: 0.0008, spread: 0.0002,
-                    digits: 5 },
-                { id: 'GBP/USD', name: 'Pound/Dollar', yahoo: 'GBPUSD=X', base: 1.2675, vol: 0.0010, spread: 0.0002,
-                    digits: 5 },
-                { id: 'USD/JPY', name: 'Dollar/Yen', yahoo: 'USDJPY=X', base: 149.80, vol: 0.25, spread: 0.02,
-                    digits: 2 },
-                { id: 'XRP/USD', name: 'Ripple', yahoo: 'XRP-USD', base: 0.54, vol: 0.03, spread: 0.002, digits: 4 },
+                // Stocks
+                { id: 'AAPL', name: 'Apple Inc.', yahoo: 'AAPL', base: 189.54, vol: 1.8, spread: 0.04, digits: 2,
+                    cat: 'stock' },
+                { id: 'MSFT', name: 'Microsoft', yahoo: 'MSFT', base: 418.20, vol: 1.6, spread: 0.06, digits: 2,
+                    cat: 'stock' },
+                { id: 'GOOGL', name: 'Alphabet', yahoo: 'GOOGL', base: 152.80, vol: 1.4, spread: 0.04, digits: 2,
+                    cat: 'stock' },
+                { id: 'AMZN', name: 'Amazon', yahoo: 'AMZN', base: 185.90, vol: 2.0, spread: 0.05, digits: 2,
+                    cat: 'stock' },
+                { id: 'TSLA', name: 'Tesla', yahoo: 'TSLA', base: 248.30, vol: 4.2, spread: 0.08, digits: 2,
+                    cat: 'stock' },
+                { id: 'NVDA', name: 'NVIDIA', yahoo: 'NVDA', base: 875.40, vol: 5.0, spread: 0.12, digits: 2,
+                    cat: 'stock' },
+                { id: 'META', name: 'Meta', yahoo: 'META', base: 498.20, vol: 2.2, spread: 0.06, digits: 2,
+                    cat: 'stock' },
+                { id: 'NFLX', name: 'Netflix', yahoo: 'NFLX', base: 628.30, vol: 3.0, spread: 0.08, digits: 2,
+                    cat: 'stock' },
+                { id: 'AMD', name: 'AMD', yahoo: 'AMD', base: 162.40, vol: 3.8, spread: 0.07, digits: 2, cat: 'stock' },
+                { id: 'INTC', name: 'Intel', yahoo: 'INTC', base: 44.20, vol: 1.2, spread: 0.03, digits: 2,
+                cat: 'stock' },
+                // Crypto
+                { id: 'BTC/USD', name: 'Bitcoin', yahoo: 'BTC-USD', base: 62450, vol: 320, spread: 12, digits: 2,
+                    cat: 'crypto' },
+                { id: 'ETH/USD', name: 'Ethereum', yahoo: 'ETH-USD', base: 3120, vol: 85, spread: 6, digits: 2,
+                    cat: 'crypto' },
+                { id: 'SOL/USD', name: 'Solana', yahoo: 'SOL-USD', base: 168.40, vol: 7.5, spread: 0.4, digits: 2,
+                    cat: 'crypto' },
+                { id: 'XRP/USD', name: 'Ripple', yahoo: 'XRP-USD', base: 0.54, vol: 0.03, spread: 0.002, digits: 4,
+                    cat: 'crypto' },
                 { id: 'DOGE/USD', name: 'Dogecoin', yahoo: 'DOGE-USD', base: 0.12, vol: 0.01, spread: 0.0005,
-                    digits: 4 },
+                    digits: 4, cat: 'crypto' },
+                { id: 'ADA/USD', name: 'Cardano', yahoo: 'ADA-USD', base: 0.46, vol: 0.02, spread: 0.001, digits: 4,
+                    cat: 'crypto' },
+                // Forex
+                { id: 'EUR/USD', name: 'Euro/Dollar', yahoo: 'EURUSD=X', base: 1.0892, vol: 0.0008, spread: 0.0002,
+                    digits: 5, cat: 'forex' },
+                { id: 'GBP/USD', name: 'Pound/Dollar', yahoo: 'GBPUSD=X', base: 1.2675, vol: 0.0010, spread: 0.0002,
+                    digits: 5, cat: 'forex' },
+                { id: 'USD/JPY', name: 'Dollar/Yen', yahoo: 'USDJPY=X', base: 149.80, vol: 0.25, spread: 0.02,
+                    digits: 2, cat: 'forex' },
+                { id: 'AUD/USD', name: 'Aud/Dollar', yahoo: 'AUDUSD=X', base: 0.6620, vol: 0.0006, spread: 0.0002,
+                    digits: 5, cat: 'forex' },
+                { id: 'USD/CAD', name: 'Dollar/CAD', yahoo: 'USDCAD=X', base: 1.3620, vol: 0.0008, spread: 0.0002,
+                    digits: 5, cat: 'forex' },
             ];
 
             function getAsset(id) { return ASSETS.find(a => a.id === id) || ASSETS[0]; }
@@ -1662,6 +1692,7 @@
             const state = {
                 balance: 100000,
                 positions: [],
+                orders: [], // order history
                 selectedAsset: 'AAPL',
                 chartData: [],
                 chartInstance: null,
@@ -1674,93 +1705,136 @@
                 priceInterval: null,
                 updateCount: 0,
                 assetMap: {}, // yahoo -> id
+                categoryFilter: 'all',
+                searchQuery: '',
+                high24h: {},
+                low24h: {},
+                lastFetchTime: null,
             };
 
-            // Build yahoo to id map
+            // Build yahoo -> id map
             ASSETS.forEach(a => { state.assetMap[a.yahoo] = a.id; });
 
-            // ─── Initialize Prices with base ──────────────────────────
+            // ─── Initialize Prices ─────────────────────────────────────
             ASSETS.forEach(a => {
-                state.tickers[a.id] = a.base;
+                const base = a.base || 100;
+                state.tickers[a.id] = base;
                 state.priceHistory[a.id] = [];
-                for (let i = 0; i < 60; i++) {
-                    state.priceHistory[a.id].push(a.base + randomBetween(-0.02, 0.02) * a.volatility * 0.4);
+                for (let i = 0; i < 80; i++) {
+                    state.priceHistory[a.id].push(base + randomBetween(-0.02, 0.02) * (a.vol || 1) * 0.4);
                 }
-                state.lastPrice[a.id] = a.base;
+                state.lastPrice[a.id] = base;
+                state.high24h[a.id] = base * (1 + randomBetween(0.01, 0.05));
+                state.low24h[a.id] = base * (1 - randomBetween(0.01, 0.05));
             });
 
-            // ─── Yahoo Finance API fetch ──────────────────────────────
+            // ─── Yahoo Finance API ─────────────────────────────────────
             async function fetchYahooPrice(symbol) {
-                const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`;
-                try {
-                    const resp = await fetch(url);
-                    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-                    const data = await resp.json();
-                    const result = data.chart?.result?.[0];
-                    if (!result) throw new Error('No result');
-                    const price = result.meta?.regularMarketPrice;
-                    if (price === undefined || price === null) throw new Error('No price');
-                    return price;
-                } catch (e) {
-                    console.warn(`Yahoo fetch error for ${symbol}:`, e.message);
-                    return null;
+                // Use CORS proxy with fallback
+                const proxies = [
+                    `https://api.allorigins.win/raw?url=https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`,
+                    `https://corsproxy.io/?https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`,
+                ];
+
+                for (const url of proxies) {
+                    try {
+                        const resp = await fetch(url, {
+                            headers: { 'Accept': 'application/json' },
+                            signal: AbortSignal.timeout(5000),
+                        });
+                        if (!resp.ok) continue;
+                        const data = await resp.json();
+                        const result = data.chart?.result?.[0];
+                        if (!result) continue;
+                        const price = result.meta?.regularMarketPrice;
+                        if (price !== undefined && price !== null && !isNaN(price) && price > 0) {
+                            return price;
+                        }
+                    } catch (e) {
+                        // continue to next proxy
+                    }
                 }
+                return null;
             }
 
             async function fetchAllPrices() {
                 const symbols = ASSETS.map(a => a.yahoo);
-                const fetches = symbols.map(async (sym) => {
-                    try {
+                const results = {};
+
+                // Fetch in parallel with concurrency limit
+                const chunkSize = 5;
+                for (let i = 0; i < symbols.length; i += chunkSize) {
+                    const chunk = symbols.slice(i, i + chunkSize);
+                    const fetches = chunk.map(async (sym) => {
                         const price = await fetchYahooPrice(sym);
                         return { symbol: sym, price };
-                    } catch (e) {
-                        return { symbol: sym, price: null };
+                    });
+                    const settled = await Promise.allSettled(fetches);
+                    for (const result of settled) {
+                        if (result.status === 'fulfilled') {
+                            const { symbol, price } = result.value;
+                            results[symbol] = price;
+                        }
                     }
-                });
-                const settled = await Promise.allSettled(fetches);
-                const results = {};
-                for (const result of settled) {
-                    if (result.status === 'fulfilled') {
-                        const { symbol, price } = result.value;
-                        results[symbol] = price;
+                    // Small delay between chunks to avoid rate limits
+                    if (i + chunkSize < symbols.length) {
+                        await new Promise(r => setTimeout(r, 200));
                     }
                 }
                 return results;
             }
 
-            // ─── Update tickers with live data ────────────────────────
+            // ─── Update Tickers ────────────────────────────────────────
             async function updateTickers() {
                 try {
                     const prices = await fetchAllPrices();
                     let updated = 0;
+                    let total = 0;
+
                     for (const yahoo in prices) {
                         const price = prices[yahoo];
                         const id = state.assetMap[yahoo];
-                        if (id && price !== null && price !== undefined && !isNaN(price) && price > 0) {
-                            state.tickers[id] = price;
-                            updated++;
+                        if (id) {
+                            total++;
+                            if (price !== null && price !== undefined && !isNaN(price) && price > 0) {
+                                const oldPrice = state.tickers[id] || price;
+                                state.tickers[id] = price;
+                                state.lastPrice[id] = oldPrice;
+                                updated++;
+                                // Update high/low
+                                if (!state.high24h[id] || price > state.high24h[id]) state.high24h[id] = price;
+                                if (!state.low24h[id] || price < state.low24h[id]) state.low24h[id] = price;
+                            }
                         }
                     }
+
+                    // If no prices updated, use fallback simulation
                     if (updated === 0) {
-                        // Fallback to simulated if API fails
                         for (const a of ASSETS) {
-                            const change = (Math.random() - 0.5) * a.volatility * 0.3;
-                            let p = state.tickers[a.id] + change;
-                            const maxDev = a.volatility * 3;
-                            if (p > a.base + maxDev) p = a.base + maxDev;
-                            if (p < a.base - maxDev) p = a.base - maxDev;
+                            const change = (Math.random() - 0.5) * (a.vol || 1) * 0.3;
+                            let p = (state.tickers[a.id] || a.base) + change;
+                            const maxDev = (a.vol || 1) * 3;
+                            const base = a.base || 100;
+                            if (p > base + maxDev) p = base + maxDev;
+                            if (p < base - maxDev) p = base - maxDev;
+                            state.lastPrice[a.id] = state.tickers[a.id] || p;
                             state.tickers[a.id] = p;
                         }
                         state.isConnected = false;
                         document.getElementById('connectionStatus').textContent = 'Simulated';
                         document.getElementById('statusText').textContent = 'Simulated';
+                        document.getElementById('dataSource').textContent = 'Sim';
+                        document.getElementById('dataSource').style.color = 'var(--gold)';
                     } else {
                         state.isConnected = true;
                         document.getElementById('connectionStatus').textContent = 'Live';
                         document.getElementById('statusText').textContent = 'Live';
+                        document.getElementById('dataSource').textContent = 'Yahoo';
+                        document.getElementById('dataSource').style.color = 'var(--green)';
                     }
 
                     state.lastUpdate = new Date();
+                    state.lastFetchTime = state.lastUpdate;
                     const timeStr = state.lastUpdate.toLocaleTimeString();
                     document.getElementById('watchlistLastUpdate').textContent = timeStr;
                     document.getElementById('updateTimeText').textContent = timeStr;
@@ -1771,6 +1845,7 @@
                     renderOrderbook(state.selectedAsset);
                     updatePositions();
                     updateTradeStats();
+
                 } catch (e) {
                     console.error('Update error:', e);
                 }
@@ -1795,7 +1870,7 @@
                             borderColor: '#0052FF',
                             backgroundColor: grad,
                             fill: true,
-                            tension: 0.3,
+                            tension: 0.35,
                             pointRadius: 0,
                             borderWidth: 2.5,
                         }]
@@ -1811,22 +1886,29 @@
                                 bodyColor: isDark ? '#9aa9c9' : '#5A607A',
                                 borderColor: 'rgba(255,255,255,0.05)',
                                 borderWidth: 1,
-                                cornerRadius: 10,
-                                padding: 8,
+                                cornerRadius: 8,
+                                padding: 6,
+                                callbacks: {
+                                    label: function(context) {
+                                        const id = state.selectedAsset;
+                                        return formatPrice(id, context.parsed.y);
+                                    }
+                                }
                             }
                         },
                         scales: {
                             x: {
                                 grid: { color: 'rgba(255,255,255,0.02)', drawBorder: false },
-                                ticks: { color: isDark ? '#5a6f8a' : '#8A90A8', maxTicksLimit: 10,
-                                font: { size: 8 } }
+                                ticks: { color: isDark ? '#5a6f8a' : '#8A90A8', maxTicksLimit: 8,
+                                    font: { size: 7 } }
                             },
                             y: {
                                 grid: { color: 'rgba(255,255,255,0.02)', drawBorder: false },
-                                ticks: { color: isDark ? '#5a6f8a' : '#8A90A8', font: { size: 8 } }
+                                ticks: { color: isDark ? '#5a6f8a' : '#8A90A8', font: { size: 7 } }
                             }
                         },
                         interaction: { intersect: false, mode: 'index' },
+                        animation: { duration: 300 },
                     }
                 });
             }
@@ -1835,10 +1917,21 @@
                 if (!state.chartInstance) return;
                 const price = state.tickers[assetId] ?? getAsset(assetId).base;
                 const history = state.priceHistory[assetId] || [];
-                if (history.length === 0) return;
+                if (history.length === 0) {
+                    for (let i = 0; i < 60; i++) {
+                        history.push(price + randomBetween(-0.02, 0.02) * (getAsset(assetId).vol || 1) * 0.4);
+                    }
+                    state.priceHistory[assetId] = history;
+                }
 
-                // Append latest price to history
-                history.push(price);
+                // Append latest price
+                const lastPrice = history[history.length - 1] || price;
+                if (Math.abs(price - lastPrice) > 0.0001) {
+                    history.push(price);
+                } else {
+                    // Add slight noise to show movement
+                    history.push(price + randomBetween(-0.001, 0.001) * (getAsset(assetId).vol || 1));
+                }
                 if (history.length > 150) history.shift();
                 state.priceHistory[assetId] = history;
 
@@ -1853,30 +1946,56 @@
                 state.chartInstance.update('none');
 
                 const a = getAsset(assetId);
-                const change = ((price - a.base) / a.base * 100);
+                const basePrice = a.base || price;
+                const change = ((price - basePrice) / basePrice * 100);
+
                 document.getElementById('chartSymbol').textContent = assetId;
                 const priceEl = document.getElementById('chartPrice');
                 priceEl.textContent = formatPrice(assetId, price);
                 priceEl.style.color = change >= 0 ? 'var(--green)' : '#ef4444';
+
                 const changeEl = document.getElementById('chartChange');
                 changeEl.textContent = (change >= 0 ? '+' : '') + change.toFixed(2) + '%';
                 changeEl.className = 'text-sm font-semibold px-2 py-0.5 rounded-full ' + (change >= 0 ?
                     'bg-[var(--green)]/10 text-[var(--green)]' :
                     'bg-red-500/10 text-red-500');
+
                 document.getElementById('chartUpdated').textContent = state.lastUpdate ?
                     'Updated ' + state.lastUpdate.toLocaleTimeString() : '';
 
                 const hint = document.getElementById('tradePriceHint');
                 hint.innerHTML = `<span class="live-dot"></span> @ ${formatPrice(assetId, price)}`;
 
-                const sma20 = history.slice(-20).reduce((a, b) => a + b, 0) / Math.min(20, history.length);
-                const sma50 = history.slice(-50).reduce((a, b) => a + b, 0) / Math.min(50, history.length);
+                // Indicators
+                const hist = history;
+                const sma20 = hist.slice(-20).reduce((a, b) => a + b, 0) / Math.min(20, hist.length);
+                const sma50 = hist.slice(-50).reduce((a, b) => a + b, 0) / Math.min(50, hist.length);
                 document.getElementById('sma20').textContent = formatPrice(assetId, sma20 || price);
                 document.getElementById('sma50').textContent = formatPrice(assetId, sma50 || price);
-                const rsi = Math.floor(randomBetween(40, 70)); // Placeholder
-                document.getElementById('rsiVal').textContent = rsi;
-                const vol = (Math.floor(randomBetween(0.5, 9.5) * 100) / 100);
+
+                // RSI (simplified)
+                const gains = [],
+                    losses = [];
+                for (let i = 1; i < hist.length; i++) {
+                    const diff = hist[i] - hist[i - 1];
+                    if (diff >= 0) gains.push(diff);
+                    else losses.push(Math.abs(diff));
+                }
+                const avgGain = gains.length ? gains.reduce((a, b) => a + b, 0) / gains.length : 0;
+                const avgLoss = losses.length ? losses.reduce((a, b) => a + b, 0) / losses.length : 1;
+                const rs = avgGain / avgLoss;
+                const rsi = 100 - (100 / (1 + rs));
+                document.getElementById('rsiVal').textContent = Math.round(rsi);
+
+                // Volume
+                const vol = (Math.floor(randomBetween(0.3, 8.5) * 100) / 100);
                 document.getElementById('volumeVal').textContent = vol + 'M';
+
+                // High/Low
+                const high = state.high24h[assetId] || price * 1.03;
+                const low = state.low24h[assetId] || price * 0.97;
+                document.getElementById('high24h').textContent = formatPrice(assetId, high);
+                document.getElementById('low24h').textContent = formatPrice(assetId, low);
 
                 updateEstimatedCost();
             }
@@ -1889,59 +2008,91 @@
                 const bidPrice = price - spread / 2;
                 const askPrice = price + spread / 2;
 
+                // Generate depth levels with realistic distribution
                 const bids = [],
                     asks = [];
-                for (let i = 0; i < 8; i++) {
-                    const bid = bidPrice - i * (spread * 0.6);
-                    const ask = askPrice + i * (spread * 0.6);
-                    const sizeBid = Math.floor(randomBetween(0.2, 5.0) * 100) / 100;
-                    const sizeAsk = Math.floor(randomBetween(0.2, 5.0) * 100) / 100;
-                    bids.push({ price: bid, size: sizeBid });
-                    asks.push({ price: ask, size: sizeAsk });
+                let cumBidSize = 0,
+                    cumAskSize = 0;
+                for (let i = 0; i < 10; i++) {
+                    const bid = bidPrice - i * (spread * 0.5);
+                    const ask = askPrice + i * (spread * 0.5);
+                    // Size decreases as price moves away from mid
+                    const sizeBid = Math.floor(randomBetween(0.3, 3.5 - i * 0.2) * 100) / 100;
+                    const sizeAsk = Math.floor(randomBetween(0.3, 3.5 - i * 0.2) * 100) / 100;
+                    cumBidSize += sizeBid;
+                    cumAskSize += sizeAsk;
+                    bids.push({ price: bid, size: sizeBid, cumSize: cumBidSize });
+                    asks.push({ price: ask, size: sizeAsk, cumSize: cumAskSize });
                 }
-                const maxSize = Math.max(...bids.map(b => b.size), ...asks.map(a => a.size));
+                const maxCum = Math.max(cumBidSize, cumAskSize, 1);
 
                 document.getElementById('bidSide').innerHTML = bids.map(b => `
-                <div class="row">
-                  <span class="price">${formatPrice(assetId, b.price)}</span>
-                  <span class="size">${b.size.toFixed(2)}</span>
-                </div>
-                <div class="depth-bar" style="width:${(b.size / maxSize) * 100}%;"></div>
-              `).join('');
+                  <div class="row" style="position:relative;">
+                    <div class="depth-bg" style="width:${(b.cumSize / maxCum) * 100}%;"></div>
+                    <span class="price">${formatPrice(assetId, b.price)}</span>
+                    <span class="size">${b.size.toFixed(2)}</span>
+                  </div>
+                `).join('');
 
                 document.getElementById('askSide').innerHTML = asks.map(a => `
-                <div class="row">
-                  <span class="price">${formatPrice(assetId, a.price)}</span>
-                  <span class="size">${a.size.toFixed(2)}</span>
-                </div>
-                <div class="depth-bar" style="width:${(a.size / maxSize) * 100}%;"></div>
-              `).join('');
+                  <div class="row" style="position:relative;">
+                    <div class="depth-bg" style="width:${(a.cumSize / maxCum) * 100}%;"></div>
+                    <span class="price">${formatPrice(assetId, a.price)}</span>
+                    <span class="size">${a.size.toFixed(2)}</span>
+                  </div>
+                `).join('');
 
                 const spreadPct = (spread / price * 100);
                 document.getElementById('spreadValue').textContent = formatPrice(assetId, spread) +
                     ` (${spreadPct.toFixed(3)}%)`;
+                document.getElementById('bidPrice').textContent = formatPrice(assetId, bidPrice);
+                document.getElementById('askPrice').textContent = formatPrice(assetId, askPrice);
             }
 
             // ─── Watchlist ─────────────────────────────────────────────
             function renderWatchlist() {
                 const container = document.getElementById('watchlistContainer');
-                const list = ASSETS.slice(0, 50);
+                const search = state.searchQuery.toLowerCase();
+                const cat = state.categoryFilter;
 
-                container.innerHTML = list.map((a) => {
+                let filtered = ASSETS.filter(a => {
+                    const matchSearch = a.id.toLowerCase().includes(search) ||
+                        a.name.toLowerCase().includes(search);
+                    const matchCat = cat === 'all' || a.cat === cat;
+                    return matchSearch && matchCat;
+                });
+
+                // Sort: active first, then by symbol
+                filtered.sort((a, b) => {
+                    if (a.id === state.selectedAsset) return -1;
+                    if (b.id === state.selectedAsset) return 1;
+                    return a.id.localeCompare(b.id);
+                });
+
+                if (filtered.length === 0) {
+                    container.innerHTML =
+                        `<div class="text-center text-[var(--text-muted)] text-xs py-4">No assets found</div>`;
+                    return;
+                }
+
+                container.innerHTML = filtered.map((a) => {
                     const price = state.tickers[a.id] ?? a.base;
-                    const change = ((price - a.base) / a.base * 100);
+                    const change = ((price - (a.base || price)) / (a.base || price) * 100);
                     const cls = change >= 0 ? 'up' : 'down';
                     const active = a.id === state.selectedAsset ? 'active' : '';
-                    const flashClass = price > (state.lastPrice?.[a.id] ?? price) ? 'flash-green' :
-                        price < (state.lastPrice?.[a.id] ?? price) ? 'flash-red' : '';
+                    const oldPrice = state.lastPrice[a.id] ?? price;
+                    let flashClass = '';
+                    if (price > oldPrice * 1.001) flashClass = 'flash-green';
+                    else if (price < oldPrice * 0.999) flashClass = 'flash-red';
                     state.lastPrice[a.id] = price;
+                    const catLabel = a.cat === 'stock' ? '📈' : a.cat === 'crypto' ? '₿' : '💱';
                     return `
                   <div class="watchlist-item ${active}" data-id="${a.id}">
                     <div class="info">
                       <span class="symbol">${a.id}</span>
-                      <span class="name">${a.name}</span>
+                      <span class="name">${a.name} <span class="cat-tag">${catLabel}</span></span>
                     </div>
-                    <div class="price">
+                    <div class="price text-right">
                       <div class="value ${flashClass}">${formatPrice(a.id, price)}</div>
                       <div class="change ${cls}">${change >= 0 ? '+' : ''}${change.toFixed(2)}%</div>
                     </div>
@@ -1959,12 +2110,13 @@
 
             // ─── Select Asset ──────────────────────────────────────────
             function selectAsset(id) {
+                if (state.selectedAsset === id) return;
                 state.selectedAsset = id;
                 const price = state.tickers[id] ?? getAsset(id).base;
                 const history = state.priceHistory[id] || [];
                 if (history.length === 0) {
-                    for (let i = 0; i < 50; i++) {
-                        history.push(price + randomBetween(-0.02, 0.02) * getAsset(id).volatility * 0.4);
+                    for (let i = 0; i < 60; i++) {
+                        history.push(price + randomBetween(-0.02, 0.02) * (getAsset(id).vol || 1) * 0.4);
                     }
                     state.priceHistory[id] = history;
                 }
@@ -1999,13 +2151,49 @@
                 let size = parseFloat(sizeInput.value);
                 if (isNaN(size) || size <= 0) { showToast('Enter a valid size', 'error'); return; }
 
-                const cost = size * price;
+                // For limit orders
+                let execPrice = price;
+                if (state.orderType === 'limit') {
+                    const limitPriceInput = document.getElementById('limitPrice');
+                    const limitPrice = parseFloat(limitPriceInput.value);
+                    if (isNaN(limitPrice) || limitPrice <= 0) {
+                        showToast('Enter a valid limit price', 'error');
+                        return;
+                    }
+                    execPrice = limitPrice;
+                    if (side === 'buy' && limitPrice > price) {
+                        showToast('Limit buy price is above market', 'error');
+                        return;
+                    }
+                    if (side === 'sell' && limitPrice < price) {
+                        showToast('Limit sell price is below market', 'error');
+                        return;
+                    }
+                } else if (state.orderType === 'stop') {
+                    const limitPriceInput = document.getElementById('limitPrice');
+                    const stopPrice = parseFloat(limitPriceInput.value);
+                    if (isNaN(stopPrice) || stopPrice <= 0) {
+                        showToast('Enter a valid stop price', 'error');
+                        return;
+                    }
+                    if (side === 'buy' && stopPrice < price) {
+                        showToast('Stop buy must be above market', 'error');
+                        return;
+                    }
+                    if (side === 'sell' && stopPrice > price) {
+                        showToast('Stop sell must be below market', 'error');
+                        return;
+                    }
+                    execPrice = stopPrice;
+                }
+
+                const cost = size * execPrice;
                 if (cost > state.balance) {
                     showToast(`Insufficient balance. Need $${cost.toFixed(2)}`, 'error');
                     return;
                 }
 
-                const entryPrice = side === 'buy' ? price + a.spread / 2 : price - a.spread / 2;
+                const entryPrice = side === 'buy' ? execPrice + a.spread / 2 : execPrice - a.spread / 2;
                 state.balance -= cost;
                 updateTradeStats();
 
@@ -2017,10 +2205,25 @@
                     size: size,
                     currentPrice: price,
                     pl: 0,
+                    timestamp: new Date().toISOString(),
                 };
                 state.positions.push(pos);
+
+                // Add to order history
+                state.orders.push({
+                    id: pos.id,
+                    asset: assetId,
+                    side: side,
+                    price: entryPrice,
+                    size: size,
+                    type: state.orderType,
+                    status: 'filled',
+                    timestamp: new Date().toISOString(),
+                });
+
                 renderPositions();
                 updateTradeStats();
+                renderOrderHistory();
                 showToast(`${side.toUpperCase()} ${size} ${assetId} @ ${formatPrice(assetId, entryPrice)}`, 'success');
             }
 
@@ -2040,7 +2243,7 @@
                 const countLabel = document.getElementById('posCountLabel');
                 if (state.positions.length === 0) {
                     bar.innerHTML =
-                        `<span class="empty"><i class="fas fa-inbox mr-2"></i>No open positions</span>`;
+                        `<span class="empty"><i class="fas fa-inbox mr-1"></i>No open positions</span>`;
                     countLabel.textContent = '0';
                     return;
                 }
@@ -2067,14 +2270,63 @@
                         const idx = state.positions.findIndex(p => p.id === id);
                         if (idx > -1) {
                             const p = state.positions[idx];
-                            state.balance += p.size * p.currentPrice;
+                            const closePrice = state.tickers[p.asset] ?? getAsset(p.asset).base;
+                            const pnl = p.pl || 0;
+                            state.balance += p.size * closePrice;
+
+                            // Add to order history
+                            state.orders.push({
+                                id: 'close_' + Date.now(),
+                                asset: p.asset,
+                                side: p.side === 'buy' ? 'sell' : 'buy',
+                                price: closePrice,
+                                size: p.size,
+                                type: 'close',
+                                status: 'filled',
+                                pnl: pnl,
+                                timestamp: new Date().toISOString(),
+                            });
+
                             state.positions.splice(idx, 1);
                             renderPositions();
                             updateTradeStats();
-                            showToast(`Closed ${p.asset} position`, 'info');
+                            renderOrderHistory();
+                            showToast(`Closed ${p.asset} position ${pnl >= 0 ? '+' : ''}$${pnl.toFixed(2)}`, pnl >=
+                                0 ? 'success' : 'error');
                         }
                     });
                 });
+            }
+
+            // ─── Order History ─────────────────────────────────────────
+            function renderOrderHistory() {
+                const container = document.getElementById('orderHistory');
+                const countLabel = document.getElementById('orderCountLabel');
+                const orders = state.orders.slice(-20).reverse();
+
+                if (orders.length === 0) {
+                    container.innerHTML =
+                        `<div class="text-center text-[var(--text-muted)] text-xs py-2">No trades yet</div>`;
+                    countLabel.textContent = '0 trades';
+                    return;
+                }
+
+                countLabel.textContent = orders.length + ' trades';
+                container.innerHTML = orders.map(o => {
+                    const sideCls = o.side === 'buy' ? 'buy' : 'sell';
+                    const sideLabel = o.side === 'buy' ? 'BUY' : 'SELL';
+                    const time = new Date(o.timestamp).toLocaleTimeString();
+                    const pnlStr = o.pnl !== undefined ? (o.pnl >= 0 ? '+' : '') + o.pnl.toFixed(2) : '';
+                    return `
+                  <div class="oh-item">
+                    <span><strong>${o.asset}</strong></span>
+                    <span class="oh-side ${sideCls}">${sideLabel}</span>
+                    <span>${o.size.toFixed(2)} @ ${formatPrice(o.asset, o.price)}</span>
+                    ${pnlStr ? `<span class="${o.pnl >= 0 ? 'text-[var(--green)]' : 'text-red-500'}">${pnlStr}</span>` : ''}
+                    <span class="oh-time">${time}</span>
+                  </div>
+                `;
+                }).join('');
             }
 
             // ─── Update Trade Stats ────────────────────────────────────
@@ -2083,9 +2335,9 @@
                 const pnl = state.positions.reduce((sum, p) => sum + (p.pl || 0), 0);
                 document.getElementById('tradeBalance').textContent = '$' + formatCurrency(state.balance);
                 document.getElementById('tradeEquity').textContent = '$' + formatCurrency(totalEquity);
-                document.getElementById('tradePnl').textContent = (pnl >= 0 ? '+' : '') + '$' + formatCurrency(pnl);
-                document.getElementById('tradePnl').className = 'stat-value mt-1 ' + (pnl >= 0 ?
-                    'text-[var(--green)]' : 'text-red-500');
+                const pnlEl = document.getElementById('tradePnl');
+                pnlEl.textContent = (pnl >= 0 ? '+' : '') + '$' + formatCurrency(pnl);
+                pnlEl.className = 'stat-value mt-0.5 ' + (pnl >= 0 ? 'text-[var(--green)]' : 'text-red-500');
                 document.getElementById('tradePositions').textContent = state.positions.length;
 
                 document.getElementById('dashPortfolioValue').textContent = '$' + formatCurrency(totalEquity);
@@ -2096,19 +2348,23 @@
                 state.updateCount++;
                 await updateTickers();
 
-                // Update news every ~8 cycles
-                if (state.updateCount % 8 === 0) {
+                // News every ~6 cycles
+                if (state.updateCount % 6 === 0) {
                     const newsItems = [
-                        'Fed signals cautious approach to rate cuts',
-                        'Tech earnings beat expectations, rally continues',
-                        'Bitcoin volatility spikes as halving approaches',
-                        'Dollar weakens against major currencies',
-                        'NVIDIA unveils next-gen AI chip',
-                        'Tesla announces new factory in Texas',
-                        'Apple explores AI partnerships',
-                        'S&P 500 closes at new all-time high',
-                        'Crypto market cap surpasses $2.5 trillion',
-                        'AI boom drives semiconductor stocks',
+                        '🚀 Fed signals cautious approach to rate cuts',
+                        '💹 Tech earnings beat expectations, rally continues',
+                        '₿ Bitcoin volatility spikes as halving approaches',
+                        '💱 Dollar weakens against major currencies',
+                        '🧠 NVIDIA unveils next-gen AI chip',
+                        '🔋 Tesla announces new factory in Texas',
+                        '🍎 Apple explores AI partnerships',
+                        '📈 S&P 500 closes at new all-time high',
+                        '💰 Crypto market cap surpasses $2.5 trillion',
+                        '⚡ AI boom drives semiconductor stocks',
+                        '🏦 ECB hints at rate cut in June',
+                        '🛢️ Oil prices drop on supply concerns',
+                        '📊 Jobless claims beat estimates',
+                        '🏠 Housing market shows signs of recovery',
                     ];
                     const news = document.getElementById('newsFeed');
                     if (news) {
@@ -2118,47 +2374,98 @@
                         el.innerHTML =
                             `<div class="headline">${item}</div><div class="time">${new Date().toLocaleTimeString()}</div>`;
                         news.prepend(el);
-                        if (news.children.length > 5) news.removeChild(news.lastChild);
+                        if (news.children.length > 6) news.removeChild(news.lastChild);
                     }
                 }
             }
 
             // ─── UI Bindings ───────────────────────────────────────────
             function initUI() {
+                // Timeframe buttons
                 document.querySelectorAll('#timeframeBtns button').forEach(btn => {
                     btn.addEventListener('click', () => {
-                        document.querySelectorAll('#timeframeBtns button').forEach(b => b.classList.remove(
-                        'active'));
+                        document.querySelectorAll('#timeframeBtns button').forEach(b => {
+                            b.classList.remove('active');
+                            b.style.background = '';
+                            b.style.color = '';
+                        });
                         btn.classList.add('active');
                         btn.style.background = 'var(--primary)';
                         btn.style.color = '#fff';
-                        btn.style.borderColor = 'var(--primary)';
                         showToast(`View: ${btn.textContent}`, 'info');
+                        // Regenerate chart data for the timeframe
+                        const assetId = state.selectedAsset;
+                        const history = state.priceHistory[assetId] || [];
+                        // Simulate more data points for longer timeframes
+                        const tf = btn.dataset.tf;
+                        let points = 60;
+                        if (tf === '1W') points = 120;
+                        else if (tf === '1M') points = 200;
+                        else if (tf === '3M') points = 300;
+                        while (history.length < points) {
+                            const last = history[history.length - 1] || getAsset(assetId).base;
+                            history.push(last + randomBetween(-0.005, 0.005) * (getAsset(assetId).vol || 1));
+                        }
+                        if (history.length > points) history.splice(0, history.length - points);
+                        state.priceHistory[assetId] = history;
+                        updateChart(assetId);
                     });
                 });
 
+                // Order type buttons
                 document.querySelectorAll('#orderTypeBtns button').forEach(btn => {
                     btn.addEventListener('click', () => {
                         document.querySelectorAll('#orderTypeBtns button').forEach(b => b.classList.remove(
                             'active'));
                         btn.classList.add('active');
                         state.orderType = btn.dataset.type;
-                        document.getElementById('limitPriceRow').style.display = state.orderType === 'market' ?
-                            'none' : 'flex';
+                        const showLimit = state.orderType !== 'market';
+                        document.getElementById('limitPriceRow').style.display = showLimit ? 'flex' :
+                        'none';
+                        if (showLimit) {
+                            const price = state.tickers[state.selectedAsset] ?? getAsset(state.selectedAsset)
+                                .base;
+                            document.getElementById('limitPrice').placeholder = state.orderType === 'limit' ?
+                                `Limit price (${formatPrice(state.selectedAsset, price)})` :
+                                `Stop price (${formatPrice(state.selectedAsset, price)})`;
+                        }
                     });
                 });
 
+                // Buy/Sell
                 document.getElementById('buyBtn').addEventListener('click', () => executeTrade('buy'));
                 document.getElementById('sellBtn').addEventListener('click', () => executeTrade('sell'));
 
+                // Size input
                 document.getElementById('tradeSize').addEventListener('input', updateEstimatedCost);
                 document.getElementById('tradeSize').addEventListener('keydown', (e) => {
                     if (e.key === 'Enter') executeTrade('buy');
                 });
 
+                // Limit price input
+                document.getElementById('limitPrice').addEventListener('input', updateEstimatedCost);
+
+                // Refresh watchlist
                 document.getElementById('refreshWatchlist').addEventListener('click', async () => {
                     showToast('Refreshing prices...', 'info');
                     await updateTickers();
+                });
+
+                // Asset search
+                document.getElementById('assetSearch').addEventListener('input', (e) => {
+                    state.searchQuery = e.target.value;
+                    renderWatchlist();
+                });
+
+                // Category filter
+                document.querySelectorAll('#categoryFilter button').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('#categoryFilter button').forEach(b => b.classList.remove(
+                            'active'));
+                        btn.classList.add('active');
+                        state.categoryFilter = btn.dataset.cat;
+                        renderWatchlist();
+                    });
                 });
             }
 
@@ -2170,12 +2477,14 @@
                 updateChart('AAPL');
                 updateTradeStats();
                 renderPositions();
+                renderOrderHistory();
                 initUI();
 
                 // Initial fetch
                 await updateTickers();
 
-                state.priceInterval = setInterval(priceLoop, 8000);
+                // Start price loop
+                state.priceInterval = setInterval(priceLoop, 10000);
 
                 showToast('🚀 Trading dashboard ready — live data from Yahoo Finance', 'success');
             }
@@ -2183,7 +2492,7 @@
             // ─── Start ──────────────────────────────────────────────────
             initTrading();
 
-            // ─── Resize chart on window resize ─────────────────────────
+            // ─── Resize chart ──────────────────────────────────────────
             let resizeTimer;
             window.addEventListener('resize', () => {
                 clearTimeout(resizeTimer);
@@ -2192,8 +2501,19 @@
                 }, 200);
             });
 
-            console.log('🚀 Tesla Frontier Network — Premium Integrated Dashboard with Live Data.');
-            console.log('ℹ️ Fetching live prices from Yahoo Finance for ' + ASSETS.length + ' assets.');
+            // ─── Handle tab switch for chart resize ────────────────────
+            const origTabClick = tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (btn.dataset.tab === 'trading') {
+                        setTimeout(() => {
+                            if (state.chartInstance) state.chartInstance.resize();
+                        }, 150);
+                    }
+                });
+            });
+
+            console.log('🚀 Tesla Frontier Network — Enhanced Trading Dashboard with Live Data.');
+            console.log('ℹ️ Tracking ' + ASSETS.length + ' assets across stocks, crypto & forex.');
         });
     </script>
 
