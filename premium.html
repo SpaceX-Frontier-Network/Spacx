@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Vertex · Responsive Trading</title>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet"/>
+    <style>
+        /* ───────────── RESET & VARIABLES ───────────── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-primary: #070b14;
+            --bg-secondary: #0c1220;
+            --bg-card: rgba(16, 28, 48, 0.7);
+            --bg-card-solid: #101c30;
+            --border-color: rgba(50, 80, 140, 0.25);
+            --border-light: rgba(80, 120, 200, 0.15);
+            --text-primary: #edf2f9;
+            --text-secondary: #8fa8d0;
+            --text-muted: #4a6a8a;
+            --purple: #7c5cfc;
+            --purple-glow: rgba(124, 92, 252, 0.2);
+            --blue: #3b82f6;
+            --cyan: #22d3ee;
+            --green: #10b981;
+            --green-bg: rgba(16, 185, 129, 0.12);
+            --red: #ef4444;
+            --red-bg: rgba(239, 68, 68, 0.12);
+            --gold: #fbbf24;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        html {
+            font-size: 14px;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* ───────────── APP LAYOUT ───────────── */
+        .app {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 1920px;
+            margin: 0 auto;
+            padding: 8px 14px 8px 14px;
+            gap: 8px;
+            background: radial-gradient(ellipse at 10% 30%, rgba(124, 92, 252, 0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 90% 70%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+                var(--bg-primary);
+        }
+
+        /* ───────────── HEADER ───────────── */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 4px 8px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-area .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        .logo-area h1 {
+            font-size: 18px;
+        }
+        .logo-area .badge {
+            font-size: 8px;
+            padding: 1px 8px;
+        }
+        .header-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .header-center .status {
+            font-size: 10px;
+        }
+        .header-center .market-summary {
+            font-size: 10px;
+            gap: 6px;
+        }
+        .header-right {
+            gap: 6px;
+        }
+        .header-right .balance-card {
+            padding: 2px 12px 2px 10px;
+            gap: 6px;
+        }
+        .header-right .balance-card .label {
+            font-size: 8px;
+        }
+        .header-right .balance-card .amount {
+            font-size: 14px;
+        }
+        .header-right .icon-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+        }
+        .header-right .avatar {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+        }
+
+        /* ───────────── ASSET NAV + SEARCH ───────────── */
+        .asset-nav {
+            display: flex;
+            gap: 3px;
+            padding: 4px 0 2px 0;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .asset-nav button {
+            font-size: 10px;
+            padding: 3px 10px;
+        }
+        .asset-nav button .count {
+            font-size: 8px;
+            padding: 0 5px;
+        }
+        .asset-nav .search-wrap {
+            padding: 1px 10px;
+            flex: 1;
+            min-width: 80px;
+        }
+        .asset-nav .search-wrap input {
+            font-size: 11px;
+            padding: 3px 4px;
+            width: 100%;
+        }
+
+        /* ───────────── MAIN GRID ───────────── */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 260px 1fr 310px;
+            gap: 10px;
+            flex: 1;
+            min-height: 0;
+            padding-top: 4px;
+        }
+
+        /* ─── LEFT SIDEBAR ─── */
+        .left-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-height: 0;
+            overflow: hidden;
+        }
+        .panel {
+            padding: 8px 10px;
+        }
+        .panel-header h4 {
+            font-size: 9px;
+        }
+        .watchlist-item {
+            font-size: 11px;
+            padding: 3px 4px;
+        }
+        .watchlist-item .info .symbol {
+            font-size: 11px;
+        }
+        .watchlist-item .info .name {
+            font-size: 8px;
+            max-width: 80px;
+        }
+        .watchlist-item .price .value {
+            font-size: 11px;
+        }
+        .watchlist-item .price .change {
+            font-size: 8px;
+            padding: 0 4px;
+        }
+        .news-item {
+            font-size: 9px;
+            padding: 3px 6px;
+        }
+        .news-item .time {
+            font-size: 7px;
+        }
+
+        /* ─── CENTER: CHART ─── */
+        .chart-panel {
+            padding: 10px 12px 6px 12px;
+        }
+        .chart-top .left .symbol {
+            font-size: 14px;
+        }
+        .chart-top .left .price {
+            font-size: 16px;
+        }
+        .chart-top .left .change {
+            font-size: 11px;
+            padding: 1px 8px;
+        }
+        .chart-top .left .updated {
+            font-size: 8px;
+        }
+        .chart-top .right button {
+            font-size: 9px;
+            padding: 1px 8px;
+        }
+        .indicator-row {
+            gap: 10px;
+            font-size: 9px;
+        }
+        .indicator-row .ind .val {
+            font-size: 9px;
+        }
+
+        /* ─── RIGHT SIDEBAR ─── */
+        .orderbook-panel {
+            padding: 8px 10px;
+        }
+        .orderbook-grid .side .row {
+            font-size: 9px;
+            padding: 1px 2px;
+        }
+        .orderbook-spread {
+            font-size: 9px;
+        }
+        .trade-panel {
+            padding: 8px 10px 10px 10px;
+            gap: 4px;
+        }
+        .trade-panel .row input,
+        .trade-panel .row select {
+            font-size: 11px;
+            padding: 4px 6px;
+        }
+        .trade-panel .row .input-label {
+            font-size: 8px;
+            min-width: 28px;
+        }
+        .trade-btns button {
+            font-size: 12px;
+            padding: 6px 0;
+        }
+        .trade-panel .order-type button {
+            font-size: 9px;
+            padding: 3px 6px;
+        }
+        .trade-panel .row .price-hint {
+            font-size: 9px;
+        }
+
+        /* ───────────── POSITIONS BAR ───────────── */
+        .positions-bar {
+            padding: 4px 10px;
+            min-height: 30px;
+            gap: 10px;
+        }
+        .positions-bar .empty {
+            font-size: 10px;
+        }
+        .positions-bar .pos-item {
+            font-size: 9px;
+            padding: 2px 8px 2px 6px;
+            gap: 6px;
+        }
+        .positions-bar .pos-item .side {
+            font-size: 7px;
+            padding: 0 4px;
+        }
+        .positions-bar .pos-item .close-btn {
+            font-size: 9px;
+        }
+
+        /* ───────────── RESPONSIVE BREAKPOINTS ───────────── */
+
+        /* Tablets and small laptops */
+        @media (max-width: 1400px) {
+            .main-grid {
+                grid-template-columns: 220px 1fr 280px;
+                gap: 8px;
+            }
+        }
+
+        /* Medium screens: hide left sidebar, but keep watchlist accessible via toggle? We'll keep it hidden but add a toggle later? For now we hide it. */
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr 280px;
+            }
+            .left-sidebar {
+                display: none;
+            }
+            /* We could add a hamburger menu but for simplicity we hide */
+        }
+
+        /* Small tablets / large phones */
+        @media (max-width: 820px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto;
+                gap: 8px;
+            }
+            .right-sidebar {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                max-height: 280px;
+            }
+            .right-sidebar .orderbook-panel {
+                min-height: 140px;
+            }
+            .right-sidebar .trade-panel {
+                min-height: 140px;
+            }
+            .positions-bar {
+                flex-wrap: wrap;
+                min-height: 28px;
+            }
+            .header-center .market-summary {
+                display: none;
+            }
+            .asset-nav .search-wrap input {
+                width: 100%;
+                min-width: 60px;
+            }
+            .asset-nav .search-wrap {
+                flex: 1 1 100%;
+                order: 10;
+                margin-top: 4px;
+            }
+        }
+
+        /* Mobile phones */
+        @media (max-width: 600px) {
+            .app {
+                padding: 4px 8px;
+                gap: 4px;
+            }
+            .header {
+                padding: 2px 0 4px 0;
+                gap: 2px 6px;
+            }
+            .logo-area .icon {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+            .logo-area h1 {
+                font-size: 16px;
+            }
+            .logo-area .badge {
+                display: none;
+            }
+            .header-center .status {
+                font-size: 9px;
+            }
+            .header-center .status .dot {
+                width: 6px;
+                height: 6px;
+            }
+            .header-right .balance-card .label {
+                display: none;
+            }
+            .header-right .balance-card {
+                padding: 2px 8px;
+            }
+            .header-right .balance-card .amount {
+                font-size: 13px;
+            }
+            .header-right .icon-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 11px;
+            }
+            .header-right .avatar {
+                width: 28px;
+                height: 28px;
+                font-size: 11px;
+            }
+            .asset-nav button {
+                font-size: 9px;
+                padding: 2px 8px;
+            }
+            .asset-nav .search-wrap {
+                padding: 1px 8px;
+            }
+            .asset-nav .search-wrap input {
+                font-size: 10px;
+                padding: 2px 4px;
+            }
+            .main-grid {
+                gap: 6px;
+                padding-top: 2px;
+            }
+            .right-sidebar {
+                grid-template-columns: 1fr;
+                max-height: 320px;
+                gap: 6px;
+            }
+            .right-sidebar .orderbook-panel {
+                min-height: 120px;
+            }
+            .right-sidebar .trade-panel {
+                min-height: 120px;
+            }
+            .chart-panel {
+                padding: 8px 10px 4px 10px;
+            }
+            .chart-top .left .symbol {
+                font-size: 13px;
+            }
+            .chart-top .left .price {
+                font-size: 15px;
+            }
+            .chart-top .left .change {
+                font-size: 10px;
+                padding: 0 6px;
+            }
+            .chart-top .left .updated {
+                display: none;
+            }
+            .chart-top .right button {
+                font-size: 8px;
+                padding: 1px 6px;
+            }
+            .indicator-row {
+                gap: 6px;
+                font-size: 8px;
+                flex-wrap: wrap;
+            }
+            .indicator-row .ind .val {
+                font-size: 8px;
+            }
+            .orderbook-grid .side .row {
+                font-size: 8px;
+            }
+            .trade-panel .row input,
+            .trade-panel .row select {
+                font-size: 10px;
+                padding: 3px 4px;
+            }
+            .trade-btns button {
+                font-size: 11px;
+                padding: 5px 0;
+            }
+            .trade-panel .order-type button {
+                font-size: 8px;
+                padding: 2px 4px;
+            }
+            .positions-bar {
+                padding: 3px 8px;
+                min-height: 24px;
+                gap: 6px;
+            }
+            .positions-bar .pos-item {
+                font-size: 8px;
+                padding: 1px 6px 1px 4px;
+                gap: 4px;
+            }
+            .positions-bar .pos-item .side {
+                font-size: 6px;
+                padding: 0 3px;
+            }
+            .positions-bar .empty {
+                font-size: 9px;
+            }
+            .toast-container {
+                max-width: 280px;
+                bottom: 10px;
+                right: 10px;
+            }
+            .toast {
+                font-size: 10px;
+                padding: 8px 12px;
+            }
+        }
+
+        /* Very small phones */
+        @media (max-width: 400px) {
+            .header-center .status span {
+                display: none;
+            }
+            .header-center .status .dot {
+                margin-right: 0;
+            }
+            .asset-nav button {
+                font-size: 8px;
+                padding: 2px 6px;
+            }
+            .asset-nav .search-wrap input {
+                font-size: 9px;
+            }
+            .chart-top .left .symbol {
+                font-size: 12px;
+            }
+            .chart-top .left .price {
+                font-size: 13px;
+            }
+            .right-sidebar {
+                max-height: 280px;
+            }
+        }
+
+        /* ───────────── TOAST ───────────── */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 9999;
+            pointer-events: none;
+            max-width: 340px;
+        }
+        .toast {
+            background: var(--bg-card-solid);
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            border-radius: var(--radius);
+            color: var(--text-primary);
+            font-size: 11px;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            pointer-events: auto;
+            animation: slideIn 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 4px solid var(--blue);
+        }
+        .toast.success {
+            border-left-color: var(--green);
+        }
+        .toast.error {
+            border-left-color: var(--red);
+        }
+        .toast.info {
+            border-left-color: var(--purple);
+        }
+        .toast i {
+            font-size: 14px;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ───────────── UTILITY ───────────── */
+        .flex-1 {
+            flex: 1;
+        }
+        .text-muted {
+            color: var(--text-muted);
+        }
+        .text-secondary {
+            color: var(--text-secondary);
+        }
+
+        /* ───────────── TOUCH ENHANCEMENTS ───────────── */
+        button,
+        .watchlist-item,
+        .icon-btn,
+        .close-btn {
+            touch-action: manipulation;
+        }
+        input,
+        select {
+            font-size: 16px !important; /* Prevents iOS zoom */
+        }
+        @media (max-width: 600px) {
+            input,
+            select {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- ═══ HEADER ═══ -->
+        <header class="header">
+            <div class="logo-area">
+                <div class="icon"><i class="fas fa-bolt"></i></div>
+                <h1>Vertex</h1>
+                <span class="badge">ULTIMATE</span>
+            </div>
+            <div class="header-center">
+                <div class="status">
+                    <span class="dot" id="statusDot"></span>
+                    <span id="statusText">Connecting...</span>
+                </div>
+                <div class="market-summary" id="marketSummary">
+                    <span>S&P 500 <span class="up" id="spxPrice">—</span></span>
+                    <span>|</span>
+                    <span>DXY <span class="down" id="dxyPrice">—</span></span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="balance-card">
+                    <span class="label">Balance</span>
+                    <span class="amount"><span class="currency">$</span><span id="balanceDisplay">100,000.00</span></span>
+                </div>
+                <button class="icon-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notif-dot"></span>
+                </button>
+                <button class="icon-btn" title="Settings">
+                    <i class="fas fa-sliders-h"></i>
+                </button>
+                <div class="avatar">JD</div>
+            </div>
+        </header>
+
+        <!-- ═══ ASSET NAV + SEARCH ═══ -->
+        <nav class="asset-nav" id="assetNav">
+            <button class="active" data-filter="all">All <span class="count" id="totalCount">0</span></button>
+            <button data-filter="stocks">Stocks <span class="count" id="stocksCount">0</span></button>
+            <button data-filter="forex">Forex <span class="count" id="forexCount">0</span></button>
+            <button data-filter="crypto">Crypto <span class="count" id="cryptoCount">0</span></button>
+            <div class="search-wrap">
+                <i class="fas fa-search"></i>
+                <input type="text" id="assetSearch" placeholder="Search symbols..." />
+            </div>
+        </nav>
+
+        <!-- ═══ MAIN GRID ═══ -->
+        <div class="main-grid">
+
+            <!-- ─── LEFT SIDEBAR ─── -->
+            <aside class="left-sidebar">
+                <div class="panel" style="flex:2;">
+                    <div class="panel-header">
+                        <h4><i class="fas fa-star" style="color:var(--gold);margin-right:4px;"></i>Watchlist</h4>
+                        <span class="action"><i class="fas fa-sync-alt" id="refreshWatchlist" style="font-size:10px;"></i></span>
+                    </div>
+                    <div class="watchlist scrollable" id="watchlistContainer"></div>
+                </div>
+                <div class="panel" style="flex:1;">
+                    <div class="panel-header">
+                        <h4><i class="fas fa-newspaper" style="margin-right:4px;"></i>Flash News</h4>
+                        <span class="action">live</span>
+                    </div>
+                    <div class="news-feed scrollable" id="newsFeed"></div>
+                </div>
+            </aside>
+
+            <!-- ─── CENTER: CHART ─── -->
+            <section class="chart-area">
+                <div class="chart-panel">
+                    <div class="chart-top">
+                        <div class="left">
+                            <span class="symbol" id="chartSymbol">AAPL</span>
+                            <span class="price green" id="chartPrice">—</span>
+                            <span class="change up" id="chartChange">—</span>
+                            <span class="updated" id="chartUpdated">—</span>
+                        </div>
+                        <div class="right" id="timeframeBtns">
+                            <button class="active" data-tf="1D">1D</button>
+                            <button data-tf="1W">1W</button>
+                            <button data-tf="1M">1M</button>
+                            <button data-tf="3M">3M</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                    <div class="indicator-row" id="indicatorRow">
+                        <div class="ind">SMA 20 <span class="val" id="sma20">—</span></div>
+                        <div class="ind">SMA 50 <span class="val" id="sma50">—</span></div>
+                        <div class="ind">RSI <span class="val" id="rsiVal">—</span></div>
+                        <div class="ind">Vol <span class="val" id="volumeVal">—</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─── RIGHT SIDEBAR ─── -->
+            <aside class="right-sidebar">
+
+                <div class="orderbook-panel">
+                    <div class="panel-header">
+                        <h4>Order Book</h4>
+                        <span class="action" style="font-size:9px;color:var(--text-muted);">depth</span>
+                    </div>
+                    <div class="orderbook-grid" id="orderbookGrid">
+                        <div class="side bids" id="bidSide"></div>
+                        <div class="side asks" id="askSide"></div>
+                    </div>
+                    <div class="orderbook-spread" id="spreadDisplay">
+                        Spread <strong id="spreadValue">—</strong>
+                    </div>
+                </div>
+
+                <div class="trade-panel">
+                    <div class="order-type" id="orderTypeBtns">
+                        <button class="active" data-type="market">Market</button>
+                        <button data-type="limit">Limit</button>
+                        <button data-type="stop">Stop</button>
+                    </div>
+                    <div class="row">
+                        <span class="input-label">Size</span>
+                        <input type="number" id="tradeSize" value="1" step="0.1" min="0.1" placeholder="Units"/>
+                    </div>
+                    <div class="row" id="limitPriceRow" style="display:none;">
+                        <span class="input-label">Price</span>
+                        <input type="number" id="limitPrice" step="0.01" placeholder="Limit price"/>
+                    </div>
+                    <div class="row" style="justify-content:space-between;font-size:10px;color:var(--text-muted);padding:0 4px;">
+                        <span>Leverage: 1:1</span>
+                        <span>Min. $10</span>
+                        <span>Fee: 0.05%</span>
+                        <span class="price-hint" id="tradePriceHint"><strong>@</strong> —</span>
+                    </div>
+                    <div class="trade-btns">
+                        <button class="buy-btn" id="buyBtn"><i class="fas fa-arrow-up" style="margin-right:4px;"></i>BUY</button>
+                        <button class="sell-btn" id="sellBtn"><i class="fas fa-arrow-down" style="margin-right:4px;"></i>SELL</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- ═══ POSITIONS BAR ═══ -->
+        <div class="positions-bar" id="positionsBar">
+            <span class="empty"><i class="fas fa-inbox" style="margin-right:6px;"></i>No open positions</span>
+        </div>
+
+    </div>
+
+    <!-- ═══ TOAST ═══ -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // ════════════════════════════════════════════════════════════════
+        //  COMPREHENSIVE ASSET LISTS: 50 STOCKS, 50 FOREX, 50 CRYPTO
+        // ════════════════════════════════════════════════════════════════
+
+        // ─── 50 STOCKS ───
+        const stockSymbols = [
+            { id: 'AAPL', name: 'Apple Inc.', yahoo: 'AAPL', base: 189.54, vol: 1.8, spread: 0.04 },
+            { id: 'MSFT', name: 'Microsoft Corp.', yahoo: 'MSFT', base: 418.20, vol: 1.6, spread: 0.06 },
+            { id: 'GOOGL', name: 'Alphabet Inc.', yahoo: 'GOOGL', base: 152.80, vol: 1.4, spread: 0.04 },
+            { id: 'AMZN', name: 'Amazon.com', yahoo: 'AMZN', base: 185.90, vol: 2.0, spread: 0.05 },
+            { id: 'TSLA', name: 'Tesla Inc.', yahoo: 'TSLA', base: 248.30, vol: 4.2, spread: 0.08 },
+            { id: 'NVDA', name: 'NVIDIA Corp.', yahoo: 'NVDA', base: 875.40, vol: 5.0, spread: 0.12 },
+            { id: 'META', name: 'Meta Platforms', yahoo: 'META', base: 498.20, vol: 2.2, spread: 0.06 },
+            { id: 'BRK-B', name: 'Berkshire Hathaway B', yahoo: 'BRK-B', base: 410.50, vol: 0.8, spread: 0.02 },
+            { id: 'JPM', name: 'JPMorgan Chase', yahoo: 'JPM', base: 198.30, vol: 1.2, spread: 0.04 },
+            { id: 'V', name: 'Visa Inc.', yahoo: 'V', base: 275.60, vol: 1.1, spread: 0.03 },
+            { id: 'PG', name: 'Procter & Gamble', yahoo: 'PG', base: 166.20, vol: 0.7, spread: 0.02 },
+            { id: 'JNJ', name: 'Johnson & Johnson', yahoo: 'JNJ', base: 152.40, vol: 0.8, spread: 0.02 },
+            { id: 'WMT', name: 'Walmart Inc.', yahoo: 'WMT', base: 169.10, vol: 0.9, spread: 0.02 },
+            { id: 'BAC', name: 'Bank of America', yahoo: 'BAC', base: 38.20, vol: 1.3, spread: 0.02 },
+            { id: 'NFLX', name: 'Netflix Inc.', yahoo: 'NFLX', base: 638.50, vol: 3.0, spread: 0.08 },
+            { id: 'DIS', name: 'Walt Disney', yahoo: 'DIS', base: 118.20, vol: 1.6, spread: 0.04 },
+            { id: 'CRM', name: 'Salesforce Inc.', yahoo: 'CRM', base: 272.80, vol: 1.9, spread: 0.05 },
+            { id: 'AMD', name: 'Advanced Micro Devices', yahoo: 'AMD', base: 174.20, vol: 4.5, spread: 0.10 },
+            { id: 'INTC', name: 'Intel Corp.', yahoo: 'INTC', base: 44.80, vol: 2.3, spread: 0.04 },
+            { id: 'CSCO', name: 'Cisco Systems', yahoo: 'CSCO', base: 51.20, vol: 1.0, spread: 0.02 },
+            { id: 'IBM', name: 'IBM Corp.', yahoo: 'IBM', base: 189.30, vol: 0.9, spread: 0.03 },
+            { id: 'BABA', name: 'Alibaba Group', yahoo: 'BABA', base: 86.40, vol: 3.2, spread: 0.06 },
+            { id: 'TCEHY', name: 'Tencent Holdings', yahoo: 'TCEHY', base: 52.20, vol: 2.1, spread: 0.04 },
+            { id: 'NVO', name: 'Novo Nordisk', yahoo: 'NVO', base: 135.20, vol: 1.2, spread: 0.03 },
+            { id: 'ASML', name: 'ASML Holding', yahoo: 'ASML', base: 910.40, vol: 2.8, spread: 0.08 },
+            { id: 'SAP', name: 'SAP SE', yahoo: 'SAP', base: 189.70, vol: 1.0, spread: 0.03 },
+            { id: 'NKE', name: 'Nike Inc.', yahoo: 'NKE', base: 98.50, vol: 1.5, spread: 0.03 },
+            { id: 'KO', name: 'Coca-Cola Co.', yahoo: 'KO', base: 68.20, vol: 0.6, spread: 0.02 },
+            { id: 'PEP', name: 'PepsiCo Inc.', yahoo: 'PEP', base: 172.30, vol: 0.7, spread: 0.02 },
+            { id: 'MCD', name: 'McDonald\'s Corp.', yahoo: 'MCD', base: 292.10, vol: 0.9, spread: 0.03 },
+            { id: 'GS', name: 'Goldman Sachs', yahoo: 'GS', base: 412.20, vol: 1.5, spread: 0.05 },
+            { id: 'UNH', name: 'UnitedHealth Group', yahoo: 'UNH', base: 518.30, vol: 1.2, spread: 0.04 },
+            { id: 'HD', name: 'Home Depot', yahoo: 'HD', base: 368.40, vol: 1.0, spread: 0.03 },
+            { id: 'MA', name: 'Mastercard Inc.', yahoo: 'MA', base: 452.60, vol: 0.9, spread: 0.03 },
+            { id: 'VZ', name: 'Verizon Communications', yahoo: 'VZ', base: 41.20, vol: 0.6, spread: 0.02 },
+            { id: 'T', name: 'AT&T Inc.', yahoo: 'T', base: 18.50, vol: 0.5, spread: 0.01 },
+            { id: 'PFE', name: 'Pfizer Inc.', yahoo: 'PFE', base: 28.40, vol: 0.7, spread: 0.02 },
+            { id: 'MRK', name: 'Merck & Co.', yahoo: 'MRK', base: 127.60, vol: 0.8, spread: 0.02 },
+            { id: 'ABT', name: 'Abbott Laboratories', yahoo: 'ABT', base: 112.40, vol: 0.7, spread: 0.02 },
+            { id: 'CVX', name: 'Chevron Corp.', yahoo: 'CVX', base: 162.30, vol: 1.3, spread: 0.04 },
+            { id: 'XOM', name: 'Exxon Mobil Corp.', yahoo: 'XOM', base: 118.20, vol: 1.2, spread: 0.03 },
+            { id: 'BA', name: 'Boeing Co.', yahoo: 'BA', base: 208.40, vol: 2.2, spread: 0.06 },
+            { id: 'GE', name: 'General Electric', yahoo: 'GE', base: 162.30, vol: 1.5, spread: 0.04 },
+            { id: 'CAT', name: 'Caterpillar Inc.', yahoo: 'CAT', base: 342.20, vol: 1.6, spread: 0.05 },
+            { id: 'UBER', name: 'Uber Technologies', yahoo: 'UBER', base: 72.40, vol: 2.5, spread: 0.06 },
+            { id: 'PYPL', name: 'PayPal Holdings', yahoo: 'PYPL', base: 66.20, vol: 2.0, spread: 0.04 },
+            { id: 'SNAP', name: 'Snap Inc.', yahoo: 'SNAP', base: 16.20, vol: 3.5, spread: 0.05 },
+            { id: 'SPOT', name: 'Spotify Technology', yahoo: 'SPOT', base: 302.50, vol: 2.8, spread: 0.07 },
+            { id: 'SNOW', name: 'Snowflake Inc.', yahoo: 'SNOW', base: 162.40, vol: 3.2, spread: 0.08 },
+            { id: 'SQ', name: 'Block Inc.', yahoo: 'SQ', base: 74.30, vol: 3.0, spread: 0.06 },
+        ];
+
+        // ─── 50 FOREX PAIRS ───
+        const forexSymbols = [
+            { id: 'EUR/USD', name: 'Euro / Dollar', yahoo: 'EURUSD=X', base: 1.0892, vol: 0.0008, spread: 0.0002,
+            digits: 5 },
+            { id: 'GBP/USD', name: 'Pound / Dollar', yahoo: 'GBPUSD=X', base: 1.2675, vol: 0.0010, spread: 0.0002,
+            digits: 5 },
+            { id: 'USD/JPY', name: 'Dollar / Yen', yahoo: 'USDJPY=X', base: 149.80, vol: 0.25, spread: 0.02, digits: 2 },
+            { id: 'AUD/USD', name: 'Australian Dollar', yahoo: 'AUDUSD=X', base: 0.6620, vol: 0.0006, spread: 0.0002,
+            digits: 5 },
+            { id: 'USD/CAD', name: 'Dollar / Canadian', yahoo: 'USDCAD=X', base: 1.3570, vol: 0.0005, spread: 0.0002,
+            digits: 5 },
+            { id: 'USD/CHF', name: 'Dollar / Swiss Franc', yahoo: 'USDCHF=X', base: 0.8820, vol: 0.0004, spread: 0.0002,
+            digits: 5 },
+            { id: 'EUR/GBP', name: 'Euro / Pound', yahoo: 'EURGBP=X', base: 0.8560, vol: 0.0005, spread: 0.0002,
+            digits: 5 },
+            { id: 'EUR/JPY', name: 'Euro / Yen', yahoo: 'EURJPY=X', base: 163.20, vol: 0.30, spread: 0.02, digits: 2 },
+            { id: 'GBP/JPY', name: 'Pound / Yen', yahoo: 'GBPJPY=X', base: 190.50, vol: 0.35, spread: 0.02, digits: 2 },
+            { id: 'AUD/JPY', name: 'Australian Dollar / Yen', yahoo: 'AUDJPY=X', base: 99.20, vol: 0.20, spread: 0.02,
+            digits: 2 },
+            { id: 'NZD/USD', name: 'New Zealand Dollar', yahoo: 'NZDUSD=X', base: 0.6140, vol: 0.0006, spread: 0.0002,
+            digits: 5 },
+            { id: 'EUR/AUD', name: 'Euro / Australian Dollar', yahoo: 'EURAUD=X', base: 1.6450, vol: 0.0012, spread: 0.0003,
+            digits: 5 },
+            { id: 'EUR/CAD', name: 'Euro / Canadian Dollar', yahoo: 'EURCAD=X', base: 1.4780, vol: 0.0010, spread: 0.0003,
+            digits: 5 },
+            { id: 'GBP/CHF', name: 'Pound / Swiss Franc', yahoo: 'GBPCHF=X', base: 1.1180, vol: 0.0009, spread: 0.0003,
+            digits: 5 },
+            { id: 'AUD/CAD', name: 'Australian Dollar / Canadian', yahoo: 'AUDCAD=X', base: 0.8980, vol: 0.0007,
+            spread: 0.0002, digits: 5 },
+            { id: 'CAD/JPY', name: 'Canadian / Yen', yahoo: 'CADJPY=X', base: 110.20, vol: 0.20, spread: 0.02, digits: 2 },
+            { id: 'CHF/JPY', name: 'Swiss Franc / Yen', yahoo: 'CHFJPY=X', base: 169.80, vol: 0.25, spread: 0.02,
+            digits: 2 },
+            { id: 'NZD/JPY', name: 'New Zealand / Yen', yahoo: 'NZDJPY=X', base: 91.80, vol: 0.20, spread: 0.02,
+            digits: 2 },
+            { id: 'GBP/AUD', name: 'Pound / Australian Dollar', yahoo: 'GBPAUD=X', base: 1.9140, vol: 0.0015, spread: 0.0004,
+            digits: 5 },
+            { id: 'AUD/NZD', name: 'Australian / New Zealand', yahoo: 'AUDNZD=X', base: 1.0780, vol: 0.0008, spread: 0.0002,
+            digits: 5 },
+            { id: 'EUR/NZD', name: 'Euro / New Zealand', yahoo: 'EURNZD=X', base: 1.7740, vol: 0.0012, spread: 0.0003,
+            digits: 5 },
+            { id: 'USD/HKD', name: 'Dollar / Hong Kong', yahoo: 'USDHKD=X', base: 7.8280, vol: 0.002, spread: 0.001,
+            digits: 4 },
+            { id: 'USD/SGD', name: 'Dollar / Singapore', yahoo: 'USDSGD=X', base: 1.3480, vol: 0.0015, spread: 0.0003,
+            digits: 4 },
+            { id: 'USD/TRY', name: 'Dollar / Turkish Lira', yahoo: 'USDTRY=X', base: 32.20, vol: 0.5, spread: 0.05,
+            digits: 2 },
+            { id: 'USD/SEK', name: 'Dollar / Swedish Krona', yahoo: 'USDSEK=X', base: 10.65, vol: 0.02, spread: 0.005,
+            digits: 3 },
+            { id: 'USD/NOK', name: 'Dollar / Norwegian Krone', yahoo: 'USDNOK=X', base: 10.85, vol: 0.02, spread: 0.005,
+            digits: 3 },
+            { id: 'USD/DKK', name: 'Dollar / Danish Krone', yahoo: 'USDDKK=X', base: 6.92, vol: 0.01, spread: 0.003,
+            digits: 3 },
+            { id: 'USD/ZAR', name: 'Dollar / South African Rand', yahoo: 'USDZAR=X', base: 18.80, vol: 0.15, spread: 0.03,
+            digits: 2 },
+            { id: 'USD/MXN', name: 'Dollar / Mexican Peso', yahoo: 'USDMXN=X', base: 16.85, vol: 0.10, spread: 0.02,
+            digits: 2 },
+            { id: 'USD/BRL', name: 'Dollar / Brazilian Real', yahoo: 'USDBRL=X', base: 5.15, vol: 0.05, spread: 0.01,
+            digits: 2 },
+            { id: 'EUR/CHF', name: 'Euro / Swiss Franc', yahoo: 'EURCHF=X', base: 0.9610, vol: 0.0005, spread: 0.0002,
+            digits: 5 },
+            { id: 'EUR/SEK', name: 'Euro / Swedish Krona', yahoo: 'EURSEK=X', base: 11.60, vol: 0.02, spread: 0.005,
+            digits: 3 },
+            { id: 'EUR/NOK', name: 'Euro / Norwegian Krone', yahoo: 'EURNOK=X', base: 11.80, vol: 0.02, spread: 0.005,
+            digits: 3 },
+            { id: 'GBP/NZD', name: 'Pound / New Zealand', yahoo: 'GBPNZD=X', base: 2.0640, vol: 0.0012, spread: 0.0003,
+            digits: 5 },
+            { id: 'GBP/CAD', name: 'Pound / Canadian Dollar', yahoo: 'GBPCAD=X', base: 1.7200, vol: 0.0010, spread: 0.0003,
+            digits: 5 },
+            { id: 'AUD/CHF', name: 'Australian / Swiss Franc', yahoo: 'AUDCHF=X', base: 0.5840, vol: 0.0005, spread: 0.0002,
+            digits: 5 },
+            { id: 'CAD/CHF', name: 'Canadian / Swiss Franc', yahoo: 'CADCHF=X', base: 0.6500, vol: 0.0004, spread: 0.0002,
+            digits: 5 },
+            { id: 'NZD/CAD', name: 'New Zealand / Canadian', yahoo: 'NZDCAD=X', base: 0.8330, vol: 0.0006, spread: 0.0002,
+            digits: 5 },
+            { id: 'EUR/TRY', name: 'Euro / Turkish Lira', yahoo: 'EURTRY=X', base: 35.10, vol: 0.6, spread: 0.06,
+            digits: 2 },
+            { id: 'GBP/TRY', name: 'Pound / Turkish Lira', yahoo: 'GBPTRY=X', base: 40.80, vol: 0.7, spread: 0.07,
+            digits: 2 },
+            { id: 'USD/CNH', name: 'Dollar / Offshore Yuan', yahoo: 'USDCNH=X', base: 7.24, vol: 0.01, spread: 0.003,
+            digits: 4 },
+            { id: 'EUR/CNH', name: 'Euro / Offshore Yuan', yahoo: 'EURCNH=X', base: 7.89, vol: 0.01, spread: 0.003,
+            digits: 4 },
+            { id: 'GBP/CNH', name: 'Pound / Offshore Yuan', yahoo: 'GBPCNH=X', base: 9.18, vol: 0.01, spread: 0.003,
+            digits: 4 },
+            { id: 'AUD/CNH', name: 'Australian / Offshore Yuan', yahoo: 'AUDCNH=X', base: 4.80, vol: 0.008, spread: 0.002,
+            digits: 4 },
+            { id: 'USD/KRW', name: 'Dollar / Korean Won', yahoo: 'USDKRW=X', base: 1370, vol: 2.0, spread: 0.5, digits: 0 },
+            { id: 'USD/INR', name: 'Dollar / Indian Rupee', yahoo: 'USDINR=X', base: 83.20, vol: 0.10, spread: 0.02,
+            digits: 2 },
+            { id: 'USD/PHP', name: 'Dollar / Philippine Peso', yahoo: 'USDPHP=X', base: 56.80, vol: 0.10, spread: 0.02,
+            digits: 2 },
+            { id: 'USD/THB', name: 'Dollar / Thai Baht', yahoo: 'USDTHB=X', base: 36.50, vol: 0.05, spread: 0.01,
+            digits: 2 },
+            { id: 'USD/MYR', name: 'Dollar / Malaysian Ringgit', yahoo: 'USDMYR=X', base: 4.72, vol: 0.01, spread: 0.005,
+            digits: 3 },
+        ];
+
+        // ─── 50 CRYPTO ───
+        const cryptoSymbols = [
+            { id: 'BTC/USD', name: 'Bitcoin', yahoo: 'BTC-USD', base: 62450, vol: 320, spread: 12, digits: 2 },
+            { id: 'ETH/USD', name: 'Ethereum', yahoo: 'ETH-USD', base: 3120, vol: 85, spread: 6, digits: 2 },
+            { id: 'SOL/USD', name: 'Solana', yahoo: 'SOL-USD', base: 168.40, vol: 7.5, spread: 0.4, digits: 2 },
+            { id: 'BNB/USD', name: 'BNB', yahoo: 'BNB-USD', base: 545.20, vol: 12, spread: 1.2, digits: 2 },
+            { id: 'XRP/USD', name: 'Ripple', yahoo: 'XRP-USD', base: 0.54, vol: 0.03, spread: 0.002, digits: 4 },
+            { id: 'ADA/USD', name: 'Cardano', yahoo: 'ADA-USD', base: 0.45, vol: 0.025, spread: 0.002, digits: 4 },
+            { id: 'DOGE/USD', name: 'Dogecoin', yahoo: 'DOGE-USD', base: 0.12, vol: 0.01, spread: 0.0005, digits: 4 },
+            { id: 'DOT/USD', name: 'Polkadot', yahoo: 'DOT-USD', base: 6.80, vol: 0.35, spread: 0.02, digits: 2 },
+            { id: 'AVAX/USD', name: 'Avalanche', yahoo: 'AVAX-USD', base: 38.20, vol: 2.0, spread: 0.08, digits: 2 },
+            { id: 'MATIC/USD', name: 'Polygon', yahoo: 'MATIC-USD', base: 0.72, vol: 0.04, spread: 0.002, digits: 4 },
+            { id: 'SHIB/USD', name: 'Shiba Inu', yahoo: 'SHIB-USD', base: 0.000024, vol: 0.000002, spread: 0.0000001,
+            digits: 6 },
+            { id: 'LTC/USD', name: 'Litecoin', yahoo: 'LTC-USD', base: 82.40, vol: 3.0, spread: 0.15, digits: 2 },
+            { id: 'LINK/USD', name: 'Chainlink', yahoo: 'LINK-USD', base: 14.20, vol: 0.6, spread: 0.03, digits: 2 },
+            { id: 'UNI/USD', name: 'Uniswap', yahoo: 'UNI-USD', base: 7.80, vol: 0.4, spread: 0.02, digits: 2 },
+            { id: 'ATOM/USD', name: 'Cosmos', yahoo: 'ATOM-USD', base: 8.20, vol: 0.4, spread: 0.02, digits: 2 },
+            { id: 'XLM/USD', name: 'Stellar', yahoo: 'XLM-USD', base: 0.10, vol: 0.005, spread: 0.0002, digits: 4 },
+            { id: 'NEAR/USD', name: 'NEAR Protocol', yahoo: 'NEAR-USD', base: 7.20, vol: 0.4, spread: 0.02, digits: 2 },
+            { id: 'ALGO/USD', name: 'Algorand', yahoo: 'ALGO-USD', base: 0.18, vol: 0.01, spread: 0.0005, digits: 4 },
+            { id: 'ICP/USD', name: 'Internet Computer', yahoo: 'ICP-USD', base: 10.20, vol: 0.5, spread: 0.03, digits: 2 },
+            { id: 'FIL/USD', name: 'Filecoin', yahoo: 'FIL-USD', base: 6.50, vol: 0.3, spread: 0.02, digits: 2 },
+            { id: 'VET/USD', name: 'VeChain', yahoo: 'VET-USD', base: 0.032, vol: 0.002, spread: 0.0001, digits: 4 },
+            { id: 'ETC/USD', name: 'Ethereum Classic', yahoo: 'ETC-USD', base: 26.40, vol: 1.0, spread: 0.05, digits: 2 },
+            { id: 'THETA/USD', name: 'Theta', yahoo: 'THETA-USD', base: 2.20, vol: 0.1, spread: 0.005, digits: 2 },
+            { id: 'XTZ/USD', name: 'Tezos', yahoo: 'XTZ-USD', base: 0.92, vol: 0.05, spread: 0.002, digits: 3 },
+            { id: 'EOS/USD', name: 'EOS', yahoo: 'EOS-USD', base: 0.78, vol: 0.04, spread: 0.002, digits: 3 },
+            { id: 'KSM/USD', name: 'Kusama', yahoo: 'KSM-USD', base: 32.50, vol: 1.5, spread: 0.08, digits: 2 },
+            { id: 'WAVES/USD', name: 'Waves', yahoo: 'WAVES-USD', base: 6.80, vol: 0.3, spread: 0.02, digits: 2 },
+            { id: 'ZIL/USD', name: 'Zilliqa', yahoo: 'ZIL-USD', base: 0.024, vol: 0.001, spread: 0.00005, digits: 5 },
+            { id: 'NEO/USD', name: 'NEO', yahoo: 'NEO-USD', base: 14.80, vol: 0.6, spread: 0.03, digits: 2 },
+            { id: 'DASH/USD', name: 'Dash', yahoo: 'DASH-USD', base: 28.20, vol: 1.0, spread: 0.05, digits: 2 },
+            { id: 'QTUM/USD', name: 'Qtum', yahoo: 'QTUM-USD', base: 3.60, vol: 0.15, spread: 0.01, digits: 2 },
+            { id: 'OMG/USD', name: 'OMG Network', yahoo: 'OMG-USD', base: 0.58, vol: 0.03, spread: 0.002, digits: 3 },
+            { id: 'BAT/USD', name: 'Basic Attention Token', yahoo: 'BAT-USD', base: 0.28, vol: 0.015, spread: 0.001,
+            digits: 4 },
+            { id: 'MANA/USD', name: 'Decentraland', yahoo: 'MANA-USD', base: 0.45, vol: 0.02, spread: 0.001, digits: 4 },
+            { id: 'SAND/USD', name: 'The Sandbox', yahoo: 'SAND-USD', base: 0.38, vol: 0.02, spread: 0.001, digits: 4 },
+            { id: 'AXS/USD', name: 'Axie Infinity', yahoo: 'AXS-USD', base: 6.80, vol: 0.3, spread: 0.02, digits: 2 },
+            { id: 'RUNE/USD', name: 'THORChain', yahoo: 'RUNE-USD', base: 4.80, vol: 0.2, spread: 0.01, digits: 2 },
+            { id: 'EGLD/USD', name: 'Elrond', yahoo: 'EGLD-USD', base: 32.50, vol: 1.2, spread: 0.06, digits: 2 },
+            { id: 'HNT/USD', name: 'Helium', yahoo: 'HNT-USD', base: 3.80, vol: 0.15, spread: 0.01, digits: 2 },
+            { id: 'KAVA/USD', name: 'Kava', yahoo: 'KAVA-USD', base: 0.72, vol: 0.03, spread: 0.002, digits: 3 },
+            { id: 'ONE/USD', name: 'Harmony', yahoo: 'ONE-USD', base: 0.022, vol: 0.001, spread: 0.00005, digits: 5 },
+            { id: 'CELO/USD', name: 'Celo', yahoo: 'CELO-USD', base: 0.82, vol: 0.04, spread: 0.002, digits: 3 },
+            { id: 'YFI/USD', name: 'Yearn.Finance', yahoo: 'YFI-USD', base: 6650, vol: 150, spread: 8, digits: 2 },
+            { id: 'UMA/USD', name: 'UMA', yahoo: 'UMA-USD', base: 3.20, vol: 0.15, spread: 0.01, digits: 2 },
+            { id: 'COMP/USD', name: 'Compound', yahoo: 'COMP-USD', base: 56.80, vol: 2.5, spread: 0.12, digits: 2 },
+            { id: 'AAVE/USD', name: 'Aave', yahoo: 'AAVE-USD', base: 98.20, vol: 4.0, spread: 0.20, digits: 2 },
+            { id: 'MKR/USD', name: 'Maker', yahoo: 'MKR-USD', base: 2150, vol: 60, spread: 3, digits: 2 },
+            { id: 'CRV/USD', name: 'Curve DAO', yahoo: 'CRV-USD', base: 0.42, vol: 0.02, spread: 0.001, digits: 4 },
+            { id: 'APE/USD', name: 'ApeCoin', yahoo: 'APE-USD', base: 1.28, vol: 0.06, spread: 0.003, digits: 3 },
+            { id: 'FTM/USD', name: 'Fantom', yahoo: 'FTM-USD', base: 0.68, vol: 0.03, spread: 0.002, digits: 3 },
+        ];
+
+        // ─── Build final ASSETS array ───
+        const ASSETS = [];
+
+        // Add stocks
+        stockSymbols.forEach(s => {
+            ASSETS.push({
+                id: s.id,
+                name: s.name,
+                type: 'stocks',
+                yahoo: s.yahoo,
+                base: s.base,
+                volatility: s.vol,
+                spread: s.spread,
+                digits: 2
+            });
+        });
+
+        // Add forex
+        forexSymbols.forEach(s => {
+            ASSETS.push({
+                id: s.id,
+                name: s.name,
+                type: 'forex',
+                yahoo: s.yahoo,
+                base: s.base,
+                volatility: s.vol,
+                spread: s.spread,
+                digits: s.digits || 5
+            });
+        });
+
+        // Add crypto
+        cryptoSymbols.forEach(s => {
+            ASSETS.push({
+                id: s.id,
+                name: s.name,
+                type: 'crypto',
+                yahoo: s.yahoo,
+                base: s.base,
+                volatility: s.vol,
+                spread: s.spread,
+                digits: s.digits || 2
+            });
+        });
+
+        // ── State ──
+        const state = {
+            balance: 100000,
+            positions: [],
+            selectedAsset: 'AAPL',
+            chartData: [],
+            chartInstance: null,
+            priceInterval: null,
+            tickers: {},
+            orderType: 'market',
+            filter: 'all',
+            chartTF: '1D',
+            lastUpdate: null,
+            status: 'disconnected',
+            priceHistory: {},
+            searchQuery: '',
+        };
+
+        // ── Helpers ──
+        function getAsset(id) { return ASSETS.find(a => a.id === id) || ASSETS[0]; }
+
+        function formatPrice(id, val) {
+            const a = getAsset(id);
+            const digits = a.digits !== undefined ? a.digits : (val < 10 ? 4 : 2);
+            return val.toFixed(digits);
+        }
+
+        function formatCurrency(v) { return v.toFixed(2); }
+
+        function randomBetween(min, max) { return Math.random() * (max - min) + min; }
+
+        function clamp(v, mn, mx) { return Math.max(mn, Math.min(mx, v)); }
+
+        // ── Toast ──
+        function showToast(msg, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const icons = { success: 'fa-check-circle', error: 'fa-times-circle', info: 'fa-info-circle' };
+            const t = document.createElement('div');
+            t.className = `toast ${type}`;
+            t.innerHTML = `<i class="fas ${icons[type] || icons.info}"></i> ${msg}`;
+            container.appendChild(t);
+            setTimeout(() => { t.style.opacity = '0';
+                t.style.transform = 'translateX(40px)';
+                setTimeout(() => t.remove(), 300); }, 3800);
+        }
+
+        // ── Status ──
+        function setStatus(status, msg) {
+            const dot = document.getElementById('statusDot');
+            const text = document.getElementById('statusText');
+            state.status = status;
+            dot.className = 'dot';
+            if (status === 'connected') {
+                dot.classList.add('dot');
+                text.textContent = msg || 'Live';
+            } else if (status === 'connecting') {
+                dot.classList.add('warning');
+                text.textContent = msg || 'Connecting...';
+            } else {
+                dot.classList.add('error');
+                text.textContent = msg || 'Disconnected';
+            }
+        }
+
+        // ── Update counts ──
+        function updateCounts() {
+            const total = ASSETS.length;
+            const stocks = ASSETS.filter(a => a.type === 'stocks').length;
+            const forex = ASSETS.filter(a => a.type === 'forex').length;
+            const crypto = ASSETS.filter(a => a.type === 'crypto').length;
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('stocksCount').textContent = stocks;
+            document.getElementById('forexCount').textContent = forex;
+            document.getElementById('cryptoCount').textContent = crypto;
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  YAHOO FINANCE API
+        // ════════════════════════════════════════════════════════════════
+
+        async function fetchYahooPrice(symbol) {
+            const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`;
+            try {
+                const resp = await fetch(url);
+                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                const data = await resp.json();
+                const result = data.chart?.result?.[0];
+                if (!result) throw new Error('No result');
+                const price = result.meta?.regularMarketPrice;
+                if (price === undefined || price === null) throw new Error('No price');
+                return price;
+            } catch (e) {
+                console.warn(`Yahoo fetch error for ${symbol}:`, e.message);
+                return null;
+            }
+        }
+
+        async function fetchAllPrices() {
+            const results = {};
+            const symbols = ASSETS.map(a => a.yahoo);
+            const fetches = symbols.map(async (sym) => {
+                try {
+                    const price = await fetchYahooPrice(sym);
+                    return { symbol: sym, price };
+                } catch (e) {
+                    return { symbol: sym, price: null };
+                }
+            });
+            const settled = await Promise.allSettled(fetches);
+            for (const result of settled) {
+                if (result.status === 'fulfilled') {
+                    const { symbol, price } = result.value;
+                    results[symbol] = price;
+                }
+            }
+            return results;
+        }
+
+        async function updateTickers() {
+            try {
+                const prices = await fetchAllPrices();
+                let updated = 0;
+                for (const asset of ASSETS) {
+                    const price = prices[asset.yahoo];
+                    if (price !== null && price !== undefined && !isNaN(price) && price > 0) {
+                        state.tickers[asset.id] = price;
+                        updated++;
+                    } else {
+                        // fallback
+                        if (!state.tickers[asset.id]) state.tickers[asset.id] = asset.base;
+                        const change = (Math.random() - 0.5) * asset.volatility * 0.3;
+                        let p = state.tickers[asset.id] + change;
+                        const maxDev = asset.volatility * 3;
+                        if (p > asset.base + maxDev) p = asset.base + maxDev;
+                        if (p < asset.base - maxDev) p = asset.base - maxDev;
+                        state.tickers[asset.id] = p;
+                    }
+                }
+                if (updated > 0) {
+                    setStatus('connected', `Live · ${updated} sources`);
+                } else {
+                    setStatus('connecting', 'Using simulated data');
+                }
+                state.lastUpdate = new Date();
+                document.getElementById('chartUpdated').textContent =
+                    `Updated ${state.lastUpdate.toLocaleTimeString()}`;
+                renderWatchlist();
+                updateChart(state.selectedAsset);
+                renderOrderbook(state.selectedAsset);
+                updatePositions();
+                updateMarketSummary();
+                return updated;
+            } catch (e) {
+                console.error('Update error:', e);
+                setStatus('error', 'Update failed');
+                return 0;
+            }
+        }
+
+        function updateMarketSummary() {
+            const spx = state.tickers['AAPL'] ? state.tickers['AAPL'] * 2.1 : null;
+            const dxy = state.tickers['EUR/USD'] ? 1 / state.tickers['EUR/USD'] * 1.05 : null;
+            const spxEl = document.getElementById('spxPrice');
+            const dxyEl = document.getElementById('dxyPrice');
+            if (spx) {
+                spxEl.textContent = spx.toFixed(2);
+                spxEl.className = (Math.random() > 0.5) ? 'up' : 'down';
+            }
+            if (dxy) {
+                dxyEl.textContent = dxy.toFixed(4);
+                dxyEl.className = (Math.random() > 0.5) ? 'up' : 'down';
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  WATCHLIST with search & filter
+        // ════════════════════════════════════════════════════════════════
+
+        function renderWatchlist() {
+            const container = document.getElementById('watchlistContainer');
+            let list = ASSETS;
+            if (state.filter !== 'all') list = list.filter(a => a.type === state.filter);
+            const search = state.searchQuery.toLowerCase().trim();
+            if (search) {
+                list = list.filter(a => a.id.toLowerCase().includes(search) || a.name.toLowerCase().includes(search));
+            }
+
+            container.innerHTML = list.map((a) => {
+                const price = state.tickers[a.id] ?? a.base;
+                const change = ((price - a.base) / a.base * 100);
+                const cls = change >= 0 ? 'up' : 'down';
+                const active = a.id === state.selectedAsset ? 'active' : '';
+                const flashClass = price > (state._lastPrice?.[a.id] ?? price) ? 'flash-green' :
+                    price < (state._lastPrice?.[a.id] ?? price) ? 'flash-red' : '';
+                return `
+              <div class="watchlist-item ${active}" data-id="${a.id}">
+                <div class="info">
+                  <span class="symbol">${a.id}</span>
+                  <span class="name">${a.name}</span>
+                </div>
+                <div class="price">
+                  <div class="value ${flashClass}">${formatPrice(a.id, price)}</div>
+                  <div class="change ${cls}">${change >= 0 ? '+' : ''}${change.toFixed(2)}%</div>
+                </div>
+              </div>
+            `;
+            }).join('');
+
+            state._lastPrice = {};
+            list.forEach(a => { state._lastPrice[a.id] = state.tickers[a.id] ?? a.base; });
+
+            container.querySelectorAll('.watchlist-item').forEach(el => {
+                el.addEventListener('click', () => {
+                    const id = el.dataset.id;
+                    selectAsset(id);
+                });
+            });
+            updateCounts();
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  CHART
+        // ════════════════════════════════════════════════════════════════
+
+        function initChart() {
+            const ctx = document.getElementById('priceChart').getContext('2d');
+            const grad = ctx.createLinearGradient(0, 0, 0, 300);
+            grad.addColorStop(0, 'rgba(124, 92, 252, 0.25)');
+            grad.addColorStop(1, 'rgba(124, 92, 252, 0.0)');
+            state.chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Price',
+                        data: [],
+                        borderColor: '#7c5cfc',
+                        backgroundColor: grad,
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 0,
+                        borderWidth: 2.5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0c1220',
+                            titleColor: '#edf2f9',
+                            bodyColor: '#8fa8d0',
+                            borderColor: 'rgba(50,80,140,0.3)',
+                            borderWidth: 1,
+                            cornerRadius: 10,
+                            padding: 8,
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(50,80,140,0.1)', drawBorder: false },
+                            ticks: { color: '#4a6a8a', maxTicksLimit: 10, font: { size: 8 } },
+                        },
+                        y: {
+                            grid: { color: 'rgba(50,80,140,0.1)', drawBorder: false },
+                            ticks: { color: '#4a6a8a', font: { size: 8 } },
+                        }
+                    },
+                    interaction: { intersect: false, mode: 'index' },
+                }
+            });
+        }
+
+        function updateChart(assetId) {
+            if (!state.chartInstance) return;
+            const price = state.tickers[assetId] ?? getAsset(assetId).base;
+            if (!state.priceHistory[assetId]) state.priceHistory[assetId] = [];
+            const history = state.priceHistory[assetId];
+            history.push(price);
+            if (history.length > 150) history.shift();
+
+            const labels = history.map((_, i) => {
+                const d = new Date();
+                d.setSeconds(d.getSeconds() - (history.length - i) * 2);
+                return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            });
+
+            state.chartInstance.data.labels = labels;
+            state.chartInstance.data.datasets[0].data = history;
+            state.chartInstance.update('none');
+
+            const a = getAsset(assetId);
+            const change = ((price - a.base) / a.base * 100);
+            document.getElementById('chartSymbol').textContent = assetId;
+            const priceEl = document.getElementById('chartPrice');
+            priceEl.textContent = formatPrice(assetId, price);
+            priceEl.className = 'price ' + (change >= 0 ? 'green' : 'red');
+            const changeEl = document.getElementById('chartChange');
+            changeEl.textContent = (change >= 0 ? '+' : '') + change.toFixed(2) + '%';
+            changeEl.className = 'change ' + (change >= 0 ? 'up' : 'down');
+
+            // update trade price hint
+            const hint = document.getElementById('tradePriceHint');
+            hint.innerHTML = `<strong>@</strong> ${formatPrice(assetId, price)}`;
+
+            // indicators
+            const sma20 = history.slice(-20).reduce((a, b) => a + b, 0) / Math.min(20, history.length);
+            const sma50 = history.slice(-50).reduce((a, b) => a + b, 0) / Math.min(50, history.length);
+            document.getElementById('sma20').textContent = formatPrice(assetId, sma20 || price);
+            document.getElementById('sma50').textContent = formatPrice(assetId, sma50 || price);
+            document.getElementById('rsiVal').textContent = Math.floor(randomBetween(40, 70));
+            document.getElementById('volumeVal').textContent = (Math.floor(randomBetween(0.5, 9.5) * 100) / 100) + 'M';
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  ORDER BOOK
+        // ════════════════════════════════════════════════════════════════
+
+        function renderOrderbook(assetId) {
+            const price = state.tickers[assetId] ?? getAsset(assetId).base;
+            const a = getAsset(assetId);
+            const spread = a.spread || 0.02;
+            const bidPrice = price - spread / 2;
+            const askPrice = price + spread / 2;
+
+            const bids = [];
+            const asks = [];
+            for (let i = 0; i < 8; i++) {
+                const bid = bidPrice - i * (spread * 0.6);
+                const ask = askPrice + i * (spread * 0.6);
+                const sizeBid = Math.floor(randomBetween(0.2, 5.0) * 100) / 100;
+                const sizeAsk = Math.floor(randomBetween(0.2, 5.0) * 100) / 100;
+                bids.push({ price: bid, size: sizeBid });
+                asks.push({ price: ask, size: sizeAsk });
+            }
+
+            const maxSize = Math.max(...bids.map(b => b.size), ...asks.map(a => a.size));
+
+            document.getElementById('bidSide').innerHTML = bids.map(b => `
+            <div class="row">
+              <span class="price">${formatPrice(assetId, b.price)}</span>
+              <span class="size">${b.size.toFixed(2)}</span>
+            </div>
+            <div style="height:2px;background:var(--green);opacity:${0.1 + (b.size / maxSize) * 0.3};border-radius:4px;width:${(b.size / maxSize) * 100}%;"></div>
+          `).join('');
+
+            document.getElementById('askSide').innerHTML = asks.map(a => `
+            <div class="row">
+              <span class="price">${formatPrice(assetId, a.price)}</span>
+              <span class="size">${a.size.toFixed(2)}</span>
+            </div>
+            <div style="height:2px;background:var(--red);opacity:${0.1 + (a.size / maxSize) * 0.3};border-radius:4px;width:${(a.size / maxSize) * 100}%;"></div>
+          `).join('');
+
+            const spreadPct = (spread / price * 100);
+            document.getElementById('spreadValue').textContent = formatPrice(assetId, spread) +
+                ` (${spreadPct.toFixed(3)}%)`;
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  TRADE
+        // ════════════════════════════════════════════════════════════════
+
+        function executeTrade(side) {
+            const assetId = state.selectedAsset;
+            const price = state.tickers[assetId] ?? getAsset(assetId).base;
+            const a = getAsset(assetId);
+            const sizeInput = document.getElementById('tradeSize');
+            let size = parseFloat(sizeInput.value);
+            if (isNaN(size) || size <= 0) { showToast('Enter a valid size', 'error'); return; }
+
+            const cost = size * price;
+            if (cost > state.balance) { showToast(`Insufficient balance. Need $${cost.toFixed(2)}`, 'error'); return; }
+
+            const entryPrice = side === 'buy' ? price + a.spread / 2 : price - a.spread / 2;
+            state.balance -= cost;
+            updateBalance();
+
+            const pos = {
+                id: Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+                asset: assetId,
+                side: side,
+                entry: entryPrice,
+                size: size,
+                currentPrice: price,
+                pl: 0,
+            };
+            state.positions.push(pos);
+            renderPositions();
+            showToast(`${side.toUpperCase()} ${size} ${assetId} @ ${formatPrice(assetId, entryPrice)}`, 'success');
+        }
+
+        function updatePositions() {
+            state.positions.forEach(p => {
+                const current = state.tickers[p.asset] ?? getAsset(p.asset).base;
+                p.currentPrice = current;
+                if (p.side === 'buy') p.pl = (current - p.entry) * p.size;
+                else p.pl = (p.entry - current) * p.size;
+            });
+            renderPositions();
+        }
+
+        function renderPositions() {
+            const bar = document.getElementById('positionsBar');
+            if (state.positions.length === 0) {
+                bar.innerHTML =
+                    `<span class="empty"><i class="fas fa-inbox" style="margin-right:6px;"></i>No open positions</span>`;
+                return;
+            }
+            bar.innerHTML = state.positions.map(p => {
+                const pl = p.pl || 0;
+                const plCls = pl >= 0 ? 'pos' : 'neg';
+                const sideCls = p.side === 'buy' ? 'long' : 'short';
+                const sideLabel = p.side === 'buy' ? 'LONG' : 'SHORT';
+                return `
+              <div class="pos-item">
+                <span class="pair">${p.asset}</span>
+                <span class="side ${sideCls}">${sideLabel}</span>
+                <span>${p.size.toFixed(2)}</span>
+                <span class="pl ${plCls}">${pl >= 0 ? '+' : ''}${pl.toFixed(2)}</span>
+                <button class="close-btn" data-id="${p.id}" title="Close"><i class="fas fa-times"></i></button>
+              </div>
+            `;
+            }).join('');
+
+            bar.querySelectorAll('.close-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    const idx = state.positions.findIndex(p => p.id === id);
+                    if (idx > -1) {
+                        const p = state.positions[idx];
+                        state.balance += p.size * p.currentPrice;
+                        state.positions.splice(idx, 1);
+                        updateBalance();
+                        renderPositions();
+                        showToast(`Closed ${p.asset} position`, 'info');
+                    }
+                });
+            });
+        }
+
+        function updateBalance() {
+            document.getElementById('balanceDisplay').textContent = formatCurrency(state.balance);
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  SELECT ASSET
+        // ════════════════════════════════════════════════════════════════
+
+        function selectAsset(id) {
+            state.selectedAsset = id;
+            const price = state.tickers[id] ?? getAsset(id).base;
+            if (!state.priceHistory[id]) state.priceHistory[id] = [];
+            const history = state.priceHistory[id];
+            if (history.length === 0) {
+                for (let i = 0; i < 50; i++) {
+                    history.push(price + randomBetween(-0.02, 0.02) * getAsset(id).volatility * 0.4);
+                }
+            }
+            updateChart(id);
+            renderOrderbook(id);
+            renderWatchlist();
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  NEWS
+        // ════════════════════════════════════════════════════════════════
+
+        const headlines = [
+            'Fed signals cautious approach to rate cuts',
+            'Tech earnings beat expectations, rally continues',
+            'Oil prices slip on demand concerns',
+            'Bitcoin volatility spikes as halving approaches',
+            'Dollar weakens against major currencies',
+            'NVIDIA unveils next-gen AI chip, stock jumps',
+            'ECB holds rates steady, euro edges higher',
+            'Tesla announces new factory in Texas',
+            'Apple explores AI partnerships',
+            'JPY strengthens on intervention fears',
+            'Gold hits record high amid uncertainty',
+            'S&P 500 closes at new all-time high',
+            'Crypto market cap surpasses $2.5 trillion',
+            'Fed minutes show hawkish tilt',
+            'AI boom drives semiconductor stocks',
+        ];
+
+        function renderNews() {
+            const container = document.getElementById('newsFeed');
+            const shuffled = [...headlines].sort(() => Math.random() - 0.5);
+            container.innerHTML = shuffled.slice(0, 5).map(h => `
+            <div class="news-item">
+              <div class="headline">${h}</div>
+              <div class="time">${new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</div>
+            </div>
+          `).join('');
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  PRICE LOOP
+        // ════════════════════════════════════════════════════════════════
+
+        let updateCount = 0;
+
+        async function priceLoop() {
+            updateCount++;
+            const updated = await updateTickers();
+            if (updated === 0) {
+                for (const asset of ASSETS) {
+                    if (!state.tickers[asset.id]) state.tickers[asset.id] = asset.base;
+                    const change = (Math.random() - 0.5) * asset.volatility * 0.3;
+                    let p = state.tickers[asset.id] + change;
+                    const maxDev = asset.volatility * 3;
+                    if (p > asset.base + maxDev) p = asset.base + maxDev;
+                    if (p < asset.base - maxDev) p = asset.base - maxDev;
+                    state.tickers[asset.id] = p;
+                }
+                renderWatchlist();
+                updateChart(state.selectedAsset);
+                renderOrderbook(state.selectedAsset);
+                updatePositions();
+                updateMarketSummary();
+                setStatus('connecting', 'Simulated data');
+            }
+            if (updateCount % 10 === 0) renderNews();
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  UI BINDINGS
+        // ════════════════════════════════════════════════════════════════
+
+        function initUI() {
+            document.querySelectorAll('#assetNav button[data-filter]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#assetNav button[data-filter]').forEach(b => b.classList.remove(
+                    'active'));
+                    btn.classList.add('active');
+                    state.filter = btn.dataset.filter;
+                    renderWatchlist();
+                    let list = ASSETS;
+                    if (state.filter !== 'all') list = list.filter(a => a.type === state.filter);
+                    if (list.length) selectAsset(list[0].id);
+                });
+            });
+
+            document.querySelectorAll('#timeframeBtns button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#timeframeBtns button').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    state.chartTF = btn.dataset.tf;
+                    showToast(`View: ${btn.textContent}`, 'info');
+                });
+            });
+
+            document.querySelectorAll('#orderTypeBtns button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#orderTypeBtns button').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    state.orderType = btn.dataset.type;
+                    document.getElementById('limitPriceRow').style.display = state.orderType === 'market' ?
+                        'none' : 'flex';
+                });
+            });
+
+            document.getElementById('buyBtn').addEventListener('click', () => executeTrade('buy'));
+            document.getElementById('sellBtn').addEventListener('click', () => executeTrade('sell'));
+
+            document.getElementById('tradeSize').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') executeTrade('buy');
+            });
+
+            document.getElementById('refreshWatchlist').addEventListener('click', () => {
+                showToast('Refreshing prices...', 'info');
+                updateTickers();
+            });
+
+            // Search
+            const searchInput = document.getElementById('assetSearch');
+            searchInput.addEventListener('input', (e) => {
+                state.searchQuery = e.target.value;
+                renderWatchlist();
+            });
+        }
+
+        // ════════════════════════════════════════════════════════════════
+        //  INIT
+        // ════════════════════════════════════════════════════════════════
+
+        async function init() {
+            for (const a of ASSETS) {
+                state.tickers[a.id] = a.base;
+                state.priceHistory[a.id] = [];
+                for (let i = 0; i < 50; i++) {
+                    state.priceHistory[a.id].push(a.base + randomBetween(-0.02, 0.02) * a.volatility * 0.4);
+                }
+            }
+
+            initChart();
+            renderWatchlist();
+            renderOrderbook('AAPL');
+            updateChart('AAPL');
+            updateBalance();
+            renderPositions();
+            renderNews();
+            initUI();
+            updateCounts();
+
+            setStatus('connecting', 'Fetching live data...');
+            await updateTickers();
+
+            state.priceInterval = setInterval(priceLoop, 4500);
+
+            showToast('🚀 Vertex Ultimate — 150+ assets ready', 'success');
+
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden) updateTickers();
+            });
+        }
+
+        init();
+    </script>
+</body>
+</html>
