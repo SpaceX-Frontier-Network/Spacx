@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+    </script>
 
     <style>
         * {
@@ -38,6 +41,7 @@
             --primary-dark: #0038B8;
             --primary-light: #4B7FFF;
             --green: #00D484;
+            --green-dark: #00B86B;
             --blue-bg: #0A0B1A;
             --card-bg: rgba(19, 20, 31, 0.7);
             --border-color: rgba(255, 255, 255, 0.06);
@@ -80,6 +84,24 @@
             background: radial-gradient(circle at 30% 20%, rgba(0, 82, 255, 0.06), transparent 60%);
             pointer-events: none;
         }
+        .glass-premium:hover {
+            border-color: rgba(0, 82, 255, 0.25);
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 82, 255, 0.3);
+            box-shadow: 0 0 60px rgba(0, 82, 255, 0.08);
+        }
 
         /* ── Theme Toggle ── */
         .theme-toggle {
@@ -105,8 +127,10 @@
             border-color: var(--primary);
             color: var(--primary);
             transform: rotate(25deg) scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 82, 255, 0.1);
         }
 
+        /* ── Buttons ── */
         .btn-primary {
             background: var(--primary);
             color: #fff;
@@ -126,12 +150,31 @@
             box-shadow: 0 8px 50px rgba(0, 82, 255, 0.5);
         }
 
+        .btn-green {
+            background: var(--green);
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all var(--transition);
+            box-shadow: 0 4px 20px rgba(0, 212, 132, 0.3);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-green:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 212, 132, 0.4);
+        }
+
         .btn-outline {
             background: transparent;
             color: var(--text-primary);
             border: 1px solid var(--border-color);
-            padding: 0.9rem 2rem;
-            border-radius: 14px;
+            padding: 0.6rem 1.5rem;
+            border-radius: 12px;
             font-weight: 500;
             transition: all var(--transition);
             cursor: pointer;
@@ -143,14 +186,23 @@
             background: rgba(0, 82, 255, 0.05);
         }
 
-        .shimmer-text {
-            background: linear-gradient(90deg, var(--primary), var(--green), var(--primary-light), var(--green));
-            background-size: 300% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 4s linear infinite;
+        .btn-outline-danger {
+            background: transparent;
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 0.6rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all var(--transition);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
         }
+        .btn-outline-danger:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: #ef4444;
+        }
+
+        /* ── Animations ── */
         @keyframes shimmer {
             0% {
                 background-position: -200% center;
@@ -159,20 +211,159 @@
                 background-position: 200% center;
             }
         }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes floatSlow {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 82, 255, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(0, 82, 255, 0.2);
+            }
+        }
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-        /* ── Particles ── */
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .shimmer-text {
+            background: linear-gradient(90deg, var(--primary), var(--green), var(--primary-light), var(--green));
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.7s ease forwards;
+        }
+        .animate-float-slow {
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+        .animate-pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        .animate-count-up {
+            animation: countUp 0.6s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+        .delay-2 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+        .delay-3 {
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+        .delay-4 {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+        .delay-5 {
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        /* ── Badges ── */
+        .badge-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 100px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge-green {
+            background: var(--green);
+            color: #fff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 100px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge-gold {
+            background: #F5A623;
+            color: #0B0B1A;
+            padding: 0.2rem 0.7rem;
+            border-radius: 100px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Progress Bar ── */
+        .progress-bar {
             width: 100%;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-bar .fill {
             height: 100%;
-            pointer-events: none;
-            z-index: 0;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--green));
+            transition: width 1s ease;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--blue-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* ── Chart containers ── */
+        .chart-wrap {
+            height: 200px;
+            width: 100%;
+        }
+        .chart-wrap-sm {
+            height: 100px;
+            width: 100%;
         }
 
         /* ── Responsive ── */
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             .theme-toggle {
                 top: 1rem;
                 right: 1rem;
@@ -181,15 +372,27 @@
                 font-size: 1rem;
             }
             .glass-premium {
-                padding: 1.5rem 1.25rem !important;
+                padding: 1.25rem !important;
+            }
+            .chart-wrap {
+                height: 150px;
+            }
+        }
+
+        /* ── Live Chat custom position ── */
+        .tawk-custom-position {
+            bottom: 80px !important;
+            right: 24px !important;
+        }
+        @media (max-width: 768px) {
+            .tawk-custom-position {
+                bottom: 70px !important;
+                right: 16px !important;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- ====== PARTICLES ====== -->
-    <canvas id="particles-canvas"></canvas>
 
     <!-- ====== THEME TOGGLE ====== -->
     <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
@@ -197,164 +400,351 @@
     </button>
 
     <!-- ====== DASHBOARD ====== -->
-    <div class="relative z-10 w-full max-w-4xl mx-auto px-4 py-12">
-        <div class="glass-premium rounded-[32px] p-8 md:p-12">
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 py-8 md:py-12">
 
-            <!-- Header -->
-            <div class="flex items-center justify-between mb-8">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/30">
-                        <i class="fas fa-bolt text-white text-xl"></i>
+        <!-- Header -->
+        <div class="glass-premium rounded-[32px] p-6 md:p-8 mb-6">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/30">
+                        <i class="fas fa-user-astronaut text-white text-2xl"></i>
                     </div>
-                    <span class="font-orbitron text-xl font-extrabold text-[var(--text-primary)]">
-                        TESLA FRONTIER
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">
+                            Welcome back, <span class="shimmer-text">Admin</span> 👋
+                        </h1>
+                        <p class="text-[var(--text-secondary)] text-sm">
+                            You are signed in to your Tesla Frontier account
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 w-full md:w-auto">
+                    <span class="flex items-center gap-2 text-xs text-[var(--green)] bg-[var(--green)]/10 px-3 py-1.5 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-[var(--green)] animate-pulse"></span>
+                        Online
                     </span>
+                    <a href="index.html" class="btn-outline text-sm px-4 py-2">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                    <button id="logoutBtn" class="btn-outline-danger text-sm px-4 py-2">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                    </button>
                 </div>
-                <button id="logoutBtn" class="btn-outline text-sm px-6 py-2">
-                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
-                </button>
             </div>
+        </div>
 
-            <!-- Welcome -->
-            <div class="mb-8">
-                <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
-                    Welcome back, <span class="shimmer-text">Admin</span> 👋
-                </h1>
-                <p class="text-[var(--text-secondary)] mt-2">
-                    You are signed in to your Tesla Frontier account. Here's your investment overview.
-                </p>
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="glass-premium p-5 rounded-2xl animate-slide-up delay-1">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Portfolio Value</div>
+                        <div class="text-2xl font-orbitron font-bold text-[var(--text-primary)] mt-1">$1,245,890</div>
+                        <div class="text-[var(--green)] text-xs mt-1"><i class="fas fa-arrow-up mr-1"></i> +12.4% this month</div>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] text-xl">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                </div>
             </div>
+            <div class="glass-premium p-5 rounded-2xl animate-slide-up delay-2">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Active Investments</div>
+                        <div class="text-2xl font-orbitron font-bold text-[var(--text-primary)] mt-1">8</div>
+                        <div class="text-[var(--text-secondary)] text-xs mt-1">Starship, Starlink, Mars Bond, +5 more</div>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-[var(--green)]/10 flex items-center justify-center text-[var(--green)] text-xl">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-premium p-5 rounded-2xl animate-slide-up delay-3">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Total Return</div>
+                        <div class="text-2xl font-orbitron font-bold text-[var(--green)] mt-1">+47.2%</div>
+                        <div class="text-[var(--text-secondary)] text-xs mt-1">Since inception</div>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-400/10 flex items-center justify-center text-amber-400 text-xl">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-premium p-5 rounded-2xl animate-slide-up delay-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-[var(--text-muted)] text-xs uppercase tracking-wider">Account Status</div>
+                        <div class="text-2xl font-orbitron font-bold text-[var(--green)] mt-1">Verified</div>
+                        <div class="text-[var(--text-secondary)] text-xs mt-1">KYC Level 3</div>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center text-[var(--primary)] text-xl">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="glass-premium p-6 rounded-2xl">
-                    <div class="text-[var(--text-muted)] text-sm uppercase tracking-wider">Portfolio Value</div>
-                    <div class="text-3xl font-orbitron font-bold text-[var(--text-primary)] mt-2">$1,245,890</div>
-                    <div class="text-[var(--green)] text-sm mt-1"><i class="fas fa-arrow-up mr-1"></i> +12.4% this month</div>
+        <!-- Two Column: Chart + Recent Activity -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <!-- Portfolio Performance Chart -->
+            <div class="glass-premium p-6 rounded-2xl lg:col-span-2 animate-slide-up delay-2">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-[var(--text-primary)]">Portfolio Performance</h3>
+                        <p class="text-xs text-[var(--text-muted)]">Last 12 months</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-[var(--green)] bg-[var(--green)]/10 px-2 py-1 rounded-full">+47.2%</span>
+                    </div>
                 </div>
-                <div class="glass-premium p-6 rounded-2xl">
-                    <div class="text-[var(--text-muted)] text-sm uppercase tracking-wider">Active Investments</div>
-                    <div class="text-3xl font-orbitron font-bold text-[var(--text-primary)] mt-2">8</div>
-                    <div class="text-[var(--text-secondary)] text-sm mt-1">Starship, Starlink, Mars Bond, +5 more</div>
-                </div>
-                <div class="glass-premium p-6 rounded-2xl">
-                    <div class="text-[var(--text-muted)] text-sm uppercase tracking-wider">Total Return</div>
-                    <div class="text-3xl font-orbitron font-bold text-[var(--green)] mt-2">+47.2%</div>
-                    <div class="text-[var(--text-secondary)] text-sm mt-1">Since inception</div>
+                <div class="chart-wrap">
+                    <canvas id="portfolioChart"></canvas>
                 </div>
             </div>
 
             <!-- Recent Activity -->
-            <div class="glass-premium p-6 rounded-2xl">
+            <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-3">
                 <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-4">Recent Activity</h3>
-                <div class="space-y-3">
+                <div class="space-y-3 max-h-[220px] overflow-y-auto pr-2">
                     <div class="flex items-center justify-between py-2 border-b border-theme">
                         <div>
                             <span class="text-sm text-[var(--text-primary)]">Starship Launch Fund</span>
                             <span class="text-xs text-[var(--text-muted)] block">Investment confirmed</span>
                         </div>
-                        <span class="text-[var(--green)] font-semibold">+$25,000</span>
+                        <span class="text-[var(--green)] font-semibold text-sm">+$25,000</span>
                     </div>
                     <div class="flex items-center justify-between py-2 border-b border-theme">
                         <div>
                             <span class="text-sm text-[var(--text-primary)]">Starlink ETF</span>
                             <span class="text-xs text-[var(--text-muted)] block">Dividend received</span>
                         </div>
-                        <span class="text-[var(--green)] font-semibold">+$1,240</span>
+                        <span class="text-[var(--green)] font-semibold text-sm">+$1,240</span>
                     </div>
-                    <div class="flex items-center justify-between py-2">
+                    <div class="flex items-center justify-between py-2 border-b border-theme">
                         <div>
                             <span class="text-sm text-[var(--text-primary)]">Mars Colony Bond</span>
                             <span class="text-xs text-[var(--text-muted)] block">Interest accrued</span>
                         </div>
-                        <span class="text-[var(--green)] font-semibold">+$8,750</span>
+                        <span class="text-[var(--green)] font-semibold text-sm">+$8,750</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-theme">
+                        <div>
+                            <span class="text-sm text-[var(--text-primary)]">Tesla Stock</span>
+                            <span class="text-xs text-[var(--text-muted)] block">Dividend received</span>
+                        </div>
+                        <span class="text-[var(--green)] font-semibold text-sm">+$320</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2">
+                        <div>
+                            <span class="text-sm text-[var(--text-primary)]">SpaceX Pre-IPO</span>
+                            <span class="text-xs text-[var(--text-muted)] block">Investment pending</span>
+                        </div>
+                        <span class="text-amber-400 font-semibold text-sm">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investment Portfolio -->
+        <div class="glass-premium p-6 rounded-2xl mb-6 animate-slide-up delay-4">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h3 class="text-lg font-semibold text-[var(--text-primary)]">Investment Portfolio</h3>
+                    <p class="text-xs text-[var(--text-muted)]">Your current holdings and performance</p>
+                </div>
+                <button class="btn-green text-sm">
+                    <i class="fas fa-plus mr-2"></i> Add Investment
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-theme">
+                            <th class="text-left py-3 px-2 text-[var(--text-muted)] font-medium">Asset</th>
+                            <th class="text-left py-3 px-2 text-[var(--text-muted)] font-medium">Type</th>
+                            <th class="text-right py-3 px-2 text-[var(--text-muted)] font-medium">Investment</th>
+                            <th class="text-right py-3 px-2 text-[var(--text-muted)] font-medium">Current Value</th>
+                            <th class="text-right py-3 px-2 text-[var(--text-muted)] font-medium">Return</th>
+                            <th class="text-right py-3 px-2 text-[var(--text-muted)] font-medium">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-theme/50 hover:bg-[var(--border-color)]/10 transition">
+                            <td class="py-3 px-2 font-medium text-[var(--text-primary)]">Starship Fund</td>
+                            <td class="py-3 px-2 text-[var(--text-secondary)]">Pre-IPO</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$100,000</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$138,600</td>
+                            <td class="py-3 px-2 text-right text-[var(--green)]">+38.6%</td>
+                            <td class="py-3 px-2 text-right"><span class="badge-green">Active</span></td>
+                        </tr>
+                        <tr class="border-b border-theme/50 hover:bg-[var(--border-color)]/10 transition">
+                            <td class="py-3 px-2 font-medium text-[var(--text-primary)]">Starlink ETF</td>
+                            <td class="py-3 px-2 text-[var(--text-secondary)]">Growth</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$50,000</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$52,600</td>
+                            <td class="py-3 px-2 text-right text-[var(--green)]">+5.2%</td>
+                            <td class="py-3 px-2 text-right"><span class="badge-green">Active</span></td>
+                        </tr>
+                        <tr class="border-b border-theme/50 hover:bg-[var(--border-color)]/10 transition">
+                            <td class="py-3 px-2 font-medium text-[var(--text-primary)]">Mars Colony Bond</td>
+                            <td class="py-3 px-2 text-[var(--text-secondary)]">Fixed Income</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$150,000</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$163,350</td>
+                            <td class="py-3 px-2 text-right text-[var(--green)]">+8.9%</td>
+                            <td class="py-3 px-2 text-right"><span class="badge-gold">Matured</span></td>
+                        </tr>
+                        <tr class="border-b border-theme/50 hover:bg-[var(--border-color)]/10 transition">
+                            <td class="py-3 px-2 font-medium text-[var(--text-primary)]">Tesla Stock</td>
+                            <td class="py-3 px-2 text-[var(--text-secondary)]">Equity</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$25,000</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$29,750</td>
+                            <td class="py-3 px-2 text-right text-[var(--green)]">+19.0%</td>
+                            <td class="py-3 px-2 text-right"><span class="badge-green">Active</span></td>
+                        </tr>
+                        <tr class="hover:bg-[var(--border-color)]/10 transition">
+                            <td class="py-3 px-2 font-medium text-[var(--text-primary)]">SpaceX Pre-IPO</td>
+                            <td class="py-3 px-2 text-[var(--text-secondary)]">Pre-IPO</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$75,000</td>
+                            <td class="py-3 px-2 text-right text-[var(--text-primary)]">$82,500</td>
+                            <td class="py-3 px-2 text-right text-[var(--green)]">+10.0%</td>
+                            <td class="py-3 px-2 text-right"><span class="badge-gradient">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Three Column: Goals, Alerts, Quick Actions -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Investment Goals -->
+            <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-3">
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-4">Investment Goals</h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-[var(--text-secondary)]">Annual Return Target</span>
+                            <span class="text-[var(--text-primary)] font-semibold">32%</span>
+                        </div>
+                        <div class="progress-bar mt-1">
+                            <div class="fill" style="width: 78%;"></div>
+                        </div>
+                        <span class="text-xs text-[var(--text-muted)]">78% achieved</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-[var(--text-secondary)]">Portfolio Diversification</span>
+                            <span class="text-[var(--text-primary)] font-semibold">85%</span>
+                        </div>
+                        <div class="progress-bar mt-1">
+                            <div class="fill" style="width: 85%;"></div>
+                        </div>
+                        <span class="text-xs text-[var(--text-muted)]">85% diversified</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-[var(--text-secondary)]">Risk Tolerance</span>
+                            <span class="text-[var(--text-primary)] font-semibold">Moderate</span>
+                        </div>
+                        <div class="progress-bar mt-1">
+                            <div class="fill" style="width: 60%;"></div>
+                        </div>
+                        <span class="text-xs text-[var(--text-muted)]">60% risk appetite</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Footer note -->
-            <p class="text-center text-[10px] text-[var(--text-muted)] mt-8 opacity-60 tracking-wider">
-                <i class="fas fa-shield-alt mr-1"></i> SEC registered · FINRA member
-            </p>
+            <!-- Notifications / Alerts -->
+            <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-4">
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-4">Notifications</h3>
+                <div class="space-y-3 max-h-[200px] overflow-y-auto pr-2">
+                    <div class="flex items-start gap-3 p-2 rounded-xl bg-[var(--primary)]/5 border border-[var(--primary)]/10">
+                        <div class="w-8 h-8 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] text-sm flex-shrink-0">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-[var(--text-primary)]">Starship launch confirmed for Q4 2026</p>
+                            <span class="text-[10px] text-[var(--text-muted)]">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-2 rounded-xl bg-[var(--green)]/5 border border-[var(--green)]/10">
+                        <div class="w-8 h-8 rounded-full bg-[var(--green)]/20 flex items-center justify-center text-[var(--green)] text-sm flex-shrink-0">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-[var(--text-primary)]">Dividend of $1,240 received from Starlink</p>
+                            <span class="text-[10px] text-[var(--text-muted)]">5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-2 rounded-xl bg-amber-400/5 border border-amber-400/10">
+                        <div class="w-8 h-8 rounded-full bg-amber-400/20 flex items-center justify-center text-amber-400 text-sm flex-shrink-0">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-[var(--text-primary)]">Mars Bond maturity in 30 days</p>
+                            <span class="text-[10px] text-[var(--text-muted)]">1 day ago</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-2 rounded-xl bg-[var(--primary)]/5 border border-[var(--primary)]/10">
+                        <div class="w-8 h-8 rounded-full bg-[var(--primary)]/20 flex items-center justify-center text-[var(--primary)] text-sm flex-shrink-0">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-[var(--text-primary)]">New SpaceX pre-IPO round opening soon</p>
+                            <span class="text-[10px] text-[var(--text-muted)]">3 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="glass-premium p-6 rounded-2xl animate-slide-up delay-5">
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-4">Quick Actions</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="p-4 rounded-xl bg-[var(--primary)]/5 border border-[var(--primary)]/10 hover:bg-[var(--primary)]/10 transition text-center">
+                        <i class="fas fa-plus-circle text-[var(--primary)] text-2xl block mx-auto mb-2"></i>
+                        <span class="text-xs text-[var(--text-secondary)]">Add Investment</span>
+                    </button>
+                    <button class="p-4 rounded-xl bg-[var(--green)]/5 border border-[var(--green)]/10 hover:bg-[var(--green)]/10 transition text-center">
+                        <i class="fas fa-chart-pie text-[var(--green)] text-2xl block mx-auto mb-2"></i>
+                        <span class="text-xs text-[var(--text-secondary)]">View Analytics</span>
+                    </button>
+                    <button class="p-4 rounded-xl bg-amber-400/5 border border-amber-400/10 hover:bg-amber-400/10 transition text-center">
+                        <i class="fas fa-exchange-alt text-amber-400 text-2xl block mx-auto mb-2"></i>
+                        <span class="text-xs text-[var(--text-secondary)]">Transfer</span>
+                    </button>
+                    <button class="p-4 rounded-xl bg-[var(--primary)]/5 border border-[var(--primary)]/10 hover:bg-[var(--primary)]/10 transition text-center">
+                        <i class="fas fa-file-invoice text-[var(--primary)] text-2xl block mx-auto mb-2"></i>
+                        <span class="text-xs text-[var(--text-secondary)]">Statements</span>
+                    </button>
+                </div>
+            </div>
         </div>
+
+        <!-- Footer -->
+        <p class="text-center text-[10px] text-[var(--text-muted)] mt-8 opacity-60 tracking-wider">
+            <i class="fas fa-shield-alt mr-1"></i> SEC registered · FINRA member · All investments are subject to risk
+        </p>
     </div>
+
+    <!-- ====== Tawk.to Live Chat ====== -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6a82e7875981892f72dde803/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
 
     <!-- ====== JAVASCRIPT ====== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-
-            // ─── Particles ──────────────────────────────────────────────
-            const canvas = document.getElementById('particles-canvas');
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            let mouseX = -1000,
-                mouseY = -1000;
-
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-
-            class Particle {
-                constructor() { this.reset(); }
-                reset() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2.5 + 0.5;
-                    this.speedX = (Math.random() - 0.5) * 0.2;
-                    this.speedY = (Math.random() - 0.5) * 0.2;
-                    this.opacity = Math.random() * 0.35 + 0.05;
-                }
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-                    const dx = this.x - mouseX,
-                        dy = this.y - mouseY,
-                        dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 120) {
-                        const force = (120 - dist) / 120 * 0.015;
-                        this.x += dx * force;
-                        this.y += dy * force;
-                    }
-                }
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(0, 82, 255, ${this.opacity})`;
-                    ctx.fill();
-                }
-            }
-            for (let i = 0; i < 120; i++) particles.push(new Particle());
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => { p.update();
-                    p.draw(); });
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x,
-                            dy = particles[i].y - particles[j].y,
-                            dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 100) {
-                            ctx.beginPath();
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(0, 82, 255, ${0.05 * (1 - dist/100)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
-                    }
-                }
-                requestAnimationFrame(animateParticles);
-            }
-            animateParticles();
-            document.addEventListener('mousemove', (e) => { mouseX = e.clientX;
-                mouseY = e.clientY; });
-            document.addEventListener('touchmove', (e) => { mouseX = e.touches[0].clientX;
-                mouseY = e.touches[0].clientY; });
 
             // ─── Theme Toggle ──────────────────────────────────────────
             const html = document.documentElement;
@@ -379,8 +769,100 @@
                 }
             });
 
+            // ─── Portfolio Chart ──────────────────────────────────────
+            const ctx = document.getElementById('portfolioChart').getContext('2d');
+
+            // Get theme colors
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const textColor = isDark ? '#8A8FA8' : '#5A607A';
+            const gridColor = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Portfolio Value',
+                        data: [850000, 880000, 920000, 910000, 950000, 980000, 1020000, 1050000, 1080000,
+                            1120000, 1180000, 1245890
+                        ],
+                        borderColor: '#0052FF',
+                        backgroundColor: 'rgba(0, 82, 255, 0.08)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#0052FF',
+                        borderWidth: 2.5,
+                    }, {
+                        label: 'Investment Growth',
+                        data: [820000, 840000, 870000, 860000, 900000, 920000, 950000, 970000, 990000, 1020000,
+                            1060000, 1100000
+                        ],
+                        borderColor: '#00D484',
+                        backgroundColor: 'rgba(0, 212, 132, 0.05)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 2,
+                        pointBackgroundColor: '#00D484',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: textColor,
+                                font: { size: 11, family: 'Inter' },
+                                boxWidth: 12,
+                                padding: 15,
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(10, 11, 26, 0.85)',
+                            borderColor: 'rgba(255,255,255,0.05)',
+                            borderWidth: 1,
+                            titleColor: '#FFFFFF',
+                            bodyColor: '#8A8FA8',
+                            cornerRadius: 12,
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    return '$' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: gridColor, drawBorder: false },
+                            ticks: { color: textColor, font: { size: 10 } }
+                        },
+                        y: {
+                            grid: { color: gridColor, drawBorder: false },
+                            ticks: {
+                                color: textColor,
+                                font: { size: 10 },
+                                callback: function(value) {
+                                    return '$' + (value / 1000) + 'k';
+                                }
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                }
+            });
+
+            // ─── Update chart on theme change ────────────────────────
+            // (Chart will re-render with new colors on page reload)
+
             console.log('🚀 Tesla Frontier Network — Account Dashboard loaded.');
-            console.log('ℹ️ You are logged in as admin.');
+            console.log('💬 Live chat is available via Tawk.to');
         });
     </script>
 </body>
