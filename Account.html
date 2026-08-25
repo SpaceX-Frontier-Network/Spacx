@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account — Tesla Frontier Network</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            min-height: 100vh;
+            background: var(--blue-bg);
+            color: var(--text-primary);
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        /* ── Theme Variables ── */
+        :root {
+            --primary: #0052FF;
+            --primary-dark: #0038B8;
+            --primary-light: #4B7FFF;
+            --green: #00D484;
+            --blue-bg: #0A0B1A;
+            --card-bg: rgba(19, 20, 31, 0.7);
+            --border-color: rgba(255, 255, 255, 0.06);
+            --text-primary: #FFFFFF;
+            --text-secondary: #8A8FA8;
+            --text-muted: #5A5F7A;
+            --shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+            --radius: 24px;
+            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        [data-theme="light"] {
+            --blue-bg: #F0F2F8;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --border-color: rgba(0, 0, 0, 0.06);
+            --text-primary: #0B0B1A;
+            --text-secondary: #5A607A;
+            --text-muted: #8A90A8;
+            --shadow: 0 20px 80px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ── Glassmorphism ── */
+        .glass-premium {
+            background: var(--card-bg);
+            backdrop-filter: blur(32px) saturate(1.4);
+            -webkit-backdrop-filter: blur(32px) saturate(1.4);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-premium::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 82, 255, 0.06), transparent 60%);
+            pointer-events: none;
+        }
+
+        /* ── Theme Toggle ── */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition);
+            font-size: 1.1rem;
+        }
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: rotate(25deg) scale(1.05);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all var(--transition);
+            box-shadow: 0 4px 30px rgba(0, 82, 255, 0.35);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 50px rgba(0, 82, 255, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.9rem 2rem;
+            border-radius: 14px;
+            font-weight: 500;
+            transition: all var(--transition);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(0, 82, 255, 0.05);
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, var(--primary), var(--green), var(--primary-light), var(--green));
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        /* ── Particles ── */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .glass-premium {
+                padding: 1.5rem 1.25rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== PARTICLES ====== -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ====== THEME TOGGLE ====== -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- ====== DASHBOARD ====== -->
+    <div class="relative z-10 w-full max-w-4xl mx-auto px-4 py-12">
+        <div class="glass-premium rounded-[32px] p-8 md:p-12">
+
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/30">
+                        <i class="fas fa-bolt text-white text-xl"></i>
+                    </div>
+                    <span class="font-orbitron text-xl font-extrabold text-[var(--text-primary)]">
+                        TESLA FRONTIER
+                    </span>
+                </div>
+                <button id="logoutBtn" class="btn-outline text-sm px-6 py-2">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                </button>
+            </div>
+
+            <!-- Welcome -->
+            <div class="mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
+                    Welcome back, <span class="shimmer-text">Admin</span> 👋
+                </h1>
+                <p class="text-[var(--text-secondary)] mt-2">
+                    You are signed in to your Tesla Frontier account. Here's your investment overview.
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="glass-premium p-6 rounded-2xl">
+                    <div class="text-[var(--text-muted)] text-sm uppercase tracking-wider">Portfolio Value</div>
+                    <div class="text-3xl font-orbitron font-bold text-[var(--text-primary)] mt-2">$1,245,890</div>
+                    <div class="text-[var(--green)] text-sm mt-1"><i class="fas fa-arrow-up mr-1"></i> +12.4% this month</div>
+                </div>
+                <div class="glass-premium p-6 rounded-2xl">
+                    <div class="text-[var(--text-muted)] text-sm uppercase tracking-wider">Active Investments</div>
+                    <div class="text-3xl font-orbitron font-bold text-[var(--text-primary)] mt-2">8</div>
+                    <div class="text-[var(--text-secondary)] text-sm mt-1">Starship, Starlink, Mars Bond, +5 more</div>
+                </div>
+                <div class="glass-premium p-6 rounded-2xl">
+                    <div class="text-[var(--text-muted)] text-sm uppercase tracking-wider">Total Return</div>
+                    <div class="text-3xl font-orbitron font-bold text-[var(--green)] mt-2">+47.2%</div>
+                    <div class="text-[var(--text-secondary)] text-sm mt-1">Since inception</div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="glass-premium p-6 rounded-2xl">
+                <h3 class="text-lg font-semibold text-[var(--text-primary)] mb-4">Recent Activity</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between py-2 border-b border-theme">
+                        <div>
+                            <span class="text-sm text-[var(--text-primary)]">Starship Launch Fund</span>
+                            <span class="text-xs text-[var(--text-muted)] block">Investment confirmed</span>
+                        </div>
+                        <span class="text-[var(--green)] font-semibold">+$25,000</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-theme">
+                        <div>
+                            <span class="text-sm text-[var(--text-primary)]">Starlink ETF</span>
+                            <span class="text-xs text-[var(--text-muted)] block">Dividend received</span>
+                        </div>
+                        <span class="text-[var(--green)] font-semibold">+$1,240</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2">
+                        <div>
+                            <span class="text-sm text-[var(--text-primary)]">Mars Colony Bond</span>
+                            <span class="text-xs text-[var(--text-muted)] block">Interest accrued</span>
+                        </div>
+                        <span class="text-[var(--green)] font-semibold">+$8,750</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer note -->
+            <p class="text-center text-[10px] text-[var(--text-muted)] mt-8 opacity-60 tracking-wider">
+                <i class="fas fa-shield-alt mr-1"></i> SEC registered · FINRA member
+            </p>
+        </div>
+    </div>
+
+    <!-- ====== JAVASCRIPT ====== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ─── Particles ──────────────────────────────────────────────
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let mouseX = -1000,
+                mouseY = -1000;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            class Particle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.2;
+                    this.speedY = (Math.random() - 0.5) * 0.2;
+                    this.opacity = Math.random() * 0.35 + 0.05;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+                    const dx = this.x - mouseX,
+                        dy = this.y - mouseY,
+                        dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        const force = (120 - dist) / 120 * 0.015;
+                        this.x += dx * force;
+                        this.y += dy * force;
+                    }
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 82, 255, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+            for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => { p.update();
+                    p.draw(); });
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x,
+                            dy = particles[i].y - particles[j].y,
+                            dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(0, 82, 255, ${0.05 * (1 - dist/100)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX;
+                mouseY = e.clientY; });
+            document.addEventListener('touchmove', (e) => { mouseX = e.touches[0].clientX;
+                mouseY = e.touches[0].clientY; });
+
+            // ─── Theme Toggle ──────────────────────────────────────────
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            const themeToggle = document.getElementById('themeToggle');
+
+            function setTheme(theme) {
+                html.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+            setTheme(localStorage.getItem('theme') || 'dark');
+            themeToggle.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme');
+                setTheme(current === 'dark' ? 'light' : 'dark');
+            });
+
+            // ─── Logout ──────────────────────────────────────────────────
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                if (confirm('Are you sure you want to logout?')) {
+                    window.location.href = 'login.html';
+                }
+            });
+
+            console.log('🚀 Tesla Frontier Network — Account Dashboard loaded.');
+            console.log('ℹ️ You are logged in as admin.');
+        });
+    </script>
+</body>
+</html>
