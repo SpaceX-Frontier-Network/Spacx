@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vertex · Deposit Funds</title>
+    <!-- Font Awesome (Brands & Regular) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet"/>
+    <style>
+        /* ───────────── RESET & VARIABLES ───────────── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-primary: #070b14;
+            --bg-secondary: #0c1220;
+            --bg-card: rgba(16, 28, 48, 0.7);
+            --bg-card-solid: #101c30;
+            --border-color: rgba(50, 80, 140, 0.25);
+            --border-light: rgba(80, 120, 200, 0.15);
+            --text-primary: #edf2f9;
+            --text-secondary: #8fa8d0;
+            --text-muted: #4a6a8a;
+            --purple: #7c5cfc;
+            --purple-glow: rgba(124, 92, 252, 0.2);
+            --blue: #3b82f6;
+            --cyan: #22d3ee;
+            --green: #10b981;
+            --green-bg: rgba(16, 185, 129, 0.12);
+            --red: #ef4444;
+            --red-bg: rgba(239, 68, 68, 0.12);
+            --gold: #fbbf24;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        html {
+            font-size: 14px;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: radial-gradient(ellipse at 10% 30%, rgba(124, 92, 252, 0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 90% 70%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+                var(--bg-primary);
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* ───────────── APP LAYOUT ───────────── */
+        .app {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px 20px 20px;
+            gap: 12px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* ───────────── HEADER ───────────── */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 4px 12px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-area .icon {
+            background: linear-gradient(135deg, var(--purple), var(--blue));
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #fff;
+            box-shadow: 0 4px 20px var(--purple-glow);
+        }
+        .logo-area h1 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #fff 30%, var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo-area .badge {
+            font-size: 9px;
+            font-weight: 700;
+            background: var(--purple-glow);
+            color: var(--purple);
+            padding: 2px 10px;
+            border-radius: 30px;
+            border: 1px solid rgba(124, 92, 252, 0.2);
+            -webkit-text-fill-color: var(--purple);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header-right .balance-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 40px;
+            padding: 3px 16px 3px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-right .balance-card .label {
+            font-size: 9px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            font-weight: 600;
+        }
+        .header-right .balance-card .amount {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .header-right .balance-card .amount .currency {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-right: 2px;
+        }
+        .header-right .back-btn {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .header-right .back-btn:hover {
+            background: var(--bg-card-solid);
+            border-color: var(--border-light);
+            color: var(--text-primary);
+        }
+        .header-right .back-btn i {
+            font-size: 12px;
+        }
+
+        /* ───────────── BONUS BANNER ───────────── */
+        .bonus-banner {
+            background: linear-gradient(135deg, rgba(124, 92, 252, 0.15), rgba(59, 130, 246, 0.08));
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .bonus-banner .left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .bonus-banner .left i {
+            font-size: 28px;
+            color: var(--gold);
+        }
+        .bonus-banner .left .text .title {
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .bonus-banner .left .text .sub {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+        .bonus-banner .right .bonus-code {
+            background: var(--bg-secondary);
+            border: 1px dashed var(--gold);
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--gold);
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .bonus-banner .right .bonus-code i {
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .bonus-banner .right .bonus-code i:hover {
+            color: #fff;
+        }
+
+        /* ───────────── MAIN CONTENT ───────────── */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 20px;
+            flex: 1;
+            min-height: 0;
+            padding-top: 4px;
+        }
+
+        /* ─── DEPOSIT FORM ─── */
+        .deposit-form-panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 24px 28px 28px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .deposit-form-panel .panel-title {
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .deposit-form-panel .panel-title i {
+            color: var(--green);
+        }
+        .deposit-form-panel .panel-sub {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: -6px;
+        }
+
+        /* Progress steps */
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0 4px 0;
+            position: relative;
+        }
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 30px;
+            right: 30px;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 0;
+        }
+        .steps .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            z-index: 1;
+            flex: 1;
+        }
+        .steps .step .circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        .steps .step.active .circle {
+            background: var(--purple);
+            border-color: var(--purple);
+            color: #fff;
+            box-shadow: 0 0 20px var(--purple-glow);
+        }
+        .steps .step.done .circle {
+            background: var(--green);
+            border-color: var(--green);
+            color: #fff;
+        }
+        .steps .step .label {
+            font-size: 9px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .steps .step.active .label {
+            color: var(--text-primary);
+        }
+        .steps .step.done .label {
+            color: var(--green);
+        }
+
+        /* Form sections */
+        .form-section {
+            display: none;
+            animation: fadeSlide 0.4s ease;
+        }
+        .form-section.active {
+            display: block;
+        }
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .form-group .label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .form-group .label-row .preset-btns {
+            display: flex;
+            gap: 4px;
+        }
+        .form-group .label-row .preset-btns button {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 1px 10px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        .form-group .label-row .preset-btns button:hover {
+            background: var(--bg-card-solid);
+            border-color: var(--border-light);
+            color: var(--text-primary);
+        }
+        .form-group input,
+        .form-group select {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+            outline: none;
+            transition: var(--transition);
+            font-family: inherit;
+            width: 100%;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px var(--purple-glow);
+        }
+        .form-group input::placeholder {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 13px;
+        }
+        .form-group .input-with-icon {
+            position: relative;
+        }
+        .form-group .input-with-icon .prefix {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .form-group .input-with-icon input {
+            padding-left: 28px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        /* ─── REAL LIVE PAYMENT ICONS ─── */
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 2px 0 10px 0;
+        }
+        .method-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 14px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        .method-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .method-card:hover::after {
+            opacity: 1;
+        }
+        .method-card i {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 6px;
+            transition: var(--transition);
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
+        }
+        .method-card .m-label {
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        /* Brand-specific styling */
+        .method-card.paypal { background: linear-gradient(135deg, #003087, #009cde); border-color: #009cde; }
+        .method-card.paypal i { color: #fff; }
+        .method-card.paypal .m-label { color: #fff; }
+
+        .method-card.bank { background: linear-gradient(135deg, #1a472a, #2ecc71); border-color: #2ecc71; }
+        .method-card.bank i { color: #fff; }
+        .method-card.bank .m-label { color: #fff; }
+
+        .method-card.crypto { background: linear-gradient(135deg, #f7931a, #ffd200); border-color: #ffd200; }
+        .method-card.crypto i { color: #1a1a1a; }
+        .method-card.crypto .m-label { color: #1a1a1a; }
+
+        .method-card.card { background: linear-gradient(135deg, #1a1f71, #ed1c24); border-color: #ed1c24; }
+        .method-card.card i { color: #fff; }
+        .method-card.card .m-label { color: #fff; }
+
+        /* Live animation for icons */
+        .method-card i.fa-paypal { animation: floatIcon 3s ease-in-out infinite; }
+        .method-card i.fa-university { animation: floatIcon 3.5s ease-in-out infinite; }
+        .method-card i.fa-bitcoin { animation: floatIcon 4s ease-in-out infinite; }
+        .method-card i.fa-credit-card { animation: floatIcon 2.8s ease-in-out infinite; }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.05); }
+        }
+
+        .method-card.active {
+            transform: scale(1.04);
+            box-shadow: 0 0 30px rgba(124, 92, 252, 0.4);
+            border-color: var(--purple);
+        }
+        .method-card.active i {
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
+        }
+
+        /* Summary card */
+        .deposit-summary {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .deposit-summary .row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .deposit-summary .row .label {
+            color: var(--text-muted);
+        }
+        .deposit-summary .row .value {
+            font-weight: 600;
+        }
+        .deposit-summary .row .value.green { color: var(--green); }
+        .deposit-summary .row .value.red { color: var(--red); }
+        .deposit-summary .row.total {
+            border-top: 1px solid var(--border-color);
+            padding-top: 6px;
+            margin-top: 2px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .deposit-summary .row.total .value {
+            font-size: 16px;
+            color: var(--gold);
+        }
+
+        .deposit-btn {
+            padding: 14px 0;
+            border: none;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            letter-spacing: 0.3px;
+            background: var(--green);
+            color: #0b0e14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 4px;
+            width: 100%;
+        }
+        .deposit-btn:hover {
+            background: #34d399;
+            transform: scale(1.02);
+            box-shadow: 0 4px 30px rgba(16, 185, 129, 0.3);
+        }
+        .deposit-btn:active { transform: scale(0.97); }
+
+        /* ─── SUCCESS OVERLAY (Post-Deposit) ─── */
+        .success-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(7, 11, 20, 0.85);
+            backdrop-filter: blur(12px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .success-overlay.open {
+            display: flex;
+        }
+        .success-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 40px 48px;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
+            animation: popIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .success-card .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--green-bg);
+            border: 3px solid var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            font-size: 40px;
+            color: var(--green);
+            animation: pulseCheck 2s ease-in-out infinite;
+        }
+        @keyframes pulseCheck {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+        }
+        .success-card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .success-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .success-card .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .success-card .btn-group button {
+            padding: 12px 0;
+            border: none;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            width: 100%;
+        }
+        .btn-primary {
+            background: var(--purple);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--purple-glow);
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 40px var(--purple-glow);
+        }
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color) !important;
+        }
+        .btn-secondary:hover {
+            background: var(--bg-card-solid);
+            border-color: var(--border-light);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid transparent !important;
+        }
+        .btn-outline:hover {
+            color: var(--text-primary);
+        }
+
+        /* ─── RIGHT SIDEBAR ─── */
+        .history-panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 20px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 580px;
+        }
+        .history-panel .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .history-panel .panel-header h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .history-panel .panel-header .status-filter {
+            display: flex;
+            gap: 4px;
+        }
+        .history-panel .panel-header .status-filter button {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 9px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            text-transform: uppercase;
+        }
+        .history-panel .panel-header .status-filter button:hover {
+            color: var(--text-secondary);
+        }
+        .history-panel .panel-header .status-filter button.active {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .history-list {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding-right: 4px;
+        }
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .history-item:hover {
+            background: var(--bg-card-solid);
+        }
+        .history-item .left {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .history-item .left .method {
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .history-item .left .method i {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .history-item .left .details {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+        .history-item .right {
+            text-align: right;
+        }
+        .history-item .right .amount {
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .history-item .right .amount.positive { color: var(--green); }
+        .history-item .right .status-badge {
+            font-size: 8px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            display: inline-block;
+            margin-top: 2px;
+        }
+        .history-item .right .status-badge.completed {
+            background: var(--green-bg);
+            color: var(--green);
+        }
+        .history-item .right .status-badge.pending {
+            background: var(--purple-glow);
+            color: var(--purple);
+        }
+        .history-item .right .status-badge.failed {
+            background: var(--red-bg);
+            color: var(--red);
+        }
+        .history-item .right .status-badge.processing {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--gold);
+        }
+
+        .history-empty {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+            padding: 30px 0;
+        }
+        .history-empty i {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 10px;
+            opacity: 0.3;
+        }
+
+        /* ───────────── TOAST ───────────── */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 10000;
+            pointer-events: none;
+            max-width: 340px;
+        }
+        .toast {
+            background: var(--bg-card-solid);
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            border-radius: var(--radius);
+            color: var(--text-primary);
+            font-size: 11px;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            pointer-events: auto;
+            animation: slideIn 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 4px solid var(--blue);
+        }
+        .toast.success { border-left-color: var(--green); }
+        .toast.error { border-left-color: var(--red); }
+        .toast.info { border-left-color: var(--purple); }
+        .toast i { font-size: 14px; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ───────────── RESPONSIVE ───────────── */
+        @media (max-width: 1024px) {
+            .main-content { grid-template-columns: 1fr; }
+            .history-panel { max-height: 340px; }
+        }
+        @media (max-width: 768px) {
+            .method-grid { grid-template-columns: repeat(2, 1fr); }
+            .bonus-banner { flex-direction: column; align-items: flex-start; }
+            .bonus-banner .right { align-self: stretch; }
+            .bonus-banner .right .bonus-code { width: 100%; justify-content: center; }
+        }
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .deposit-form-panel { padding: 18px 16px 20px 16px; }
+            .header-right .balance-card .label { display: none; }
+            .header-right .balance-card { padding: 3px 10px; }
+            .logo-area h1 { font-size: 16px; }
+            .logo-area .badge { font-size: 7px; padding: 1px 8px; }
+            .header-right .back-btn { font-size: 10px; padding: 4px 12px; }
+            .app { padding: 6px 8px 10px 8px; }
+            .deposit-form-panel .panel-title { font-size: 18px; }
+            .method-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps .step .label { font-size: 7px; }
+            .steps .step .circle { width: 22px; height: 22px; font-size: 10px; }
+            .success-card { padding: 30px 20px; }
+        }
+        @media (max-width: 400px) {
+            .header { flex-direction: column; align-items: stretch; gap: 8px; }
+            .header-right { justify-content: space-between; }
+            .method-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .text-muted { color: var(--text-muted); }
+        .text-secondary { color: var(--text-secondary); }
+        .mt-1 { margin-top: 4px; }
+        .mb-1 { margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- ═══ HEADER ═══ -->
+        <header class="header">
+            <div class="logo-area">
+                <div class="icon"><i class="fas fa-bolt"></i></div>
+                <h1>Vertex</h1>
+                <span class="badge">ULTIMATE</span>
+            </div>
+            <div class="header-right">
+                <div class="balance-card">
+                    <span class="label">Balance</span>
+                    <span class="amount"><span class="currency">$</span><span id="availableBalance">112,480.00</span></span>
+                </div>
+                <button class="back-btn" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </header>
+
+        <!-- ═══ BONUS BANNER ═══ -->
+        <div class="bonus-banner">
+            <div class="left">
+                <i class="fas fa-gift"></i>
+                <div class="text">
+                    <div class="title">🎉 Deposit Bonus – 10% extra</div>
+                    <div class="sub">Use code <strong>BONUS10</strong> on deposits over $500</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="bonus-code">
+                    <span>BONUS10</span>
+                    <i class="fas fa-copy" onclick="copyCode()" title="Copy code"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ MAIN CONTENT ═══ -->
+        <div class="main-content">
+
+            <!-- ─── DEPOSIT FORM ─── -->
+            <section class="deposit-form-panel" id="depositForm">
+                <div>
+                    <div class="panel-title">
+                        <i class="fas fa-arrow-down"></i> Deposit Funds
+                    </div>
+                    <div class="panel-sub">Choose an amount and payment method to fund your account.</div>
+                </div>
+
+                <!-- Steps -->
+                <div class="steps">
+                    <div class="step active" data-step="1">
+                        <div class="circle">1</div>
+                        <span class="label">Amount</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="circle">2</div>
+                        <span class="label">Method</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="circle">3</div>
+                        <span class="label">Confirm</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Amount -->
+                <div class="form-section active" data-section="1">
+                    <div class="form-group">
+                        <div class="label-row">
+                            <label for="depositAmount">Enter Amount</label>
+                            <div class="preset-btns">
+                                <button data-amount="100">$100</button>
+                                <button data-amount="500">$500</button>
+                                <button data-amount="1000">$1k</button>
+                                <button data-amount="5000">$5k</button>
+                            </div>
+                        </div>
+                        <div class="input-with-icon">
+                            <span class="prefix">$</span>
+                            <input type="number" id="depositAmount" placeholder="0.00" step="0.01" min="1" value="500" />
+                        </div>
+                    </div>
+                    <button class="deposit-btn" id="step1Next" style="background:var(--purple);">Continue →</button>
+                </div>
+
+                <!-- Step 2: Method -->
+                <div class="form-section" data-section="2">
+                    <div class="form-group">
+                        <label>Select Payment Gateway</label>
+                        <div class="method-grid" id="methodSelector">
+                            <!-- PayPal -->
+                            <div class="method-card paypal active" data-method="paypal">
+                                <i class="fab fa-paypal"></i>
+                                <span class="m-label">PayPal</span>
+                            </div>
+                            <!-- Bank / Wire -->
+                            <div class="method-card bank" data-method="bank">
+                                <i class="fas fa-university"></i>
+                                <span class="m-label">Wire / Bank</span>
+                            </div>
+                            <!-- Crypto -->
+                            <div class="method-card crypto" data-method="crypto">
+                                <i class="fab fa-bitcoin"></i>
+                                <span class="m-label">Crypto</span>
+                            </div>
+                            <!-- Credit Card -->
+                            <div class="method-card card" data-method="card">
+                                <i class="fas fa-credit-card"></i>
+                                <span class="m-label">Credit Card</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic fields -->
+                    <div id="cardDetails" style="display:none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" value="**** **** **** 1234" />
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" id="cardName" placeholder="John Doe" value="James Delaney" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry">Expiry</label>
+                                <input type="text" id="cardExpiry" placeholder="MM/YY" value="12/26" />
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCvv">CVV</label>
+                                <input type="password" id="cardCvv" placeholder="***" value="123" maxlength="4" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cryptoDetails" style="display:none;">
+                        <div class="form-group">
+                            <label for="cryptoAddress">Wallet Address</label>
+                            <input type="text" id="cryptoAddress" placeholder="0x... or address" value="0x7F8e...9a2E" />
+                            <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">
+                                <i class="fas fa-info-circle"></i> Send only USDC, USDT, or ETH to this address.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display:flex;gap:8px;margin-top:8px;">
+                        <button class="deposit-btn" id="step2Back" style="background:var(--bg-secondary);color:var(--text-secondary);flex:0.4;">← Back</button>
+                        <button class="deposit-btn" id="step2Next" style="background:var(--purple);flex:0.6;">Review →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Confirm -->
+                <div class="form-section" data-section="3">
+                    <div class="deposit-summary" id="confirmSummary">
+                        <div class="row"><span class="label">Amount</span><span class="value" id="confirmAmount">$500.00</span></div>
+                        <div class="row"><span class="label">Method</span><span class="value" id="confirmMethod">PayPal</span></div>
+                        <div class="row"><span class="label">Processing fee</span><span class="value red" id="confirmFee">-$2.50</span></div>
+                        <div class="row"><span class="label">Network fee</span><span class="value" id="confirmNetwork">$0.00</span></div>
+                        <div class="row total"><span>You will receive</span><span class="value" id="confirmTotal">$497.50</span></div>
+                    </div>
+
+                    <div class="info-box" style="background:var(--green-bg);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-sm);padding:12px 14px;font-size:11px;color:var(--text-secondary);display:flex;align-items:flex-start;gap:10px;line-height:1.5;">
+                        <i class="fas fa-clock" style="color:var(--green);font-size:14px;margin-top:1px;"></i>
+                        <span>By clicking "Confirm Deposit" you agree to our <a href="#" style="color:var(--purple);">terms</a>.</span>
+                    </div>
+
+                    <div style="display:flex;gap:8px;margin-top:4px;">
+                        <button class="deposit-btn" id="step3Back" style="background:var(--bg-secondary);color:var(--text-secondary);flex:0.4;">← Back</button>
+                        <button class="deposit-btn" id="depositBtn" style="flex:0.6;">
+                            <i class="fas fa-check"></i> Confirm Deposit
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ─── DEPOSIT HISTORY ─── -->
+            <aside class="history-panel">
+                <div class="panel-header">
+                    <h4><i class="fas fa-clock-rotate-left"></i> Deposit History</h4>
+                    <div class="status-filter">
+                        <button class="active" data-filter="all">All</button>
+                        <button data-filter="completed">Done</button>
+                        <button data-filter="pending">Pending</button>
+                    </div>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- populated by JS -->
+                </div>
+            </aside>
+
+        </div>
+
+    </div>
+
+    <!-- ═══ SUCCESS OVERLAY (Contact Account Manager / Customer Care) ═══ -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-card">
+            <div class="checkmark"><i class="fas fa-check"></i></div>
+            <h2>Deposit Successful!</h2>
+            <p>
+                Your funds have been received and are being processed.<br/>
+                Please contact your <strong>Account Manager</strong> or <strong>Customer Care</strong> to finalize the activation and credit your balance.
+            </p>
+            <div class="btn-group">
+                <button class="btn-primary" onclick="contactManager()">
+                    <i class="fas fa-user-tie" style="margin-right:8px;"></i> Contact Account Manager
+                </button>
+                <button class="btn-secondary" onclick="contactSupport()">
+                    <i class="fas fa-headset" style="margin-right:8px;"></i> Contact Customer Care
+                </button>
+                <button class="btn-outline" onclick="goBack()">
+                    <i class="fas fa-arrow-right" style="margin-right:8px;"></i> Return to Dashboard
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ TOAST ═══ -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // ════════════════════════════════════════════════════════════════
+        //  STATE
+        // ════════════════════════════════════════════════════════════════
+
+        const state = {
+            balance: 112480.00,
+            depositHistory: [
+                { id: 1, method: 'PayPal', destination: 'user@email.com', amount: 2500, fee: 12.50, status: 'completed',
+                    date: new Date(Date.now() - 86400000 * 1) },
+                { id: 2, method: 'Crypto', destination: '0x7F...9a2E', amount: 1500, fee: 8.25, status: 'completed',
+                    date: new Date(Date.now() - 86400000 * 3) },
+                { id: 3, method: 'Bank Transfer', destination: '****5678', amount: 5000, fee: 25.00, status: 'pending',
+                    date: new Date(Date.now() - 86400000 * 5) },
+                { id: 4, method: 'Credit Card', destination: '****9012', amount: 1200, fee: 6.00, status: 'completed',
+                    date: new Date(Date.now() - 86400000 * 10) },
+                { id: 5, method: 'Crypto', destination: '0x3A...b7F1', amount: 2800, fee: 14.00, status: 'completed',
+                    date: new Date(Date.now() - 86400000 * 15) },
+                { id: 6, method: 'Bank Transfer', destination: '****3456', amount: 750, fee: 3.75, status: 'failed',
+                    date: new Date(Date.now() - 86400000 * 2) },
+                { id: 7, method: 'Credit Card', destination: '****7890', amount: 10000, fee: 50.00, status: 'processing',
+                    date: new Date(Date.now() - 3600000 * 3) },
+            ],
+            filter: 'all',
+            selectedMethod: 'paypal',
+            currentStep: 1,
+            depositAmount: 500,
+        };
+
+        // ── Helpers ──
+        function formatCurrency(v) { return v.toFixed(2); }
+
+        function getStatusBadge(status) {
+            const map = { completed: 'completed', pending: 'pending', failed: 'failed', processing: 'processing' };
+            return map[status] || 'pending';
+        }
+
+        function getStatusLabel(status) {
+            return status.charAt(0).toUpperCase() + status.slice(1);
+        }
+
+        function getMethodIcon(method) {
+            const map = { paypal: 'fab fa-paypal', bank: 'fa-university', crypto: 'fa-bitcoin', card: 'fa-credit-card' };
+            return map[method] || 'fa-arrow-down';
+        }
+
+        function getMethodLabel(method) {
+            const map = { paypal: 'PayPal', bank: 'Wire / Bank', crypto: 'Crypto', card: 'Credit Card' };
+            return map[method] || method;
+        }
+
+        // ── Toast ──
+        function showToast(msg, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const icons = { success: 'fa-check-circle', error: 'fa-times-circle', info: 'fa-info-circle' };
+            const t = document.createElement('div');
+            t.className = `toast ${type}`;
+            t.innerHTML = `<i class="fas ${icons[type] || icons.info}"></i> ${msg}`;
+            container.appendChild(t);
+            setTimeout(() => { t.style.opacity = '0';
+                t.style.transform = 'translateX(40px)';
+                setTimeout(() => t.remove(), 300); }, 3800);
+        }
+
+        // ── Render History ──
+        function renderHistory() {
+            const container = document.getElementById('historyList');
+            let list = state.depositHistory;
+            if (state.filter !== 'all') {
+                list = list.filter(h => h.status === state.filter);
+            }
+            if (list.length === 0) {
+                container.innerHTML = `<div class="history-empty"><i class="fas fa-inbox"></i>No deposit records found</div>`;
+                return;
+            }
+            container.innerHTML = list.map(h => {
+                const badge = getStatusBadge(h.status);
+                const icon = getMethodIcon(h.method);
+                const dateStr = h.date ? h.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
+                return `
+              <div class="history-item">
+                <div class="left">
+                  <div class="method"><i class="${icon}"></i> ${h.method}<span style="font-size:9px;color:var(--text-muted);font-weight:400;">${h.destination}</span></div>
+                  <div class="details">${dateStr} · ${h.fee ? 'Fee $' + h.fee.toFixed(2) : ''}</div>
+                </div>
+                <div class="right">
+                  <div class="amount positive">+$${h.amount.toFixed(2)}</div>
+                  <span class="status-badge ${badge}">${getStatusLabel(h.status)}</span>
+                </div>
+              </div>
+            `;
+            }).join('');
+        }
+
+        function setFilter(filter) {
+            state.filter = filter;
+            document.querySelectorAll('.status-filter button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
+            });
+            renderHistory();
+        }
+
+        // ── Fee calculation ──
+        function calculateFees(amount) {
+            const fee = amount * 0.005;
+            const networkFee = amount > 5000 ? 0 : (amount > 1000 ? 2.50 : 0);
+            const total = amount - fee - networkFee;
+            return { fee, networkFee, total };
+        }
+
+        // ── Update summary ──
+        function updateSummary(amount, method) {
+            const { fee, networkFee, total } = calculateFees(amount);
+            document.getElementById('confirmAmount').textContent = '$' + formatCurrency(amount);
+            document.getElementById('confirmMethod').textContent = getMethodLabel(method);
+            document.getElementById('confirmFee').textContent = '-$' + formatCurrency(fee);
+            document.getElementById('confirmNetwork').textContent = '$' + formatCurrency(networkFee);
+            document.getElementById('confirmTotal').textContent = '$' + formatCurrency(total);
+        }
+
+        // ── Step navigation ──
+        function goToStep(step) {
+            state.currentStep = step;
+            document.querySelectorAll('.form-section').forEach(el => el.classList.remove('active'));
+            document.querySelector(`.form-section[data-section="${step}"]`).classList.add('active');
+            document.querySelectorAll('.steps .step').forEach(el => {
+                const s = parseInt(el.dataset.step);
+                el.classList.toggle('active', s === step);
+                el.classList.toggle('done', s < step);
+            });
+        }
+
+        // ── Contact functions ──
+        function contactManager() {
+            // Simulate contacting account manager via mailto or chat
+            window.location.href = 'mailto:am@vertex.io?subject=Deposit%20Activation%20-%20' + state.depositAmount;
+            showToast('Opening email to Account Manager...', 'info');
+            // If you have Tawk.to or a live chat widget, you can trigger it here:
+            // if (typeof Tawk_API !== 'undefined' && Tawk_API.toggle) { Tawk_API.toggle(); }
+        }
+
+        function contactSupport() {
+            window.location.href = 'mailto:support@vertex.io?subject=Deposit%20Activation%20-%20' + state.depositAmount;
+            showToast('Opening email to Customer Care...', 'info');
+            // if (typeof Tawk_API !== 'undefined' && Tawk_API.toggle) { Tawk_API.toggle(); }
+        }
+
+        // ── Deposit action ──
+        function handleDeposit() {
+            const amount = state.depositAmount;
+            const method = state.selectedMethod;
+            if (!amount || amount <= 0) { showToast('Please enter a valid amount', 'error'); return; }
+            if (amount < 1) { showToast('Minimum deposit is $1.00', 'error'); return; }
+            if (amount > 50000) { showToast('Maximum deposit is $50,000', 'error'); return; }
+
+            const { fee, networkFee, total } = calculateFees(amount);
+            state.balance += total;
+            document.getElementById('availableBalance').textContent = formatCurrency(state.balance);
+
+            const methodLabels = { paypal: 'PayPal', bank: 'Bank Transfer', crypto: 'Crypto', card: 'Credit Card' };
+            const destMap = { paypal: 'user@email.com', bank: '****5678', crypto: '0x7F...9a2E', card: '****1234' };
+            state.depositHistory.unshift({
+                id: Date.now(),
+                method: methodLabels[method] || method,
+                destination: destMap[method] || '****',
+                amount: amount,
+                fee: fee,
+                status: 'pending',
+                date: new Date(),
+            });
+
+            renderHistory();
+            // Show success overlay instead of toast for the main action
+            document.getElementById('depositForm').style.display = 'none';
+            document.getElementById('successOverlay').classList.add('open');
+        }
+
+        // ── Copy bonus code ──
+        function copyCode() {
+            navigator.clipboard?.writeText('BONUS10').then(() => {
+                showToast('Code copied!', 'success');
+            }).catch(() => {
+                const ta = document.createElement('textarea');
+                ta.value = 'BONUS10';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                ta.remove();
+                showToast('Code copied!', 'success');
+            });
+        }
+
+        // ── Go back ──
+        function goBack() {
+            // If overlay is open, close it and go back to form
+            if (document.getElementById('successOverlay').classList.contains('open')) {
+                document.getElementById('successOverlay').classList.remove('open');
+                document.getElementById('depositForm').style.display = 'block';
+                goToStep(1);
+                return;
+            }
+            window.location.href = 'index.html';
+        }
+
+        // ── Init ──
+        function init() {
+            document.getElementById('availableBalance').textContent = formatCurrency(state.balance);
+
+            // Preset buttons
+            document.querySelectorAll('.preset-btns button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const amt = parseFloat(btn.dataset.amount);
+                    document.getElementById('depositAmount').value = amt;
+                    state.depositAmount = amt;
+                    updateSummary(amt, state.selectedMethod);
+                });
+            });
+
+            // Amount input
+            document.getElementById('depositAmount').addEventListener('input', (e) => {
+                const val = parseFloat(e.target.value) || 0;
+                state.depositAmount = val;
+                updateSummary(val, state.selectedMethod);
+            });
+
+            // Method selector
+            document.querySelectorAll('.method-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    document.querySelectorAll('.method-card').forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                    state.selectedMethod = card.dataset.method;
+                    document.getElementById('cardDetails').style.display = state.selectedMethod === 'card' ? 'block' :
+                        'none';
+                    document.getElementById('cryptoDetails').style.display = state.selectedMethod === 'crypto' ?
+                        'block' : 'none';
+                    updateSummary(state.depositAmount, state.selectedMethod);
+                });
+            });
+
+            // Step navigation
+            document.getElementById('step1Next').addEventListener('click', () => {
+                const amt = parseFloat(document.getElementById('depositAmount').value) || 0;
+                if (amt <= 0) { showToast('Enter a valid amount', 'error'); return; }
+                state.depositAmount = amt;
+                updateSummary(amt, state.selectedMethod);
+                goToStep(2);
+            });
+
+            document.getElementById('step2Back').addEventListener('click', () => goToStep(1));
+            document.getElementById('step2Next').addEventListener('click', () => {
+                if (state.selectedMethod === 'card') {
+                    const num = document.getElementById('cardNumber').value.trim();
+                    const name = document.getElementById('cardName').value.trim();
+                    const exp = document.getElementById('cardExpiry').value.trim();
+                    const cvv = document.getElementById('cardCvv').value.trim();
+                    if (!num || !name || !exp || !cvv) {
+                        showToast('Please fill all card details', 'error');
+                        return;
+                    }
+                }
+                if (state.selectedMethod === 'crypto') {
+                    const addr = document.getElementById('cryptoAddress').value.trim();
+                    if (!addr) { showToast('Please enter a wallet address', 'error'); return; }
+                }
+                updateSummary(state.depositAmount, state.selectedMethod);
+                goToStep(3);
+            });
+
+            document.getElementById('step3Back').addEventListener('click', () => goToStep(2));
+            document.getElementById('depositBtn').addEventListener('click', handleDeposit);
+
+            // Enter key on amount
+            document.getElementById('depositAmount').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const amt = parseFloat(e.target.value) || 0;
+                    if (amt > 0) {
+                        state.depositAmount = amt;
+                        updateSummary(amt, state.selectedMethod);
+                        goToStep(2);
+                    }
+                }
+            });
+
+            // History filters
+            document.querySelectorAll('.status-filter button').forEach(btn => {
+                btn.addEventListener('click', () => setFilter(btn.dataset.filter));
+            });
+
+            // Initial
+            renderHistory();
+            updateSummary(500, 'paypal');
+            goToStep(1);
+
+            // Keyboard shortcut: Escape to go back
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') goBack();
+            });
+
+            // Expose functions globally
+            window.goBack = goBack;
+            window.contactManager = contactManager;
+            window.contactSupport = contactSupport;
+            window.copyCode = copyCode;
+        }
+
+        init();
+    </script>
+</body>
+</html>
