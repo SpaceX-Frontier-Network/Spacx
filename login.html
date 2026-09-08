@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Sign In — Tesla Frontier Network</title>
 
     <!-- Tailwind CSS -->
@@ -22,18 +22,48 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html {
+        html, body {
             scroll-behavior: smooth;
+            min-height: 100%;
+            height: 100%;
         }
         body {
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
-            overflow: hidden;
-            background: #0A0B1A;
+            padding: max(1.5rem, env(safe-area-inset-top)) max(1.5rem, env(safe-area-inset-right)) max(1.5rem, env(safe-area-inset-bottom)) max(1.5rem, env(safe-area-inset-left));
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            background-color: #0A0B1A;
+            background-image: url('login-bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        }
+        .login-shell {
+            width: 100%;
+            max-width: min(480px, 100%);
+            margin: 0 auto;
+        }
+        .legal-note {
+            position: fixed;
+            bottom: max(1.25rem, env(safe-area-inset-bottom));
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: calc(100% - 2rem);
+            max-width: 480px;
+            text-align: center;
+            font-size: 10px;
+            color: var(--text-muted);
+            opacity: 0.65;
+            letter-spacing: 0.08em;
+            pointer-events: none;
         }
         .font-orbitron {
             font-family: 'Orbitron', monospace;
@@ -85,13 +115,14 @@
             opacity: 1;
         }
         .bg-slide::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(145deg, rgba(10, 11, 26, 0.75) 0%, rgba(10, 11, 26, 0.35) 50%, rgba(10, 11, 26, 0.7) 100%);
+            content: none;
         }
         [data-theme="light"] .bg-slide::after {
-            background: linear-gradient(145deg, rgba(240, 242, 248, 0.8) 0%, rgba(240, 242, 248, 0.35) 50%, rgba(240, 242, 248, 0.7) 100%);
+            content: none;
+        }
+        [data-theme="light"] body {
+            background-image: url('login-bg.jpg');
+            background-color: #1a0e08;
         }
 
         /* ── Glassmorphism Card ── */
@@ -404,38 +435,126 @@
         }
 
         /* ── Responsive ── */
-        @media (max-width: 640px) {
+        @media (max-width: 1024px) {
             body {
-                padding: 0.75rem;
+                background-position: 35% center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: max(4.5rem, calc(env(safe-area-inset-top) + 3.5rem)) max(1rem, env(safe-area-inset-right)) max(3.25rem, calc(env(safe-area-inset-bottom) + 2rem)) max(1rem, env(safe-area-inset-left));
+                align-items: flex-start;
+                background-position: 28% center;
             }
             .theme-toggle {
-                top: 1rem;
-                right: 1rem;
+                top: max(0.75rem, env(safe-area-inset-top));
+                right: max(0.75rem, env(safe-area-inset-right));
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
             }
+            .login-shell {
+                max-width: 100%;
+            }
             .glass-premium {
                 padding: 1.5rem 1.25rem !important;
+                border-radius: 24px !important;
             }
             .form-input {
-                padding: 0.75rem 1rem;
+                padding: 0.85rem 1rem;
                 padding-left: 2.6rem !important;
-                font-size: 0.9rem;
+                font-size: 16px; /* prevent iOS zoom */
             }
             .btn-primary,
             .btn-google,
             .btn-apple {
-                padding: 0.75rem 1rem;
-                font-size: 0.9rem;
+                padding: 0.85rem 1rem;
+                font-size: 0.95rem;
+                min-height: 48px;
+            }
+            .legal-note {
+                bottom: max(0.65rem, env(safe-area-inset-bottom));
+                font-size: 9px;
             }
         }
-        @media (max-width: 380px) {
+
+        @media (max-width: 640px) {
+            body {
+                padding: max(4.25rem, calc(env(safe-area-inset-top) + 3.25rem)) 0.75rem max(3rem, calc(env(safe-area-inset-bottom) + 1.75rem));
+                background-position: 22% center;
+            }
+            h1 {
+                font-size: 1.45rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
             .glass-premium {
-                padding: 1.25rem 0.75rem !important;
+                padding: 1.35rem 1rem !important;
+                border-radius: 20px !important;
             }
             .social-buttons {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .glass-premium {
+                padding: 1.15rem 0.8rem !important;
+            }
+            .social-buttons {
+                grid-template-columns: 1fr;
+            }
+            .remember-row {
                 flex-direction: column;
+                align-items: flex-start;
+                gap: 0.65rem;
+            }
+        }
+
+        /* Short / landscape phones */
+        @media (max-height: 700px) {
+            body {
+                align-items: flex-start;
+                overflow-y: auto;
+            }
+            .glass-premium {
+                padding-top: 1.25rem !important;
+                padding-bottom: 1.25rem !important;
+            }
+            .legal-note {
+                display: none;
+            }
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            body {
+                padding: 0.75rem 1rem;
+                align-items: flex-start;
+            }
+            .theme-toggle {
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 36px;
+                height: 36px;
+            }
+            .login-shell {
+                max-width: 560px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .login-shell {
+                max-width: 500px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
             }
         }
 
@@ -454,20 +573,9 @@
 </head>
 <body>
 
-    <!-- ====== BACKGROUND SLIDESHOW ====== -->
+    <!-- ====== BACKGROUND IMAGE ====== -->
     <div class="bg-slideshow">
-        <!-- Tesla Cybertruck & Robotics -->
-        <div class="bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1600&q=80');"></div>
-        <!-- Tesla Factory / Robotics -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80');"></div>
-        <!-- Tesla Semi / Robotics -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1600&q=80');"></div>
-        <!-- Tesla Robot / Optimus -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1600&q=80');"></div>
-        <!-- Tesla Battery / Energy -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1600&q=80');"></div>
-        <!-- Tesla Factory Interior -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80');"></div>
+        <div class="bg-slide active" style="background-image: url('login-bg.jpg');"></div>
     </div>
 
     <!-- ====== THEME TOGGLE ====== -->
@@ -475,18 +583,10 @@
         <i class="fas fa-moon" id="themeIcon"></i>
     </button>
 
-    <!-- ====== SLIDE INDICATORS ====== -->
-    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        <span class="slide-dot active" data-index="0"></span>
-        <span class="slide-dot" data-index="1"></span>
-        <span class="slide-dot" data-index="2"></span>
-        <span class="slide-dot" data-index="3"></span>
-        <span class="slide-dot" data-index="4"></span>
-        <span class="slide-dot" data-index="5"></span>
-    </div>
+    <!-- slideshow dots removed — single background image -->
 
     <!-- ====== LOGIN CARD ====== -->
-    <div class="relative z-10 w-full max-w-[480px] animate-fade">
+    <div class="login-shell relative z-10 animate-fade">
         <div class="glass-premium rounded-[32px] p-8 md:p-10">
 
             <!-- Logo -->
@@ -567,7 +667,7 @@
             </div>
 
             <!-- Remember me & Forgot password -->
-            <div class="flex items-center justify-between mb-6 animate-slide-up" style="animation-delay:0.15s;">
+            <div class="remember-row flex items-center justify-between mb-6 animate-slide-up" style="animation-delay:0.15s;">
                 <label class="flex items-center gap-2 text-sm text-[var(--text-secondary)] cursor-pointer">
                     <input type="checkbox" class="accent-[var(--primary)] w-4 h-4" checked />
                     Remember me
@@ -627,7 +727,7 @@
     </div>
 
     <!-- Footer note -->
-    <p class="fixed bottom-20 left-1/2 -translate-x-1/2 z-10 text-center text-[10px] text-[var(--text-muted)] opacity-60 tracking-wider">
+    <p class="legal-note">
         <i class="fas fa-shield-alt mr-1"></i> SEC registered · FINRA member
     </p>
 </div>
