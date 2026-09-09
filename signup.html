@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up — Tesla Frontier Network</title>
+    <title>Let's Start — Sign Up</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com">
@@ -32,79 +32,40 @@
             align-items: center;
             justify-content: center;
             padding: 1.5rem;
-            overflow: hidden;
-            background: #0A0B1A;
+            background: #f4f7fc;
+            /* Light background like the reference */
+            overflow-y: auto;
         }
         .font-orbitron {
             font-family: 'Orbitron', monospace;
         }
 
-        /* ── Theme Variables ── */
+        /* ── Theme Variables (Light, reference palette) ── */
         :root {
             --primary: #0052FF;
             --primary-dark: #0038B8;
             --primary-light: #4B7FFF;
             --green: #00D484;
-            --blue-bg: #0A0B1A;
-            --card-bg: rgba(10, 11, 26, 0.65);
-            --border-color: rgba(255, 255, 255, 0.08);
-            --text-primary: #FFFFFF;
-            --text-secondary: #8A8FA8;
-            --text-muted: #5A5F7A;
-            --shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+            --bg-body: #f4f7fc;
+            --card-bg: #ffffff;
+            --border-color: #e9edf4;
+            --text-primary: #0b1a33;
+            --text-secondary: #2e3f5b;
+            --text-muted: #7a8aa8;
+            --shadow: 0 20px 50px rgba(0, 20, 40, 0.10);
             --radius: 24px;
-            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition: 0.3s ease;
         }
 
-        /* ── Background Slideshow ── */
-        .bg-slideshow {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
-        }
-        .bg-slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 1.8s ease-in-out;
-            background-size: cover;
-            background-position: center;
-            transform: scale(1);
-        }
-        .bg-slide.active {
-            opacity: 1;
-        }
-        .bg-slide::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(145deg, rgba(10, 11, 26, 0.75) 0%, rgba(10, 11, 26, 0.35) 50%, rgba(10, 11, 26, 0.7) 100%);
-        }
-
-        /* ── Glassmorphism Card ── */
+        /* ── Card ── */
         .glass-premium {
             background: var(--card-bg);
-            backdrop-filter: blur(32px) saturate(1.4);
-            -webkit-backdrop-filter: blur(32px) saturate(1.4);
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow);
+            border-radius: 32px;
             transition: all var(--transition);
             position: relative;
             overflow: hidden;
-        }
-        .glass-premium::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 20%, rgba(0, 82, 255, 0.06), transparent 60%);
-            pointer-events: none;
-        }
-        .glass-premium:hover {
-            border-color: rgba(0, 82, 255, 0.25);
         }
 
         /* ── Theme Toggle ── */
@@ -117,7 +78,7 @@
             height: 44px;
             border-radius: 50%;
             background: var(--card-bg);
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(8px);
             border: 1px solid var(--border-color);
             color: var(--text-secondary);
             display: flex;
@@ -131,15 +92,15 @@
             border-color: var(--primary);
             color: var(--primary);
             transform: rotate(25deg) scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 82, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 82, 255, 0.1);
         }
 
         /* ── Form Inputs ── */
         .form-input {
             width: 100%;
-            padding: 0.9rem 1.2rem;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-color);
+            padding: 0.85rem 1.2rem;
+            background: #f8faff;
+            border: 1.5px solid var(--border-color);
             border-radius: 14px;
             color: var(--text-primary);
             font-size: 0.95rem;
@@ -149,19 +110,19 @@
         }
         .form-input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.12);
-            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.10);
+            background: #ffffff;
         }
         .form-input::placeholder {
             color: var(--text-muted);
         }
         .form-input.error {
             border-color: #ef4444;
-            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.10);
         }
         .form-input.success {
             border-color: var(--green);
-            box-shadow: 0 0 0 4px rgba(0, 212, 132, 0.12);
+            box-shadow: 0 0 0 4px rgba(0, 212, 132, 0.10);
         }
 
         /* ── Buttons ── */
@@ -169,20 +130,20 @@
             background: var(--primary);
             color: #fff;
             border: none;
-            padding: 0.9rem 2rem;
+            padding: 0.85rem 2rem;
             border-radius: 14px;
             font-weight: 600;
             font-size: 1rem;
             transition: all var(--transition);
-            box-shadow: 0 4px 30px rgba(0, 82, 255, 0.35);
+            box-shadow: 0 4px 16px rgba(0, 82, 255, 0.25);
             cursor: pointer;
-            width: 100%;
             font-family: 'Inter', sans-serif;
+            flex: 1;
         }
         .btn-primary:hover {
             background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 50px rgba(0, 82, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 82, 255, 0.35);
         }
         .btn-primary:disabled {
             opacity: 0.6;
@@ -190,11 +151,30 @@
             transform: none;
         }
 
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-color);
+            padding: 0.85rem 2rem;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all var(--transition);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            flex: 1;
+        }
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background: rgba(0, 82, 255, 0.04);
+            transform: translateY(-2px);
+        }
+
         .btn-google {
             background: transparent;
             color: var(--text-primary);
             border: 1px solid var(--border-color);
-            padding: 0.9rem 1.5rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 14px;
             font-weight: 500;
             font-size: 0.95rem;
@@ -209,7 +189,7 @@
         }
         .btn-google:hover {
             border-color: var(--primary);
-            background: rgba(0, 82, 255, 0.06);
+            background: rgba(0, 82, 255, 0.04);
             transform: translateY(-2px);
         }
         .btn-google i {
@@ -221,7 +201,7 @@
             background: transparent;
             color: var(--text-primary);
             border: 1px solid var(--border-color);
-            padding: 0.9rem 1.5rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 14px;
             font-weight: 500;
             font-size: 0.95rem;
@@ -236,48 +216,137 @@
         }
         .btn-apple:hover {
             border-color: var(--primary);
-            background: rgba(0, 82, 255, 0.06);
+            background: rgba(0, 82, 255, 0.04);
             transform: translateY(-2px);
         }
         .btn-apple i {
             font-size: 1.2rem;
         }
 
-        /* ── Password Strength ── */
-        .password-strength {
+        /* ── Form row (Remember Me + Forgot) ── */
+        .form-row-actions {
             display: flex;
-            gap: 4px;
-            margin-top: 0.5rem;
-        }
-        .password-strength .bar {
-            flex: 1;
-            height: 3px;
-            border-radius: 4px;
-            background: var(--border-color);
-            transition: background 0.3s ease;
-        }
-        .password-strength .bar.active.weak {
-            background: #ef4444;
-        }
-        .password-strength .bar.active.medium {
-            background: #f59e0b;
-        }
-        .password-strength .bar.active.strong {
-            background: var(--green);
-        }
-        .password-strength-text {
-            font-size: 0.7rem;
-            color: var(--text-muted);
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem 1rem;
             margin-top: 0.25rem;
         }
-        .password-strength-text.weak {
-            color: #ef4444;
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            cursor: pointer;
         }
-        .password-strength-text.medium {
-            color: #f59e0b;
+        .remember-me input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary);
+            cursor: pointer;
         }
-        .password-strength-text.strong {
-            color: var(--green);
+        .forgot-link {
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.15s;
+        }
+        .forgot-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* ── FAQ Accordion ── */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.5rem 0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.15s;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            gap: 12px;
+        }
+        .faq-question:hover {
+            color: var(--text-primary);
+        }
+        .faq-question .q-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .faq-question .q-icon i {
+            color: var(--primary);
+            width: 18px;
+            font-size: 0.45rem;
+        }
+        .faq-question .toggle-icon {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .faq-question .toggle-icon.open {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.3s ease;
+            padding: 0 0 0 28px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        .faq-answer.open {
+            max-height: 200px;
+            padding: 0.2rem 0 0.8rem 28px;
+        }
+        .faq-answer p {
+            margin: 0;
+        }
+        .faq-answer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Useful Links ── */
+        .links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.5rem;
+        }
+        .links-grid a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 450;
+            transition: 0.15s;
+            border-bottom: 1.5px solid transparent;
+        }
+        .links-grid a:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--primary);
+        }
+        .links-grid a i {
+            margin-right: 4px;
+            font-size: 0.7rem;
+            opacity: 0.6;
         }
 
         /* ── Animations ── */
@@ -291,14 +360,6 @@
                 transform: scale(1) translateY(0);
             }
         }
-        @keyframes shimmer {
-            0% {
-                background-position: -200% center;
-            }
-            100% {
-                background-position: 200% center;
-            }
-        }
         @keyframes slideUp {
             from {
                 opacity: 0;
@@ -307,15 +368,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-        @keyframes pulseGlow {
-            0%,
-            100% {
-                box-shadow: 0 0 20px rgba(0, 82, 255, 0.1);
-            }
-            50% {
-                box-shadow: 0 0 60px rgba(0, 82, 255, 0.2);
             }
         }
         @keyframes floatSlow {
@@ -334,47 +386,16 @@
         .animate-slide-up {
             animation: slideUp 0.7s ease forwards;
         }
-        .animate-pulse-glow {
-            animation: pulseGlow 3s ease-in-out infinite;
-        }
         .animate-float-slow {
             animation: floatSlow 5s ease-in-out infinite;
         }
-        .shimmer-text {
-            background: linear-gradient(90deg, var(--primary), var(--green), var(--primary-light), var(--green));
-            background-size: 300% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 4s linear infinite;
-        }
 
-        /* ── Input icons ── */
-        .input-icon-wrap {
-            position: relative;
-        }
-        .input-icon-wrap .input-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-        .input-icon-wrap .form-input {
-            padding-left: 2.8rem;
-        }
-        .input-icon-wrap .form-input:focus+.input-icon {
-            color: var(--primary);
-        }
-
-        /* ── Terms checkbox ── */
+        /* ── Terms Check ── */
         .terms-check {
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-secondary);
         }
         .terms-check input[type="checkbox"] {
@@ -395,30 +416,12 @@
         }
 
         /* ── Success State ── */
-        .success-check {
-            display: none;
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: var(--green);
-            color: #fff;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 0 80px rgba(0, 212, 132, 0.3);
-            animation: fadeIn 0.6s ease forwards;
-        }
-        .success-check.show {
-            display: flex;
-        }
-
         .success-icon {
             display: none;
             width: 72px;
             height: 72px;
             border-radius: 50%;
-            background: rgba(0, 212, 132, 0.15);
+            background: rgba(0, 212, 132, 0.12);
             border: 2px solid var(--green);
             color: var(--green);
             align-items: center;
@@ -429,35 +432,6 @@
         }
         .success-icon.show {
             display: flex;
-        }
-
-        /* ── Slide Dots ── */
-        .slide-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid transparent;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-        .slide-dot.active {
-            background: var(--primary);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(0, 82, 255, 0.4);
-            transform: scale(1.3);
-        }
-
-        /* ── Scrollbar ── */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
         }
 
         /* ── Responsive ── */
@@ -477,297 +451,356 @@
             }
             .form-input {
                 padding: 0.75rem 1rem;
-                padding-left: 2.6rem !important;
                 font-size: 0.9rem;
             }
             .btn-primary,
-            .btn-google,
-            .btn-apple {
+            .btn-outline {
                 padding: 0.75rem 1rem;
                 font-size: 0.9rem;
+            }
+            .btn-google,
+            .btn-apple {
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
+            }
+            .faq-answer {
+                padding-left: 0;
+            }
+            .faq-answer.open {
+                padding-left: 0;
+            }
+            .faq-question .q-icon i {
+                width: 14px;
+            }
+            .links-grid {
+                gap: 0.5rem 1rem;
             }
         }
         @media (max-width: 380px) {
             .glass-premium {
                 padding: 1.25rem 0.75rem !important;
             }
+            .btn-group {
+                flex-direction: column;
+            }
+            .btn-primary,
+            .btn-outline {
+                flex: 1 1 auto;
+                width: 100%;
+            }
             .social-buttons {
                 flex-direction: column;
             }
         }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* ── Background (light, clean) ── */
+        .bg-light-gradient {
+            background: linear-gradient(135deg, #f4f7fc 0%, #eef2f8 100%);
+        }
+        /* override body background */
+        body {
+            background: #f4f7fc;
+        }
     </style>
 </head>
 <body>
-
-    <!-- ====== BACKGROUND SLIDESHOW ====== -->
-    <div class="bg-slideshow">
-        <!-- Tesla Cybertruck & Robotics -->
-        <div class="bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1600&q=80');"></div>
-        <!-- Tesla Factory / Robotics -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80');"></div>
-        <!-- Tesla Semi / Robotics -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1600&q=80');"></div>
-        <!-- Tesla Robot / Optimus -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1600&q=80');"></div>
-        <!-- Tesla Battery / Energy -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1600&q=80');"></div>
-        <!-- Tesla Factory Interior -->
-        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80');"></div>
-    </div>
 
     <!-- ====== THEME TOGGLE ====== -->
     <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
         <i class="fas fa-moon" id="themeIcon"></i>
     </button>
 
-    <!-- ====== SLIDE INDICATORS ====== -->
-    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        <span class="slide-dot active" data-index="0"></span>
-        <span class="slide-dot" data-index="1"></span>
-        <span class="slide-dot" data-index="2"></span>
-        <span class="slide-dot" data-index="3"></span>
-        <span class="slide-dot" data-index="4"></span>
-        <span class="slide-dot" data-index="5"></span>
-    </div>
-
-    <!-- ====== SIGNUP CARD ====== -->
-    <div class="relative z-10 w-full max-w-[480px] animate-fade">
+    <!-- ====== MAIN CARD ====== -->
+    <div class="relative z-10 w-full max-w-[520px] animate-fade">
         <div class="glass-premium rounded-[32px] p-8 md:p-10">
 
-            <!-- Logo -->
-            <div class="flex items-center justify-center gap-2.5 mb-6">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/30">
+            <!-- Optional branding (Tesla-style but can be removed) -->
+            <div class="flex items-center justify-center gap-2.5 mb-5">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--green)] flex items-center justify-center shadow-md shadow-[var(--primary)]/20">
                     <i class="fas fa-bolt text-white text-lg"></i>
                 </div>
-                <span class="font-orbitron text-lg font-extrabold tracking-tight text-[var(--text-primary)]">
+                <span class="font-orbitron text-sm font-extrabold tracking-tight text-[var(--text-primary)]">
                     TESLA FRONTIER
                 </span>
             </div>
 
-            <!-- Header -->
-            <div class="text-center mb-7">
-                <h1 class="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">
-                    Join the <span class="shimmer-text">Frontier</span>
+            <!-- ====== HEADER: Let's Start ====== -->
+            <div class="text-center mb-6">
+                <h1 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] tracking-tight">
+                    Let's Start
                 </h1>
-                <p class="text-[var(--text-secondary)] text-sm mt-1.5">
-                    Create your account to start investing in the future of Tesla &amp; SpaceX
+                <p class="text-[var(--text-secondary)] text-sm mt-0.5 font-light tracking-wide">
+                    Exploring.
                 </p>
             </div>
 
-            <!-- ====== SIGNUP FORM ====== -->
-            <form id="signupForm" onsubmit="return false;" novalidate>
+            <!-- ====== AUTH SECTION ====== -->
+            <div class="mb-6">
+                <p class="text-[var(--text-secondary)] text-sm text-center mb-4">
+                    <i class="fas fa-rocket text-[var(--primary)] mr-1.5"></i>
+                    Please login or signup to start using exclusive features and resources.
+                </p>
 
-                <!-- Full Name -->
-                <div class="mb-4 animate-slide-up" style="animation-delay:0.05s;">
-                    <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
-                        Full Name
-                    </label>
-                    <div class="input-icon-wrap">
+                <!-- Form -->
+                <form id="signupForm" onsubmit="return false;" novalidate>
+
+                    <!-- Username or Email -->
+                    <div class="mb-3.5 animate-slide-up" style="animation-delay:0.05s;">
+                        <label class="block text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-1.5">
+                            Username or Email Address
+                        </label>
                         <input
                         type="text"
-                        id="fullName"
+                        id="username"
                         class="form-input"
-                        placeholder="John Doe"
+                        placeholder="Enter your username or email"
                         required
-                        autocomplete="name"
+                        autocomplete="username"
                         />
-                        <i class="fas fa-user input-icon"></i>
+                        <div class="text-xs text-red-400 mt-1 hidden" id="usernameError">Please enter a valid username or email</div>
                     </div>
-                    <div class="text-xs text-red-400 mt-1 hidden" id="nameError">Please enter your full name</div>
+
+                    <!-- Password -->
+                    <div class="mb-3 animate-slide-up" style="animation-delay:0.1s;">
+                        <label class="block text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-1.5">
+                            Password
+                        </label>
+                        <div class="relative">
+                            <input
+                            type="password"
+                            id="password"
+                            class="form-input pr-12"
+                            placeholder="Enter your password"
+                            required
+                            autocomplete="current-password"
+                            minlength="6"
+                            />
+                            <button
+                            type="button"
+                            id="togglePassword"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
+                            aria-label="Toggle password visibility"
+                            >
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="text-xs text-red-400 mt-1 hidden" id="passwordError">Password must be at least 6 characters</div>
                 </div>
 
-                <!-- Email -->
-                <div class="mb-4 animate-slide-up" style="animation-delay:0.1s;">
-                    <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
-                        Email Address
+                <!-- Remember Me + Forgot Password -->
+                <div class="form-row-actions mb-5 animate-slide-up" style="animation-delay:0.15s;">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe" />
+                        Remember Me
                     </label>
-                    <div class="input-icon-wrap">
-                        <input
-                        type="email"
-                        id="email"
-                        class="form-input"
-                        placeholder="you@example.com"
-                        required
-                        autocomplete="email"
-                        />
-                        <i class="fas fa-envelope input-icon"></i>
-                    </div>
-                    <div class="text-xs text-red-400 mt-1 hidden" id="emailError">Please enter a valid email address</div>
+                    <a href="#" class="forgot-link">Forgot Password?</a>
                 </div>
 
-                <!-- Password -->
-                <div class="mb-2 animate-slide-up" style="animation-delay:0.15s;">
-                    <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
-                        Password
-                    </label>
-                    <div class="input-icon-wrap">
-                        <input
-                        type="password"
-                        id="password"
-                        class="form-input pr-12"
-                        placeholder="Create a strong password"
-                        required
-                        autocomplete="new-password"
-                        minlength="8"
-                        />
-                        <i class="fas fa-lock input-icon"></i>
-                        <button
-                        type="button"
-                        id="togglePassword"
-                        class="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition"
-                        aria-label="Toggle password visibility"
-                        >
-                        <i class="fas fa-eye"></i>
+                <!-- Buttons: Log In + Register Now -->
+                <div class="flex flex-wrap gap-3 mb-5 animate-slide-up" style="animation-delay:0.2s;">
+                    <button type="submit" id="loginBtn" class="btn-primary">
+                        <i class="fas fa-sign-in-alt mr-1.5"></i> Log In
+                    </button>
+                    <button type="button" id="registerBtn" class="btn-outline">
+                        <i class="fas fa-user-plus mr-1.5"></i> Register Now
                     </button>
                 </div>
-                <div class="text-xs text-red-400 mt-1 hidden" id="passwordError">Password must be at least 8 characters</div>
 
-                <!-- Password Strength -->
-                <div class="password-strength" id="strengthBars">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                <!-- Divider -->
+                <div class="flex items-center gap-4 my-5 animate-slide-up" style="animation-delay:0.25s;">
+                    <span class="flex-1 border-t border-[var(--border-color)]"></span>
+                    <span class="text-xs text-[var(--text-muted)] uppercase tracking-wider font-medium">or</span>
+                    <span class="flex-1 border-t border-[var(--border-color)]"></span>
                 </div>
-                <div class="password-strength-text" id="strengthText">Enter a password</div>
-            </div>
 
-            <!-- Confirm Password -->
-            <div class="mb-4 animate-slide-up" style="animation-delay:0.2s;">
-                <label class="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">
-                    Confirm Password
-                </label>
-                <div class="input-icon-wrap">
-                    <input
-                    type="password"
-                    id="confirmPassword"
-                    class="form-input"
-                    placeholder="Confirm your password"
-                    required
-                    autocomplete="new-password"
-                    />
-                    <i class="fas fa-check-circle input-icon"></i>
+                <!-- Social Buttons -->
+                <div class="social-buttons grid grid-cols-2 gap-3 animate-slide-up" style="animation-delay:0.3s;">
+                    <button type="button" class="btn-google">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button type="button" class="btn-apple">
+                        <i class="fab fa-apple"></i> Apple
+                    </button>
                 </div>
-                <div class="text-xs text-red-400 mt-1 hidden" id="confirmError">Passwords do not match</div>
-            </div>
 
-            <!-- Terms -->
-            <div class="terms-check mb-6 animate-slide-up" style="animation-delay:0.25s;">
-                <input type="checkbox" id="termsCheck" required />
-                <label for="termsCheck" class="cursor-pointer">
-                    I agree to the
-                    <a href="#">Terms of Service</a>
-                    and
-                    <a href="#">Privacy Policy</a>
-                </label>
-            </div>
+                <!-- Terms -->
+                <div class="terms-check mt-5 animate-slide-up" style="animation-delay:0.35s;">
+                    <input type="checkbox" id="termsCheck" required />
+                    <label for="termsCheck" class="cursor-pointer">
+                        I agree to the
+                        <a href="#">Terms of Service</a>
+                        and
+                        <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
 
-            <!-- Submit Button -->
-            <button type="submit" id="submitBtn" class="btn-primary animate-slide-up" style="animation-delay:0.3s;">
-                <span id="submitText">Create Account</span>
-                <span id="submitSpinner" class="hidden">
-                    <i class="fas fa-spinner fa-spin"></i>
-                </span>
-            </button>
+                <!-- Submit Spinner (hidden) -->
+                <div id="submitSpinner" class="hidden text-center mt-3">
+                    <i class="fas fa-spinner fa-spin text-[var(--primary)] text-lg"></i>
+                    <span class="text-[var(--text-secondary)] text-sm ml-2">Creating account...</span>
+                </div>
 
-            <!-- Divider -->
-            <div class="flex items-center gap-4 my-6 animate-slide-up" style="animation-delay:0.35s;">
-                <span class="flex-1 border-t border-theme"></span>
-                <span class="text-xs text-[var(--text-muted)] uppercase tracking-wider">or continue with</span>
-                <span class="flex-1 border-t border-theme"></span>
-            </div>
+            </form>
 
-            <!-- Social Buttons -->
-            <div class="social-buttons grid grid-cols-2 gap-3 animate-slide-up" style="animation-delay:0.4s;">
-                <button type="button" class="btn-google">
-                    <i class="fab fa-google"></i> Google
-                </button>
-                <button type="button" class="btn-apple">
-                    <i class="fab fa-apple"></i> Apple
-                </button>
-            </div>
-
-            <!-- Sign In Link -->
-            <p class="text-center text-sm text-[var(--text-secondary)] mt-6 animate-slide-up" style="animation-delay:0.45s;">
-                Already have an account?
-                <a href="login.html" class="text-[var(--primary)] font-semibold hover:underline transition">
-                    Sign in
-                </a>
-            </p>
-        </form>
-
-        <!-- ====== SUCCESS STATE ====== -->
-        <div id="successState" style="display:none;" class="text-center py-4">
-            <div class="success-icon show animate-float-slow">
-                <i class="fas fa-clock"></i>
-            </div>
-            <h2 class="text-2xl font-bold text-[var(--text-primary)]">Account Created!</h2>
-            <p class="text-[var(--text-secondary)] text-sm mt-3 leading-relaxed max-w-sm mx-auto">
-                Your account is currently <strong class="text-[var(--primary)]">under review</strong>.
-                Our team will validate your information and activate your account as soon as possible.
-            </p>
-            <div class="mt-4 p-4 rounded-xl bg-[var(--primary)]/5 border border-[var(--primary)]/10">
-                <p class="text-xs text-[var(--text-muted)]">
-                    <i class="fas fa-info-circle text-[var(--primary)] mr-1"></i>
-                    You will receive a confirmation email once your account is approved.
+            <!-- ====== SUCCESS STATE ====== -->
+            <div id="successState" style="display:none;" class="text-center py-2">
+                <div class="success-icon show animate-float-slow">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-[var(--text-primary)]">Welcome aboard!</h2>
+                <p class="text-[var(--text-secondary)] text-sm mt-3 leading-relaxed max-w-sm mx-auto">
+                    Your account has been created. You can now <strong class="text-[var(--primary)]">log in</strong> and start exploring all the exclusive features.
                 </p>
+                <a href="#" class="btn-primary mt-5 inline-flex items-center justify-center gap-2 w-full">
+                    <i class="fas fa-arrow-right"></i> Go to Dashboard
+                </a>
             </div>
-            <a href="index.html" class="btn-primary mt-6 inline-flex items-center justify-center gap-2">
-                <i class="fas fa-arrow-left"></i> Return to Home
-            </a>
         </div>
-    </div>
 
-    <!-- Footer note -->
-    <p class="fixed bottom-20 left-1/2 -translate-x-1/2 z-10 text-center text-[10px] text-[var(--text-muted)] opacity-60 tracking-wider">
-        <i class="fas fa-shield-alt mr-1"></i> SEC registered · FINRA member
-    </p>
+        <!-- ====== FAQS ====== -->
+        <div class="mt-6 pt-4 border-t border-[var(--border-color)]">
+            <div class="flex items-center gap-2 mb-3">
+                <i class="fas fa-question-circle text-[var(--primary)] text-sm"></i>
+                <span class="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">FAQs</span>
+                <span class="text-[var(--text-muted)] text-xs font-light ml-1">Explore answers to the helpful questions.</span>
+            </div>
+
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <div class="faq-question" data-target="faq1">
+                    <span class="q-icon">
+                        <i class="fas fa-circle"></i>
+                        How to Get Started?
+                    </span>
+                    <span class="toggle-icon" id="faq1-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer" id="faq1">
+                    <p>Getting started is easy! Simply create an account, verify your email, and you're ready to explore all our resources.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <div class="faq-question" data-target="faq2">
+                    <span class="q-icon">
+                        <i class="fas fa-circle"></i>
+                        How to signup?
+                    </span>
+                    <span class="toggle-icon" id="faq2-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer" id="faq2">
+                    <p>Click the <strong>Register Now</strong> button above, fill in your details, and follow the on-screen instructions to complete your signup.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <div class="faq-question" data-target="faq3">
+                    <span class="q-icon">
+                        <i class="fas fa-circle"></i>
+                        How to join PRO plan?
+                    </span>
+                    <span class="toggle-icon" id="faq3-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer" id="faq3">
+                    <p>After logging in, navigate to the <strong>Pricing</strong> section and choose the PRO plan that suits you best. Upgrade with one click.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <div class="faq-question" data-target="faq4">
+                    <span class="q-icon">
+                        <i class="fas fa-circle"></i>
+                        How to use PRO plan?
+                    </span>
+                    <span class="toggle-icon" id="faq4-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer" id="faq4">
+                    <p>Once you're on the PRO plan, you'll get access to exclusive tools, premium content, and priority support. Check your dashboard for all features.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <div class="faq-question" data-target="faq5">
+                    <span class="q-icon">
+                        <i class="fas fa-circle"></i>
+                        What are benefits of PRO plans?
+                    </span>
+                    <span class="toggle-icon" id="faq5-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer" id="faq5">
+                    <p>PRO plans include advanced analytics, ad-free experience, unlimited access to courses, and dedicated customer support.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+                <div class="faq-question" data-target="faq6">
+                    <span class="q-icon">
+                        <i class="fas fa-circle"></i>
+                        How to learn trading &amp; investing?
+                    </span>
+                    <span class="toggle-icon" id="faq6-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer" id="faq6">
+                    <p>We offer a complete learning hub with video tutorials, articles, and live webinars. Start with our <strong>Beginner's Guide</strong> in the Resources section.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="faq-item">
+                <div class="faq-question" data-target="faq7">
+                    <span class="q-icon">
+                        <i class="fas fa-circle"></i>
+                        How to contact us for any query?
+                    </span>
+                    <span class="toggle-icon" id="faq7-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="faq-answer" id="faq7">
+                    <p>You can reach us via the <strong>Contact Us</strong> page, or email us directly at <a href="mailto:support@teslafrontier.com">support@teslafrontier.com</a>. We reply within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== USEFUL LINKS ====== -->
+        <div class="mt-5 pt-4 border-t border-[var(--border-color)]">
+            <div class="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
+                Useful Links
+            </div>
+            <div class="links-grid">
+                <a href="#"><i class="fas fa-home"></i> Home</a>
+                <a href="#"><i class="fas fa-newspaper"></i> Articles</a>
+                <a href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="#"><i class="fas fa-file-contract"></i> T&amp;C</a>
+                <a href="#"><i class="fas fa-users"></i> About Us</a>
+                <a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- Footer note -->
+        <p class="text-center text-[10px] text-[var(--text-muted)] opacity-60 tracking-wider mt-5">
+            <i class="fas fa-shield-alt mr-1"></i> SEC registered · FINRA member
+        </p>
+    </div>
 </div>
 
 <!-- ====== JAVASCRIPT ====== -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-
-        // ─── Background Slideshow ──────────────────────────────────────
-        const slides = document.querySelectorAll('.bg-slide');
-        const dots = document.querySelectorAll('.slide-dot');
-        let currentSlide = 0;
-        let slideshowInterval;
-
-        function goToSlide(index) {
-            slides.forEach((s, i) => {
-                s.classList.toggle('active', i === index);
-            });
-            dots.forEach((d, i) => {
-                d.classList.toggle('active', i === index);
-            });
-            currentSlide = index;
-        }
-
-        function nextSlide() {
-            goToSlide((currentSlide + 1) % slides.length);
-        }
-
-        // Start slideshow
-        function startSlideshow() {
-            slideshowInterval = setInterval(nextSlide, 4500);
-        }
-
-        // Pause on hover over the card
-        const card = document.querySelector('.glass-premium');
-        card.addEventListener('mouseenter', () => clearInterval(slideshowInterval));
-        card.addEventListener('mouseleave', startSlideshow);
-
-        // Dot click
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                clearInterval(slideshowInterval);
-                goToSlide(i);
-                startSlideshow();
-            });
-        });
-
-        startSlideshow();
 
         // ─── Theme Toggle ──────────────────────────────────────────
         const html = document.documentElement;
@@ -777,12 +810,17 @@
         function setTheme(theme) {
             html.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
-            themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+            themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+            // Update body background for light/dark
+            document.body.style.background = theme === 'dark' ? '#0A0B1A' : '#f4f7fc';
         }
-        setTheme(localStorage.getItem('theme') || 'dark');
+        // Default to light (reference palette)
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
         themeToggle.addEventListener('click', () => {
             const current = html.getAttribute('data-theme');
-            setTheme(current === 'dark' ? 'light' : 'dark');
+            setTheme(current === 'light' ? 'dark' : 'light');
         });
 
         // ─── Password Toggle ──────────────────────────────────────
@@ -795,66 +833,36 @@
             this.querySelector('i').className = type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
         });
 
-        // ─── Password Strength ────────────────────────────────────
-        const strengthBars = document.querySelectorAll('#strengthBars .bar');
-        const strengthText = document.getElementById('strengthText');
+        // ─── FAQ Accordion ────────────────────────────────────────
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach((q) => {
+            q.addEventListener('click', function() {
+                const targetId = this.dataset.target;
+                const answer = document.getElementById(targetId);
+                const toggleIcon = document.getElementById(targetId + '-toggle');
+                if (!answer || !toggleIcon) return;
 
-        function checkStrength(password) {
-            let score = 0;
-            if (password.length >= 8) score++;
-            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) score++;
-            if (password.match(/\d/)) score++;
-            if (password.match(/[^a-zA-Z\d]/)) score++;
-            return score;
-        }
-
-        passwordInput.addEventListener('input', function() {
-            const password = this.value;
-            const score = checkStrength(password);
-
-            strengthBars.forEach((bar, i) => {
-                bar.className = 'bar';
-                if (i < score) {
-                    bar.classList.add('active');
-                    if (score <= 1) bar.classList.add('weak');
-                    else if (score === 2) bar.classList.add('medium');
-                    else if (score >= 3) bar.classList.add('strong');
+                const isOpen = answer.classList.contains('open');
+                if (isOpen) {
+                    answer.classList.remove('open');
+                    toggleIcon.classList.remove('open');
+                } else {
+                    answer.classList.add('open');
+                    toggleIcon.classList.add('open');
                 }
             });
-
-            if (password.length === 0) {
-                strengthText.textContent = 'Enter a password';
-                strengthText.className = 'password-strength-text';
-            } else if (score <= 1) {
-                strengthText.textContent = 'Weak — add more characters, numbers, and symbols';
-                strengthText.className = 'password-strength-text weak';
-            } else if (score === 2) {
-                strengthText.textContent = 'Medium — add symbols for a stronger password';
-                strengthText.className = 'password-strength-text medium';
-            } else {
-                strengthText.textContent = 'Strong — great password!';
-                strengthText.className = 'password-strength-text strong';
-            }
         });
 
         // ─── Form Validation ──────────────────────────────────────
         const form = document.getElementById('signupForm');
-        const fullName = document.getElementById('fullName');
-        const email = document.getElementById('email');
-        const confirmPassword = document.getElementById('confirmPassword');
+        const username = document.getElementById('username');
         const termsCheck = document.getElementById('termsCheck');
-        const submitBtn = document.getElementById('submitBtn');
-        const submitText = document.getElementById('submitText');
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
         const submitSpinner = document.getElementById('submitSpinner');
 
-        const nameError = document.getElementById('nameError');
-        const emailError = document.getElementById('emailError');
+        const usernameError = document.getElementById('usernameError');
         const passwordError = document.getElementById('passwordError');
-        const confirmError = document.getElementById('confirmError');
-
-        function validateEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
 
         function validateField(input, errorEl, condition, message) {
             if (!condition) {
@@ -871,37 +879,20 @@
             }
         }
 
-        fullName.addEventListener('blur', function() {
-            validateField(this, nameError, this.value.trim().length >= 2, 'Please enter your full name (min 2 characters)');
-        });
-
-        email.addEventListener('blur', function() {
-            validateField(this, emailError, validateEmail(this.value), 'Please enter a valid email address');
+        username.addEventListener('blur', function() {
+            validateField(this, usernameError, this.value.trim().length >= 2, 'Please enter a valid username or email');
         });
 
         passwordInput.addEventListener('blur', function() {
-            validateField(this, passwordError, this.value.length >= 8, 'Password must be at least 8 characters');
+            validateField(this, passwordError, this.value.length >= 6, 'Password must be at least 6 characters');
         });
 
-        confirmPassword.addEventListener('blur', function() {
-            const match = this.value === passwordInput.value && this.value.length > 0;
-            validateField(this, confirmError, match, 'Passwords do not match');
-        });
-
-        // ─── Form Submit ──────────────────────────────────────────
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Validate all fields
-            const isNameValid = validateField(fullName, nameError, fullName.value.trim().length >= 2,
-                'Please enter your full name (min 2 characters)');
-            const isEmailValid = validateField(email, emailError, validateEmail(email.value),
-                'Please enter a valid email address');
-            const isPasswordValid = validateField(passwordInput, passwordError, passwordInput.value.length >= 8,
-                'Password must be at least 8 characters');
-            const isConfirmValid = validateField(confirmPassword, confirmError,
-                confirmPassword.value === passwordInput.value && confirmPassword.value.length > 0,
-                'Passwords do not match');
+        // ─── Login / Register Actions ────────────────────────────
+        function handleSubmit(action) {
+            const isUsernameValid = validateField(username, usernameError, username.value.trim().length >= 2,
+                'Please enter a valid username or email');
+            const isPasswordValid = validateField(passwordInput, passwordError, passwordInput.value.length >= 6,
+                'Password must be at least 6 characters');
             const isTermsChecked = termsCheck.checked;
 
             if (!isTermsChecked) {
@@ -914,20 +905,33 @@
                 return;
             }
 
-            if (!isNameValid || !isEmailValid || !isPasswordValid || !isConfirmValid) {
+            if (!isUsernameValid || !isPasswordValid) {
                 return;
             }
 
-            // Simulate submission
-            submitBtn.disabled = true;
-            submitText.textContent = 'Creating Account...';
+            // Show spinner
+            loginBtn.disabled = true;
+            registerBtn.disabled = true;
             submitSpinner.classList.remove('hidden');
 
             setTimeout(() => {
-                // Success with "under review" message
+                // Hide form, show success
                 form.style.display = 'none';
                 document.getElementById('successState').style.display = 'block';
-            }, 1800);
+                submitSpinner.classList.add('hidden');
+                loginBtn.disabled = false;
+                registerBtn.disabled = false;
+            }, 1500);
+        }
+
+        loginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            handleSubmit('login');
+        });
+
+        registerBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            handleSubmit('register');
         });
 
         // ─── Social Buttons ────────────────────────────────────────
@@ -938,8 +942,13 @@
             alert('🍎 Apple authentication would open. (Demo)');
         });
 
-        console.log('🚀 Tesla Frontier Network — Premium Signup Page with Background Slideshow loaded.');
-        console.log('ℹ️ Account review flow: After signup, user sees "under review" message.');
+        // ─── Forgot Password ──────────────────────────────────────
+        document.querySelector('.forgot-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('📧 Password reset link would be sent to your email. (Demo)');
+        });
+
+        console.log('✅ Light theme with reference palette applied — FAQ & Links included.');
     });
 </script>
 </body>
