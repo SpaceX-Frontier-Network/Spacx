@@ -1,415 +1,1374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Sign In — Frontier</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet" />
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#120904" />
+<meta name="description" content="Sign in to SpaceX Frontier — access your station dashboard, telemetry and crew manifests." />
+<title>Sign In — SpaceX Frontier</title>
 
-        html, body {
-            min-height: 100%;
-            height: 100%;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet" />
 
-        body {
-            font-family: Inter, system-ui, sans-serif;
-            color: #f6efe6;
-            min-height: 100vh;
-            min-height: 100dvh;
-            background: #120904 url('login-bg.jpg') center / cover no-repeat;
-            background-position: 28% center;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
+<style>
+/* ============================================================
+   0. DESIGN TOKENS
+   ============================================================ */
+:root{
+  --bg-deep:#120904;
+  --ink:#f6efe6;
+  --muted:#d9c4b0;
+  --muted-2:#c9ad96;
+  --accent:#ffb15a;
+  --accent-2:#e25a18;
+  --accent-soft:rgba(255,177,90,.16);
+  --line:rgba(255,214,170,.22);
+  --line-strong:rgba(255,214,170,.40);
+  --field-bg:rgba(20,10,6,.45);
+  --field-bg-focus:rgba(20,10,6,.66);
+  --danger:#ff8d8d;
+  --danger-line:rgba(239,68,68,.45);
+  --danger-bg:rgba(239,68,68,.14);
+  --success:#3dd68c;
+  --radius:14px;
+  --ring:0 0 0 3px rgba(255,177,90,.22);
+  --shadow-card:0 30px 80px rgba(0,0,0,.45);
+  --ease:cubic-bezier(.2,.8,.3,1);
+}
 
-        .stage {
-            min-height: 100vh;
-            min-height: 100dvh;
-            display: grid;
-            grid-template-columns: 1.15fr minmax(320px, 440px);
-            align-items: stretch;
-        }
+/* ============================================================
+   1. RESET
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;}
+html,body{height:100%;min-height:100%;}
+body,h1,h2,h3,p,figure,blockquote,dl,dd{margin:0;}
+button,input,select,textarea{font:inherit;color:inherit;}
+img,svg{display:block;max-width:100%;}
+[hidden]{display:none !important;}
 
-        .scene {
-            position: relative;
-            min-height: 100vh;
-            min-height: 100dvh;
-        }
+/* ============================================================
+   2. PAGE SHELL
+   ============================================================ */
+html{color-scheme:dark;scroll-behavior:smooth;}
 
-        .scene-copy {
-            position: absolute;
-            left: max(2rem, env(safe-area-inset-left));
-            bottom: max(2rem, env(safe-area-inset-bottom));
-            max-width: 340px;
-            text-shadow: 0 8px 28px rgba(0,0,0,.55);
-        }
+body{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color:var(--ink);
+  min-height:100vh;
+  min-height:100dvh;
+  background-color:var(--bg-deep);
+  background-image:
+    url('login-bg.jpg'),
+    radial-gradient(1200px 820px at 18% 12%, #3d1d0c 0%, rgba(61,29,12,0) 62%),
+    radial-gradient(900px 700px at 82% 92%, #2c1306 0%, rgba(44,19,6,0) 66%),
+    linear-gradient(165deg,#1a0c05 0%,#0c0502 100%);
+  background-size:cover,auto,auto,auto;
+  background-position:28% center,center,center,center;
+  background-repeat:no-repeat;
+  background-attachment:scroll;
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
 
-        .scene-copy .kicker {
-            font-family: Orbitron, sans-serif;
-            letter-spacing: .22em;
-            font-size: 11px;
-            text-transform: uppercase;
-            color: #ffd7a8;
-            margin-bottom: .6rem;
-        }
+/* Vignette overlay */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  background:
+    radial-gradient(120% 90% at 50% 50%, rgba(0,0,0,0) 42%, rgba(0,0,0,.55) 100%);
+}
 
-        .scene-copy h2 {
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            font-weight: 700;
-            line-height: 1.15;
-        }
+/* ============================================================
+   3. LAYOUT
+   ============================================================ */
+.stage{
+  position:relative;
+  z-index:2;
+  min-height:100vh;
+  min-height:100dvh;
+  display:grid;
+  grid-template-columns:1.15fr minmax(330px,450px);
+  align-items:stretch;
+}
 
-        .panel {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: max(2rem, env(safe-area-inset-top)) max(1.5rem, env(safe-area-inset-right)) max(2rem, env(safe-area-inset-bottom)) 1.5rem;
-            background: linear-gradient(180deg, rgba(18,8,4,.28) 0%, rgba(18,8,4,.62) 100%);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-left: 1px solid rgba(255, 196, 140, .18);
-        }
+/* ---------- Left / hero ---------- */
+.scene{
+  position:relative;
+  min-height:100vh;
+  min-height:100dvh;
+  overflow:hidden;
+}
 
-        .card {
-            width: 100%;
-            max-width: 380px;
-        }
+.scene-status{
+  position:absolute;
+  top:max(1.5rem, env(safe-area-inset-top));
+  left:max(2rem, env(safe-area-inset-left));
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.45rem .85rem;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(255,215,168,.85);
+  background:rgba(20,10,6,.42);
+  border:1px solid var(--line);
+  border-radius:999px;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: .7rem;
-            margin-bottom: 1.6rem;
-        }
+.pulse{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--success);
+  box-shadow:0 0 0 0 rgba(61,214,140,.55);
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(61,214,140,.55);}
+  70%{box-shadow:0 0 0 9px rgba(61,214,140,0);}
+  100%{box-shadow:0 0 0 0 rgba(61,214,140,0);}
+}
 
-        .brand-mark {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            display: grid;
-            place-items: center;
-            background: linear-gradient(160deg, #ffb15a, #e25a18);
-            box-shadow: 0 8px 24px rgba(226, 90, 24, .35);
-        }
+.scene-copy{
+  position:absolute;
+  left:max(2rem, env(safe-area-inset-left));
+  bottom:max(2rem, env(safe-area-inset-bottom));
+  max-width:360px;
+  text-shadow:0 8px 28px rgba(0,0,0,.65);
+}
 
-        .brand span {
-            font-family: Orbitron, sans-serif;
-            font-weight: 700;
-            letter-spacing: .08em;
-            font-size: .92rem;
-        }
+.scene-copy .kicker{
+  font-family:Orbitron,sans-serif;
+  letter-spacing:.22em;
+  font-size:11px;
+  text-transform:uppercase;
+  color:#ffd7a8;
+  margin-bottom:.7rem;
+}
 
-        h1 {
-            font-size: 1.85rem;
-            font-weight: 700;
-            margin-bottom: .35rem;
-        }
+.scene-copy h2{
+  font-size:clamp(1.6rem,3vw,2.5rem);
+  font-weight:700;
+  line-height:1.14;
+  letter-spacing:-.01em;
+}
 
-        .sub {
-            color: #d9c4b0;
-            font-size: .92rem;
-            margin-bottom: 1.6rem;
-        }
+.scene-sub{
+  margin-top:.75rem;
+  font-size:.92rem;
+  line-height:1.55;
+  color:rgba(217,196,176,.9);
+  max-width:34ch;
+}
 
-        label {
-            display: block;
-            font-size: .8rem;
-            color: #e8d3bf;
-            margin-bottom: .4rem;
-        }
+/* ---------- Right / panel ---------- */
+.panel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:
+    max(2rem, env(safe-area-inset-top))
+    max(1.75rem, env(safe-area-inset-right))
+    max(2rem, env(safe-area-inset-bottom))
+    1.75rem;
+  background:linear-gradient(180deg, rgba(18,8,4,.30) 0%, rgba(18,8,4,.68) 100%);
+  backdrop-filter:blur(12px) saturate(1.1);
+  -webkit-backdrop-filter:blur(12px) saturate(1.1);
+  border-left:1px solid rgba(255,196,140,.16);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
 
-        .field { margin-bottom: 1rem; position: relative; }
+.card{
+  width:100%;
+  max-width:380px;
+  animation:cardIn .6s var(--ease) both;
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(14px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.card.shake{animation:shake .45s cubic-bezier(.36,.07,.19,.97);}
+@keyframes shake{
+  0%,100%{transform:translateX(0);}
+  20%{transform:translateX(-8px);}
+  40%{transform:translateX(7px);}
+  60%{transform:translateX(-5px);}
+  80%{transform:translateX(3px);}
+}
 
-        .form-input {
-            width: 100%;
-            height: 48px;
-            padding: 0 1rem 0 2.6rem;
-            border: 1px solid rgba(255, 214, 170, .22);
-            border-radius: 12px;
-            background: rgba(20, 10, 6, .45);
-            color: #fff8f0;
-            font-size: 16px;
-            outline: none;
-        }
+/* ---------- Brand ---------- */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  margin-bottom:1.6rem;
+}
 
-        .form-input:focus {
-            border-color: #ffb15a;
-            box-shadow: 0 0 0 3px rgba(255, 177, 90, .18);
-        }
+.brand-mark{
+  width:38px;height:38px;
+  flex:0 0 38px;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  font-size:.95rem;
+  color:#1a0c06;
+  background:linear-gradient(160deg,#ffb15a,#e25a18);
+  box-shadow:0 8px 24px rgba(226,90,24,.38);
+}
 
-        .form-input.error { border-color: #ef4444; }
-        .form-input.success { border-color: #3dd68c; }
+.brand span{
+  font-family:Orbitron,sans-serif;
+  font-weight:700;
+  letter-spacing:.10em;
+  font-size:.86rem;
+  line-height:1.2;
+}
 
-        .input-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #c9ad96;
-            pointer-events: none;
-        }
+/* ---------- Headings ---------- */
+h1{
+  font-size:1.85rem;
+  font-weight:700;
+  letter-spacing:-.015em;
+  margin-bottom:.35rem;
+}
 
-        .field-pass .form-input { padding-right: 2.6rem; }
+.sub{
+  color:var(--muted);
+  font-size:.92rem;
+  margin-bottom:1.35rem;
+}
 
-        #togglePassword {
-            position: absolute;
-            right: .85rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: 0;
-            color: #c9ad96;
-            cursor: pointer;
-        }
+/* ---------- Fields ---------- */
+.field{margin-bottom:1.05rem;}
 
-        .row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: .75rem;
-            margin: .3rem 0 1.2rem;
-            font-size: .85rem;
-            color: #d9c4b0;
-        }
+.field label{
+  display:block;
+  font-size:.8rem;
+  font-weight:500;
+  color:#e8d3bf;
+  margin-bottom:.45rem;
+}
 
-        .row a { color: #ffc07a; text-decoration: none; font-weight: 600; }
+.control{position:relative;display:block;}
 
-        .btn-primary {
-            width: 100%;
-            height: 48px;
-            border: 0;
-            border-radius: 12px;
-            background: linear-gradient(180deg, #ffb15a, #e25a18);
-            color: #1a0c06;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            box-shadow: 0 10px 28px rgba(226, 90, 24, .35);
-        }
+.form-input{
+  width:100%;
+  height:50px;
+  padding:0 1rem 0 2.7rem;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--field-bg);
+  color:#fff8f0;
+  font-size:16px;
+  outline:none;
+  transition:border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
 
-        .btn-primary:disabled { opacity: .65; cursor: not-allowed; }
+.form-input::placeholder{color:rgba(201,173,150,.55);}
 
-        .split {
-            display: flex;
-            align-items: center;
-            gap: .75rem;
-            margin: 1.15rem 0;
-            color: #c9ad96;
-            font-size: .72rem;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-        }
+.form-input:hover:not(:focus){border-color:rgba(255,214,170,.34);}
 
-        .split::before, .split::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: rgba(255,214,170,.2);
-        }
+.form-input:focus{
+  border-color:var(--accent);
+  background:var(--field-bg-focus);
+  box-shadow:var(--ring);
+}
 
-        .social {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: .65rem;
-        }
+.form-input.error{
+  border-color:#ef4444;
+  box-shadow:0 0 0 3px rgba(239,68,68,.14);
+}
+.form-input.success{border-color:rgba(61,214,140,.7);}
 
-        .social button {
-            height: 46px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,214,170,.2);
-            background: rgba(20,10,6,.35);
-            color: #f6efe6;
-            cursor: pointer;
-            font-weight: 500;
-        }
+/* Chrome autofill */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus{
+  -webkit-text-fill-color:#fff8f0;
+  -webkit-box-shadow:0 0 0 1000px #1c0e07 inset;
+  box-shadow:0 0 0 1000px #1c0e07 inset;
+  caret-color:#fff8f0;
+  transition:background-color 9999s ease-in-out 0s;
+}
 
-        .signup {
-            text-align: center;
-            margin-top: 1.15rem;
-            color: #d9c4b0;
-            font-size: .9rem;
-        }
+.input-icon{
+  position:absolute;
+  left:1rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--muted-2);
+  font-size:.92rem;
+  pointer-events:none;
+  transition:color .18s ease;
+}
+.control:focus-within .input-icon{color:var(--accent);}
 
-        .signup a { color: #ffc07a; font-weight: 600; text-decoration: none; }
+.valid-check{
+  position:absolute;
+  right:1rem;
+  top:50%;
+  color:var(--success);
+  font-size:.85rem;
+  opacity:0;
+  transform:translateY(-50%) scale(.55);
+  transition:opacity .2s ease, transform .2s var(--ease);
+  pointer-events:none;
+}
+.form-input.success ~ .valid-check{opacity:1;transform:translateY(-50%) scale(1);}
 
-        .auth-error {
-            display: none;
-            margin-bottom: 1rem;
-            padding: .7rem .85rem;
-            border-radius: 10px;
-            background: rgba(239,68,68,.14);
-            border: 1px solid rgba(239,68,68,.35);
-            color: #ff8d8d;
-            font-size: .85rem;
-        }
-        .auth-error.show { display: block; }
-        .err { color: #ff8d8d; font-size: .75rem; margin-top: .3rem; display: none; }
-        .err.show { display: block; }
+.field-pass .form-input{padding-right:3.2rem;}
 
-        .legal {
-            margin-top: 1.4rem;
-            text-align: center;
-            font-size: 10px;
-            letter-spacing: .08em;
-            color: rgba(217,196,176,.7);
-        }
+.toggle-pass{
+  position:absolute;
+  right:.55rem;
+  top:50%;
+  transform:translateY(-50%);
+  width:36px;height:36px;
+  display:grid;
+  place-items:center;
+  border:0;
+  border-radius:9px;
+  background:transparent;
+  color:var(--muted-2);
+  cursor:pointer;
+  transition:color .18s ease, background-color .18s ease;
+}
+.toggle-pass:hover{color:var(--accent);background:rgba(255,177,90,.12);}
+.toggle-pass:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 
-        @media (max-width: 900px) {
-            .stage { grid-template-columns: 1fr; }
-            .scene { min-height: 34vh; min-height: 34dvh; }
-            .scene-copy { max-width: 80%; }
-            .panel {
-                border-left: 0;
-                border-top: 1px solid rgba(255,196,140,.18);
-                background: linear-gradient(180deg, rgba(18,8,4,.55), rgba(18,8,4,.82));
-                align-items: flex-start;
-            }
-            body { background-position: 30% 20%; }
-        }
+/* Error + hint text */
+.err{
+  display:none;
+  align-items:center;
+  gap:.35rem;
+  margin-top:.42rem;
+  font-size:.76rem;
+  color:var(--danger);
+  animation:errIn .2s ease;
+}
+.err.show{display:flex;}
+@keyframes errIn{from{opacity:0;transform:translateY(-3px);}to{opacity:1;transform:translateY(0);}}
 
-        @media (max-width: 480px) {
-            .scene { min-height: 28vh; }
-            .scene-copy { left: 1rem; bottom: 1rem; }
-            .panel { padding: 1.25rem 1rem 1.75rem; }
-            .social { grid-template-columns: 1fr; }
-            .row { flex-wrap: wrap; }
-        }
+.hint{
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+  margin-top:.42rem;
+  font-size:.75rem;
+  color:#ffc07a;
+}
 
-        @media (max-height: 560px) and (orientation: landscape) {
-            .stage { grid-template-columns: .7fr 1fr; }
-            .scene-copy h2 { font-size: 1.2rem; }
-        }
+/* ---------- Checkbox row ---------- */
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:.75rem;
+  margin:.4rem 0 1.25rem;
+  font-size:.85rem;
+  color:var(--muted);
+}
 
-        @media (prefers-reduced-motion: reduce) {
-            * { transition: none !important; animation: none !important; }
-        }
-    </style>
+.row a{
+  color:#ffc07a;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:6px;
+  transition:color .16s ease;
+}
+.row a:hover{color:#ffd7a8;text-decoration:underline;}
+.row a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+.check{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  cursor:pointer;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.check input{
+  position:absolute;
+  width:1px;height:1px;
+  opacity:0;
+  pointer-events:none;
+}
+.check .box{
+  width:18px;height:18px;
+  flex:0 0 18px;
+  border-radius:5px;
+  border:1px solid rgba(255,214,170,.35);
+  background:rgba(20,10,6,.5);
+  display:grid;
+  place-items:center;
+  transition:background-color .18s ease, border-color .18s ease, transform .12s ease;
+}
+.check .box i{
+  font-size:.58rem;
+  color:#1a0c06;
+  opacity:0;
+  transform:scale(.4);
+  transition:opacity .15s ease, transform .15s var(--ease);
+}
+.check:hover .box{border-color:var(--line-strong);}
+.check input:checked + .box{
+  background:linear-gradient(180deg,#ffb15a,#e25a18);
+  border-color:transparent;
+}
+.check input:checked + .box i{opacity:1;transform:scale(1);}
+.check input:focus-visible + .box{outline:2px solid var(--accent);outline-offset:2px;}
+
+/* ---------- Primary button ---------- */
+.btn-primary{
+  position:relative;
+  width:100%;
+  height:50px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.55rem;
+  border:0;
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,#ffb15a,#e25a18);
+  color:#1a0c06;
+  font-weight:700;
+  font-size:1rem;
+  letter-spacing:.005em;
+  cursor:pointer;
+  overflow:hidden;
+  box-shadow:0 10px 28px rgba(226,90,24,.35);
+  transition:transform .15s ease, box-shadow .22s ease, filter .22s ease;
+}
+.btn-primary::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg, transparent 38%, rgba(255,255,255,.42) 50%, transparent 62%);
+  transform:translateX(-120%);
+  transition:transform .65s var(--ease);
+}
+.btn-primary:hover:not(:disabled)::after{transform:translateX(120%);}
+.btn-primary:hover:not(:disabled){
+  transform:translateY(-1px);
+  box-shadow:0 14px 34px rgba(226,90,24,.45);
+}
+.btn-primary:active:not(:disabled){transform:translateY(0) scale(.994);}
+.btn-primary:disabled{opacity:.62;cursor:not-allowed;box-shadow:none;}
+.btn-primary:focus-visible{outline:2px solid #ffd7a8;outline-offset:3px;}
+
+.btn-spinner{display:inline-flex;align-items:center;}
+
+/* ---------- Divider ---------- */
+.split{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  margin:1.15rem 0;
+  color:var(--muted-2);
+  font-size:.7rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.split::before,.split::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,214,170,.28),transparent);
+}
+
+/* ---------- Social ---------- */
+.social{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.65rem;
+}
+
+.social button{
+  height:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(20,10,6,.35);
+  color:var(--ink);
+  font-size:.88rem;
+  font-weight:500;
+  cursor:pointer;
+  transition:background-color .18s ease, border-color .18s ease, transform .15s ease;
+}
+.social button:hover{
+  background:rgba(255,177,90,.10);
+  border-color:var(--line-strong);
+  transform:translateY(-1px);
+}
+.social button:active{transform:translateY(0);}
+.social button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.social button i{font-size:.95rem;}
+
+/* ---------- Misc ---------- */
+.auth-error{
+  display:none;
+  align-items:center;
+  gap:.5rem;
+  margin-bottom:1rem;
+  padding:.7rem .85rem;
+  border-radius:11px;
+  background:var(--danger-bg);
+  border:1px solid var(--danger-line);
+  color:var(--danger);
+  font-size:.84rem;
+  line-height:1.4;
+  animation:errIn .22s ease;
+}
+.auth-error.show{display:flex;}
+.auth-error i{flex:0 0 auto;}
+
+.signup{
+  text-align:center;
+  margin-top:1.15rem;
+  color:var(--muted);
+  font-size:.9rem;
+}
+.signup a{color:#ffc07a;font-weight:600;text-decoration:none;border-radius:6px;}
+.signup a:hover{text-decoration:underline;}
+.signup a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+/* ============================================================
+   4. TOASTS
+   ============================================================ */
+.toast-stack{
+  position:fixed;
+  z-index:400;
+  left:50%;
+  bottom:max(1.25rem, env(safe-area-inset-bottom));
+  transform:translateX(-50%);
+  width:min(92vw,420px);
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+  align-items:stretch;
+  pointer-events:none;
+}
+
+.toast{
+  pointer-events:auto;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  width:100%;
+  padding:.75rem 1rem;
+  border-radius:12px;
+  background:rgba(28,14,7,.95);
+  border:1px solid var(--line);
+  color:var(--ink);
+  font-size:.86rem;
+  line-height:1.4;
+  cursor:pointer;
+  box-shadow:0 16px 44px rgba(0,0,0,.55);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  animation:toastIn .3s var(--ease);
+}
+.toast.leaving{animation:toastOut .22s ease forwards;}
+.toast i{flex:0 0 auto;font-size:1rem;}
+.toast.info i{color:var(--accent);}
+.toast.success i{color:var(--success);}
+.toast.error i{color:var(--danger);}
+
+@keyframes toastIn{
+  from{opacity:0;transform:translateY(14px) scale(.97);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+@keyframes toastOut{
+  to{opacity:0;transform:translateY(10px) scale(.97);}
+}
+
+/* ============================================================
+   5. MODAL
+   ============================================================ */
+body.modal-open{overflow:hidden;}
+
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:300;
+  display:grid;
+  place-items:center;
+  padding:1.25rem;
+  background:rgba(8,4,2,.74);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  animation:fadeIn .2s ease;
+}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+.modal{
+  position:relative;
+  width:100%;
+  max-width:400px;
+  padding:1.6rem;
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#1e1008 0%,#150a04 100%);
+  box-shadow:0 34px 90px rgba(0,0,0,.65);
+  animation:modalIn .3s var(--ease);
+}
+@keyframes modalIn{
+  from{opacity:0;transform:translateY(16px) scale(.97);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+
+.modal-icon{
+  width:44px;height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  margin-bottom:1rem;
+  color:#1a0c06;
+  font-size:1rem;
+  background:linear-gradient(160deg,#ffb15a,#e25a18);
+  box-shadow:0 10px 26px rgba(226,90,24,.34);
+}
+
+.modal h2{font-size:1.22rem;font-weight:700;margin-bottom:.35rem;}
+
+.modal-desc{
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.55;
+  margin-bottom:1.25rem;
+}
+
+.modal-close{
+  position:absolute;
+  top:.85rem;right:.85rem;
+  width:34px;height:34px;
+  display:grid;
+  place-items:center;
+  border:0;
+  border-radius:9px;
+  background:transparent;
+  color:var(--muted-2);
+  cursor:pointer;
+  transition:background-color .18s ease, color .18s ease;
+}
+.modal-close:hover{background:rgba(255,177,90,.12);color:var(--accent);}
+.modal-close:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+/* ============================================================
+   6. RESPONSIVE
+   ============================================================ */
+@media (max-width:900px){
+  .stage{grid-template-columns:1fr;}
+  .scene{min-height:34vh;min-height:34dvh;}
+  .scene-copy{max-width:82%;}
+  .scene-sub{display:none;}
+  .panel{
+    border-left:0;
+    border-top:1px solid rgba(255,196,140,.16);
+    background:linear-gradient(180deg, rgba(18,8,4,.58), rgba(18,8,4,.86));
+    align-items:flex-start;
+    padding-top:1.75rem;
+  }
+  body{background-position:30% 18%;}
+  body::after{background:radial-gradient(130% 80% at 50% 30%, rgba(0,0,0,0) 35%, rgba(0,0,0,.62) 100%);}
+}
+
+@media (max-width:480px){
+  .scene{min-height:26vh;min-height:26dvh;}
+  .scene-status{top:1rem;left:1rem;font-size:.62rem;padding:.4rem .7rem;}
+  .scene-copy{left:1rem;bottom:1rem;}
+  .scene-copy h2{font-size:1.35rem;}
+  .scene-copy .kicker{font-size:10px;margin-bottom:.4rem;}
+  .panel{padding:1.25rem 1rem 1.9rem;}
+  h1{font-size:1.6rem;}
+  .social{grid-template-columns:1fr;}
+  .row{flex-wrap:wrap;row-gap:.6rem;}
+  .toast-stack{width:94vw;}
+}
+
+@media (max-height:640px) and (orientation:landscape){
+  .stage{grid-template-columns:.7fr 1fr;}
+  .scene-status{display:none;}
+  .scene-copy h2{font-size:1.25rem;}
+  .scene-sub{display:none;}
+  .brand{margin-bottom:1rem;}
+  h1{font-size:1.45rem;}
+}
+
+/* ============================================================
+   7. ACCESSIBILITY
+   ============================================================ */
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+@media (prefers-contrast: more){
+  :root{
+    --line:rgba(255,214,170,.5);
+    --muted:#ecdccd;
+    --muted-2:#dcc4ae;
+  }
+}
+</style>
 </head>
+
 <body>
-    <div class="stage">
-        <section class="scene" aria-hidden="true">
-            <div class="scene-copy">
-                <div class="kicker">Mission control</div>
-                <h2>Return to the frontier.</h2>
-            </div>
-        </section>
 
-        <aside class="panel">
-            <div class="card">
-                <div class="brand">
-                    <div class="brand-mark"><i class="fas fa-rocket"></i></div>
-                    <span>FRONTIER</span>
-                </div>
+<!-- =========================================================
+     STAGE
+     ========================================================= -->
+<div class="stage">
 
-                <h1>Sign in</h1>
-                <p class="sub">Access your station dashboard.</p>
-
-                <form id="loginForm" novalidate>
-                    <div id="authError" class="auth-error">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span id="authErrorMessage"> Invalid credentials.</span>
-                    </div>
-
-                    <div class="field">
-                        <label for="email">Email or username</label>
-                        <i class="fas fa-user input-icon"></i>
-                        <input class="form-input" id="email" type="text" autocomplete="username" value="admin" required />
-                        <div class="err" id="emailError">Enter a valid username</div>
-                    </div>
-
-                    <div class="field field-pass">
-                        <label for="password">Password</label>
-                        <i class="fas fa-lock input-icon"></i>
-                        <input class="form-input" id="password" type="password" autocomplete="current-password" value="admintest" required />
-                        <button type="button" id="togglePassword" aria-label="Show password"><i class="fas fa-eye"></i></button>
-                        <div class="err" id="passwordError">Enter your password</div>
-                    </div>
-
-                    <div class="row">
-                        <label><input type="checkbox" checked /> Remember me</label>
-                        <a href="#" id="forgotPasswordLink">Forgot password?</a>
-                    </div>
-
-                    <button class="btn-primary" id="submitBtn" type="submit">
-                        <span id="submitText">Sign In</span>
-                        <span id="submitSpinner" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
-                    </button>
-
-                    <div class="split">or</div>
-
-                    <div class="social">
-                        <button type="button" class="btn-google"><i class="fab fa-google"></i> Google</button>
-                        <button type="button" class="btn-apple"><i class="fab fa-apple"></i> Apple</button>
-                    </div>
-
-                    <p class="signup">No account? <a href="signup.html">Sign up</a></p>
-                    <p class="legal">Educational demo — not affiliated with SpaceX or Tesla</p>
-                </form>
-            </div>
-        </aside>
+  <!-- ---------- Hero / scene ---------- -->
+  <section class="scene" aria-hidden="true">
+    <div class="scene-status">
+      <span class="pulse"></span>
+      All systems nominal
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const passwordInput = document.getElementById('password');
-            const togglePassword = document.getElementById('togglePassword');
-            togglePassword.addEventListener('click', function () {
-                const show = passwordInput.type === 'password';
-                passwordInput.type = show ? 'text' : 'password';
-                this.querySelector('i').className = show ? 'fas fa-eye-slash' : 'fas fa-eye';
-            });
+    <div class="scene-copy">
+      <div class="kicker">Mission control</div>
+      <h2>Return to the frontier.</h2>
+      <p class="scene-sub">
+        Launch telemetry, crew rosters and payload manifests — all in one station.
+      </p>
+    </div>
+  </section>
 
-            const form = document.getElementById('loginForm');
-            const email = document.getElementById('email');
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const submitSpinner = document.getElementById('submitSpinner');
-            const authError = document.getElementById('authError');
-            const authErrorMessage = document.getElementById('authErrorMessage');
-            const emailError = document.getElementById('emailError');
-            const passwordError = document.getElementById('passwordError');
+  <!-- ---------- Auth panel ---------- -->
+  <aside class="panel">
+    <div class="card">
 
-            function mark(input, errorEl, ok, message) {
-                input.classList.toggle('error', !ok);
-                input.classList.toggle('success', ok);
-                errorEl.textContent = message;
-                errorEl.classList.toggle('show', !ok);
-                return ok;
-            }
+      <!-- Brand -->
+      <div class="brand">
+        <div class="brand-mark"><i class="fas fa-rocket" aria-hidden="true"></i></div>
+        <span>SPACEX FRONTIER</span>
+      </div>
 
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const userOk = mark(email, emailError, email.value.trim().length >= 3, 'Enter a valid username');
-                const passOk = mark(passwordInput, passwordError, passwordInput.value.length > 0, 'Enter your password');
-                if (!userOk || !passOk) return;
+      <!-- Heading -->
+      <h1>Sign in</h1>
+      <p class="sub">Access your station dashboard.</p>
 
-                if (email.value.trim() === 'admin' && passwordInput.value.trim() === 'admintest') {
-                    submitBtn.disabled = true;
-                    submitText.textContent = 'Signing in...';
-                    submitSpinner.style.display = 'inline';
-                    setTimeout(function () { window.location.href = 'account.html'; }, 900);
-                } else {
-                    authError.classList.add('show');
-                    authErrorMessage.textContent = ' Invalid username or password.';
-                }
-            });
+      <!-- ---------- Form ---------- -->
+      <form id="loginForm" novalidate autocomplete="on">
 
-            document.getElementById('forgotPasswordLink').addEventListener('click', function (e) {
-                e.preventDefault();
-                alert('Password reset is a demo only.');
-            });
-            document.querySelector('.btn-google').addEventListener('click', function () {
-                alert('Google sign-in is a demo only.');
-            });
-            document.querySelector('.btn-apple').addEventListener('click', function () {
-                alert('Apple sign-in is a demo only.');
-            });
-        });
-    </script>
+        <!-- Global auth error -->
+        <div class="auth-error" id="authError" role="alert" aria-live="assertive">
+          <i class="fas fa-circle-exclamation" aria-hidden="true"></i>
+          <span id="authErrorMessage"></span>
+        </div>
+
+        <!-- Username -->
+        <div class="field">
+          <label for="email">Email or username</label>
+          <div class="control">
+            <i class="fas fa-user input-icon" aria-hidden="true"></i>
+            <input
+              class="form-input"
+              id="email"
+              name="username"
+              type="text"
+              autocomplete="username"
+              autocapitalize="none"
+              autocorrect="off"
+              spellcheck="false"
+              placeholder="you@frontier.space"
+              aria-describedby="emailError"
+              required
+            />
+            <span class="valid-check" aria-hidden="true"><i class="fas fa-circle-check"></i></span>
+          </div>
+          <p class="err" id="emailError" role="alert"></p>
+        </div>
+
+        <!-- Password -->
+        <div class="field field-pass">
+          <label for="password">Password</label>
+          <div class="control">
+            <i class="fas fa-lock input-icon" aria-hidden="true"></i>
+            <input
+              class="form-input"
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="••••••••"
+              aria-describedby="passwordError"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-pass"
+              id="togglePassword"
+              aria-label="Show password"
+              aria-pressed="false"
+              aria-controls="password"
+            >
+              <i class="fas fa-eye" aria-hidden="true"></i>
+            </button>
+          </div>
+          <p class="err" id="passwordError" role="alert"></p>
+          <p class="hint" id="capsHint" hidden>
+            <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+            Caps Lock is on
+          </p>
+        </div>
+
+        <!-- Remember / forgot -->
+        <div class="row">
+          <label class="check" for="remember">
+            <input type="checkbox" id="remember" name="remember" checked />
+            <span class="box" aria-hidden="true"><i class="fas fa-check"></i></span>
+            <span>Remember me</span>
+          </label>
+          <a href="#" id="forgotPasswordLink">Forgot password?</a>
+        </div>
+
+        <!-- Submit -->
+        <button class="btn-primary" id="submitBtn" type="submit">
+          <span id="submitText">Sign In</span>
+          <span class="btn-spinner" id="submitSpinner" hidden aria-hidden="true">
+            <i class="fas fa-circle-notch fa-spin"></i>
+          </span>
+        </button>
+
+        <div class="split" aria-hidden="true">or</div>
+
+        <!-- Social -->
+        <div class="social">
+          <button type="button" class="btn-google" data-demo="Google">
+            <i class="fab fa-google" aria-hidden="true"></i> Google
+          </button>
+          <button type="button" class="btn-apple" data-demo="Apple">
+            <i class="fab fa-apple" aria-hidden="true"></i> Apple
+          </button>
+        </div>
+
+        <p class="signup">No account? <a href="signup.html">Sign up</a></p>
+
+      </form>
+    </div>
+  </aside>
+</div>
+
+<!-- =========================================================
+     FORGOT PASSWORD MODAL
+     ========================================================= -->
+<div class="modal-backdrop" id="forgotModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="forgotTitle" aria-describedby="forgotDesc">
+    <button class="modal-close" id="forgotClose" type="button" aria-label="Close dialog">
+      <i class="fas fa-xmark" aria-hidden="true"></i>
+    </button>
+
+    <div class="modal-icon"><i class="fas fa-key" aria-hidden="true"></i></div>
+    <h2 id="forgotTitle">Reset password</h2>
+    <p class="modal-desc" id="forgotDesc">
+      Enter the email tied to your station account and we'll send a reset link.
+    </p>
+
+    <form id="forgotForm" novalidate>
+      <div class="field">
+        <label for="resetEmail">Email address</label>
+        <div class="control">
+          <i class="fas fa-envelope input-icon" aria-hidden="true"></i>
+          <input
+            class="form-input"
+            id="resetEmail"
+            name="resetEmail"
+            type="email"
+            autocomplete="email"
+            placeholder="you@frontier.space"
+            aria-describedby="resetEmailError"
+          />
+        </div>
+        <p class="err" id="resetEmailError" role="alert"></p>
+      </div>
+
+      <button class="btn-primary" type="submit">
+        <span>Send reset link</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- =========================================================
+     TOAST STACK
+     ========================================================= -->
+<div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="false"></div>
+
+<!-- =========================================================
+     SCRIPT
+     ========================================================= -->
+<script>
+(function () {
+  'use strict';
+
+  /* ==========================================================
+     CONFIG
+     ========================================================== */
+  const CONFIG = {
+    demoUser: 'admin',
+    demoPass: 'admintest',
+    redirect: 'account.html',
+    rememberKey: 'frontier.rememberedUser',
+    sessionKey: 'frontier.session',
+    maxAttempts: 5,
+    lockoutMs: 30000,
+    minUserLength: 3
+  };
+
+  /* ==========================================================
+     UTILITIES
+     ========================================================== */
+  const $  = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  /* ==========================================================
+     ELEMENT REFERENCES
+     ========================================================== */
+  const form           = $('#loginForm');
+  const card           = $('.card');
+  const emailInput     = $('#email');
+  const passwordInput  = $('#password');
+  const rememberBox    = $('#remember');
+  const togglePassword = $('#togglePassword');
+  const submitBtn      = $('#submitBtn');
+  const submitText     = $('#submitText');
+  const submitSpinner  = $('#submitSpinner');
+  const authError      = $('#authError');
+  const authErrorMsg   = $('#authErrorMessage');
+  const emailError     = $('#emailError');
+  const passwordError  = $('#passwordError');
+  const capsHint       = $('#capsHint');
+  const toastStack     = $('#toastStack');
+
+  /* ==========================================================
+     TOASTS
+     ========================================================== */
+  const TOAST_ICONS = {
+    info:    'fa-circle-info',
+    success: 'fa-circle-check',
+    error:   'fa-circle-exclamation'
+  };
+
+  function toast(message, type = 'info', duration = 3200) {
+    const el = document.createElement('div');
+    el.className = 'toast ' + type;
+    el.setAttribute('role', type === 'error' ? 'alert' : 'status');
+
+    const icon = document.createElement('i');
+    icon.className = 'fas ' + (TOAST_ICONS[type] || TOAST_ICONS.info);
+    icon.setAttribute('aria-hidden', 'true');
+
+    const span = document.createElement('span');
+    span.textContent = message;
+
+    el.append(icon, span);
+    toastStack.appendChild(el);
+
+    // Cap the stack at 3
+    while (toastStack.children.length > 3) {
+      toastStack.removeChild(toastStack.firstElementChild);
+    }
+
+    let removed = false;
+    const remove = () => {
+      if (removed) return;
+      removed = true;
+      el.classList.add('leaving');
+      setTimeout(() => el.remove(), 240);
+    };
+
+    const timer = setTimeout(remove, duration);
+    el.addEventListener('click', () => { clearTimeout(timer); remove(); });
+
+    return el;
+  }
+
+  /* ==========================================================
+     FIELD STATE HELPERS
+     ========================================================== */
+  function setFieldState(input, errorEl, state, message) {
+    const isError = state === 'error';
+
+    input.classList.toggle('error', isError);
+    input.classList.toggle('success', state === 'success');
+    input.setAttribute('aria-invalid', isError ? 'true' : 'false');
+
+    errorEl.textContent = message || '';
+    errorEl.classList.toggle('show', isError && !!message);
+  }
+
+  function clearFieldState(input, errorEl) {
+    input.classList.remove('error', 'success');
+    input.removeAttribute('aria-invalid');
+    errorEl.textContent = '';
+    errorEl.classList.remove('show');
+  }
+
+  /* ==========================================================
+     VALIDATORS
+     ========================================================== */
+  function userIssue() {
+    const value = emailInput.value.trim();
+    if (!value) return 'Enter your email or username.';
+    if (value.length < CONFIG.minUserLength) {
+      return 'Must be at least ' + CONFIG.minUserLength + ' characters.';
+    }
+    if (value.includes('@') && !EMAIL_RE.test(value)) {
+      return 'That email address looks incomplete.';
+    }
+    return null;
+  }
+
+  function passIssue() {
+    if (!passwordInput.value) return 'Enter your password.';
+    return null;
+  }
+
+  function validateField(input, errorEl, issueFn) {
+    const message = issueFn();
+    if (message) {
+      setFieldState(input, errorEl, 'error', message);
+      return false;
+    }
+    setFieldState(input, errorEl, 'success', '');
+    return true;
+  }
+
+  /* ==========================================================
+     AUTH ERROR BANNER
+     ========================================================== */
+  function showAuthError(message) {
+    authErrorMsg.textContent = message;
+    authError.classList.add('show');
+  }
+
+  function hideAuthError() {
+    authError.classList.remove('show');
+  }
+
+  /* ==========================================================
+     LIVE VALIDATION
+     ========================================================== */
+  emailInput.addEventListener('blur', () => {
+    if (emailInput.value.trim()) validateField(emailInput, emailError, userIssue);
+  });
+
+  emailInput.addEventListener('input', () => {
+    hideAuthError();
+    if (emailInput.classList.contains('error')) {
+      validateField(emailInput, emailError, userIssue);
+    } else if (emailInput.classList.contains('success') && userIssue()) {
+      clearFieldState(emailInput, emailError);
+    }
+  });
+
+  passwordInput.addEventListener('blur', () => {
+    if (passwordInput.value) validateField(passwordInput, passwordError, passIssue);
+  });
+
+  passwordInput.addEventListener('input', () => {
+    hideAuthError();
+    if (passwordInput.classList.contains('error')) {
+      validateField(passwordInput, passwordError, passIssue);
+    } else if (passwordInput.classList.contains('success') && passIssue()) {
+      clearFieldState(passwordInput, passwordError);
+    }
+  });
+
+  /* ==========================================================
+     PASSWORD VISIBILITY TOGGLE
+     ========================================================== */
+  togglePassword.addEventListener('click', () => {
+    const willShow = passwordInput.type === 'password';
+
+    passwordInput.type = willShow ? 'text' : 'password';
+    togglePassword.setAttribute('aria-pressed', String(willShow));
+    togglePassword.setAttribute('aria-label', willShow ? 'Hide password' : 'Show password');
+    togglePassword.innerHTML =
+      '<i class="fas ' + (willShow ? 'fa-eye-slash' : 'fa-eye') + '" aria-hidden="true"></i>';
+
+    // Keep focus & caret at the end
+    passwordInput.focus({ preventScroll: true });
+    const len = passwordInput.value.length;
+    try { passwordInput.setSelectionRange(len, len); } catch (_) { /* noop */ }
+  });
+
+  /* ==========================================================
+     CAPS LOCK DETECTION
+     ========================================================== */
+  function handleCapsLock(event) {
+    if (typeof event.getModifierState !== 'function') return;
+    capsHint.hidden = !event.getModifierState('CapsLock');
+  }
+
+  passwordInput.addEventListener('keydown', handleCapsLock);
+  passwordInput.addEventListener('keyup', handleCapsLock);
+  passwordInput.addEventListener('blur', () => { capsHint.hidden = true; });
+
+  /* ==========================================================
+     SUBMIT STATE + LOCKOUT
+     ========================================================== */
+  let isSubmitting = false;
+  let attempts     = 0;
+  let lockedUntil  = 0;
+  let lockTimer    = null;
+
+  function setLoading(isLoading) {
+    isSubmitting = isLoading;
+    submitBtn.disabled = isLoading;
+    submitBtn.setAttribute('aria-busy', isLoading ? 'true' : 'false');
+    submitSpinner.hidden = !isLoading;
+    submitText.textContent = isLoading ? 'Signing in…' : 'Sign In';
+  }
+
+  function startLockout() {
+    lockedUntil = Date.now() + CONFIG.lockoutMs;
+    toast('Too many failed attempts. Please wait 30 seconds.', 'error', 4200);
+    clearInterval(lockTimer);
+
+    const tick = () => {
+      const remaining = Math.ceil((lockedUntil - Date.now()) / 1000);
+
+      if (remaining <= 0) {
+        clearInterval(lockTimer);
+        lockTimer = null;
+        attempts = 0;
+        submitBtn.disabled = false;
+        submitText.textContent = 'Sign In';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitText.textContent = 'Locked — retry in ' + remaining + 's';
+    };
+
+    tick();
+    lockTimer = setInterval(tick, 250);
+  }
+
+  /* ==========================================================
+     FORM SUBMIT
+     ========================================================== */
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+    if (Date.now() < lockedUntil) return;
+
+    hideAuthError();
+
+    const userOk = validateField(emailInput, emailError, userIssue);
+    const passOk = validateField(passwordInput, passwordError, passIssue);
+
+    if (!userOk || !passOk) {
+      (userOk ? passwordInput : emailInput).focus();
+      return;
+    }
+
+    setLoading(true);
+    await wait(750);
+
+    const username = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    const authenticated =
+      username.toLowerCase() === CONFIG.demoUser &&
+      password === CONFIG.demoPass;
+
+    /* ---------- Success ---------- */
+    if (authenticated) {
+      attempts = 0;
+
+      try {
+        sessionStorage.setItem(CONFIG.sessionKey, JSON.stringify({
+          user: username,
+          issuedAt: Date.now()
+        }));
+
+        if (rememberBox.checked) {
+          localStorage.setItem(CONFIG.rememberKey, username);
+        } else {
+          localStorage.removeItem(CONFIG.rememberKey);
+        }
+      } catch (_) { /* storage may be unavailable */ }
+
+      toast('Welcome back, ' + username + '.', 'success', 1600);
+      submitText.textContent = 'Redirecting…';
+
+      await wait(650);
+      window.location.href = CONFIG.redirect;
+      return;
+    }
+
+    /* ---------- Failure ---------- */
+    setLoading(false);
+    attempts += 1;
+
+    showAuthError('Invalid username or password. Please try again.');
+
+    card.classList.remove('shake');
+    void card.offsetWidth; // force reflow to restart animation
+    card.classList.add('shake');
+
+    passwordInput.focus({ preventScroll: true });
+    try { passwordInput.select(); } catch (_) { /* noop */ }
+
+    if (attempts >= CONFIG.maxAttempts) startLockout();
+  });
+
+  card.addEventListener('animationend', () => card.classList.remove('shake'));
+
+  /* ==========================================================
+     REMEMBERED USER
+     ========================================================== */
+  try {
+    const savedUser = localStorage.getItem(CONFIG.rememberKey);
+    if (savedUser) {
+      emailInput.value = savedUser;
+      rememberBox.checked = true;
+    }
+  } catch (_) { /* storage may be unavailable */ }
+
+  /* ==========================================================
+     FORGOT PASSWORD MODAL
+     ========================================================== */
+  const forgotModal  = $('#forgotModal');
+  const forgotOpen   = $('#forgotPasswordLink');
+  const forgotClose  = $('#forgotClose');
+  const forgotForm   = $('#forgotForm');
+  const resetEmail   = $('#resetEmail');
+  const resetEmailError = $('#resetEmailError');
+
+  let lastFocused = null;
+
+  function openModal() {
+    lastFocused = document.activeElement;
+    forgotModal.hidden = false;
+    document.body.classList.add('modal-open');
+    document.addEventListener('keydown', onModalKeydown);
+
+    requestAnimationFrame(() => resetEmail.focus({ preventScroll: true }));
+  }
+
+  function closeModal() {
+    forgotModal.hidden = true;
+    document.body.classList.remove('modal-open');
+    document.removeEventListener('keydown', onModalKeydown);
+
+    clearFieldState(resetEmail, resetEmailError);
+    forgotForm.reset();
+
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus({ preventScroll: true });
+    }
+  }
+
+  function onModalKeydown(event) {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+
+    if (event.key !== 'Tab') return;
+
+    const focusables = $$(
+      'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])',
+      forgotModal
+    ).filter((el) => !el.disabled && el.offsetParent !== null);
+
+    if (!focusables.length) return;
+
+    const first = focusables[0];
+    const last  = focusables[focusables.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  forgotOpen.addEventListener('click', (event) => {
+    event.preventDefault();
+    openModal();
+  });
+
+  forgotClose.addEventListener('click', closeModal);
+
+  forgotModal.addEventListener('click', (event) => {
+    if (event.target === forgotModal) closeModal();
+  });
+
+  forgotForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const value = resetEmail.value.trim();
+
+    if (!EMAIL_RE.test(value)) {
+      setFieldState(resetEmail, resetEmailError, 'error', 'Enter a valid email address.');
+      resetEmail.focus();
+      return;
+    }
+
+    setFieldState(resetEmail, resetEmailError, 'success', '');
+    closeModal();
+    toast('Reset link sent to ' + value + ' (demo only).', 'success', 3800);
+  });
+
+  resetEmail.addEventListener('input', () => {
+    if (resetEmail.classList.contains('error')) {
+      clearFieldState(resetEmail, resetEmailError);
+    }
+  });
+
+  /* ==========================================================
+     SOCIAL BUTTONS (demo placeholders)
+     ========================================================== */
+  $$('[data-demo]').forEach((button) => {
+    button.addEventListener('click', () => {
+      toast(button.dataset.demo + ' sign-in is a demo only.', 'info', 2800);
+    });
+  });
+
+  /* ==========================================================
+     GLOBAL KEYBOARD SHORTCUTS
+     ========================================================== */
+  document.addEventListener('keydown', (event) => {
+    // Alt+S → focus submit
+    if (event.altKey && event.key.toLowerCase() === 's') {
+      event.preventDefault();
+      submitBtn.focus();
+    }
+  });
+
+})();
+</script>
 </body>
 </html>
