@@ -3,191 +3,381 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Tesla Frontier Network — SpaceX Investment Hub</title>
-<meta name="description" content="Institutional-grade access to SpaceX launch infrastructure, Starlink orbital assets, and Tesla energy systems." />
 
+<!-- ═══════════ PRIMARY SEO ═══════════ -->
+<title>Tesla Frontier Network | SpaceX Launch &amp; Orbital Infrastructure Access</title>
+<meta name="description" content="Institutional-grade exposure to SpaceX launch cadence, Starlink orbital assets and Tesla energy systems. Real-time telemetry, transparent fee structure, quarterly redemptions." />
+<meta name="keywords" content="SpaceX investment, Starlink assets, orbital infrastructure, Tesla energy, space economy fund, launch cadence, satellite network investment" />
+<meta name="author" content="Tesla Frontier Network" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="theme-color" content="#05060B" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#F5F6FB" media="(prefers-color-scheme: light)" />
+<meta name="color-scheme" content="dark light" />
+<link rel="canonical" href="https://teslafrontier.network/" />
+
+<!-- ═══════════ OPEN GRAPH ═══════════ -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Tesla Frontier Network" />
+<meta property="og:title" content="Tesla Frontier Network | SpaceX Launch &amp; Orbital Infrastructure Access" />
+<meta property="og:description" content="Institutional-grade exposure to SpaceX launch cadence, Starlink orbital assets and Tesla energy systems." />
+<meta property="og:url" content="https://teslafrontier.network/" />
+<meta property="og:image" content="https://teslafrontier.network/og-cover.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Tesla Frontier Network orbital infrastructure dashboard" />
+<meta property="og:locale" content="en_US" />
+
+<!-- ═══════════ TWITTER / X ═══════════ -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@tfrontiernet" />
+<meta name="twitter:creator" content="@tfrontiernet" />
+<meta name="twitter:title" content="Tesla Frontier Network | SpaceX Launch &amp; Orbital Infrastructure Access" />
+<meta name="twitter:description" content="Institutional-grade exposure to SpaceX launch cadence, Starlink orbital assets and Tesla energy systems." />
+<meta name="twitter:image" content="https://teslafrontier.network/og-cover.jpg" />
+
+<!-- ═══════════ ICONS / MANIFEST ═══════════ -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%235B8CFF'/%3E%3Ctext x='50' y='68' font-size='58' font-family='monospace' font-weight='900' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+
+<!-- ═══════════ PERF HINTS ═══════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+<!-- ═══════════ STRUCTURED DATA ═══════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://teslafrontier.network/#org",
+      "name": "Tesla Frontier Network",
+      "url": "https://teslafrontier.network/",
+      "logo": "https://teslafrontier.network/logo.png",
+      "description": "Investment access to launch infrastructure, orbital assets and energy systems.",
+      "sameAs": [
+        "https://twitter.com/tfrontiernet",
+        "https://www.linkedin.com/company/tfrontiernet"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Investor Relations",
+        "email": "ir@teslafrontier.network",
+        "availableLanguage": ["English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://teslafrontier.network/#site",
+      "url": "https://teslafrontier.network/",
+      "name": "Tesla Frontier Network",
+      "publisher": { "@id": "https://teslafrontier.network/#org" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "FinancialProduct",
+      "name": "Frontier Orbital Access Vehicle",
+      "description": "A diversified access vehicle covering launch infrastructure, orbital communications assets and grid-scale energy storage.",
+      "provider": { "@id": "https://teslafrontier.network/#org" },
+      "areaServed": "Global",
+      "feesAndCommissionsSpecification": "1.25% annual management fee. No performance fee. No entry or exit charges."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What exactly does the Frontier vehicle hold?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The vehicle holds contracted positions across three verticals: launch infrastructure and reusability contracts, orbital communications capacity, and grid-scale energy storage deployments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the minimum commitment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standard minimum is $25,000 for individual accredited investors and $250,000 for institutional mandates. Bespoke structures are available above $5M."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How liquid is the position?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Redemptions are processed quarterly with a 45-day notice window. Secondary transfer is permitted with manager consent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are fees structured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A flat 1.25% annual management fee. No performance fee, no entry load, no exit load, no carried interest."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <style>
-/* ═══════════════════════════════════════════════════════
-   1. DESIGN TOKENS
-   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   01 · DESIGN TOKENS
+   ═══════════════════════════════════════════════════════════ */
 :root{
-  /* Surfaces */
-  --bg:            #04050C;
-  --bg-2:          #070915;
-  --surface:       rgba(255,255,255,.034);
-  --surface-2:     rgba(255,255,255,.058);
-  --surface-3:     rgba(255,255,255,.085);
-  --line:          rgba(255,255,255,.075);
-  --line-2:        rgba(255,255,255,.14);
-  --line-3:        rgba(255,255,255,.24);
+  --bg:#05060B;
+  --bg-soft:#080A13;
+  --panel:rgba(255,255,255,.032);
+  --panel-2:rgba(255,255,255,.055);
+  --panel-3:rgba(255,255,255,.085);
+  --line:rgba(255,255,255,.075);
+  --line-2:rgba(255,255,255,.13);
+  --line-3:rgba(255,255,255,.22);
 
-  /* Type */
-  --ink:           #F0F2FA;
-  --ink-2:         #9AA2BE;
-  --ink-3:         #626A88;
-  --ink-4:         #3D4460;
+  --ink:#EEF1FA;
+  --ink-2:#9BA3BE;
+  --ink-3:#6A7290;
+  --ink-4:#414863;
 
-  /* Accents */
-  --blue:          #4A78FF;
-  --blue-2:        #7A9CFF;
-  --blue-deep:     #1F3FCC;
-  --mint:          #00E8A6;
-  --mint-2:        #4BFFC9;
-  --mint-deep:     #00B37E;
-  --amber:         #F0B840;
-  --rose:          #FF5C7A;
+  --acc:#5B8CFF;
+  --acc-2:#93B2FF;
+  --acc-deep:#2B4FD8;
+  --mint:#2EE6A8;
+  --mint-2:#71F6CB;
+  --mint-deep:#12B583;
+  --amber:#F5B942;
+  --rose:#FF5F7E;
 
-  --blue-rgb:      74,120,255;
-  --mint-rgb:      0,232,166;
+  --acc-rgb:91,140,255;
+  --mint-rgb:46,230,168;
+  --rose-rgb:255,95,126;
 
-  /* Geometry */
-  --r-xs: 8px;
-  --r-sm: 12px;
-  --r-md: 18px;
-  --r-lg: 24px;
-  --r-xl: 32px;
-  --r-2xl: 44px;
+  --r-xs:8px; --r-sm:12px; --r-md:18px; --r-lg:24px; --r-xl:32px; --r-2xl:42px;
 
-  /* Elevation */
-  --sh-1: 0 1px 2px rgba(0,0,0,.35), 0 4px 16px rgba(0,0,0,.24);
-  --sh-2: 0 4px 12px rgba(0,0,0,.4), 0 18px 48px rgba(0,0,0,.45);
-  --sh-3: 0 8px 24px rgba(0,0,0,.5), 0 40px 100px rgba(0,0,0,.6);
-  --glow-blue: 0 0 80px rgba(var(--blue-rgb), .18);
-  --glow-mint: 0 0 80px rgba(var(--mint-rgb), .14);
+  --sh-1:0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.28);
+  --sh-2:0 6px 18px rgba(0,0,0,.45), 0 24px 60px rgba(0,0,0,.5);
+  --sh-3:0 12px 32px rgba(0,0,0,.55), 0 48px 120px rgba(0,0,0,.65);
+  --glow-acc:0 0 90px rgba(var(--acc-rgb),.18);
+  --glow-mint:0 0 90px rgba(var(--mint-rgb),.14);
 
-  /* Motion */
-  --e-out: cubic-bezier(.16,1,.3,1);
-  --e-soft: cubic-bezier(.4,0,.2,1);
-  --e-back: cubic-bezier(.34,1.56,.64,1);
+  --e-out:cubic-bezier(.16,1,.3,1);
+  --e-soft:cubic-bezier(.4,0,.2,1);
+  --e-back:cubic-bezier(.34,1.4,.64,1);
 
-  --nav-h: 76px;
-  --max: 1280px;
+  --nav-h:74px;
+  --max:1240px;
+  --gut:clamp(20px,4vw,0px);
 }
 
 [data-theme="light"]{
-  --bg:            #F6F7FB;
-  --bg-2:          #FFFFFF;
-  --surface:       rgba(255,255,255,.66);
-  --surface-2:     rgba(255,255,255,.85);
-  --surface-3:     rgba(255,255,255,.96);
-  --line:          rgba(12,18,44,.08);
-  --line-2:        rgba(12,18,44,.14);
-  --line-3:        rgba(12,18,44,.22);
+  --bg:#F4F6FC;
+  --bg-soft:#FFFFFF;
+  --panel:rgba(255,255,255,.72);
+  --panel-2:rgba(255,255,255,.88);
+  --panel-3:rgba(255,255,255,.97);
+  --line:rgba(14,20,48,.08);
+  --line-2:rgba(14,20,48,.14);
+  --line-3:rgba(14,20,48,.22);
 
-  --ink:           #080B18;
-  --ink-2:         #545C7C;
-  --ink-3:         #858DA8;
-  --ink-4:         #B4BACF;
+  --ink:#070A17;
+  --ink-2:#4E5675;
+  --ink-3:#7C84A0;
+  --ink-4:#AEB4C9;
 
-  --blue:          #2352E8;
-  --blue-2:        #4A78FF;
-  --blue-deep:     #1436B8;
-  --mint:          #00A876;
-  --mint-2:        #00C98E;
-  --mint-deep:     #00875E;
+  --acc:#2B58E8;
+  --acc-2:#4E7CFF;
+  --acc-deep:#1B3FC0;
+  --mint:#00A878;
+  --mint-2:#00C68F;
+  --mint-deep:#00815C;
 
-  --sh-1: 0 1px 2px rgba(12,18,44,.05), 0 4px 14px rgba(12,18,44,.06);
-  --sh-2: 0 4px 12px rgba(12,18,44,.07), 0 18px 46px rgba(12,18,44,.1);
-  --sh-3: 0 8px 24px rgba(12,18,44,.1), 0 40px 100px rgba(12,18,44,.16);
-  --glow-blue: 0 0 80px rgba(var(--blue-rgb), .10);
+  --sh-1:0 1px 2px rgba(14,20,48,.05), 0 6px 18px rgba(14,20,48,.06);
+  --sh-2:0 6px 18px rgba(14,20,48,.07), 0 24px 56px rgba(14,20,48,.1);
+  --sh-3:0 12px 32px rgba(14,20,48,.1), 0 48px 110px rgba(14,20,48,.16);
+  --glow-acc:0 0 90px rgba(var(--acc-rgb),.1);
 }
 
-/* ═══════════════════════════════════════════════════════
-   2. RESET
-   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   02 · RESET & BASE
+   ═══════════════════════════════════════════════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:96px;
+}
+
 body{
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   background:var(--bg);
   color:var(--ink);
-  line-height:1.6;
+  line-height:1.65;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   font-feature-settings:"cv02","cv03","cv04","ss01";
-  transition:background .5s var(--e-soft), color .5s var(--e-soft);
+  transition:background .6s var(--e-soft), color .6s var(--e-soft);
+  text-rendering:optimizeLegibility;
 }
-img,svg,canvas{display:block;max-width:100%}
+
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(var(--acc-rgb),.13), transparent 62%),
+    radial-gradient(ellipse 70% 50% at 100% 20%, rgba(var(--mint-rgb),.07), transparent 60%),
+    linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 55%,var(--bg) 100%);
+}
+[data-theme="light"] body::before{
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(var(--acc-rgb),.1), transparent 62%),
+    radial-gradient(ellipse 70% 50% at 100% 20%, rgba(var(--mint-rgb),.06), transparent 60%),
+    linear-gradient(180deg,var(--bg) 0%,#FFFFFF 60%,var(--bg) 100%);
+}
+
+img,svg,canvas,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-button,input{font:inherit;color:inherit;background:none;border:none}
-button{cursor:pointer}
-ul{list-style:none}
-h1,h2,h3,h4,h5{font-weight:700;letter-spacing:-.02em;line-height:1.15}
-.font-display{font-family:'Orbitron',monospace;letter-spacing:-.02em}
+button,input,textarea,select{font:inherit;color:inherit;background:none;border:none;outline:none}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+ul,ol{list-style:none}
+h1,h2,h3,h4,h5,h6{font-weight:600;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+p{text-wrap:pretty}
+canvas{max-width:100%}
+
+.font-display{font-family:'Space Grotesk',system-ui,sans-serif;letter-spacing:-.03em}
 .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
 
-::selection{background:rgba(var(--blue-rgb),.35);color:#fff}
-::-webkit-scrollbar{width:10px;height:10px}
+::selection{background:rgba(var(--acc-rgb),.35);color:#fff}
+::-webkit-scrollbar{width:11px;height:11px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{
-  background:linear-gradient(var(--blue),var(--mint));
-  border-radius:99px;border:2px solid var(--bg);
+  background:linear-gradient(180deg,var(--acc),var(--mint));
+  border-radius:99px;border:3px solid var(--bg);
 }
-::-webkit-scrollbar-thumb:hover{background:var(--blue-2)}
+::-webkit-scrollbar-thumb:hover{background:var(--acc-2)}
 
-:focus-visible{
-  outline:2px solid var(--blue);
-  outline-offset:3px;
-  border-radius:4px;
-}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
 
 .wrap{width:min(var(--max),92vw);margin-inline:auto}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-/* ═══════════════════════════════════════════════════════
-   3. PRELOADER
-   ═══════════════════════════════════════════════════════ */
+.skip{
+  position:fixed;top:-100px;left:20px;z-index:10000;
+  padding:12px 22px;border-radius:0 0 12px 12px;
+  background:var(--acc);color:#fff;font-weight:600;font-size:.85rem;
+  transition:top .3s var(--e-out);
+}
+.skip:focus{top:0}
+
+/* ═══════════════════════════════════════════════════════════
+   03 · PRELOADER  (orbital, counter, curtain wipe)
+   ═══════════════════════════════════════════════════════════ */
 #boot{
   position:fixed;inset:0;z-index:9999;
-  background:var(--bg);
   display:grid;place-items:center;
-  transition:opacity .8s var(--e-out), visibility .8s;
+  background:radial-gradient(ellipse at 50% 45%, #0B0F1F 0%, #05060B 68%);
+  clip-path:inset(0 0 0 0);
+  transition:clip-path 1.05s cubic-bezier(.76,0,.24,1);
+  will-change:clip-path;
 }
-#boot.gone{opacity:0;visibility:hidden;pointer-events:none}
+#boot.done{clip-path:inset(0 0 100% 0)}
+#boot.done .boot-core{opacity:0;transform:translateY(-26px) scale(.94)}
+#boot.done .boot-hair{opacity:0}
 
-.boot-in{display:flex;flex-direction:column;align-items:center;gap:34px}
-
-.boot-ring{position:relative;width:104px;height:104px;display:grid;place-items:center}
-.boot-ring svg{position:absolute;inset:0;transform:rotate(-90deg)}
-.boot-ring circle{fill:none;stroke-width:2;stroke-linecap:round}
-.boot-track{stroke:var(--line-2)}
-.boot-arc{
-  stroke:url(#bootGrad);
-  stroke-dasharray:290;
-  stroke-dashoffset:290;
-  animation:bootArc 1.9s var(--e-out) forwards;
+.boot-grid{
+  position:absolute;inset:0;opacity:.35;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(var(--acc-rgb),.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(var(--acc-rgb),.07) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000,transparent 75%);
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000,transparent 75%);
 }
-@keyframes bootArc{to{stroke-dashoffset:0}}
 
-.boot-glyph{
-  font-family:'Orbitron',monospace;
-  font-size:2.75rem;font-weight:900;letter-spacing:-.06em;
-  background:linear-gradient(120deg,var(--blue),var(--mint),var(--blue-2));
+.boot-core{
+  position:relative;display:flex;flex-direction:column;align-items:center;gap:30px;
+  transition:opacity .55s var(--e-out), transform .55s var(--e-out);
+}
+
+.orb{position:relative;width:132px;height:132px;display:grid;place-items:center}
+.orb svg{position:absolute;inset:0;width:100%;height:100%}
+.orb circle{fill:none;stroke-linecap:round}
+.orb .t1{stroke:rgba(255,255,255,.08);stroke-width:1.4}
+.orb .t2{stroke:rgba(255,255,255,.05);stroke-width:1.2}
+.orb .a1{
+  stroke:url(#orbGrad);stroke-width:2;
+  stroke-dasharray:326;stroke-dashoffset:326;
+  transform-origin:60px 60px;
+  animation:orbSpin 2.6s linear infinite, orbDraw 1.7s cubic-bezier(.16,1,.3,1) forwards;
+}
+.orb .a2{
+  stroke:url(#orbGrad2);stroke-width:1.6;opacity:.75;
+  stroke-dasharray:238;stroke-dashoffset:238;
+  transform-origin:60px 60px;
+  animation:orbSpinRev 3.6s linear infinite, orbDraw2 1.9s cubic-bezier(.16,1,.3,1) .15s forwards;
+}
+@keyframes orbSpin{to{transform:rotate(360deg)}}
+@keyframes orbSpinRev{to{transform:rotate(-360deg)}}
+@keyframes orbDraw{to{stroke-dashoffset:82}}
+@keyframes orbDraw2{to{stroke-dashoffset:60}}
+
+.orb-mark{
+  position:relative;z-index:2;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:2.1rem;font-weight:700;letter-spacing:-.06em;
+  background:linear-gradient(125deg,#93B2FF,#2EE6A8 55%,#5B8CFF);
   background-size:250% auto;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:shimmer 2.4s linear infinite;
+  animation:shimmer 2.6s linear infinite;
 }
 
-.boot-line{width:220px;height:1.5px;background:var(--line-2);border-radius:99px;overflow:hidden}
-.boot-line i{
-  display:block;height:100%;width:0;border-radius:99px;
-  background:linear-gradient(90deg,var(--blue),var(--mint));
-  animation:bootFill 1.9s var(--e-out) forwards;
-  box-shadow:0 0 14px rgba(var(--blue-rgb),.8);
+.boot-word{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:.76rem;font-weight:600;
+  letter-spacing:.52em;text-indent:.52em;
+  color:rgba(255,255,255,.5);
+  text-transform:uppercase;
 }
-@keyframes bootFill{to{width:100%}}
 
-.boot-cap{
-  font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;
-  color:var(--ink-3);font-weight:600;
+.boot-bar{
+  position:relative;width:min(300px,60vw);height:2px;border-radius:99px;
+  background:rgba(255,255,255,.09);overflow:hidden;
+}
+.boot-bar i{
+  position:absolute;inset:0 auto 0 0;width:0%;
+  border-radius:99px;
+  background:linear-gradient(90deg,#5B8CFF,#2EE6A8);
+  box-shadow:0 0 18px rgba(var(--acc-rgb),.85);
+  transition:width .18s linear;
+}
+
+.boot-meta{
+  display:flex;align-items:center;gap:12px;
+  font-size:.64rem;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.36);
+  font-variant-numeric:tabular-nums;
+}
+.boot-meta b{color:rgba(255,255,255,.72);font-weight:700}
+.boot-meta .sep{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.22)}
+#bootMsg{min-width:170px;text-align:left}
+
+.boot-hair{
+  position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(var(--acc-rgb),.55),rgba(var(--mint-rgb),.55),transparent);
+  transition:opacity .5s;
 }
 
 @keyframes shimmer{
@@ -195,339 +385,311 @@ h1,h2,h3,h4,h5{font-weight:700;letter-spacing:-.02em;line-height:1.15}
   100%{background-position:250% center}
 }
 
-/* ═══════════════════════════════════════════════════════
-   4. CURSOR
-   ═══════════════════════════════════════════════════════ */
-#cursor,#cursorDot{
-  position:fixed;top:0;left:0;z-index:9998;
-  pointer-events:none;border-radius:50%;
-  will-change:transform;
+/* ═══════════════════════════════════════════════════════════
+   04 · CURSOR
+   ═══════════════════════════════════════════════════════════ */
+#curRing,#curDot{
+  position:fixed;top:0;left:0;z-index:9998;pointer-events:none;
+  border-radius:50%;will-change:transform;
 }
-#cursor{
-  width:34px;height:34px;
-  border:1.5px solid rgba(var(--blue-rgb),.55);
-  transition:width .3s var(--e-out), height .3s var(--e-out),
-             background .3s var(--e-out), border-color .3s var(--e-out),
-             opacity .3s;
-  mix-blend-mode:difference;
+#curRing{
+  width:32px;height:32px;margin:-16px 0 0 -16px;
+  border:1.5px solid rgba(var(--acc-rgb),.5);
+  transition:width .34s var(--e-out),height .34s var(--e-out),
+             margin .34s var(--e-out),background .34s var(--e-out),
+             border-color .34s var(--e-out),opacity .3s;
 }
-#cursor.hover{
-  width:60px;height:60px;
-  background:rgba(var(--blue-rgb),.12);
-  border-color:rgba(var(--blue-rgb),.9);
+#curRing.on{
+  width:56px;height:56px;margin:-28px 0 0 -28px;
+  background:rgba(var(--acc-rgb),.1);
+  border-color:rgba(var(--acc-rgb),.85);
 }
-#cursorDot{
-  width:5px;height:5px;
-  background:var(--blue-2);
-  box-shadow:0 0 12px rgba(var(--blue-rgb),.9);
+#curDot{
+  width:5px;height:5px;margin:-2.5px 0 0 -2.5px;
+  background:var(--acc-2);
+  box-shadow:0 0 12px rgba(var(--acc-rgb),.9);
+  transition:opacity .3s, transform .3s var(--e-out);
 }
 @media (hover:none),(pointer:coarse){
-  #cursor,#cursorDot{display:none!important}
+  #curRing,#curDot{display:none!important}
 }
 
-/* ═══════════════════════════════════════════════════════
-   5. BACKDROP FX
-   ═══════════════════════════════════════════════════════ */
-#sky{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7}
+/* ═══════════════════════════════════════════════════════════
+   05 · BACKDROP FX
+   ═══════════════════════════════════════════════════════════ */
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.75}
 
 .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.blob{position:absolute;border-radius:50%;filter:blur(130px);will-change:transform}
-.blob-a{
-  width:660px;height:660px;top:-20%;left:-14%;opacity:.42;
-  background:radial-gradient(circle,rgba(var(--blue-rgb),.85),transparent 68%);
-  animation:drift1 26s ease-in-out infinite;
-}
-.blob-b{
-  width:560px;height:560px;top:36%;right:-16%;opacity:.32;
-  background:radial-gradient(circle,rgba(var(--mint-rgb),.85),transparent 68%);
-  animation:drift2 32s ease-in-out infinite;
-}
-.blob-c{
-  width:500px;height:500px;bottom:-18%;left:30%;opacity:.26;
-  background:radial-gradient(circle,rgba(var(--blue-rgb),.9),transparent 68%);
-  animation:drift3 38s ease-in-out infinite;
-}
-[data-theme="light"] .blob{opacity:.2}
+.orb-blob{position:absolute;border-radius:50%;filter:blur(140px);will-change:transform}
+.b1{width:640px;height:640px;top:-22%;left:-14%;opacity:.4;
+  background:radial-gradient(circle,rgba(var(--acc-rgb),.9),transparent 68%);
+  animation:drift1 28s ease-in-out infinite}
+.b2{width:540px;height:540px;top:34%;right:-16%;opacity:.3;
+  background:radial-gradient(circle,rgba(var(--mint-rgb),.9),transparent 68%);
+  animation:drift2 34s ease-in-out infinite}
+.b3{width:480px;height:480px;bottom:-20%;left:32%;opacity:.24;
+  background:radial-gradient(circle,rgba(var(--acc-rgb),.95),transparent 68%);
+  animation:drift3 40s ease-in-out infinite}
+[data-theme="light"] .orb-blob{opacity:.18}
 
-@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(100px,70px) scale(1.14)}}
-@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-90px,-80px) scale(1.1)}}
-@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(70px,-60px) scale(1.16)}}
-
-.mesh{
-  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;
-  background-image:
-    linear-gradient(rgba(var(--blue-rgb),.055) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(var(--blue-rgb),.055) 1px,transparent 1px);
-  background-size:72px 72px;
-  -webkit-mask-image:radial-gradient(ellipse 100% 65% at 50% 0%,#000 5%,transparent 72%);
-  mask-image:radial-gradient(ellipse 100% 65% at 50% 0%,#000 5%,transparent 72%);
-}
-[data-theme="light"] .mesh{opacity:.6}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(110px,80px) scale(1.15)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-100px,-90px) scale(1.1)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,-70px) scale(1.18)}}
 
 .grain{
-  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.28;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.22;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
   mix-blend-mode:overlay;
 }
-[data-theme="light"] .grain{opacity:.14}
+[data-theme="light"] .grain{opacity:.1}
 
-main,nav,footer{position:relative;z-index:2}
+main,header,footer{position:relative;z-index:2}
 
-/* ═══════════════════════════════════════════════════════
-   6. SCROLL PROGRESS
-   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   06 · SCROLL PROGRESS
+   ═══════════════════════════════════════════════════════════ */
 #prog{
   position:fixed;top:0;left:0;height:2px;width:0;z-index:9997;
-  background:linear-gradient(90deg,var(--blue),var(--mint));
-  box-shadow:0 0 16px rgba(var(--blue-rgb),.9);
-  transition:width .08s linear;
+  background:linear-gradient(90deg,var(--acc),var(--mint));
+  box-shadow:0 0 18px rgba(var(--acc-rgb),.9);
+  transition:width .1s linear;
 }
 
-/* ═══════════════════════════════════════════════════════
-   7. NAVIGATION
-   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   07 · NAVIGATION
+   ═══════════════════════════════════════════════════════════ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:900;
-  height:var(--nav-h);
-  display:flex;align-items:center;
+  height:var(--nav-h);display:flex;align-items:center;
+  border-bottom:1px solid transparent;
   transition:height .5s var(--e-out), background .5s var(--e-out),
              border-color .5s var(--e-out), box-shadow .5s var(--e-out);
-  border-bottom:1px solid transparent;
 }
 .nav.stuck{
-  height:66px;
-  background:color-mix(in srgb, var(--bg) 72%, transparent);
+  height:64px;
+  background:rgba(5,6,11,.72);
+  border-bottom-color:var(--line);
+  box-shadow:0 14px 44px rgba(0,0,0,.4);
   -webkit-backdrop-filter:blur(28px) saturate(180%);
   backdrop-filter:blur(28px) saturate(180%);
-  border-bottom-color:var(--line);
-  box-shadow:0 12px 40px rgba(0,0,0,.3);
 }
+[data-theme="light"] .nav.stuck{background:rgba(255,255,255,.78);box-shadow:0 14px 44px rgba(14,20,48,.09)}
+
 .nav-in{
   width:min(var(--max),92vw);margin-inline:auto;
   display:flex;align-items:center;justify-content:space-between;gap:24px;
 }
 
-.logo{display:flex;align-items:center;gap:13px;flex-shrink:0}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .logo-badge{
-  position:relative;width:42px;height:42px;border-radius:13px;
+  position:relative;width:40px;height:40px;border-radius:12px;
   display:grid;place-items:center;overflow:hidden;
-  background:linear-gradient(140deg,var(--blue),var(--blue-deep));
-  box-shadow:0 6px 22px rgba(var(--blue-rgb),.45),
-             inset 0 1px 0 rgba(255,255,255,.3);
+  background:linear-gradient(140deg,var(--acc),var(--acc-deep));
+  box-shadow:0 6px 22px rgba(var(--acc-rgb),.42), inset 0 1px 0 rgba(255,255,255,.3);
 }
-.logo-badge::before{
+.logo-badge::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(140deg,transparent 35%,rgba(255,255,255,.32));
+  background:linear-gradient(140deg,transparent 38%,rgba(255,255,255,.35));
 }
-.logo-badge span{
-  position:relative;z-index:1;
-  font-family:'Orbitron',monospace;
-  font-size:1.28rem;font-weight:900;color:#fff;letter-spacing:-.05em;
+.logo-badge b{
+  position:relative;z-index:1;color:#fff;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.2rem;font-weight:700;letter-spacing:-.05em;
 }
-.logo-txt{display:flex;flex-direction:column;line-height:1.1}
-.logo-txt b{
-  font-family:'Orbitron',monospace;
-  font-size:.88rem;font-weight:800;letter-spacing:.07em;
+.logo-txt{display:flex;flex-direction:column;line-height:1.12}
+.logo-txt strong{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:.86rem;font-weight:700;letter-spacing:.05em;
 }
 .logo-txt small{
-  font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;
+  font-size:.53rem;letter-spacing:.3em;text-transform:uppercase;
   color:var(--ink-3);font-weight:600;margin-top:2px;
 }
 
 .nav-menu{display:flex;align-items:center;gap:2px}
 .nav-menu a{
-  position:relative;
-  padding:9px 16px;border-radius:99px;
+  position:relative;padding:9px 15px;border-radius:99px;
   font-size:.845rem;font-weight:500;color:var(--ink-2);
   transition:color .3s var(--e-soft), background .3s var(--e-soft);
 }
-.nav-menu a:hover{color:var(--ink);background:var(--surface)}
+.nav-menu a:hover{color:var(--ink);background:var(--panel)}
 .nav-menu a::after{
   content:'';position:absolute;left:50%;bottom:4px;
   width:0;height:1.5px;border-radius:99px;
-  background:linear-gradient(90deg,var(--blue),var(--mint));
+  background:linear-gradient(90deg,var(--acc),var(--mint));
   transform:translateX(-50%);
-  transition:width .4s var(--e-out);
+  transition:width .42s var(--e-out);
 }
-.nav-menu a:hover::after{width:42%}
+.nav-menu a:hover::after{width:44%}
 
 .nav-right{display:flex;align-items:center;gap:10px}
 
 .ibtn{
-  width:42px;height:42px;border-radius:50%;
+  width:40px;height:40px;border-radius:50%;
   display:grid;place-items:center;
-  background:var(--surface);border:1px solid var(--line);
-  color:var(--ink-2);font-size:.95rem;
+  background:var(--panel);border:1px solid var(--line);
+  color:var(--ink-2);font-size:.9rem;
   -webkit-backdrop-filter:blur(14px);
   backdrop-filter:blur(14px);
-  transition:all .4s var(--e-out);
+  transition:all .42s var(--e-out);
 }
 .ibtn:hover{
-  color:var(--blue);border-color:rgba(var(--blue-rgb),.5);
-  transform:translateY(-2px) rotate(16deg);
-  box-shadow:0 8px 26px rgba(var(--blue-rgb),.24);
+  color:var(--acc);border-color:rgba(var(--acc-rgb),.5);
+  transform:translateY(-2px);
+  box-shadow:0 8px 26px rgba(var(--acc-rgb),.24);
 }
-.ibtn:active{transform:translateY(0) rotate(16deg) scale(.94)}
+.ibtn:active{transform:translateY(0) scale(.94)}
+.ibtn .fa-sun{display:none}
+[data-theme="light"] .ibtn .fa-sun{display:block}
+[data-theme="light"] .ibtn .fa-moon{display:none}
 
 /* ── Buttons ── */
 .btn{
   position:relative;overflow:hidden;
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   padding:12px 24px;border-radius:99px;
-  font-size:.86rem;font-weight:600;letter-spacing:.01em;
-  white-space:nowrap;
+  font-size:.855rem;font-weight:600;letter-spacing:.005em;white-space:nowrap;
   transition:transform .45s var(--e-out), box-shadow .45s var(--e-out),
              background .45s var(--e-out), border-color .45s var(--e-out),
              color .45s var(--e-out);
 }
-.btn i{font-size:.78rem;transition:transform .45s var(--e-out)}
+.btn i{font-size:.76rem;transition:transform .45s var(--e-out)}
 .btn:hover i{transform:translateX(3px)}
-.btn:active{transform:scale(.97)}
+.btn:active{transform:scale(.975)}
 
 .btn-fill{
-  background:linear-gradient(135deg,var(--blue),var(--blue-deep));
+  background:linear-gradient(135deg,var(--acc),var(--acc-deep));
   color:#fff;
-  box-shadow:0 8px 28px rgba(var(--blue-rgb),.4),
-             inset 0 1px 0 rgba(255,255,255,.24);
+  box-shadow:0 8px 28px rgba(var(--acc-rgb),.38), inset 0 1px 0 rgba(255,255,255,.24);
 }
 .btn-fill::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.3),transparent 68%);
+  background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.32),transparent 68%);
   transform:translateX(-130%);
-  transition:transform .9s var(--e-out);
+  transition:transform .95s var(--e-out);
 }
 .btn-fill:hover::before{transform:translateX(130%)}
 .btn-fill:hover{
   transform:translateY(-3px);
-  box-shadow:0 16px 44px rgba(var(--blue-rgb),.55),
-             inset 0 1px 0 rgba(255,255,255,.3);
+  box-shadow:0 18px 46px rgba(var(--acc-rgb),.52), inset 0 1px 0 rgba(255,255,255,.3);
 }
 
 .btn-line{
-  background:var(--surface);color:var(--ink);
+  background:var(--panel);color:var(--ink);
   border:1px solid var(--line-2);
   -webkit-backdrop-filter:blur(14px);
   backdrop-filter:blur(14px);
 }
 .btn-line:hover{
-  border-color:rgba(var(--blue-rgb),.6);
-  color:var(--blue);
-  background:rgba(var(--blue-rgb),.07);
+  border-color:rgba(var(--acc-rgb),.6);
+  color:var(--acc);
+  background:rgba(var(--acc-rgb),.07);
   transform:translateY(-3px);
 }
 
-.btn-mint{
-  background:linear-gradient(135deg,var(--mint),var(--mint-deep));
-  color:#02160F;
-  box-shadow:0 8px 28px rgba(var(--mint-rgb),.34),
-             inset 0 1px 0 rgba(255,255,255,.32);
-}
-.btn-mint:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 44px rgba(var(--mint-rgb),.5);
-}
-
-.btn-xl{padding:16px 32px;font-size:.94rem;border-radius:99px}
+.btn-xl{padding:16px 32px;font-size:.94rem}
 .btn-block{width:100%}
 
 #burger{display:none}
 
-/* ── Mobile drawer ── */
+/* ── Drawer ── */
 .drawer{
   position:fixed;inset:0;z-index:898;
-  background:color-mix(in srgb, var(--bg) 96%, transparent);
-  -webkit-backdrop-filter:blur(32px);
-  backdrop-filter:blur(32px);
+  background:rgba(5,6,11,.97);
+  -webkit-backdrop-filter:blur(34px);
+  backdrop-filter:blur(34px);
   display:flex;flex-direction:column;justify-content:center;
   padding:0 8vw;
-  opacity:0;visibility:hidden;transform:translateY(-16px);
+  opacity:0;visibility:hidden;transform:translateY(-18px);
   transition:opacity .5s var(--e-out), visibility .5s, transform .5s var(--e-out);
 }
+[data-theme="light"] .drawer{background:rgba(255,255,255,.97)}
 .drawer.open{opacity:1;visibility:visible;transform:none}
+.drawer nav{display:flex;flex-direction:column}
 .drawer a{
-  font-family:'Orbitron',monospace;
-  font-size:1.55rem;font-weight:700;
-  padding:18px 0;
-  border-bottom:1px solid var(--line);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.5rem;font-weight:600;letter-spacing:-.02em;
+  padding:17px 0;border-bottom:1px solid var(--line);
   color:var(--ink-2);
   transition:color .35s var(--e-out), padding-left .35s var(--e-out);
 }
-.drawer a:hover,.drawer a:focus{color:var(--blue);padding-left:16px}
-.drawer .btn{margin-top:32px}
+.drawer a:hover,.drawer a:focus{color:var(--acc);padding-left:16px}
+.drawer .btn{margin-top:34px}
 
-/* ═══════════════════════════════════════════════════════
-   8. HERO
-   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   08 · REVEAL
+   ═══════════════════════════════════════════════════════════ */
+.rv{
+  opacity:0;transform:translateY(28px);
+  transition:opacity .95s var(--e-out), transform .95s var(--e-out);
+  transition-delay:var(--d,0s);
+  will-change:opacity,transform;
+}
+.rv.in{opacity:1;transform:none}
+
+/* ═══════════════════════════════════════════════════════════
+   09 · HERO
+   ═══════════════════════════════════════════════════════════ */
 .hero{
-  position:relative;
-  min-height:100svh;
+  position:relative;min-height:100svh;
   display:flex;align-items:center;
-  padding:calc(var(--nav-h) + 72px) 0 100px;
+  padding:calc(var(--nav-h) + 68px) 0 96px;
 }
 .hero-in{
-  display:grid;grid-template-columns:1.06fr .94fr;
-  gap:72px;align-items:center;width:100%;
+  display:grid;grid-template-columns:1.05fr .95fr;
+  gap:clamp(40px,6vw,76px);align-items:center;width:100%;
 }
 
 .tag{
   display:inline-flex;align-items:center;gap:10px;
   padding:7px 16px 7px 11px;border-radius:99px;
-  background:var(--surface);border:1px solid var(--line-2);
+  background:var(--panel);border:1px solid var(--line-2);
   -webkit-backdrop-filter:blur(16px);
   backdrop-filter:blur(16px);
-  font-size:.7rem;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-2);
+  font-size:.68rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);
 }
-.tag .ping{
+.ping{
   position:relative;width:7px;height:7px;border-radius:50%;
-  background:var(--mint);
-  box-shadow:0 0 10px rgba(var(--mint-rgb),.8);
+  background:var(--mint);box-shadow:0 0 10px rgba(var(--mint-rgb),.85);
+  flex-shrink:0;
 }
-.tag .ping::after{
+.ping::after{
   content:'';position:absolute;inset:-3px;border-radius:50%;
   border:1px solid rgba(var(--mint-rgb),.6);
-  animation:ping 2s var(--e-out) infinite;
+  animation:ping 2.1s var(--e-out) infinite;
 }
-@keyframes ping{
-  0%{transform:scale(.6);opacity:1}
-  100%{transform:scale(2.2);opacity:0}
-}
+@keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(2.3);opacity:0}}
 
 .hero h1{
-  font-family:'Orbitron',monospace;
-  font-size:clamp(2.4rem,5.6vw,4.6rem);
-  font-weight:900;
-  line-height:1.02;
-  letter-spacing:-.035em;
-  margin:28px 0 24px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(2.35rem,5.4vw,4.4rem);
+  font-weight:700;line-height:1.03;letter-spacing:-.04em;
+  margin:26px 0 22px;
 }
+.hero h1 .line{display:block}
 .hero h1 .grad{
-  background:linear-gradient(115deg,var(--blue-2),var(--mint),var(--blue));
+  background:linear-gradient(112deg,var(--acc-2),var(--mint) 48%,var(--acc));
   background-size:260% auto;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:shimmer 5s linear infinite;
-}
-.hero h1 .line{display:block}
-
-.hero .lede{
-  font-size:clamp(1rem,1.3vw,1.13rem);
-  color:var(--ink-2);
-  line-height:1.78;
-  max-width:545px;
+  animation:shimmer 6s linear infinite;
 }
 
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.lede{
+  font-size:clamp(1rem,1.25vw,1.1rem);
+  color:var(--ink-2);line-height:1.8;max-width:540px;
+}
+
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:36px}
 
 .metrics{
   display:grid;grid-template-columns:repeat(3,1fr);
-  gap:14px;margin-top:56px;max-width:610px;
+  gap:13px;margin-top:52px;max-width:600px;
 }
 .metric{
-  padding:20px 18px 18px;
-  border-radius:var(--r-md);
-  background:var(--surface);border:1px solid var(--line);
+  padding:19px 17px 17px;border-radius:var(--r-md);
+  background:var(--panel);border:1px solid var(--line);
   -webkit-backdrop-filter:blur(18px);
   backdrop-filter:blur(18px);
   transition:transform .5s var(--e-out), border-color .5s var(--e-out),
@@ -535,619 +697,499 @@ main,nav,footer{position:relative;z-index:2}
 }
 .metric:hover{
   transform:translateY(-6px);
-  border-color:rgba(var(--blue-rgb),.45);
-  background:var(--surface-2);
-  box-shadow:var(--glow-blue);
+  border-color:rgba(var(--acc-rgb),.45);
+  background:var(--panel-2);
+  box-shadow:var(--glow-acc);
 }
 .metric .v{
-  font-family:'Orbitron',monospace;
-  font-size:1.5rem;font-weight:800;letter-spacing:-.03em;line-height:1;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.45rem;font-weight:700;letter-spacing:-.035em;line-height:1;
 }
 .metric .l{
-  font-size:.64rem;letter-spacing:.17em;text-transform:uppercase;
+  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink-3);font-weight:700;margin-top:7px;
 }
 
-/* ── Hero visual ── */
-.hero-art{position:relative;perspective:1500px}
+/* ── Console ── */
+.hero-art{position:relative;perspective:1600px}
 
 .console{
   position:relative;overflow:hidden;
-  border-radius:var(--r-2xl);
-  padding:30px;
-  background:linear-gradient(155deg,var(--surface-2),var(--surface));
+  border-radius:var(--r-2xl);padding:26px;
+  background:linear-gradient(155deg,var(--panel-2),var(--panel));
   border:1px solid var(--line-2);
-  -webkit-backdrop-filter:blur(34px) saturate(170%);
-  backdrop-filter:blur(34px) saturate(170%);
-  box-shadow:var(--sh-3), var(--glow-blue);
+  -webkit-backdrop-filter:blur(36px) saturate(170%);
+  backdrop-filter:blur(36px) saturate(170%);
+  box-shadow:var(--sh-3), var(--glow-acc);
   transform-style:preserve-3d;
-  transition:transform .6s var(--e-out);
+  transition:transform .7s var(--e-out);
   will-change:transform;
 }
 .console::before{
   content:'';position:absolute;top:-60%;left:-40%;
   width:180%;height:180%;pointer-events:none;
-  background:radial-gradient(circle at 32% 22%,rgba(var(--blue-rgb),.18),transparent 55%);
+  background:radial-gradient(circle at 32% 22%,rgba(var(--acc-rgb),.17),transparent 55%);
 }
 .console::after{
   content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:radial-gradient(460px circle at var(--mx,50%) var(--my,50%),
-             rgba(var(--blue-rgb),.14),transparent 60%);
+  background:radial-gradient(440px circle at var(--mx,50%) var(--my,50%),
+             rgba(var(--acc-rgb),.13),transparent 62%);
   opacity:0;transition:opacity .5s;
 }
 .console:hover::after{opacity:1}
 
-.con-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-.con-top .lbl{
-  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+.con-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+.con-title{
+  display:flex;align-items:center;gap:9px;
+  font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
   color:var(--ink-3);font-weight:700;
 }
-.live{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+.live-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--mint);
+  box-shadow:0 0 10px rgba(var(--mint-rgb),.9);
+  animation:blink 2s var(--e-soft) infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+.con-tabs{display:flex;gap:3px;padding:3px;border-radius:99px;background:var(--panel);border:1px solid var(--line)}
+.con-tabs button{
   padding:5px 12px;border-radius:99px;
+  font-size:.68rem;font-weight:700;letter-spacing:.06em;
+  color:var(--ink-3);
+  transition:all .35s var(--e-out);
+}
+.con-tabs button:hover{color:var(--ink-2)}
+.con-tabs button.on{
+  background:linear-gradient(135deg,var(--acc),var(--acc-deep));
+  color:#fff;
+  box-shadow:0 4px 14px rgba(var(--acc-rgb),.4);
+}
+
+.con-price{display:flex;align-items:flex-end;gap:14px;margin-bottom:6px}
+.con-price .p{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:2.15rem;font-weight:700;letter-spacing:-.045em;line-height:1;
+}
+.con-price .d{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.78rem;font-weight:700;
+  padding:4px 10px;border-radius:99px;
   background:rgba(var(--mint-rgb),.13);color:var(--mint);
-  border:1px solid rgba(var(--mint-rgb),.3);
+  margin-bottom:2px;
 }
-.live i{font-size:.5rem;animation:blink 1.6s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.con-sub{font-size:.72rem;color:var(--ink-3);letter-spacing:.05em;margin-bottom:14px}
 
-.con-val{
-  font-family:'Orbitron',monospace;
-  font-size:clamp(2.1rem,4vw,2.85rem);
-  font-weight:900;letter-spacing:-.04em;line-height:1;
-  background:linear-gradient(125deg,var(--ink),var(--blue-2));
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.con-delta{
-  display:inline-flex;align-items:center;gap:7px;
-  margin-top:12px;
-  font-size:.83rem;font-weight:600;color:var(--mint);
-}
-.con-delta .chip{
-  padding:3px 9px;border-radius:99px;
-  background:rgba(var(--mint-rgb),.13);
-  border:1px solid rgba(var(--mint-rgb),.28);
-  font-size:.68rem;font-weight:700;
-}
-.con-chart{height:118px;margin:26px 0 4px}
+.con-chart{position:relative;height:172px;margin-bottom:18px}
 
-.con-rows{display:grid;gap:0;margin-top:20px}
+.con-rows{display:grid;gap:8px;padding-top:16px;border-top:1px solid var(--line)}
 .con-row{
   display:flex;align-items:center;justify-content:space-between;
-  padding:13px 0;border-top:1px solid var(--line);
-  font-size:.83rem;
+  font-size:.78rem;
 }
-.con-row .k{display:flex;align-items:center;gap:9px;color:var(--ink-3);font-weight:500}
-.con-row .k i{font-size:.7rem;color:var(--blue)}
-.con-row .v{font-weight:700;font-variant-numeric:tabular-nums}
+.con-row span{color:var(--ink-3);font-weight:500;display:flex;align-items:center;gap:8px}
+.con-row b{font-weight:600;font-variant-numeric:tabular-nums}
+.swatch{width:7px;height:7px;border-radius:2px;flex-shrink:0}
+.sw-a{background:var(--acc)}
+.sw-b{background:var(--mint)}
+.sw-c{background:var(--amber)}
 
-.chip-f{
-  position:absolute;z-index:4;
-  display:flex;align-items:center;gap:9px;
-  padding:12px 17px;border-radius:99px;
-  background:var(--surface-2);
-  border:1px solid var(--line-2);
-  -webkit-backdrop-filter:blur(22px);
-  backdrop-filter:blur(22px);
-  font-size:.77rem;font-weight:600;
-  box-shadow:var(--sh-2);
-  white-space:nowrap;
-}
-.chip-f i{font-size:.72rem;color:var(--mint)}
-.chip-f small{color:var(--ink-3);font-weight:500}
-.chip-f-1{top:-20px;left:-28px;animation:bob 6s ease-in-out infinite}
-.chip-f-2{bottom:40px;right:-34px;animation:bob 6s ease-in-out infinite .9s}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
-
-/* scroll cue */
-.cue{
-  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:12px;
-  font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;
-  color:var(--ink-4);font-weight:700;
-}
-.cue .beam{
-  width:1px;height:52px;
-  background:linear-gradient(var(--blue),transparent);
-  animation:beam 2.4s ease-in-out infinite;
-}
-@keyframes beam{
-  0%{opacity:0;transform:scaleY(.15);transform-origin:top}
-  50%{opacity:1;transform:scaleY(1)}
-  100%{opacity:0;transform:scaleY(.15);transform-origin:bottom}
-}
-
-/* ═══════════════════════════════════════════════════════
-   9. TICKER
-   ═══════════════════════════════════════════════════════ */
-.ticker{
+/* ═══════════════════════════════════════════════════════════
+   10 · SIGNAL STRIP
+   ═══════════════════════════════════════════════════════════ */
+.strip{
   position:relative;overflow:hidden;
+  border-block:1px solid var(--line);
+  background:var(--panel);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
   padding:16px 0;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  background:var(--surface);
-  -webkit-backdrop-filter:blur(22px);
-  backdrop-filter:blur(22px);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
 }
-.ticker::before,.ticker::after{
-  content:'';position:absolute;top:0;bottom:0;width:150px;z-index:2;pointer-events:none;
+.strip-track{
+  display:flex;gap:56px;width:max-content;
+  animation:marquee 46s linear infinite;
 }
-.ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
-.ticker::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.strip:hover .strip-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
 
-.ticker-track{display:flex;gap:60px;width:max-content;animation:run 48s linear infinite}
-.ticker:hover .ticker-track{animation-play-state:paused}
-@keyframes run{to{transform:translateX(-50%)}}
-
-.tk{display:flex;align-items:center;gap:11px;font-size:.8rem;font-weight:600;white-space:nowrap}
-.tk .s{color:var(--ink-3);letter-spacing:.11em;font-size:.68rem;font-weight:700}
-.tk .p{font-family:'Orbitron',monospace;font-weight:700;font-variant-numeric:tabular-nums;font-size:.82rem}
-.tk .d{font-size:.7rem;font-weight:700}
-.tk .up{color:var(--mint)}
-.tk .down{color:var(--rose)}
-
-/* ═══════════════════════════════════════════════════════
-   10. SECTIONS
-   ═══════════════════════════════════════════════════════ */
-.sec{padding:clamp(90px,11vw,150px) 0}
-.sec-head{max-width:720px;margin:0 auto 70px;text-align:center}
-
-.kicker{
-  display:inline-flex;align-items:center;gap:11px;
-  font-size:.64rem;letter-spacing:.32em;text-transform:uppercase;
-  color:var(--blue);font-weight:800;margin-bottom:20px;
+.strip-item{
+  display:flex;align-items:center;gap:11px;
+  font-size:.76rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;
 }
-.kicker::before,.kicker::after{
-  content:'';width:28px;height:1px;background:currentColor;opacity:.5;
+.strip-item i{color:var(--acc);font-size:.8rem}
+.strip-item b{color:var(--ink-2);font-variant-numeric:tabular-nums}
+
+/* ═══════════════════════════════════════════════════════════
+   11 · SECTION SHELL
+   ═══════════════════════════════════════════════════════════ */
+.sec{position:relative;padding:clamp(80px,10vw,132px) 0}
+.sec-head{max-width:660px;margin-bottom:clamp(44px,5vw,64px)}
+.sec-head.center{margin-inline:auto;text-align:center}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.66rem;font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--acc);
+  margin-bottom:18px;
 }
+.eyebrow::before{
+  content:'';width:22px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--acc));
+}
+.sec-head.center .eyebrow::before{display:none}
 
 .sec-head h2{
-  font-family:'Orbitron',monospace;
-  font-size:clamp(1.7rem,3.6vw,2.85rem);
-  font-weight:800;line-height:1.12;
-  letter-spacing:-.03em;margin-bottom:20px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(1.85rem,3.6vw,2.9rem);
+  font-weight:700;letter-spacing:-.035em;line-height:1.08;
+  margin-bottom:18px;
 }
-.sec-head p{
-  color:var(--ink-2);font-size:1.03rem;line-height:1.78;
-}
+.sec-head p{color:var(--ink-2);font-size:1.02rem;line-height:1.78}
 
-/* ═══════════════════════════════════════════════════════
-   11. CARD
-   ═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   12 · CAPABILITY CARDS
+   ═══════════════════════════════════════════════════════════ */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
 .card{
   position:relative;overflow:hidden;
-  border-radius:var(--r-lg);
-  background:var(--surface);
+  padding:32px 28px 30px;
+  border-radius:var(--r-xl);
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));
   border:1px solid var(--line);
-  -webkit-backdrop-filter:blur(24px) saturate(150%);
-  backdrop-filter:blur(24px) saturate(150%);
-  box-shadow:var(--sh-1);
-  transition:transform .6s var(--e-out), border-color .6s var(--e-out),
-             box-shadow .6s var(--e-out), background .6s var(--e-out);
-}
-.card::after{
-  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:radial-gradient(440px circle at var(--mx,50%) var(--my,50%),
-             rgba(var(--blue-rgb),.13),transparent 62%);
-  opacity:0;transition:opacity .55s;
-}
-.card:hover::after{opacity:1}
-.card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(var(--blue-rgb),.42);
-  background:var(--surface-2);
-  box-shadow:var(--sh-2), var(--glow-blue);
-}
-
-/* ═══════════════════════════════════════════════════════
-   12. STATS
-   ═══════════════════════════════════════════════════════ */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.stat{padding:36px 30px}
-.stat .ico{
-  width:50px;height:50px;border-radius:15px;
-  display:grid;place-items:center;
-  background:rgba(var(--blue-rgb),.1);color:var(--blue);
-  border:1px solid rgba(var(--blue-rgb),.2);
-  font-size:1.1rem;margin-bottom:24px;
-  transition:all .5s var(--e-out);
-}
-.stat:hover .ico{
-  transform:scale(1.08) rotate(-8deg);
-  color:var(--mint);border-color:rgba(var(--mint-rgb),.4);
-  box-shadow:var(--glow-mint);
-}
-.stat .v{
-  font-family:'Orbitron',monospace;
-  font-size:2.15rem;font-weight:800;letter-spacing:-.04em;line-height:1;
-  background:linear-gradient(130deg,var(--ink),var(--blue-2));
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.stat .l{
-  font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;
-  color:var(--ink-3);font-weight:800;margin-top:12px;
-}
-.stat .sub{font-size:.8rem;color:var(--ink-2);margin-top:9px;line-height:1.55}
-
-/* ═══════════════════════════════════════════════════════
-   13. DASHBOARD
-   ═══════════════════════════════════════════════════════ */
-.dash{display:grid;grid-template-columns:1.62fr 1fr;gap:22px}
-.panel{padding:30px}
-.panel-head{
-  display:flex;align-items:flex-start;justify-content:space-between;
-  gap:18px;margin-bottom:26px;flex-wrap:wrap;
-}
-.panel-head h3{font-size:1.08rem;font-weight:700;letter-spacing:-.015em}
-.panel-head p{font-size:.79rem;color:var(--ink-3);margin-top:5px}
-
-.legend{display:flex;gap:20px;flex-wrap:wrap}
-.legend li{display:flex;align-items:center;gap:8px;font-size:.75rem;color:var(--ink-2);font-weight:500}
-.legend .sw{width:10px;height:10px;border-radius:3px}
-
-.canvas-box{position:relative;height:310px}
-.canvas-box.sm{height:240px}
-
-.alloc{display:grid;gap:15px;margin-top:26px}
-.alloc-row{display:flex;align-items:center;gap:12px;font-size:.83rem}
-.alloc-row .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.alloc-row .nm{color:var(--ink-2);flex:1;font-weight:500}
-.alloc-row .pc{font-family:'Orbitron',monospace;font-weight:700;font-size:.82rem}
-
-/* ═══════════════════════════════════════════════════════
-   14. FEATURES
-   ═══════════════════════════════════════════════════════ */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.feat{padding:34px 30px}
-.feat .ico{
-  width:54px;height:54px;border-radius:16px;
-  display:grid;place-items:center;font-size:1.2rem;
-  margin-bottom:24px;color:var(--blue);
-  background:linear-gradient(140deg,rgba(var(--blue-rgb),.16),rgba(var(--mint-rgb),.09));
-  border:1px solid rgba(var(--blue-rgb),.22);
-  transition:all .55s var(--e-out);
-}
-.feat:hover .ico{
-  transform:scale(1.08) rotate(-7deg);
-  color:var(--mint);border-color:rgba(var(--mint-rgb),.42);
-  box-shadow:var(--glow-mint);
-}
-.feat h3{font-size:1.03rem;font-weight:700;margin-bottom:11px;letter-spacing:-.015em}
-.feat p{font-size:.88rem;color:var(--ink-2);line-height:1.72}
-
-/* ═══════════════════════════════════════════════════════
-   15. FLEET
-   ═══════════════════════════════════════════════════════ */
-.fleet{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:20px}
-.vessel{
-  position:relative;overflow:hidden;
-  min-height:360px;border-radius:var(--r-lg);
-  display:flex;align-items:flex-end;
-  border:1px solid var(--line);
-  transition:transform .65s var(--e-out), border-color .65s var(--e-out),
-             box-shadow .65s var(--e-out);
-  cursor:pointer;
-}
-.vessel:hover{
-  transform:translateY(-8px);
-  border-color:rgba(var(--blue-rgb),.45);
-  box-shadow:var(--sh-2), var(--glow-blue);
-}
-.vessel-bg{
-  position:absolute;inset:0;
-  transition:transform 1.2s var(--e-out);
-}
-.vessel:hover .vessel-bg{transform:scale(1.09)}
-.vessel-bg::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 20%,rgba(0,0,0,.9));
-}
-.v-1 .vessel-bg{background:radial-gradient(circle at 32% 26%,#2B4FD8,#0B1030 58%,#04050C)}
-.v-2 .vessel-bg{background:radial-gradient(circle at 68% 28%,#00A87A,#07241D 60%,#04050C)}
-.v-3 .vessel-bg{background:radial-gradient(circle at 50% 22%,#B07A22,#1C1408 60%,#04050C)}
-.vessel-bg i{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-64%);
-  font-size:3.6rem;color:rgba(255,255,255,.13);
-}
-.vessel-body{position:relative;z-index:2;padding:32px 28px;width:100%}
-.vessel-body .tag2{
-  display:inline-block;
-  font-size:.56rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
-  padding:5px 12px;border-radius:99px;color:#fff;margin-bottom:14px;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-}
-.vessel-body h3{font-size:1.24rem;font-weight:700;color:#fff;margin-bottom:9px;letter-spacing:-.02em}
-.vessel-body p{font-size:.85rem;color:rgba(255,255,255,.68);line-height:1.68;max-width:430px}
-
-/* ═══════════════════════════════════════════════════════
-   16. TIMELINE
-   ═══════════════════════════════════════════════════════ */
-.rail{position:relative;max-width:840px;margin:0 auto}
-.rail::before{
-  content:'';position:absolute;left:0;top:10px;bottom:10px;width:2px;
-  border-radius:99px;
-  background:linear-gradient(180deg,var(--blue),var(--mint),transparent);
-}
-.rail-item{position:relative;padding:0 0 50px 50px}
-.rail-item:last-child{padding-bottom:0}
-.rail-item::before{
-  content:'';position:absolute;left:-6px;top:4px;
-  width:14px;height:14px;border-radius:50%;
-  background:var(--bg);border:2.5px solid var(--blue);
-  box-shadow:0 0 0 5px rgba(var(--blue-rgb),.1);
-  transition:all .45s var(--e-out);
-}
-.rail-item:hover::before{
-  border-color:var(--mint);transform:scale(1.24);
-  box-shadow:0 0 0 7px rgba(var(--mint-rgb),.14), 0 0 30px rgba(var(--mint-rgb),.55);
-}
-.rail-item .yr{
-  font-family:'Orbitron',monospace;
-  font-size:.75rem;font-weight:800;letter-spacing:.16em;
-  color:var(--blue);margin-bottom:10px;
-}
-.rail-item h4{font-size:1.08rem;font-weight:700;margin-bottom:10px;letter-spacing:-.015em}
-.rail-item p{font-size:.89rem;color:var(--ink-2);line-height:1.74;max-width:620px}
-
-/* ═══════════════════════════════════════════════════════
-   17. PRICING
-   ═══════════════════════════════════════════════════════ */
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
-.tier{padding:38px 32px;display:flex;flex-direction:column}
-.tier.hot{
-  border-color:rgba(var(--blue-rgb),.5);
-  background:linear-gradient(170deg,rgba(var(--blue-rgb),.09),var(--surface) 55%);
-  box-shadow:var(--sh-2), var(--glow-blue);
-  transform:translateY(-14px) scale(1.015);
-}
-.tier.hot:hover{transform:translateY(-22px) scale(1.02)}
-.tier .flag{
-  position:absolute;top:20px;right:20px;
-  font-size:.56rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
-  padding:6px 13px;border-radius:99px;color:#fff;
-  background:linear-gradient(135deg,var(--blue),var(--blue-deep));
-  box-shadow:0 6px 20px rgba(var(--blue-rgb),.45);
-}
-.tier .nm{font-family:'Orbitron',monospace;font-size:1.12rem;font-weight:800;letter-spacing:.01em}
-.tier .ds{font-size:.83rem;color:var(--ink-3);margin-top:9px;line-height:1.6}
-.tier .price{display:flex;align-items:flex-end;gap:6px;margin:28px 0 6px}
-.tier .price .amt{
-  font-family:'Orbitron',monospace;
-  font-size:2.6rem;font-weight:900;letter-spacing:-.045em;line-height:1;
-}
-.tier .price .per{font-size:.8rem;color:var(--ink-3);padding-bottom:6px;font-weight:500}
-.tier .note{font-size:.74rem;color:var(--ink-3);margin-bottom:28px}
-
-.tier ul{display:grid;gap:14px;margin-bottom:34px;flex:1}
-.tier li{display:flex;gap:11px;align-items:flex-start;font-size:.86rem;color:var(--ink-2);line-height:1.6}
-.tier li i{
-  flex-shrink:0;margin-top:5px;
-  width:17px;height:17px;border-radius:50%;
-  display:grid;place-items:center;font-size:.58rem;
-  background:rgba(var(--mint-rgb),.13);color:var(--mint);
-}
-
-/* ═══════════════════════════════════════════════════════
-   18. FAQ
-   ═══════════════════════════════════════════════════════ */
-.faqs{max-width:840px;margin:0 auto;display:grid;gap:12px}
-.faq{
-  border-radius:var(--r-md);overflow:hidden;
-  background:var(--surface);border:1px solid var(--line);
-  -webkit-backdrop-filter:blur(20px);
-  backdrop-filter:blur(20px);
-  transition:border-color .5s var(--e-out), box-shadow .5s var(--e-out),
-             background .5s var(--e-out);
-}
-.faq.open{
-  border-color:rgba(var(--blue-rgb),.42);
-  background:var(--surface-2);
-  box-shadow:var(--glow-blue);
-}
-.faq button{
-  width:100%;display:flex;align-items:center;justify-content:space-between;
-  gap:20px;padding:23px 28px;text-align:left;
-  font-size:.97rem;font-weight:600;letter-spacing:-.012em;
-}
-.faq .chev{
-  flex-shrink:0;width:30px;height:30px;border-radius:50%;
-  display:grid;place-items:center;font-size:.7rem;
-  background:var(--surface-2);border:1px solid var(--line);
-  color:var(--ink-2);
-  transition:all .5s var(--e-out);
-}
-.faq.open .chev{
-  background:var(--blue);border-color:var(--blue);color:#fff;
-  transform:rotate(180deg);
-  box-shadow:0 0 20px rgba(var(--blue-rgb),.5);
-}
-.faq .ans{
-  max-height:0;overflow:hidden;padding:0 28px;
-  transition:max-height .6s var(--e-out), padding .5s var(--e-out);
-}
-.faq.open .ans{max-height:320px;padding:0 28px 26px}
-.faq .ans p{font-size:.89rem;color:var(--ink-2);line-height:1.8}
-
-/* ═══════════════════════════════════════════════════════
-   19. CTA
-   ═══════════════════════════════════════════════════════ */
-.cta{
-  position:relative;overflow:hidden;
-  border-radius:var(--r-2xl);
-  padding:clamp(52px,7vw,92px) clamp(28px,5vw,76px);
-  text-align:center;
-  background:linear-gradient(150deg,rgba(var(--blue-rgb),.14),var(--surface) 50%,rgba(var(--mint-rgb),.1));
-  border:1px solid var(--line-2);
-  -webkit-backdrop-filter:blur(28px);
-  backdrop-filter:blur(28px);
-  box-shadow:var(--sh-3);
-}
-.cta::before{
-  content:'';position:absolute;top:-58%;left:50%;transform:translateX(-50%);
-  width:920px;height:920px;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(var(--blue-rgb),.22),transparent 62%);
-}
-.cta h2{
-  position:relative;
-  font-family:'Orbitron',monospace;
-  font-size:clamp(1.7rem,3.8vw,3rem);
-  font-weight:900;line-height:1.12;letter-spacing:-.035em;margin-bottom:22px;
-}
-.cta p{
-  position:relative;
-  color:var(--ink-2);max-width:570px;margin:0 auto 40px;
-  font-size:1.03rem;line-height:1.78;
-}
-.cta-actions{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.cta-note{
-  position:relative;margin-top:28px;
-  font-size:.76rem;color:var(--ink-3);
-  display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;
-}
-
-/* ═══════════════════════════════════════════════════════
-   20. FOOTER
-   ═══════════════════════════════════════════════════════ */
-footer{
-  border-top:1px solid var(--line);
-  background:var(--surface);
   -webkit-backdrop-filter:blur(22px);
   backdrop-filter:blur(22px);
-  padding:76px 0 36px;
+  transition:transform .6s var(--e-out), border-color .6s var(--e-out),
+             box-shadow .6s var(--e-out);
+}
+.card::before{
+  content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),
+             rgba(var(--acc-rgb),.14),transparent 62%);
+  opacity:0;transition:opacity .55s;
+}
+.card:hover::before{opacity:1}
+.card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(var(--acc-rgb),.35);
+  box-shadow:0 30px 80px rgba(0,0,0,.45), var(--glow-acc);
+}
+[data-theme="light"] .card:hover{box-shadow:0 30px 80px rgba(14,20,48,.14)}
+
+.card-ico{
+  position:relative;width:52px;height:52px;border-radius:15px;
+  display:grid;place-items:center;margin-bottom:24px;
+  font-size:1.15rem;color:var(--acc);
+  background:rgba(var(--acc-rgb),.11);
+  border:1px solid rgba(var(--acc-rgb),.22);
+  transition:transform .6s var(--e-back), background .5s;
+}
+.card:hover .card-ico{transform:translateY(-3px) rotate(-6deg);background:rgba(var(--acc-rgb),.18)}
+.card-ico.mint{color:var(--mint);background:rgba(var(--mint-rgb),.11);border-color:rgba(var(--mint-rgb),.22)}
+.card:hover .card-ico.mint{background:rgba(var(--mint-rgb),.18)}
+.card-ico.amber{color:var(--amber);background:rgba(245,185,66,.11);border-color:rgba(245,185,66,.22)}
+
+.card h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.18rem;font-weight:700;letter-spacing:-.025em;
+  margin-bottom:11px;
+}
+.card p{font-size:.9rem;color:var(--ink-2);line-height:1.75;margin-bottom:20px}
+
+.card-list{display:grid;gap:9px;padding-top:18px;border-top:1px solid var(--line)}
+.card-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.82rem;color:var(--ink-3);line-height:1.55;
+}
+.card-list i{color:var(--mint);font-size:.7rem;margin-top:5px;flex-shrink:0}
+
+/* ═══════════════════════════════════════════════════════════
+   13 · ALLOCATION PANEL
+   ═══════════════════════════════════════════════════════════ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px);align-items:center}
+
+.alloc-panel{
+  padding:34px;border-radius:var(--r-xl);
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line-2);
+  -webkit-backdrop-filter:blur(24px);
+  backdrop-filter:blur(24px);
+  box-shadow:var(--sh-2);
+}
+.alloc-row{margin-bottom:24px}
+.alloc-row:last-child{margin-bottom:0}
+.alloc-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:10px;
+}
+.alloc-head span{font-size:.85rem;font-weight:500;color:var(--ink-2)}
+.alloc-head b{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.02rem;font-weight:700;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+}
+.alloc-bar{
+  height:6px;border-radius:99px;overflow:hidden;
+  background:rgba(255,255,255,.06);
+}
+[data-theme="light"] .alloc-bar{background:rgba(14,20,48,.07)}
+.alloc-bar i{
+  display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--acc),var(--mint));
+  box-shadow:0 0 14px rgba(var(--acc-rgb),.5);
+  transition:width 1.5s var(--e-out);
+  transition-delay:var(--d,0s);
+}
+.alloc-panel.in .alloc-bar i{width:var(--w)}
+
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.stat{
+  padding:20px;border-radius:var(--r-md);
+  background:var(--panel);border:1px solid var(--line);
+}
+.stat b{
+  display:block;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.7rem;font-weight:700;letter-spacing:-.04em;line-height:1;
+  background:linear-gradient(120deg,var(--acc-2),var(--mint));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  font-variant-numeric:tabular-nums;
+}
+.stat span{
+  display:block;font-size:.66rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-top:8px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   14 · TIMELINE
+   ═══════════════════════════════════════════════════════════ */
+.timeline{position:relative;display:grid;gap:0;max-width:820px;margin-inline:auto}
+.tl-item{
+  position:relative;
+  display:grid;grid-template-columns:64px 1fr;gap:24px;
+  padding-bottom:42px;
+}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:'';position:absolute;left:31px;top:52px;bottom:0;width:1px;
+  background:linear-gradient(180deg,var(--line-3),transparent);
+}
+.tl-item:last-child::before{display:none}
+
+.tl-num{
+  position:relative;z-index:1;
+  width:64px;height:64px;border-radius:19px;
+  display:grid;place-items:center;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.1rem;font-weight:700;
+  background:linear-gradient(150deg,var(--panel-3),var(--panel));
+  border:1px solid var(--line-2);
+  color:var(--acc);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  transition:transform .55s var(--e-back), border-color .5s, box-shadow .5s;
+}
+.tl-item:hover .tl-num{
+  transform:translateY(-4px) scale(1.05);
+  border-color:rgba(var(--acc-rgb),.5);
+  box-shadow:0 12px 34px rgba(var(--acc-rgb),.28);
+}
+.tl-body{padding-top:8px}
+.tl-body h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin-bottom:8px;
+}
+.tl-body p{font-size:.9rem;color:var(--ink-2);line-height:1.75;max-width:560px}
+
+/* ═══════════════════════════════════════════════════════════
+   15 · FAQ
+   ═══════════════════════════════════════════════════════════ */
+.faq{max-width:820px;margin-inline:auto;display:grid;gap:10px}
+.faq-item{
+  border-radius:var(--r-md);
+  background:var(--panel);border:1px solid var(--line);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  overflow:hidden;
+  transition:border-color .5s var(--e-out), background .5s var(--e-out);
+}
+.faq-item:hover{border-color:var(--line-2)}
+.faq-item.open{border-color:rgba(var(--acc-rgb),.4);background:var(--panel-2)}
+
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 24px;text-align:left;
+  font-size:.97rem;font-weight:600;letter-spacing:-.01em;
+  color:var(--ink);
+  transition:color .35s;
+}
+.faq-item.open .faq-q{color:var(--acc)}
+.faq-q i{
+  flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  display:grid;place-items:center;font-size:.66rem;
+  background:var(--panel-2);border:1px solid var(--line);
+  color:var(--ink-3);
+  transition:transform .5s var(--e-out), background .4s, color .4s, border-color .4s;
+}
+.faq-item.open .faq-q i{
+  transform:rotate(45deg);
+  background:rgba(var(--acc-rgb),.16);
+  border-color:rgba(var(--acc-rgb),.35);
+  color:var(--acc);
+}
+
+.faq-a{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .55s var(--e-out);
+}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a > div{overflow:hidden}
+.faq-a p{
+  padding:0 24px 24px;
+  font-size:.9rem;color:var(--ink-2);line-height:1.8;max-width:660px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   16 · CTA
+   ═══════════════════════════════════════════════════════════ */
+.cta{
+  position:relative;overflow:hidden;
+  padding:clamp(48px,6vw,76px) clamp(28px,5vw,64px);
+  border-radius:var(--r-2xl);
+  background:
+    radial-gradient(ellipse 80% 130% at 50% 0%, rgba(var(--acc-rgb),.2), transparent 62%),
+    linear-gradient(160deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line-2);
+  -webkit-backdrop-filter:blur(26px);
+  backdrop-filter:blur(26px);
+  box-shadow:var(--sh-2);
+  text-align:center;
+}
+.cta::before{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:
+    linear-gradient(rgba(var(--acc-rgb),.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(var(--acc-rgb),.06) 1px,transparent 1px);
+  background-size:52px 52px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 100% at 50% 0%,#000,transparent 72%);
+  mask-image:radial-gradient(ellipse 70% 100% at 50% 0%,#000,transparent 72%);
+}
+.cta-in{position:relative;z-index:1}
+.cta h2{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(1.8rem,3.6vw,2.7rem);
+  font-weight:700;letter-spacing:-.035em;line-height:1.1;
+  margin-bottom:16px;
+}
+.cta p{color:var(--ink-2);max-width:520px;margin:0 auto 34px;line-height:1.78}
+.cta-actions{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+.cta-note{
+  margin-top:26px;font-size:.74rem;color:var(--ink-4);
+  letter-spacing:.05em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   17 · FOOTER
+   ═══════════════════════════════════════════════════════════ */
+.foot{
+  position:relative;
+  border-top:1px solid var(--line);
+  background:linear-gradient(180deg,transparent,rgba(var(--acc-rgb),.035));
+  padding:72px 0 34px;
 }
 .foot-grid{
-  display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:52px;
-  padding-bottom:56px;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:clamp(28px,4vw,56px);margin-bottom:56px;
 }
 .foot-brand p{
-  font-size:.87rem;color:var(--ink-2);line-height:1.78;
-  margin:22px 0 26px;max-width:340px;
+  font-size:.87rem;color:var(--ink-3);line-height:1.75;
+  max-width:320px;margin:18px 0 22px;
 }
-.socials{display:flex;gap:10px}
+.socials{display:flex;gap:9px}
 .socials a{
-  width:40px;height:40px;border-radius:12px;
-  display:grid;place-items:center;font-size:.9rem;
-  background:var(--surface-2);border:1px solid var(--line);
-  color:var(--ink-2);
-  transition:all .45s var(--e-out);
+  width:38px;height:38px;border-radius:11px;
+  display:grid;place-items:center;
+  background:var(--panel);border:1px solid var(--line);
+  color:var(--ink-3);font-size:.86rem;
+  transition:all .42s var(--e-out);
 }
 .socials a:hover{
-  color:var(--blue);border-color:rgba(var(--blue-rgb),.5);
-  transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(var(--blue-rgb),.24);
+  color:var(--acc);border-color:rgba(var(--acc-rgb),.45);
+  transform:translateY(-3px);
+  box-shadow:0 10px 26px rgba(var(--acc-rgb),.22);
 }
-.foot-col h5{
-  font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--ink-3);font-weight:800;margin-bottom:22px;
+
+.foot-col h4{
+  font-size:.68rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:18px;
 }
+.foot-col ul{display:grid;gap:11px}
 .foot-col a{
-  display:block;font-size:.87rem;color:var(--ink-2);
-  padding:7px 0;
-  transition:color .3s var(--e-out), transform .3s var(--e-out);
+  font-size:.86rem;color:var(--ink-3);
+  transition:color .3s var(--e-soft), padding-left .3s var(--e-out);
 }
-.foot-col a:hover{color:var(--blue);transform:translateX(5px)}
+.foot-col a:hover{color:var(--acc);padding-left:5px}
 
 .foot-bottom{
-  padding-top:30px;
   display:flex;align-items:center;justify-content:space-between;
-  gap:20px;flex-wrap:wrap;font-size:.78rem;color:var(--ink-3);
+  gap:20px;flex-wrap:wrap;
+  padding-top:28px;border-top:1px solid var(--line);
 }
-.foot-bottom .legal{display:flex;gap:24px;flex-wrap:wrap}
-.foot-bottom .legal a{transition:color .3s}
-.foot-bottom .legal a:hover{color:var(--blue)}
+.foot-bottom p{font-size:.78rem;color:var(--ink-4)}
+.foot-legal{display:flex;gap:20px;flex-wrap:wrap}
+.foot-legal a{font-size:.78rem;color:var(--ink-4);transition:color .3s}
+.foot-legal a:hover{color:var(--ink-2)}
 
-/* ═══════════════════════════════════════════════════════
-   21. TO TOP
-   ═══════════════════════════════════════════════════════ */
-#top{
-  position:fixed;right:26px;bottom:26px;z-index:800;
-  width:48px;height:48px;border-radius:50%;
-  display:grid;place-items:center;
-  color:#fff;font-size:1rem;
-  background:linear-gradient(135deg,var(--blue),var(--blue-deep));
-  box-shadow:0 10px 34px rgba(var(--blue-rgb),.48);
-  opacity:0;visibility:hidden;
-  transform:translateY(18px) scale(.85);
-  transition:all .5s var(--e-out);
+.disclaimer{
+  margin-top:22px;padding:16px 20px;border-radius:var(--r-sm);
+  background:var(--panel);border:1px solid var(--line);
+  font-size:.72rem;line-height:1.7;color:var(--ink-4);
 }
-#top.show{opacity:1;visibility:visible;transform:none}
-#top:hover{
-  transform:translateY(-5px) scale(1.06);
-  box-shadow:0 18px 46px rgba(var(--blue-rgb),.68);
-}
-#top:active{transform:translateY(-2px) scale(.98)}
 
-/* ═══════════════════════════════════════════════════════
-   22. REVEAL
-   ═══════════════════════════════════════════════════════ */
-.rv{opacity:0;transform:translateY(40px);
-  transition:opacity 1s var(--e-out), transform 1s var(--e-out)}
-.rv.in{opacity:1;transform:none}
-
-/* ═══════════════════════════════════════════════════════
-   23. RESPONSIVE
-   ═══════════════════════════════════════════════════════ */
-@media(max-width:1120px){
-  .hero-in{grid-template-columns:1fr;gap:72px}
-  .hero-art{max-width:580px;margin-inline:auto;width:100%}
-  .dash{grid-template-columns:1fr}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .feat-grid{grid-template-columns:repeat(2,1fr)}
-  .tiers{grid-template-columns:1fr;max-width:540px;margin-inline:auto}
-  .tier.hot{transform:none}
-  .tier.hot:hover{transform:translateY(-8px)}
-  .fleet{grid-template-columns:1fr 1fr}
-  .vessel.v-1{grid-column:span 2}
-  .foot-grid{grid-template-columns:1fr 1fr;gap:42px}
+/* ═══════════════════════════════════════════════════════════
+   18 · RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width:1080px){
+  .hero-in{grid-template-columns:1fr;gap:52px}
+  .hero{min-height:auto;padding-top:calc(var(--nav-h) + 56px)}
+  .lede{max-width:none}
+  .metrics{max-width:none}
+  .hero-art{max-width:620px;margin-inline:auto;width:100%}
+  .cards{grid-template-columns:1fr 1fr}
+  .card:last-child{grid-column:1/-1}
+  .split{grid-template-columns:1fr;gap:44px}
+  .foot-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:880px){
+
+@media (max-width:860px){
   .nav-menu{display:none}
   #burger{display:grid}
-  .nav-right .btn{display:none}
-}
-@media(max-width:680px){
-  :root{--nav-h:68px}
-  .hero{padding-top:calc(var(--nav-h) + 44px);padding-bottom:80px}
-  .hero-in{gap:56px}
-  .hero h1{letter-spacing:-.03em}
-  .hero-cta .btn{flex:1;min-width:0}
-  .metrics{grid-template-columns:1fr;gap:10px;margin-top:40px}
-  .metric{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
-  .metric .l{margin-top:0}
-  .stats{grid-template-columns:1fr}
-  .feat-grid{grid-template-columns:1fr}
-  .fleet{grid-template-columns:1fr}
-  .vessel.v-1{grid-column:span 1}
-  .vessel{min-height:300px}
-  .chip-f{display:none}
-  .foot-grid{grid-template-columns:1fr;gap:38px}
-  .panel{padding:24px}
-  .stat{padding:28px 24px}
-  .tier{padding:32px 26px}
-  .faq button{padding:19px 22px;font-size:.91rem}
-  .faq .ans{padding:0 22px}
-  .faq.open .ans{padding:0 22px 22px}
-  .rail-item{padding-left:38px}
-  .canvas-box{height:250px}
-  .canvas-box.sm{height:210px}
-  #top{right:18px;bottom:18px;width:44px;height:44px}
-}
-@media(max-width:430px){
-  .logo-txt small{display:none}
-  .hero h1{font-size:2.05rem}
-  .con-val{font-size:1.9rem}
-  .tier .price .amt{font-size:2.2rem}
-  .sec-head h2{font-size:1.6rem}
-}
-@media(max-width:360px){
-  .logo-txt{display:none}
+  .nav-right .btn-line{display:none}
 }
 
-@media(prefers-reduced-motion:reduce){
+@media (max-width:640px){
+  :root{--nav-h:66px}
+  .metrics{grid-template-columns:1fr 1fr}
+  .metric:last-child{grid-column:1/-1}
+  .cards{grid-template-columns:1fr}
+  .card:last-child{grid-column:auto}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr;gap:36px}
+  .tl-item{grid-template-columns:52px 1fr;gap:18px}
+  .tl-num{width:52px;height:52px;border-radius:16px;font-size:.95rem}
+  .tl-item::before{left:25px;top:44px}
+  .foot-bottom{flex-direction:column;align-items:flex-start}
+  .hero-cta .btn{flex:1 1 auto}
+  .con-tabs button{padding:5px 9px;font-size:.63rem}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   19 · MOTION SAFETY
+   ═══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.01ms!important;
     animation-iteration-count:1!important;
@@ -1155,1251 +1197,1070 @@ footer{
     scroll-behavior:auto!important;
   }
   .rv{opacity:1;transform:none}
+  #boot{display:none}
+  .alloc-panel .alloc-bar i{width:var(--w)}
+}
+
+@media print{
+  #boot,#curRing,#curDot,.aurora,.grain,#stars,.nav,.drawer{display:none!important}
+  body{background:#fff;color:#000}
 }
 </style>
 </head>
 
 <body>
+<a class="skip" href="#main">Skip to main content</a>
 
-<!-- SVG gradient defs -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="bootGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#4A78FF"/>
-      <stop offset="100%" stop-color="#00E8A6"/>
-    </linearGradient>
-  </defs>
-</svg>
+<!-- ══════════ PRELOADER ══════════ -->
+<div id="boot" role="status" aria-live="polite" aria-label="Loading Tesla Frontier Network">
+  <div class="boot-grid" aria-hidden="true"></div>
 
-<!-- ═══ PRELOADER ═══ -->
-<div id="boot" role="status" aria-label="Loading">
-  <div class="boot-in">
-    <div class="boot-ring">
-      <svg viewBox="0 0 104 104">
-        <circle class="boot-track" cx="52" cy="52" r="46"/>
-        <circle class="boot-arc" cx="52" cy="52" r="46"/>
+  <div class="boot-core">
+    <div class="orb" aria-hidden="true">
+      <svg viewBox="0 0 120 120">
+        <defs>
+          <linearGradient id="orbGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#5B8CFF"/>
+            <stop offset="100%" stop-color="#2EE6A8"/>
+          </linearGradient>
+          <linearGradient id="orbGrad2" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2EE6A8"/>
+            <stop offset="100%" stop-color="#93B2FF"/>
+          </linearGradient>
+        </defs>
+        <circle class="t1" cx="60" cy="60" r="52"/>
+        <circle class="t2" cx="60" cy="60" r="38"/>
+        <circle class="a1" cx="60" cy="60" r="52"/>
+        <circle class="a2" cx="60" cy="60" r="38"/>
       </svg>
-      <span class="boot-glyph">T</span>
+      <span class="orb-mark">T</span>
     </div>
-    <div class="boot-line"><i></i></div>
-    <div class="boot-cap">Initializing Frontier</div>
+
+    <div class="boot-word">Tesla Frontier Network</div>
+
+    <div class="boot-bar" aria-hidden="true"><i id="bootBar"></i></div>
+
+    <div class="boot-meta">
+      <b id="bootPct">00</b><span>%</span>
+      <span class="sep" aria-hidden="true"></span>
+      <span id="bootMsg">Initialising uplink</span>
+    </div>
   </div>
+
+  <div class="boot-hair" aria-hidden="true"></div>
 </div>
 
-<!-- ═══ CURSOR ═══ -->
-<div id="cursor" aria-hidden="true"></div>
-<div id="cursorDot" aria-hidden="true"></div>
-
-<!-- ═══ PROGRESS ═══ -->
-<div id="prog" aria-hidden="true"></div>
-
-<!-- ═══ BACKDROP ═══ -->
-<canvas id="sky" aria-hidden="true"></canvas>
-<div class="mesh" aria-hidden="true"></div>
+<!-- ══════════ FX LAYERS ══════════ -->
+<canvas id="stars" aria-hidden="true"></canvas>
 <div class="aurora" aria-hidden="true">
-  <div class="blob blob-a"></div>
-  <div class="blob blob-b"></div>
-  <div class="blob blob-c"></div>
+  <div class="orb-blob b1"></div>
+  <div class="orb-blob b2"></div>
+  <div class="orb-blob b3"></div>
 </div>
 <div class="grain" aria-hidden="true"></div>
 
-<!-- ═══ NAV ═══ -->
-<nav class="nav" id="nav">
+<div id="prog" aria-hidden="true"></div>
+<div id="curRing" aria-hidden="true"></div>
+<div id="curDot" aria-hidden="true"></div>
+
+<!-- ══════════ NAV ══════════ -->
+<header class="nav" id="nav">
   <div class="nav-in">
-    <a href="#top" class="logo" aria-label="Tesla Frontier Network home">
-      <span class="logo-badge"><span>T</span></span>
+    <a class="logo" href="#top" aria-label="Tesla Frontier Network — home">
+      <span class="logo-badge" aria-hidden="true"><b>T</b></span>
       <span class="logo-txt">
-        <b>TESLA FRONTIER</b>
-        <small>SpaceX Investment Hub</small>
+        <strong>Tesla Frontier</strong>
+        <small>Network</small>
       </span>
     </a>
 
-    <div class="nav-menu">
-      <a href="#overview">Overview</a>
-      <a href="#performance">Performance</a>
-      <a href="#programs">Programs</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#pricing">Pricing</a>
+    <nav class="nav-menu" aria-label="Primary">
+      <a href="#capability">Capability</a>
+      <a href="#allocation">Allocation</a>
+      <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
-    </div>
+    </nav>
 
     <div class="nav-right">
-      <button class="ibtn" id="themeBtn" aria-label="Toggle color theme">
-        <i class="fa-solid fa-sun" id="themeIcon"></i>
+      <button class="ibtn" id="themeBtn" type="button" aria-label="Toggle colour theme">
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
       </button>
-      <a href="#pricing" class="btn btn-fill">
-        <i class="fa-solid fa-arrow-right"></i> Invest
-      </a>
-      <button class="ibtn" id="burger" aria-label="Open menu" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
+      <a class="btn btn-line" href="#contact">Investor login</a>
+      <a class="btn btn-fill" href="#contact">Request access <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      <button class="ibtn" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- ═══ MOBILE DRAWER ═══ -->
-<div class="drawer" id="drawer">
-  <a href="#overview">Overview</a>
-  <a href="#performance">Performance</a>
-  <a href="#programs">Programs</a>
-  <a href="#roadmap">Roadmap</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#faq">FAQ</a>
-  <a href="#pricing" class="btn btn-fill btn-xl">Start Investing</a>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <nav>
+    <a href="#capability">Capability</a>
+    <a href="#allocation">Allocation</a>
+    <a href="#process">Process</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-fill btn-xl" href="#contact">Request access <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 </div>
 
-<main id="top">
+<main id="main">
 
-<!-- ═══════════════ HERO ═══════════════ -->
-<section class="hero">
-  <div class="wrap hero-in">
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" id="top">
+    <div class="wrap hero-in">
 
-    <div class="hero-copy">
-      <span class="tag">
-        <span class="ping"></span>
-        Series C · Now Open
-      </span>
+      <div class="hero-copy">
+        <span class="tag rv"><span class="ping" aria-hidden="true"></span> Series D · Access window open</span>
 
-      <h1>
-        <span class="line">Own a piece of</span>
-        <span class="line grad">the final frontier.</span>
-      </h1>
+        <h1 class="rv" style="--d:.06s">
+          <span class="line">Own a stake in</span>
+          <span class="line grad">the orbital economy.</span>
+        </h1>
 
-      <p class="lede">
-        Institutional-grade access to SpaceX launch infrastructure, Starlink orbital
-        assets, and Tesla energy systems — through a single regulated investment vehicle.
-      </p>
+        <p class="lede rv" style="--d:.12s">
+          Institutional-grade exposure to launch infrastructure, orbital communications
+          capacity and grid-scale energy storage — wrapped in a single, transparent
+          access vehicle with quarterly liquidity.
+        </p>
 
-      <div class="hero-cta">
-        <a href="#pricing" class="btn btn-fill btn-xl">
-          Start Investing <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a href="#performance" class="btn btn-line btn-xl">
-          <i class="fa-solid fa-chart-line"></i> View Performance
-        </a>
+        <div class="hero-cta rv" style="--d:.18s">
+          <a class="btn btn-fill btn-xl" href="#contact">
+            Request the deck <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-line btn-xl" href="#allocation">
+            <i class="fa-solid fa-chart-simple" aria-hidden="true"></i> View allocation
+          </a>
+        </div>
+
+        <div class="metrics rv" style="--d:.24s">
+          <div class="metric">
+            <div class="v num" data-count="4.8" data-suffix="B" data-prefix="$">$0B</div>
+            <div class="l">Committed capital</div>
+          </div>
+          <div class="metric">
+            <div class="v num" data-count="312" data-suffix="">0</div>
+            <div class="l">Contracted missions</div>
+          </div>
+          <div class="metric">
+            <div class="v num" data-count="1.25" data-suffix="%" data-dec="2">0%</div>
+            <div class="l">Flat annual fee</div>
+          </div>
+        </div>
       </div>
 
-      <div class="metrics">
-        <div class="metric">
-          <div class="v num" data-count="4.2" data-suffix="B" data-prefix="$">$0B</div>
-          <div class="l">Assets Under Mgmt</div>
-        </div>
-        <div class="metric">
-          <div class="v num" data-count="128" data-suffix="K+">0K+</div>
-          <div class="l">Global Investors</div>
-        </div>
-        <div class="metric">
-          <div class="v num" data-count="34.2" data-suffix="%" data-dec="1">0%</div>
-          <div class="l">Avg. Net IRR</div>
+      <div class="hero-art rv" style="--d:.2s">
+        <div class="console" id="console">
+          <div class="con-head">
+            <div class="con-title">
+              <span class="live-dot" aria-hidden="true"></span> Frontier index
+            </div>
+            <div class="con-tabs" role="tablist" aria-label="Chart range">
+              <button type="button" data-range="1W" role="tab" aria-selected="false">1W</button>
+              <button type="button" data-range="1M" class="on" role="tab" aria-selected="true">1M</button>
+              <button type="button" data-range="6M" role="tab" aria-selected="false">6M</button>
+              <button type="button" data-range="1Y" role="tab" aria-selected="false">1Y</button>
+            </div>
+          </div>
+
+          <div class="con-price">
+            <span class="p num" id="conPrice">$184.62</span>
+            <span class="d num" id="conDelta"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> +12.4%</span>
+          </div>
+          <div class="con-sub">Composite NAV · updated 14 seconds ago</div>
+
+          <div class="con-chart">
+            <canvas id="perfChart" aria-label="Frontier index performance chart" role="img"></canvas>
+          </div>
+
+          <div class="con-rows">
+            <div class="con-row">
+              <span><i class="swatch sw-a" aria-hidden="true"></i> Launch infrastructure</span>
+              <b class="num">38.0%</b>
+            </div>
+            <div class="con-row">
+              <span><i class="swatch sw-b" aria-hidden="true"></i> Orbital communications</span>
+              <b class="num">34.5%</b>
+            </div>
+            <div class="con-row">
+              <span><i class="swatch sw-c" aria-hidden="true"></i> Energy storage</span>
+              <b class="num">27.5%</b>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
+  </section>
 
-    <div class="hero-art">
-      <div class="chip-f chip-f-1">
-        <i class="fa-solid fa-satellite"></i>
-        <span>Starlink</span>
-        <small>· 6,142 nodes</small>
-      </div>
-      <div class="chip-f chip-f-2">
-        <i class="fa-solid fa-shield-halved"></i>
-        <span>FDIC-insured custody</span>
-      </div>
-
-      <div class="console" id="console">
-        <div class="con-top">
-          <span class="lbl">Portfolio Value</span>
-          <span class="live"><i class="fa-solid fa-circle"></i> Live</span>
-        </div>
-
-        <div class="con-val num">$128,450.22</div>
-
-        <div class="con-delta">
-          <i class="fa-solid fa-arrow-trend-up"></i>
-          <span>+$14,208.65</span>
-          <span class="chip">+12.4%</span>
-          <span style="color:var(--ink-3);font-weight:500">this quarter</span>
-        </div>
-
-        <div class="con-chart"><canvas id="sparkline"></canvas></div>
-
-        <div class="con-rows">
-          <div class="con-row">
-            <span class="k"><i class="fa-solid fa-satellite-dish"></i> Starlink Constellation</span>
-            <span class="v num">$54,120.00</span>
-          </div>
-          <div class="con-row">
-            <span class="k"><i class="fa-solid fa-rocket"></i> Launch Cadence Fund</span>
-            <span class="v num">$42,880.00</span>
-          </div>
-          <div class="con-row">
-            <span class="k"><i class="fa-solid fa-bolt"></i> Energy Storage</span>
-            <span class="v num">$31,450.22</span>
-          </div>
-        </div>
-      </div>
+  <!-- ══════════ SIGNAL STRIP ══════════ -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip-track" id="stripTrack">
+      <span class="strip-item"><i class="fa-solid fa-satellite"></i> Orbital assets <b>6,412</b></span>
+      <span class="strip-item"><i class="fa-solid fa-rocket"></i> Launch cadence <b>+38% YoY</b></span>
+      <span class="strip-item"><i class="fa-solid fa-bolt"></i> Storage deployed <b>14.2 GWh</b></span>
+      <span class="strip-item"><i class="fa-solid fa-tower-broadcast"></i> Coverage <b>118 markets</b></span>
+      <span class="strip-item"><i class="fa-solid fa-shield-halved"></i> Audit <b>Quarterly</b></span>
+      <span class="strip-item"><i class="fa-solid fa-scale-balanced"></i> Management fee <b>1.25% flat</b></span>
     </div>
-
   </div>
 
-  <div class="cue" aria-hidden="true">
-    <span>Scroll</span>
-    <span class="beam"></span>
-  </div>
-</section>
-
-<!-- ═══════════════ TICKER ═══════════════ -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track" id="tickerTrack"></div>
-</div>
-
-<!-- ═══════════════ STATS ═══════════════ -->
-<section class="sec" id="overview">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">By the Numbers</span>
-      <h2>Scale that compounds</h2>
-      <p>Four years of disciplined deployment across the most capital-efficient infrastructure
-         program in aerospace history.</p>
-    </div>
-
-    <div class="stats">
-      <div class="card stat rv">
-        <div class="ico"><i class="fa-solid fa-rocket"></i></div>
-        <div class="v num" data-count="412" data-suffix="">0</div>
-        <div class="l">Launches Backed</div>
-        <div class="sub">Across 8 orbital programs since 2021</div>
+  <!-- ══════════ CAPABILITY ══════════ -->
+  <section class="sec" id="capability">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Capability</span>
+        <h2>Three verticals. One access vehicle.</h2>
+        <p>
+          Rather than forcing a choice between launch, orbit and ground, the Frontier
+          vehicle spreads contracted exposure across the full stack — so a delay in
+          one vertical doesn't define the whole position.
+        </p>
       </div>
-      <div class="card stat rv">
-        <div class="ico"><i class="fa-solid fa-globe"></i></div>
-        <div class="v num" data-count="6.1" data-suffix="K" data-dec="1">0K</div>
-        <div class="l">Orbital Nodes</div>
-        <div class="sub">Active Starlink satellites under management</div>
-      </div>
-      <div class="card stat rv">
-        <div class="ico"><i class="fa-solid fa-bolt"></i></div>
-        <div class="v num" data-count="98.4" data-suffix="%" data-dec="1">0%</div>
-        <div class="l">Fleet Reliability</div>
-        <div class="sub">Booster recovery success rate</div>
-      </div>
-      <div class="card stat rv">
-        <div class="ico"><i class="fa-solid fa-shield-halved"></i></div>
-        <div class="v num" data-count="0" data-suffix="">0</div>
-        <div class="l">Capital Loss Events</div>
-        <div class="sub">Since inception, audited quarterly</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══════════════ DASHBOARD ═══════════════ -->
-<section class="sec" id="performance" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Live Performance</span>
-      <h2>Transparent to the decimal</h2>
-      <p>Every position, every allocation, every basis point — updated continuously and
-         independently audited each quarter.</p>
-    </div>
-
-    <div class="dash">
-      <div class="card panel rv">
-        <div class="panel-head">
-          <div>
-            <h3>Network Valuation</h3>
-            <p>Rolling 24-month trajectory · USD millions</p>
-          </div>
-          <ul class="legend">
-            <li><span class="sw" style="background:var(--blue)"></span> Frontier Fund</li>
-            <li><span class="sw" style="background:var(--mint)"></span> Aerospace Index</li>
+      <div class="cards">
+        <article class="card rv" style="--d:.04s">
+          <div class="card-ico"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
+          <h3>Launch infrastructure</h3>
+          <p>
+            Contracted capacity across reusable heavy-lift platforms, plus the ground
+            infrastructure that keeps cadence climbing.
+          </p>
+          <ul class="card-list">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Reusability contracts &amp; refurbishment</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Range &amp; pad infrastructure</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Propellant and logistics chain</li>
           </ul>
-        </div>
-        <div class="canvas-box"><canvas id="mainChart"></canvas></div>
-      </div>
+        </article>
 
-      <div class="card panel rv">
-        <div class="panel-head">
-          <div>
-            <h3>Allocation</h3>
-            <p>Current portfolio weights</p>
+        <article class="card rv" style="--d:.1s">
+          <div class="card-ico mint"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i></div>
+          <h3>Orbital communications</h3>
+          <p>
+            Capacity rights on low-earth-orbit constellations, with revenue tied to
+            subscriber growth and enterprise backhaul demand.
+          </p>
+          <ul class="card-list">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> LEO capacity rights</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Enterprise &amp; maritime backhaul</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Ground-station leases</li>
+          </ul>
+        </article>
+
+        <article class="card rv" style="--d:.16s">
+          <div class="card-ico amber"><i class="fa-solid fa-battery-full" aria-hidden="true"></i></div>
+          <h3>Energy systems</h3>
+          <p>
+            Grid-scale storage deployments and the software layer that dispatches
+            them — the quiet compounder underneath the whole stack.
+          </p>
+          <ul class="card-list">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Utility-scale storage projects</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Dispatch &amp; arbitrage software</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Long-duration R&amp;D pipeline</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ ALLOCATION ══════════ -->
+  <section class="sec" id="allocation">
+    <div class="wrap split">
+
+      <div class="rv">
+        <span class="eyebrow">Allocation</span>
+        <h2 class="sec-head" style="margin-bottom:18px;max-width:none">
+          Weighted toward the bottleneck.
+        </h2>
+        <p style="color:var(--ink-2);line-height:1.8;max-width:520px">
+          Allocation isn't fixed. The vehicle rebalances quarterly toward whichever
+          layer of the stack is constraining throughput — historically, launch
+          capacity and ground infrastructure.
+        </p>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <b class="num" data-count="118" data-suffix="">0</b>
+            <span>Markets covered</span>
+          </div>
+          <div class="stat">
+            <b class="num" data-count="99.98" data-suffix="%" data-dec="2">0%</b>
+            <span>Uptime SLA</span>
           </div>
         </div>
-        <div class="canvas-box sm"><canvas id="donut"></canvas></div>
+      </div>
 
-        <div class="alloc">
-          <div class="alloc-row">
-            <span class="dot" style="background:#4A78FF"></span>
-            <span class="nm">Launch Infrastructure</span>
-            <span class="pc num">42%</span>
+      <div class="alloc-panel rv" style="--d:.1s" id="allocPanel">
+        <div class="alloc-row">
+          <div class="alloc-head"><span>Launch infrastructure</span><b class="num">38.0%</b></div>
+          <div class="alloc-bar"><i style="--w:38%;--d:0s"></i></div>
+        </div>
+        <div class="alloc-row">
+          <div class="alloc-head"><span>Orbital communications</span><b class="num">34.5%</b></div>
+          <div class="alloc-bar"><i style="--w:34.5%;--d:.1s"></i></div>
+        </div>
+        <div class="alloc-row">
+          <div class="alloc-head"><span>Energy storage</span><b class="num">27.5%</b></div>
+          <div class="alloc-bar"><i style="--w:27.5%;--d:.2s"></i></div>
+        </div>
+        <div class="alloc-row">
+          <div class="alloc-head"><span>Cash &amp; equivalents</span><b class="num">6.0%</b></div>
+          <div class="alloc-bar"><i style="--w:6%;--d:.3s"></i></div>
+        </div>
+        <div class="alloc-row">
+          <div class="alloc-head"><span>Strategic reserve</span><b class="num">4.0%</b></div>
+          <div class="alloc-bar"><i style="--w:4%;--d:.4s"></i></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ PROCESS ══════════ -->
+  <section class="sec" id="process">
+    <div class="wrap">
+      <div class="sec-head center rv">
+        <span class="eyebrow">Process</span>
+        <h2>From enquiry to allocation in four steps.</h2>
+        <p>No cold outreach, no pressure cycles. Every mandate moves through the same gated process.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item rv">
+          <div class="tl-num" aria-hidden="true">01</div>
+          <div class="tl-body">
+            <h3>Qualification</h3>
+            <p>
+              Confirm accreditation and mandate size. You receive the full data room
+              within one business day — nothing gated behind a call.
+            </p>
           </div>
-          <div class="alloc-row">
-            <span class="dot" style="background:#00E8A6"></span>
-            <span class="nm">Orbital Broadband</span>
-            <span class="pc num">31%</span>
-          </div>
-          <div class="alloc-row">
-            <span class="dot" style="background:#F0B840"></span>
-            <span class="nm">Energy Storage</span>
-            <span class="pc num">18%</span>
-          </div>
-          <div class="alloc-row">
-            <span class="dot" style="background:#7A9CFF"></span>
-            <span class="nm">R&amp;D Reserve</span>
-            <span class="pc num">9%</span>
+        </div>
+
+        <div class="tl-item rv" style="--d:.08s">
+          <div class="tl-num" aria-hidden="true">02</div>
+          <div class="tl-body">
+            <h3>Diligence</h3>
+            <p>
+              Direct access to the investment team, the underlying contract ledger,
+              and the third-party audit trail. Ask anything.
+            </p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══════════════ FEATURES ═══════════════ -->
-<section class="sec" id="programs" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Programs</span>
-      <h2>Built for serious capital</h2>
-      <p>Three pillars, one vehicle. Each program is ring-fenced, independently audited,
-         and structured for institutional participation.</p>
-    </div>
-
-    <div class="feat-grid">
-      <div class="card feat rv">
-        <div class="ico"><i class="fa-solid fa-rocket"></i></div>
-        <h3>Launch Infrastructure</h3>
-        <p>Direct participation in reusable booster programs, orbital insertion contracts,
-           and ground-segment expansion across three continents.</p>
-      </div>
-      <div class="card feat rv">
-        <div class="ico"><i class="fa-solid fa-satellite-dish"></i></div>
-        <h3>Orbital Broadband</h3>
-        <p>Revenue-share exposure to low-earth-orbit constellations serving 4.8M active
-           subscribers across 72 countries and maritime corridors.</p>
-      </div>
-      <div class="card feat rv">
-        <div class="ico"><i class="fa-solid fa-bolt"></i></div>
-        <h3>Energy Storage</h3>
-        <p>Grid-scale battery deployments co-located with launch facilities, delivering
-           predictable, contracted cash flows with 15-year offtake agreements.</p>
-      </div>
-      <div class="card feat rv">
-        <div class="ico"><i class="fa-solid fa-lock"></i></div>
-        <h3>Qualified Custody</h3>
-        <p>Assets held with a qualified custodian, segregated at the fund level and
-           reconciled daily against an independent administrator.</p>
-      </div>
-      <div class="card feat rv">
-        <div class="ico"><i class="fa-solid fa-file-shield"></i></div>
-        <h3>Quarterly Audit</h3>
-        <p>Big-four audited financials published within 45 days of each quarter close,
-           with full position-level transparency for LPs.</p>
-      </div>
-      <div class="card feat rv">
-        <div class="ico"><i class="fa-solid fa-arrows-rotate"></i></div>
-        <h3>Secondary Liquidity</h3>
-        <p>Quarterly redemption windows with a 30-day notice period, plus an internal
-           matching book for accelerated secondary transfers.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ FLEET ═══════════════ -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">The Fleet</span>
-      <h2>Hardware you can underwrite</h2>
-      <p>Each asset class is backed by physical infrastructure with measurable, auditable
-         operational metrics.</p>
-    </div>
-
-    <div class="fleet">
-      <div class="vessel v-1 rv">
-        <div class="vessel-bg"><i class="fa-solid fa-rocket"></i></div>
-        <div class="vessel-body">
-          <span class="tag2">Reusable Launch</span>
-          <h3>Booster Fleet — Block 5</h3>
-          <p>412 flights backed, 98.4% recovery rate, average turnaround of 21 days.
-             Each booster is underwritten against 40+ nominal cycles.</p>
+        <div class="tl-item rv" style="--d:.16s">
+          <div class="tl-num" aria-hidden="true">03</div>
+          <div class="tl-body">
+            <h3>Subscription</h3>
+            <p>
+              Digital subscription and KYC. Capital is drawn once the allocation
+              window closes, never held in limbo.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="vessel v-2 rv">
-        <div class="vessel-bg"><i class="fa-solid fa-satellite"></i></div>
-        <div class="vessel-body">
-          <span class="tag2">LEO Constellation</span>
-          <h3>Starlink Node Cluster</h3>
-          <p>6,142 active nodes generating recurring subscription revenue across
-             72 markets.</p>
-        </div>
-      </div>
-      <div class="vessel v-3 rv">
-        <div class="vessel-bg"><i class="fa-solid fa-battery-full"></i></div>
-        <div class="vessel-body">
-          <span class="tag2">Grid Storage</span>
-          <h3>Megapack Array</h3>
-          <p>2.4 GWh deployed capacity with 15-year contracted offtake and
-             investment-grade counterparties.</p>
+
+        <div class="tl-item rv" style="--d:.24s">
+          <div class="tl-num" aria-hidden="true">04</div>
+          <div class="tl-body">
+            <h3>Reporting</h3>
+            <p>
+              Quarterly statements, live telemetry dashboard, and an annual
+              in-person or virtual review with the managers.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══════════════ ROADMAP ═══════════════ -->
-<section class="sec" id="roadmap" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Roadmap</span>
-      <h2>Where the capital goes</h2>
-      <p>A four-phase deployment plan, each tranche gated by independent technical
-         and financial milestones.</p>
-    </div>
+  <!-- ══════════ FAQ ══════════ -->
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head center rv">
+        <span class="eyebrow">Questions</span>
+        <h2>Everything you'd ask on the call.</h2>
+      </div>
 
-    <div class="rail">
-      <div class="rail-item rv">
-        <div class="yr">2021 — PHASE I</div>
-        <h4>Foundation &amp; Ground Segment</h4>
-        <p>Initial $820M deployed across launch pad expansion and range infrastructure.
-           Achieved full operational capability across three sites within 14 months.</p>
-      </div>
-      <div class="rail-item rv">
-        <div class="yr">2022 — PHASE II</div>
-        <h4>Constellation Scale-Out</h4>
-        <p>$1.4B committed to orbital node manufacturing and deployment. Reached 3,200
-           active nodes and $340M annualized recurring revenue.</p>
-      </div>
-      <div class="rail-item rv">
-        <div class="yr">2024 — PHASE III</div>
-        <h4>Energy Integration</h4>
-        <p>Co-located 2.4 GWh of grid-scale storage with launch facilities, securing
-           15-year offtake agreements and reducing operational cost per launch by 18%.</p>
-      </div>
-      <div class="rail-item rv">
-        <div class="yr">2026 — PHASE IV</div>
-        <h4>Interplanetary Logistics</h4>
-        <p>Initial allocation toward deep-space cargo and orbital transfer vehicles.
-           Targeting first revenue-generating mission in Q4 2026.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ PRICING ═══════════════ -->
-<section class="sec" id="pricing" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Participation</span>
-      <h2>Choose your exposure</h2>
-      <p>Three tiers, one underlying portfolio. All tiers receive full quarterly
-         transparency and position-level reporting.</p>
-    </div>
-
-    <div class="tiers">
-      <div class="card tier rv">
-        <div class="nm">OBSERVER</div>
-        <div class="ds">For individuals building their first frontier allocation.</div>
-        <div class="price">
-          <span class="amt num">$500</span>
-          <span class="per">/ minimum</span>
+      <div class="faq" id="faqList">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            What exactly does the Frontier vehicle hold?
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          <div class="faq-a"><div><p>
+            The vehicle holds contracted positions across three verticals: launch
+            infrastructure and reusability contracts, orbital communications capacity,
+            and grid-scale energy storage deployments. A full contract ledger is
+            available in the data room.
+          </p></div></div>
         </div>
-        <div class="note">No management fee · 1.5% carry</div>
 
-        <ul>
-          <li><i class="fa-solid fa-check"></i> Full portfolio access</li>
-          <li><i class="fa-solid fa-check"></i> Quarterly reporting</li>
-          <li><i class="fa-solid fa-check"></i> Standard redemption window</li>
-          <li><i class="fa-solid fa-check"></i> Email support</li>
-        </ul>
-
-        <a href="#" class="btn btn-line btn-block">Get Started</a>
-      </div>
-
-      <div class="card tier hot rv">
-        <span class="flag">Most Popular</span>
-        <div class="nm">OPERATOR</div>
-        <div class="ds">For serious allocators seeking full position transparency.</div>
-        <div class="price">
-          <span class="amt num">$25K</span>
-          <span class="per">/ minimum</span>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            What is the minimum commitment?
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          <div class="faq-a"><div><p>
+            $25,000 for individual accredited investors and $250,000 for institutional
+            mandates. Bespoke structures — including segregated accounts and co-invest
+            rights — are available above $5M.
+          </p></div></div>
         </div>
-        <div class="note">0.85% management · 1.0% carry</div>
 
-        <ul>
-          <li><i class="fa-solid fa-check"></i> Everything in Observer</li>
-          <li><i class="fa-solid fa-check"></i> Position-level reporting</li>
-          <li><i class="fa-solid fa-check"></i> Priority redemption (15-day)</li>
-          <li><i class="fa-solid fa-check"></i> Dedicated relationship manager</li>
-          <li><i class="fa-solid fa-check"></i> Tax-lot optimization</li>
-        </ul>
-
-        <a href="#" class="btn btn-fill btn-block">
-          Start Investing <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-      <div class="card tier rv">
-        <div class="nm">MISSION PARTNER</div>
-        <div class="ds">For institutions and family offices with bespoke mandates.</div>
-        <div class="price">
-          <span class="amt num">$1M</span>
-          <span class="per">/ minimum</span>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            How liquid is the position?
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          <div class="faq-a"><div><p>
+            Redemptions are processed quarterly with a 45-day notice window. Secondary
+            transfers are permitted with manager consent. There is no lock-up beyond
+            the first full quarter.
+          </p></div></div>
         </div>
-        <div class="note">Custom fee structure</div>
 
-        <ul>
-          <li><i class="fa-solid fa-check"></i> Everything in Operator</li>
-          <li><i class="fa-solid fa-check"></i> Co-investment rights</li>
-          <li><i class="fa-solid fa-check"></i> Custom SPV structuring</li>
-          <li><i class="fa-solid fa-check"></i> Direct IR contact</li>
-          <li><i class="fa-solid fa-check"></i> Board observer seat</li>
-        </ul>
-
-        <a href="#" class="btn btn-line btn-block">Contact IR</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ FAQ ═══════════════ -->
-<section class="sec" id="faq" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Questions</span>
-      <h2>Answers, up front</h2>
-      <p>Everything you need to evaluate the vehicle. Nothing buried in a footnote.</p>
-    </div>
-
-    <div class="faqs">
-      <div class="faq rv">
-        <button type="button" aria-expanded="false">
-          <span>What exactly am I investing in?</span>
-          <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-        </button>
-        <div class="ans">
-          <p>You are purchasing limited partnership interests in the Frontier Network
-             Fund, a regulated investment vehicle that holds ring-fenced positions across
-             three asset classes: launch infrastructure contracts, orbital broadband
-             revenue shares, and grid-scale energy storage. Each position is held by a
-             qualified custodian and reconciled daily.</p>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            How are fees structured?
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          <div class="faq-a"><div><p>
+            A flat 1.25% annual management fee. No performance fee, no entry load,
+            no exit load, no carried interest. Everything is disclosed in the
+            offering memorandum.
+          </p></div></div>
         </div>
-      </div>
 
-      <div class="faq rv">
-        <button type="button" aria-expanded="false">
-          <span>How is the portfolio valued?</span>
-          <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-        </button>
-        <div class="ans">
-          <p>Positions are marked to model monthly using discounted cash flow against
-             contracted revenue, then reconciled quarterly by an independent
-             administrator. Physical assets are appraised annually by a third-party
-             aerospace valuation firm. Every valuation memo is available to LPs on request.</p>
-        </div>
-      </div>
-
-      <div class="faq rv">
-        <button type="button" aria-expanded="false">
-          <span>What are the liquidity terms?</span>
-          <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-        </button>
-        <div class="ans">
-          <p>Redemption windows open quarterly with a 30-day notice period for Observer
-             tier and 15-day notice for Operator and above. An internal matching book
-             allows accelerated secondary transfers between existing LPs, typically
-             settling within 10 business days.</p>
-        </div>
-      </div>
-
-      <div class="faq rv">
-        <button type="button" aria-expanded="false">
-          <span>Who can participate?</span>
-          <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-        </button>
-        <div class="ans">
-          <p>The fund is open to accredited investors in the United States and qualified
-             purchasers in select international jurisdictions. Minimums start at $500 for
-             the Observer tier. Full eligibility requirements are outlined in the private
-             placement memorandum, available after a short qualification call.</p>
-        </div>
-      </div>
-
-      <div class="faq rv">
-        <button type="button" aria-expanded="false">
-          <span>What fees does the fund charge?</span>
-          <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-        </button>
-        <div class="ans">
-          <p>Observer tier carries no management fee and a 1.5% performance carry above
-             an 8% hurdle. Operator tier is 0.85% management with 1.0% carry. Mission
-             Partner structures are negotiated individually. There are no entry fees,
-             exit fees, or hidden operational charges.</p>
-        </div>
-      </div>
-
-      <div class="faq rv">
-        <button type="button" aria-expanded="false">
-          <span>How is my capital protected?</span>
-          <span class="chev"><i class="fa-solid fa-chevron-down"></i></span>
-        </button>
-        <div class="ans">
-          <p>Assets are held with a qualified custodian in segregated accounts, never
-             commingled with fund operating capital. The fund maintains D&amp;O and
-             errors-and-omissions coverage, and all positions are independently
-             reconciled daily. Quarterly financials are audited by a big-four firm.</p>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            Is this affiliated with Tesla or SpaceX?
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+          </button>
+          <div class="faq-a"><div><p>
+            No. Tesla Frontier Network is an independent demonstration project and
+            is not affiliated with, endorsed by, or connected to Tesla, Inc. or
+            Space Exploration Technologies Corp. All figures shown on this page are
+            illustrative sample data.
+          </p></div></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══════════════ CTA ═══════════════ -->
-<section class="sec" style="padding-top:0;padding-bottom:clamp(90px,10vw,130px)">
-  <div class="wrap">
-    <div class="cta rv">
-      <h2>Ready to underwrite<br>the next century?</h2>
-      <p>Join 128,000+ investors with exposure to the infrastructure that will define
-         the next fifty years of human expansion.</p>
-
-      <div class="cta-actions">
-        <a href="#pricing" class="btn btn-fill btn-xl">
-          Open an Account <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a href="#" class="btn btn-line btn-xl">
-          <i class="fa-solid fa-file-lines"></i> Download Prospectus
-        </a>
-      </div>
-
-      <div class="cta-note">
-        <i class="fa-solid fa-lock" style="color:var(--mint)"></i>
-        <span>Accredited investors only · No obligation · 4-minute application</span>
+  <!-- ══════════ CTA ══════════ -->
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <div class="cta rv">
+        <div class="cta-in">
+          <h2>The window closes when the round fills.</h2>
+          <p>
+            Request the full deck, the contract ledger and the current subscription
+            terms. No sales call required to access the data room.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-fill btn-xl" href="#">
+              Request access <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-line btn-xl" href="#">
+              <i class="fa-regular fa-file-lines" aria-hidden="true"></i> Download summary
+            </a>
+          </div>
+          <p class="cta-note">Typical response time: under 4 business hours</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer>
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
+
       <div class="foot-brand">
-        <a href="#top" class="logo">
-          <span class="logo-badge"><span>T</span></span>
+        <a class="logo" href="#top" aria-label="Tesla Frontier Network — home">
+          <span class="logo-badge" aria-hidden="true"><b>T</b></span>
           <span class="logo-txt">
-            <b>TESLA FRONTIER</b>
-            <small>SpaceX Investment Hub</small>
+            <strong>Tesla Frontier</strong>
+            <small>Network</small>
           </span>
         </a>
-        <p>Institutional-grade access to the infrastructure of human expansion.
-           Regulated, audited, and built for the long horizon.</p>
+        <p>
+          Independent research and access infrastructure for the launch, orbital
+          and energy layers of the frontier economy.
+        </p>
         <div class="socials">
-          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+          <a href="#" aria-label="Tesla Frontier Network on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Tesla Frontier Network on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Tesla Frontier Network on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
         </div>
       </div>
 
       <div class="foot-col">
-        <h5>Product</h5>
-        <a href="#overview">Overview</a>
-        <a href="#performance">Performance</a>
-        <a href="#programs">Programs</a>
-        <a href="#pricing">Pricing</a>
+        <h4>Vehicle</h4>
+        <ul>
+          <li><a href="#capability">Capability</a></li>
+          <li><a href="#allocation">Allocation</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
       </div>
 
       <div class="foot-col">
-        <h5>Company</h5>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Press</a>
-        <a href="#">Contact</a>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
       </div>
 
       <div class="foot-col">
-        <h5>Resources</h5>
-        <a href="#">Prospectus</a>
-        <a href="#">Audited Financials</a>
-        <a href="#">Tax Center</a>
-        <a href="#faq">FAQ</a>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Terms of use</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Risk disclosure</a></li>
+          <li><a href="#">Cookie settings</a></li>
+        </ul>
       </div>
+
     </div>
 
     <div class="foot-bottom">
-      <span>© 2026 Tesla Frontier Network. All rights reserved.</span>
-      <div class="legal">
-        <a href="#">Privacy</a>
+      <p>&copy; <span id="year">2025</span> Tesla Frontier Network. All rights reserved.</p>
+      <div class="foot-legal">
         <a href="#">Terms</a>
+        <a href="#">Privacy</a>
         <a href="#">Disclosures</a>
-        <a href="#">Cookies</a>
+        <a href="#">Sitemap</a>
       </div>
     </div>
+
+    <p class="disclaimer">
+      <strong>Important:</strong> This page is a design demonstration. Tesla Frontier Network is a
+      fictional entity and is not affiliated with, endorsed by, or connected to Tesla, Inc. or
+      Space Exploration Technologies Corp. All figures, performance data and statistics shown are
+      illustrative sample data and do not represent real investments. Nothing here constitutes an
+      offer to sell or a solicitation to buy any security. Any real offering would be made only to
+      accredited investors via a private placement memorandum, and past performance never
+      guarantees future results.
+    </p>
   </div>
 </footer>
 
-<!-- ═══════════════ TO TOP ═══════════════ -->
-<button id="top" aria-label="Back to top">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
-
 <script>
-/* ═══════════════════════════════════════════════════════
-   UTIL
-   ═══════════════════════════════════════════════════════ */
-const $  = (s, c = document) => c.querySelector(s);
-const $$ = (s, c = document) => [...c.querySelectorAll(s)];
-const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const TOUCH = window.matchMedia('(pointer: coarse)').matches;
+(function(){
+  'use strict';
 
-/* ═══════════════════════════════════════════════════════
-   PRELOADER
-   ═══════════════════════════════════════════════════════ */
-window.addEventListener('load', () => {
-  setTimeout(() => $('#boot').classList.add('gone'), 900);
-  setTimeout(() => { document.body.style.overflow = ''; }, 1700);
-});
-document.body.style.overflow = 'hidden';
+  const $  = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-/* ═══════════════════════════════════════════════════════
-   CURSOR
-   ═══════════════════════════════════════════════════════ */
-if (!TOUCH && !REDUCED) {
-  const ring = $('#cursor');
-  const dot  = $('#cursorDot');
-  let mx = innerWidth / 2, my = innerHeight / 2;
-  let rx = mx, ry = my;
+  /* ═══════════════════════════════════════════
+     1 · THEME
+     ═══════════════════════════════════════════ */
+  const root = document.documentElement;
+  const saved = (() => { try { return localStorage.getItem('tfn-theme'); } catch(e){ return null; } })();
+  if (saved) root.setAttribute('data-theme', saved);
 
-  addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.transform = `translate(${mx - 2.5}px, ${my - 2.5}px)`;
-  }, { passive: true });
-
-  const loop = () => {
-    rx += (mx - rx) * 0.16;
-    ry += (my - ry) * 0.16;
-    ring.style.transform = `translate(${rx - 17}px, ${ry - 17}px)`;
-    requestAnimationFrame(loop);
-  };
-  loop();
-
-  const hoverables = 'a, button, .card, .vessel, .faq, .metric, .tier, .hm';
-  document.addEventListener('mouseover', e => {
-    if (e.target.closest(hoverables)) ring.classList.add('hover');
+  $('#themeBtn')?.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('tfn-theme', next); } catch(e){}
+    if (window.__tfnChart) window.__tfnChart.update();
   });
-  document.addEventListener('mouseout', e => {
-    if (e.target.closest(hoverables)) ring.classList.remove('hover');
-  });
-  addEventListener('mouseleave', () => { ring.style.opacity = '0'; dot.style.opacity = '0'; });
-  addEventListener('mouseenter', () => { ring.style.opacity = '1'; dot.style.opacity = '1'; });
-}
 
-/* ═══════════════════════════════════════════════════════
-   SCROLL PROGRESS + NAV + TO-TOP
-   ═══════════════════════════════════════════════════════ */
-const nav  = $('#nav');
-const prog = $('#prog');
-const top  = $('#top');
+  /* ═══════════════════════════════════════════
+     2 · PRELOADER
+     ═══════════════════════════════════════════ */
+  const boot = $('#boot');
+  const bar  = $('#bootBar');
+  const pct  = $('#bootPct');
+  const msg  = $('#bootMsg');
 
-let ticking = false;
-const onScroll = () => {
-  const y = scrollY;
-  const h = document.documentElement.scrollHeight - innerHeight;
-  prog.style.width = `${h > 0 ? (y / h) * 100 : 0}%`;
-  nav.classList.toggle('stuck', y > 24);
-  top.classList.toggle('show', y > 700);
-  ticking = false;
-};
-addEventListener('scroll', () => {
-  if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
-}, { passive: true });
-onScroll();
-
-top.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
-
-/* ═══════════════════════════════════════════════════════
-   THEME
-   ═══════════════════════════════════════════════════════ */
-const themeBtn  = $('#themeBtn');
-const themeIcon = $('#themeIcon');
-
-const setTheme = (t) => {
-  document.documentElement.setAttribute('data-theme', t);
-  themeIcon.className = t === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-  try { localStorage.setItem('tfn-theme', t); } catch (_) {}
-  dispatchEvent(new CustomEvent('themechange', { detail: t }));
-};
-
-try {
-  const saved = localStorage.getItem('tfn-theme');
-  if (saved) setTheme(saved);
-} catch (_) {}
-
-themeBtn.addEventListener('click', () => {
-  const cur = document.documentElement.getAttribute('data-theme');
-  setTheme(cur === 'dark' ? 'light' : 'dark');
-});
-
-/* ═══════════════════════════════════════════════════════
-   MOBILE DRAWER
-   ═══════════════════════════════════════════════════════ */
-const burger = $('#burger');
-const drawer = $('#drawer');
-const burgerIcon = burger.querySelector('i');
-
-const closeDrawer = () => {
-  drawer.classList.remove('open');
-  burger.setAttribute('aria-expanded', 'false');
-  burgerIcon.className = 'fa-solid fa-bars';
-  document.body.style.overflow = '';
-};
-
-burger.addEventListener('click', () => {
-  const open = drawer.classList.toggle('open');
-  burger.setAttribute('aria-expanded', String(open));
-  burgerIcon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-  document.body.style.overflow = open ? 'hidden' : '';
-});
-
-$$('#drawer a').forEach(a => a.addEventListener('click', closeDrawer));
-addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-
-/* ═══════════════════════════════════════════════════════
-   REVEAL ON SCROLL
-   ═══════════════════════════════════════════════════════ */
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('in'), i * 70);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-$$('.rv').forEach(el => revealObserver.observe(el));
-
-/* ═══════════════════════════════════════════════════════
-   COUNTERS
-   ═══════════════════════════════════════════════════════ */
-const easeOut = t => 1 - Math.pow(1 - t, 4);
-
-const runCounter = (el) => {
-  const target = parseFloat(el.dataset.count);
-  const dec    = parseInt(el.dataset.dec || 0, 10);
-  const suffix = el.dataset.suffix || '';
-  const prefix = el.dataset.prefix || '';
-  const dur    = 1800;
-  const start  = performance.now();
-
-  const step = (now) => {
-    const p = Math.min((now - start) / dur, 1);
-    const v = target * easeOut(p);
-    el.textContent = prefix + v.toFixed(dec) + suffix;
-    if (p < 1) requestAnimationFrame(step);
-    else el.textContent = prefix + target.toFixed(dec) + suffix;
-  };
-  requestAnimationFrame(step);
-};
-
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      runCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-$$('[data-count]').forEach(el => counterObserver.observe(el));
-
-/* ═══════════════════════════════════════════════════════
-   CARD CURSOR GLOW
-   ═══════════════════════════════════════════════════════ */
-if (!TOUCH) {
-  $$('.card, .console').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
-      card.style.setProperty('--my', `${e.clientY - r.top}px`);
-    }, { passive: true });
-  });
-}
-
-/* ═══════════════════════════════════════════════════════
-   HERO CONSOLE TILT
-   ═══════════════════════════════════════════════════════ */
-if (!TOUCH && !REDUCED) {
-  const con = $('#console');
-  const art = con.parentElement;
-
-  art.addEventListener('mousemove', e => {
-    const r = art.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width  - 0.5;
-    const y = (e.clientY - r.top)  / r.height - 0.5;
-    con.style.transform =
-      `rotateY(${x * 7}deg) rotateX(${-y * 7}deg) translateZ(14px)`;
-  }, { passive: true });
-
-  art.addEventListener('mouseleave', () => {
-    con.style.transform = '';
-  });
-}
-
-/* ═══════════════════════════════════════════════════════
-   FAQ
-   ═══════════════════════════════════════════════════════ */
-$$('.faq').forEach(faq => {
-  const btn = faq.querySelector('button');
-  btn.addEventListener('click', () => {
-    const isOpen = faq.classList.contains('open');
-    $$('.faq').forEach(f => {
-      f.classList.remove('open');
-      f.querySelector('button').setAttribute('aria-expanded', 'false');
-    });
-    if (!isOpen) {
-      faq.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-    }
-  });
-});
-
-/* ═══════════════════════════════════════════════════════
-   TICKER
-   ═══════════════════════════════════════════════════════ */
-const tickerData = [
-  { s: 'TSLA', p: '412.68', d: '+3.24%', up: true  },
-  { s: 'SPCE', p: '18.42',  d: '+1.87%', up: true  },
-  { s: 'RKLB', p: '24.15',  d: '-0.64%', up: false },
-  { s: 'ASTS', p: '31.07',  d: '+5.12%', up: true  },
-  { s: 'PL',   p: '9.84',   d: '+2.41%', up: true  },
-  { s: 'LMT',  p: '587.30', d: '-0.18%', up: false },
-  { s: 'BA',   p: '178.94', d: '+0.72%', up: true  },
-  { s: 'ARKX', p: '22.61',  d: '+1.94%', up: true  },
-];
-
-const track = $('#tickerTrack');
-const tickerHTML = tickerData.map(t => `
-  <span class="tk">
-    <span class="s">${t.s}</span>
-    <span class="p num">$${t.p}</span>
-    <span class="d ${t.up ? 'up' : 'down'}">
-      ${t.up ? '▲' : '▼'} ${t.d}
-    </span>
-  </span>
-`).join('');
-
-track.innerHTML = tickerHTML + tickerHTML;
-
-/* ═══════════════════════════════════════════════════════
-   STARFIELD
-   ═══════════════════════════════════════════════════════ */
-(() => {
-  const cvs = $('#sky');
-  const ctx = cvs.getContext('2d');
-  let stars = [];
-  let w, h, dpr;
-
-  const build = () => {
-    dpr = Math.min(devicePixelRatio || 1, 2);
-    w = cvs.width  = innerWidth  * dpr;
-    h = cvs.height = innerHeight * dpr;
-    cvs.style.width  = innerWidth + 'px';
-    cvs.style.height = innerHeight + 'px';
-
-    const count = Math.min(Math.floor((innerWidth * innerHeight) / 14000), 130);
-    stars = Array.from({ length: count }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: (Math.random() * 1.2 + 0.3) * dpr,
-      a: Math.random() * 0.55 + 0.12,
-      vx: (Math.random() - 0.5) * 0.07 * dpr,
-      vy: (Math.random() - 0.5) * 0.07 * dpr,
-      tw: Math.random() * Math.PI * 2,
-      ts: Math.random() * 0.014 + 0.005,
-    }));
-  };
-
-  const draw = () => {
-    ctx.clearRect(0, 0, w, h);
-    const dark = document.documentElement.getAttribute('data-theme') !== 'light';
-
-    for (const s of stars) {
-      s.x += s.vx; s.y += s.vy; s.tw += s.ts;
-      if (s.x < 0) s.x = w; if (s.x > w) s.x = 0;
-      if (s.y < 0) s.y = h; if (s.y > h) s.y = 0;
-
-      const alpha = s.a * (0.55 + 0.45 * Math.sin(s.tw));
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = dark
-        ? `rgba(190, 210, 255, ${alpha})`
-        : `rgba(40, 70, 160, ${alpha * 0.65})`;
-      ctx.fill();
-    }
-    requestAnimationFrame(draw);
-  };
-
-  build();
-  if (!REDUCED) draw();
-  addEventListener('resize', () => { build(); }, { passive: true });
-})();
-
-/* ═══════════════════════════════════════════════════════
-   CHARTS
-   ═══════════════════════════════════════════════════════ */
-const chartState = { main: null, donut: null, spark: null };
-
-const cssVar = (name) =>
-  getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-
-const buildSparkline = () => {
-  const ctx = $('#sparkline');
-  if (!ctx) return;
-
-  const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 120);
-  gradient.addColorStop(0, 'rgba(74,120,255,0.42)');
-  gradient.addColorStop(1, 'rgba(74,120,255,0)');
-
-  const points = [42, 48, 44, 56, 52, 64, 58, 72, 68, 80, 76, 88, 84, 96, 92, 108];
-
-  chartState.spark = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: points.map((_, i) => i),
-      datasets: [{
-        data: points,
-        borderColor: '#4A78FF',
-        borderWidth: 2,
-        fill: true,
-        backgroundColor: gradient,
-        tension: 0.45,
-        pointRadius: 0,
-        pointHoverRadius: 4,
-        pointHoverBackgroundColor: '#4A78FF',
-        pointHoverBorderColor: '#fff',
-        pointHoverBorderWidth: 2,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: { duration: 1600, easing: 'easeOutQuart' },
-      interaction: { intersect: false, mode: 'index' },
-      plugins: { legend: { display: false }, tooltip: { enabled: false } },
-      scales: {
-        x: { display: false },
-        y: { display: false },
-      },
-      elements: { line: { capBezierPoints: true } },
-    },
-  });
-};
-
-const buildMainChart = () => {
-  const ctx = $('#mainChart');
-  if (!ctx) return;
-
-  const labels = [
-    'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',
-    'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'
+  const MESSAGES = [
+    [0,  'Initialising uplink'],
+    [22, 'Syncing telemetry'],
+    [46, 'Verifying contracts'],
+    [68, 'Calibrating index'],
+    [86, 'Securing session'],
+    [97, 'Ready']
   ];
 
-  const fund = [820, 890, 960, 1040, 1120, 1210, 1290, 1380, 1460, 1560, 1680, 1810,
-                1960, 2120, 2280, 2460, 2650, 2870, 3110, 3380, 3660, 3980, 4320, 4680];
+  function runBoot(){
+    if (reduced || !boot) { boot?.classList.add('done'); document.body.style.overflow=''; return; }
 
-  const index = [820, 860, 900, 950, 1010, 1080, 1140, 1210, 1270, 1340, 1420, 1500,
-                 1590, 1690, 1790, 1900, 2020, 2150, 2290, 2440, 2600, 2770, 2950, 3140];
+    document.body.style.overflow = 'hidden';
 
-  const c = ctx.getContext('2d');
-  const fillFund = c.createLinearGradient(0, 0, 0, 320);
-  fillFund.addColorStop(0, 'rgba(74,120,255,0.32)');
-  fillFund.addColorStop(1, 'rgba(74,120,255,0)');
+    const DURATION = 1900;
+    const start = performance.now();
 
-  const fillIndex = c.createLinearGradient(0, 0, 0, 320);
-  fillIndex.addColorStop(0, 'rgba(0,232,166,0.18)');
-  fillIndex.addColorStop(1, 'rgba(0,232,166,0)');
+    function tick(now){
+      const t = Math.min((now - start) / DURATION, 1);
+      // easeOutExpo
+      const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      const val = Math.round(eased * 100);
 
-  chartState.main = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels,
-      datasets: [
-        {
-          label: 'Frontier Fund',
-          data: fund,
-          borderColor: '#4A78FF',
-          borderWidth: 2.4,
+      if (bar) bar.style.width = val + '%';
+      if (pct) pct.textContent = String(val).padStart(2, '0');
+
+      for (let i = MESSAGES.length - 1; i >= 0; i--){
+        if (val >= MESSAGES[i][0]) {
+          if (msg && msg.textContent !== MESSAGES[i][1]) msg.textContent = MESSAGES[i][1];
+          break;
+        }
+      }
+
+      if (t < 1) requestAnimationFrame(tick);
+      else finish();
+    }
+
+    function finish(){
+      setTimeout(() => {
+        boot.classList.add('done');
+        document.body.style.overflow = '';
+        // kick off hero reveals
+        setTimeout(() => {
+          $$('.hero .rv').forEach(el => el.classList.add('in'));
+        }, 180);
+        setTimeout(() => boot.remove(), 1300);
+      }, 260);
+    }
+
+    requestAnimationFrame(tick);
+  }
+  runBoot();
+
+  /* ═══════════════════════════════════════════
+     3 · NAV + DRAWER
+     ═══════════════════════════════════════════ */
+  const nav = $('#nav');
+  const drawer = $('#drawer');
+  const burger = $('#burger');
+
+  function onScrollNav(){
+    nav.classList.toggle('stuck', window.scrollY > 24);
+  }
+  onScrollNav();
+  window.addEventListener('scroll', onScrollNav, { passive: true });
+
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open menu');
+    burger.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    document.body.style.overflow = '';
+  }
+
+  burger?.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    burger.innerHTML = open
+      ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+      : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  $$('#drawer a').forEach(a => a.addEventListener('click', closeDrawer));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+  });
+
+  /* ═══════════════════════════════════════════
+     4 · SCROLL PROGRESS
+     ═══════════════════════════════════════════ */
+  const prog = $('#prog');
+  function onProg(){
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const p = h > 0 ? (window.scrollY / h) * 100 : 0;
+    prog.style.width = p + '%';
+  }
+  onProg();
+  window.addEventListener('scroll', onProg, { passive: true });
+  window.addEventListener('resize', onProg, { passive: true });
+
+  /* ═══════════════════════════════════════════
+     5 · CUSTOM CURSOR
+     ═══════════════════════════════════════════ */
+  if (finePointer && !reduced){
+    const ring = $('#curRing');
+    const dot  = $('#curDot');
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let rx = mx, ry = my;
+
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate3d(${mx}px,${my}px,0)`;
+    }, { passive: true });
+
+    (function loop(){
+      rx += (mx - rx) * 0.16;
+      ry += (my - ry) * 0.16;
+      ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
+      requestAnimationFrame(loop);
+    })();
+
+    const HOVER = 'a, button, .card, .metric, .faq-q, .alloc-row, .tl-item';
+    document.addEventListener('mouseover', e => {
+      if (e.target.closest(HOVER)) ring.classList.add('on');
+    });
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest(HOVER)) ring.classList.remove('on');
+    });
+    document.addEventListener('mouseleave', () => {
+      ring.style.opacity = '0'; dot.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      ring.style.opacity = '1'; dot.style.opacity = '1';
+    });
+  }
+
+  /* ═══════════════════════════════════════════
+     6 · STARFIELD
+     ═══════════════════════════════════════════ */
+  (function stars(){
+    const cvs = $('#stars');
+    if (!cvs || reduced) { if (cvs) cvs.remove(); return; }
+    const ctx = cvs.getContext('2d', { alpha: true });
+    let w, h, dpr, stars = [], raf;
+
+    function build(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = cvs.width  = Math.floor(innerWidth  * dpr);
+      h = cvs.height = Math.floor(innerHeight * dpr);
+      cvs.style.width = innerWidth + 'px';
+      cvs.style.height = innerHeight + 'px';
+
+      const count = Math.min(Math.floor(innerWidth / 14), 110);
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: (Math.random() * 1.15 + 0.25) * dpr,
+        a: Math.random() * 0.55 + 0.12,
+        vx: (Math.random() - 0.5) * 0.055 * dpr,
+        vy: (Math.random() - 0.5) * 0.055 * dpr,
+        tw: Math.random() * Math.PI * 2,
+        ts: Math.random() * 0.014 + 0.004
+      }));
+    }
+
+    function draw(){
+      ctx.clearRect(0, 0, w, h);
+      const light = root.getAttribute('data-theme') === 'light';
+      for (const s of stars){
+        s.x += s.vx; s.y += s.vy; s.tw += s.ts;
+        if (s.x < 0) s.x = w; if (s.x > w) s.x = 0;
+        if (s.y < 0) s.y = h; if (s.y > h) s.y = 0;
+
+        const alpha = s.a * (0.55 + 0.45 * Math.sin(s.tw));
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = light
+          ? `rgba(60,90,180,${alpha * 0.5})`
+          : `rgba(200,220,255,${alpha})`;
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    }
+
+    build();
+    draw();
+    window.addEventListener('resize', () => { cancelAnimationFrame(raf); build(); draw(); }, { passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else { cancelAnimationFrame(raf); draw(); }
+    });
+  })();
+
+  /* ═══════════════════════════════════════════
+     7 · REVEAL OBSERVER
+     ═══════════════════════════════════════════ */
+  const revealTargets = $$('.rv:not(.hero .rv)');
+  const allocPanel = $('#allocPanel');
+
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+    revealTargets.forEach(el => io.observe(el));
+
+    if (allocPanel){
+      const io2 = new IntersectionObserver((entries) => {
+        entries.forEach(en => {
+          if (en.isIntersecting){ allocPanel.classList.add('in'); io2.unobserve(allocPanel); }
+        });
+      }, { threshold: 0.3 });
+      io2.observe(allocPanel);
+    }
+  } else {
+    revealTargets.forEach(el => el.classList.add('in'));
+    allocPanel?.classList.add('in');
+  }
+
+  /* ═══════════════════════════════════════════
+     8 · COUNTERS
+     ═══════════════════════════════════════════ */
+  function animateCount(el){
+    const target = parseFloat(el.dataset.count || '0');
+    const dec    = parseInt(el.dataset.dec || '0', 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const dur    = 1600;
+    const t0     = performance.now();
+
+    function step(now){
+      const t = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = target * eased;
+      el.textContent = prefix + val.toFixed(dec) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + target.toFixed(dec) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  const counters = $$('[data-count]');
+  if ('IntersectionObserver' in window && !reduced){
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        animateCount(en.target);
+        cio.unobserve(en.target);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => cio.observe(el));
+  } else {
+    counters.forEach(el => {
+      const d = parseInt(el.dataset.dec || '0', 10);
+      el.textContent = (el.dataset.prefix || '') + parseFloat(el.dataset.count).toFixed(d) + (el.dataset.suffix || '');
+    });
+  }
+
+  /* ═══════════════════════════════════════════
+     9 · CHART
+     ═══════════════════════════════════════════ */
+  const SERIES = {
+    '1W': { price: '$184.62', delta: '+3.1%', up: true,  n: 28, seed: 7,  start: 178, vol: 1.6,  drift: 0.22 },
+    '1M': { price: '$184.62', delta: '+12.4%', up: true, n: 42, seed: 19, start: 166, vol: 2.4,  drift: 0.44 },
+    '6M': { price: '$184.62', delta: '+41.8%', up: true, n: 56, seed: 33, start: 132, vol: 3.6,  drift: 0.94 },
+    '1Y': { price: '$184.62', delta: '+86.2%', up: true, n: 64, seed: 51, start: 100, vol: 4.8,  drift: 1.34 }
+  };
+
+  function seeded(seed){
+    let s = seed;
+    return () => { s = (s * 1664525 + 1013904223) % 4294967296; return s / 4294967296; };
+  }
+
+  function walk(cfg){
+    const r = seeded(cfg.seed);
+    const out = [];
+    let v = cfg.start;
+    for (let i = 0; i < cfg.n; i++){
+      v += (r() - 0.48) * cfg.vol + cfg.drift;
+      out.push(Math.max(v, cfg.start * 0.72));
+    }
+    return out;
+  }
+
+  const chartCanvas = $('#perfChart');
+  let chart = null;
+
+  function buildChart(range){
+    if (!chartCanvas || typeof Chart === 'undefined') return;
+    const cfg = SERIES[range] || SERIES['1M'];
+    const data = walk(cfg);
+
+    $('#conPrice').textContent = cfg.price;
+    const dEl = $('#conDelta');
+    dEl.innerHTML = `<i class="fa-solid fa-arrow-trend-${cfg.up ? 'up' : 'down'}" aria-hidden="true"></i> ${cfg.delta}`;
+    dEl.style.background = cfg.up ? 'rgba(46,230,168,.13)' : 'rgba(255,95,126,.13)';
+    dEl.style.color = cfg.up ? 'var(--mint)' : 'var(--rose)';
+
+    const ctx = chartCanvas.getContext('2d');
+    const grad = ctx.createLinearGradient(0, 0, 0, 180);
+    grad.addColorStop(0, 'rgba(91,140,255,.34)');
+    grad.addColorStop(0.55, 'rgba(91,140,255,.08)');
+    grad.addColorStop(1, 'rgba(91,140,255,0)');
+
+    const lineGrad = ctx.createLinearGradient(0, 0, 420, 0);
+    lineGrad.addColorStop(0, '#5B8CFF');
+    lineGrad.addColorStop(0.55, '#6FA0FF');
+    lineGrad.addColorStop(1, '#2EE6A8');
+
+    if (chart){
+      chart.data.labels = data.map((_, i) => i);
+      chart.data.datasets[0].data = data;
+      chart.data.datasets[0].borderColor = lineGrad;
+      chart.data.datasets[0].backgroundColor = grad;
+      chart.update('active');
+      return;
+    }
+
+    chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: data.map((_, i) => i),
+        datasets: [{
+          data,
+          borderColor: lineGrad,
+          backgroundColor: grad,
+          borderWidth: 2,
           fill: true,
-          backgroundColor: fillFund,
-          tension: 0.42,
-          pointRadius: 0,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: '#4A78FF',
-          pointHoverBorderColor: '#fff',
-          pointHoverBorderWidth: 2,
-          pointHoverShadowColor: 'rgba(74,120,255,0.6)',
-        },
-        {
-          label: 'Aerospace Index',
-          data: index,
-          borderColor: '#00E8A6',
-          borderWidth: 1.8,
-          borderDash: [5, 5],
-          fill: true,
-          backgroundColor: fillIndex,
           tension: 0.42,
           pointRadius: 0,
           pointHoverRadius: 4,
-          pointHoverBackgroundColor: '#00E8A6',
-          pointHoverBorderColor: '#fff',
-          pointHoverBorderWidth: 2,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: { duration: 1800, easing: 'easeOutQuart' },
-      interaction: { intersect: false, mode: 'index' },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: 'rgba(8,10,24,0.94)',
-          borderColor: 'rgba(74,120,255,0.32)',
-          borderWidth: 1,
-          padding: 14,
-          cornerRadius: 12,
-          titleColor: '#F0F2FA',
-          titleFont: { size: 12, weight: '600', family: 'Inter' },
-          bodyColor: '#9AA2BE',
-          bodyFont: { size: 12, family: 'Inter' },
-          displayColors: true,
-          boxPadding: 6,
-          callbacks: {
-            label: (ctx) => ` ${ctx.dataset.label}: $${ctx.parsed.y.toLocaleString()}M`,
-          },
-        },
+          pointHoverBackgroundColor: '#2EE6A8',
+          pointHoverBorderColor: '#05060B',
+          pointHoverBorderWidth: 2
+        }]
       },
-      scales: {
-        x: {
-          grid: { display: false },
-          border: { display: false },
-          ticks: {
-            color: '#626A88',
-            font: { size: 10, family: 'Inter', weight: '500' },
-            maxRotation: 0,
-            autoSkip: true,
-            maxTicksLimit: 8,
-          },
-        },
-        y: {
-          grid: { color: 'rgba(255,255,255,0.045)', drawTicks: false },
-          border: { display: false },
-          ticks: {
-            color: '#626A88',
-            font: { size: 10, family: 'Inter', weight: '500' },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: reduced ? false : { duration: 900, easing: 'easeOutQuart' },
+        interaction: { intersect: false, mode: 'index' },
+        layout: { padding: { top: 8, right: 4, bottom: 0, left: 4 } },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(8,10,19,.94)',
+            borderColor: 'rgba(255,255,255,.12)',
+            borderWidth: 1,
+            titleColor: '#9BA3BE',
+            titleFont: { size: 10, weight: '600', family: 'Inter' },
+            bodyColor: '#EEF1FA',
+            bodyFont: { size: 13, weight: '700', family: 'Space Grotesk' },
             padding: 12,
-            callback: (v) => `$${v}M`,
-          },
+            cornerRadius: 10,
+            displayColors: false,
+            callbacks: {
+              title: (items) => 'T + ' + items[0].label,
+              label: (item) => '$' + item.parsed.y.toFixed(2)
+            }
+          }
         },
-      },
-    },
-  });
-};
+        scales: {
+          x: { display: false },
+          y: {
+            display: true,
+            grid: { color: 'rgba(255,255,255,.045)', drawTicks: false },
+            border: { display: false },
+            ticks: { display: false },
+            grace: '8%'
+          }
+        }
+      }
+    });
 
-const buildDonut = () => {
-  const ctx = $('#donut');
-  if (!ctx) return;
-
-  chartState.donut = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ['Launch Infrastructure', 'Orbital Broadband', 'Energy Storage', 'R&D Reserve'],
-      datasets: [{
-        data: [42, 31, 18, 9],
-        backgroundColor: ['#4A78FF', '#00E8A6', '#F0B840', '#7A9CFF'],
-        borderColor: 'transparent',
-        borderWidth: 0,
-        hoverOffset: 12,
-        hoverBorderColor: 'rgba(255,255,255,0.15)',
-        hoverBorderWidth: 2,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      cutout: '72%',
-      animation: { duration: 1600, easing: 'easeOutQuart', animateRotate: true },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: 'rgba(8,10,24,0.94)',
-          borderColor: 'rgba(74,120,255,0.32)',
-          borderWidth: 1,
-          padding: 12,
-          cornerRadius: 10,
-          titleColor: '#F0F2FA',
-          titleFont: { size: 12, weight: '600', family: 'Inter' },
-          bodyColor: '#9AA2BE',
-          bodyFont: { size: 12, family: 'Inter' },
-          callbacks: {
-            label: (ctx) => ` ${ctx.label}: ${ctx.parsed}%`,
-          },
-        },
-      },
-    },
-  });
-};
-
-const initCharts = () => {
-  buildSparkline();
-  buildMainChart();
-  buildDonut();
-};
-
-/* Chart.js is loaded synchronously; init on DOM ready */
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initCharts);
-} else {
-  initCharts();
-}
-
-/* ═══════════════════════════════════════════════════════
-   THEME-AWARE CHART RECOLOR
-   ═══════════════════════════════════════════════════════ */
-addEventListener('themechange', () => {
-  const dark = document.documentElement.getAttribute('data-theme') !== 'light';
-  const gridColor = dark ? 'rgba(255,255,255,0.045)' : 'rgba(12,18,44,0.07)';
-  const tickColor = dark ? '#626A88' : '#858DA8';
-
-  if (chartState.main) {
-    const s = chartState.main.options.scales;
-    s.x.ticks.color = tickColor;
-    s.y.ticks.color = tickColor;
-    s.y.grid.color = gridColor;
-    chartState.main.update('none');
+    window.__tfnChart = chart;
   }
-});
 
-/* ═══════════════════════════════════════════════════════
-   SMOOTH ANCHOR SCROLL (with nav offset)
-   ═══════════════════════════════════════════════════════ */
-$$('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', (e) => {
-    const id = link.getAttribute('href');
-    if (id === '#' || id.length < 2) return;
-    const target = document.querySelector(id);
-    if (!target) return;
+  function initChart(){
+    if (typeof Chart === 'undefined') return;
+    buildChart('1M');
 
-    e.preventDefault();
-    const navH = nav.classList.contains('stuck') ? 66 : 76;
-    const y = target.getBoundingClientRect().top + scrollY - navH - 20;
+    $$('.con-tabs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        $$('.con-tabs button').forEach(b => {
+          b.classList.remove('on');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('on');
+        btn.setAttribute('aria-selected', 'true');
+        buildChart(btn.dataset.range);
+      });
+    });
+  }
 
-    scrollTo({ top: y, behavior: REDUCED ? 'auto' : 'smooth' });
+  if (document.readyState === 'complete') initChart();
+  else window.addEventListener('load', initChart);
+
+  /* ═══════════════════════════════════════════
+     10 · FAQ
+     ═══════════════════════════════════════════ */
+  $$('#faqList .faq-item').forEach(item => {
+    const btn = $('.faq-q', item);
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      $$('#faqList .faq-item').forEach(o => {
+        o.classList.remove('open');
+        $('.faq-q', o).setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
-});
-</script>
 
+  /* ═══════════════════════════════════════════
+     11 · CONSOLE TILT + SPOTLIGHT
+     ═══════════════════════════════════════════ */
+  const consoleEl = $('#console');
+  const heroArt = $('.hero-art');
+
+  if (consoleEl && heroArt && finePointer && !reduced){
+    heroArt.addEventListener('mousemove', (e) => {
+      const r = heroArt.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+
+      const rx = (0.5 - py) * 9;
+      const ry = (px - 0.5) * 11;
+
+      consoleEl.style.transform =
+        `rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateZ(0)`;
+
+      const cr = consoleEl.getBoundingClientRect();
+      consoleEl.style.setProperty('--mx', ((e.clientX - cr.left) / cr.width * 100) + '%');
+      consoleEl.style.setProperty('--my', ((e.clientY - cr.top) / cr.height * 100) + '%');
+    });
+
+    heroArt.addEventListener('mouseleave', () => {
+      consoleEl.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+  }
+
+  /* ═══════════════════════════════════════════
+     12 · CARD SPOTLIGHT
+     ═══════════════════════════════════════════ */
+  if (finePointer && !reduced){
+    $$('.card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    });
+  }
+
+  /* ═══════════════════════════════════════════
+     13 · MARQUEE DUPLICATION
+     ═══════════════════════════════════════════ */
+  const track = $('#stripTrack');
+  if (track) track.innerHTML += track.innerHTML;
+
+  /* ═══════════════════════════════════════════
+     14 · MISC
+     ═══════════════════════════════════════════ */
+  const yearEl = $('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+})();
+</script>
 </body>
 </html>
