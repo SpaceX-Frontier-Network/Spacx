@@ -6,28 +6,26 @@
 <meta name="theme-color" content="#000000" />
 <meta name="color-scheme" content="dark light" />
 
-<title>Frontier — Bitcoin Trading &amp; Investment, Engineered Like Tesla</title>
-<meta name="description" content="Frontier is a premium Bitcoin trading and investment platform. Live BTC markets, institutional custody, fractional exposure to Tesla-grade assets and daily yield — from $500." />
-<meta name="keywords" content="bitcoin trading, BTC investment, crypto portfolio, fractional investing, digital assets, institutional custody, bitcoin yield, crypto trading platform" />
-<meta name="author" content="Frontier" />
+<title>Frontier — Trade Bitcoin. Own Tesla, SpaceX &amp; the Musk Economy.</title>
+<meta name="description" content="Unified investment platform for Bitcoin trading and fractional ownership of Tesla vehicles, Optimus robots, SpaceX Starship &amp; Starlink, Neuralink and Boring Company. Institutional custody from $1,000." />
+<meta name="keywords" content="bitcoin trading, BTC investment, Tesla fractional ownership, SpaceX Starlink, Optimus robot, Neuralink, Boring Company, Elon Musk investments, crypto portfolio, real-world assets, institutional custody" />
+<meta name="author" content="Frontier Capital" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="canonical" href="https://frontier.example/" />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Frontier" />
-<meta property="og:title" content="Frontier — Trade Bitcoin. Own the Frontier." />
-<meta property="og:description" content="Institutional-grade BTC trading and fractional investing — engineered with the precision of a Tesla. From $500." />
+<meta property="og:site_name" content="Frontier Capital" />
+<meta property="og:title" content="Frontier — Trade Bitcoin. Own the Musk Economy." />
+<meta property="og:description" content="Institutional-grade BTC trading and fractional exposure to Tesla, SpaceX, Neuralink and Boring Company. From $1,000." />
 <meta property="og:url" content="https://frontier.example/" />
 <meta property="og:image" content="https://frontier.example/og.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_US" />
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Frontier — Trade Bitcoin. Own the Frontier." />
-<meta name="twitter:description" content="Institutional-grade BTC trading and fractional investing. From $500." />
+<meta name="twitter:title" content="Frontier — Trade Bitcoin. Own the Musk Economy." />
+<meta name="twitter:description" content="Institutional-grade BTC trading and fractional exposure to Tesla, SpaceX, Neuralink and Boring Company. From $1,000." />
 <meta name="twitter:image" content="https://frontier.example/og.jpg" />
 <meta name="twitter:site" content="@frontier" />
 
@@ -61,6 +59,7 @@
   --btc-dk:     #C9700A;
   --gain:       #00D68F;
   --loss:       #FF5252;
+  --tesla-blue: #3E6AE1;
 
   /* Lines */
   --line-d:     rgba(255,255,255,.10);
@@ -78,7 +77,7 @@
   --e-soft: cubic-bezier(.4,0,.2,1);
 
   /* Layout */
-  --wrap: 1280px;
+  --wrap: 1320px;
   --r: 18px;
   --r-lg: 24px;
   --r-xl: 32px;
@@ -168,12 +167,12 @@ h1,h2,h3,h4,h5{
 .ticker-track{
   display:flex;
   white-space:nowrap;
-  animation:tickerScroll 48s linear infinite;
+  animation:tickerScroll 52s linear infinite;
   will-change:transform;
 }
 @keyframes tickerScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 
-.tk-group{ display:flex; gap:44px; padding-right:44px; }
+.tk-group{ display:flex; gap:46px; padding-right:46px; }
 
 .tk{
   display:inline-flex; align-items:center; gap:10px;
@@ -181,10 +180,7 @@ h1,h2,h3,h4,h5{
   font-size:.72rem;
   letter-spacing:-.02em;
 }
-.tk i{
-  font-style:normal; font-weight:700; color:#fff;
-  letter-spacing:.06em;
-}
+.tk i{ font-style:normal; font-weight:700; color:#fff; letter-spacing:.06em; }
 .tk b{ font-weight:500; color:var(--mist); }
 .tk em{ font-style:normal; font-weight:600; font-size:.7rem; }
 .tk em.up{ color:var(--gain); }
@@ -193,13 +189,13 @@ h1,h2,h3,h4,h5{
 
 /* ── Nav ── */
 .nav{
-  height:72px;
+  height:74px;
   display:flex; align-items:center;
   border-bottom:1px solid transparent;
   transition:height .4s var(--e), background .4s var(--e), border-color .4s var(--e), backdrop-filter .4s var(--e);
 }
 .hdr.scrolled .nav{
-  height:64px;
+  height:66px;
   background:rgba(0,0,0,.68);
   -webkit-backdrop-filter:blur(22px) saturate(180%);
   backdrop-filter:blur(22px) saturate(180%);
@@ -214,7 +210,7 @@ h1,h2,h3,h4,h5{
 
 .brand{ display:flex; align-items:center; gap:11px; flex-shrink:0; }
 .brand-mark{
-  width:34px; height:34px; border-radius:10px;
+  width:36px; height:36px; border-radius:11px;
   display:grid; place-items:center;
   background:linear-gradient(150deg,#2A2E36,#171A20);
   border:1px solid rgba(255,255,255,.12);
@@ -226,7 +222,7 @@ h1,h2,h3,h4,h5{
 
 .brand-txt{ display:flex; flex-direction:column; line-height:1.1; }
 .brand-txt b{
-  font-family:var(--disp); font-size:1rem; font-weight:600;
+  font-family:var(--disp); font-size:1.05rem; font-weight:650;
   letter-spacing:-.03em; color:#fff;
 }
 .brand-txt small{
@@ -236,8 +232,8 @@ h1,h2,h3,h4,h5{
 
 .nav-links{ display:flex; gap:2px; }
 .nav-links a{
-  padding:9px 15px; border-radius:99px;
-  font-size:.865rem; font-weight:450;
+  padding:9px 16px; border-radius:99px;
+  font-size:.87rem; font-weight:450;
   color:rgba(255,255,255,.72);
   transition:color .3s, background .3s;
   white-space:nowrap;
@@ -368,7 +364,7 @@ h1,h2,h3,h4,h5{
   position:relative;
   min-height:100vh; min-height:100svh;
   display:flex; align-items:center;
-  padding:170px 0 210px;
+  padding:180px 0 240px;
   overflow:hidden;
   background:#000;
   isolation:isolate;
@@ -379,7 +375,7 @@ h1,h2,h3,h4,h5{
 .slide{
   position:absolute; inset:0;
   opacity:0;
-  transition:opacity 1.3s var(--e-soft);
+  transition:opacity 1.4s var(--e-soft);
   will-change:opacity;
 }
 .slide.on{ opacity:1; }
@@ -388,59 +384,66 @@ h1,h2,h3,h4,h5{
   position:absolute; inset:0;
   background-size:cover;
   background-position:center;
-  transform:scale(1.07);
-  transition:transform 8.5s linear;
+  transform:scale(1.08);
+  transition:transform 9s linear;
   will-change:transform;
 }
 .slide.on .slide-media{ transform:scale(1); }
 
-/* Slide 1 — trading terminal grid */
+/* Slide 1 — Bitcoin Trading Terminal */
 .slide.s1 .slide-media{
   background-color:#05070A;
   background-image:
-    radial-gradient(58% 78% at 76% 26%, rgba(247,147,26,.22), transparent 62%),
-    radial-gradient(52% 62% at 12% 84%, rgba(232,33,39,.13), transparent 68%),
-    radial-gradient(40% 50% at 50% 50%, rgba(255,255,255,.05), transparent 70%),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.032) 0 1px, transparent 1px 68px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.032) 0 1px, transparent 1px 68px);
+    radial-gradient(58% 78% at 76% 26%, rgba(247,147,26,.24), transparent 62%),
+    radial-gradient(52% 62% at 12% 84%, rgba(232,33,39,.14), transparent 68%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 68px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 68px);
 }
 
-/* Slide 2 — Model S */
+/* Slide 2 — Tesla Model S Plaid */
 .slide.s2 .slide-media{
   background-color:#0A0C0F;
   background-image:
-    radial-gradient(70% 80% at 70% 40%, rgba(23,26,32,.35), transparent 70%),
-    url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-Main-Hero-Desktop-LHD.jpg');
+    radial-gradient(70% 80% at 70% 40%, rgba(23,26,32,.40), transparent 70%),
+    url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-S-Desktop-LHD-6.22.jpg');
 }
 
-/* Slide 3 — Optimus */
+/* Slide 3 — SpaceX Starship */
 .slide.s3 .slide-media{
   background-color:#0B0D10;
   background-image:
-    radial-gradient(65% 75% at 60% 45%, rgba(247,147,26,.10), transparent 70%),
-    url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Optimus_Desktop.jpg');
+    radial-gradient(65% 75% at 60% 45%, rgba(247,147,26,.12), transparent 70%),
+    url('https://cdnph.upi.com/pv/upi/3e380473ca0e65166f3c80785f6bfdde/SPACEX-STARSHIP-LAUNCH.jpg');
 }
 
-/* Slide 4 — Solar Roof */
+/* Slide 4 — Tesla Optimus */
 .slide.s4 .slide-media{
+  background-color:#0C0E11;
+  background-image:
+    radial-gradient(60% 70% at 55% 40%, rgba(232,33,39,.10), transparent 70%),
+    url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Cybertruck-Desktop.jpg');
+}
+
+/* Slide 5 — Tesla Energy (Powerwall + Solar Roof) */
+.slide.s5 .slide-media{
   background-color:#0A0D0C;
   background-image:
-    radial-gradient(70% 80% at 65% 35%, rgba(0,214,143,.10), transparent 70%),
-    url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Solar-Roof-Hero-Desktop.jpg');
+    radial-gradient(70% 80% at 65% 35%, rgba(0,214,143,.12), transparent 70%),
+    url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Card-Powerwall-Desktop.png');
 }
 
 /* Overlay */
 .hero-veil{
   position:absolute; inset:0; z-index:1; pointer-events:none;
   background:
-    linear-gradient(94deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.78) 38%, rgba(0,0,0,.30) 72%, rgba(0,0,0,.55) 100%),
-    linear-gradient(180deg, rgba(0,0,0,.72) 0%, transparent 26%, transparent 58%, rgba(0,0,0,.94) 100%);
+    linear-gradient(94deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.78) 38%, rgba(0,0,0,.32) 72%, rgba(0,0,0,.58) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.74) 0%, transparent 26%, transparent 56%, rgba(0,0,0,.95) 100%);
 }
 /* Film grain / scanline for video feel */
 .hero-grain{
   position:absolute; inset:0; z-index:2; pointer-events:none;
-  opacity:.32;
-  background-image:repeating-linear-gradient(0deg, rgba(255,255,255,.028) 0 1px, transparent 1px 3px);
+  opacity:.30;
+  background-image:repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 3px);
   mix-blend-mode:overlay;
 }
 
@@ -451,7 +454,7 @@ h1,h2,h3,h4,h5{
   margin-inline:auto;
   display:grid;
   grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
-  gap:60px;
+  gap:64px;
   align-items:center;
 }
 
@@ -468,7 +471,7 @@ h1,h2,h3,h4,h5{
   font-size:.66rem; font-weight:600;
   letter-spacing:.1em; text-transform:uppercase;
   color:rgba(255,255,255,.9);
-  margin-bottom:26px;
+  margin-bottom:28px;
 }
 .hero-eyebrow .dot{
   width:6px; height:6px; border-radius:50%;
@@ -486,11 +489,11 @@ h1,h2,h3,h4,h5{
 .hero-title{
   font-family:var(--disp);
   font-weight:400;
-  font-size:clamp(2.6rem, 5.4vw, 4.7rem);
+  font-size:clamp(2.6rem, 5.6vw, 5rem);
   line-height:1.0;
   letter-spacing:-.05em;
   color:#fff;
-  margin-bottom:24px;
+  margin-bottom:26px;
 }
 .hero-title em{
   font-style:normal;
@@ -500,19 +503,19 @@ h1,h2,h3,h4,h5{
 }
 
 .hero-lede{
-  font-size:clamp(.98rem, 1.15vw, 1.1rem);
+  font-size:clamp(.98rem, 1.15vw, 1.12rem);
   color:rgba(255,255,255,.66);
   line-height:1.68;
-  max-width:520px;
+  max-width:540px;
   font-weight:380;
-  margin-bottom:34px;
+  margin-bottom:36px;
 }
 
-.hero-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:42px; }
+.hero-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:44px; }
 
 .hero-trust{
   display:flex; align-items:center; gap:18px;
-  padding-top:26px;
+  padding-top:28px;
   border-top:1px solid rgba(255,255,255,.10);
   font-size:.82rem;
   color:rgba(255,255,255,.55);
@@ -538,8 +541,8 @@ h1,h2,h3,h4,h5{
 .dash{
   position:relative;
   border-radius:var(--r-xl);
-  padding:26px 26px 22px;
-  background:linear-gradient(160deg, rgba(28,32,40,.86), rgba(12,14,18,.92));
+  padding:28px 28px 24px;
+  background:linear-gradient(160deg, rgba(28,32,40,.88), rgba(12,14,18,.94));
   border:1px solid rgba(255,255,255,.10);
   -webkit-backdrop-filter:blur(28px) saturate(160%);
   backdrop-filter:blur(28px) saturate(160%);
@@ -552,11 +555,11 @@ h1,h2,h3,h4,h5{
 .dash::before{
   content:''; position:absolute; top:-60%; right:-30%;
   width:340px; height:340px; border-radius:50%;
-  background:radial-gradient(circle, rgba(247,147,26,.18), transparent 66%);
+  background:radial-gradient(circle, rgba(247,147,26,.20), transparent 66%);
   pointer-events:none;
 }
 
-.dash-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+.dash-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
 .dash-label{
   display:inline-flex; align-items:center; gap:8px;
   font-family:var(--mono);
@@ -598,15 +601,15 @@ h1,h2,h3,h4,h5{
   margin-top:8px; letter-spacing:-.01em;
 }
 
-.dash-chart{ width:100%; height:96px; margin:20px 0 6px; }
+.dash-chart{ width:100%; height:100px; margin:22px 0 6px; }
 
-.dash-rows{ display:grid; gap:1px; margin-top:16px; }
+.dash-rows{ display:grid; gap:1px; margin-top:18px; }
 .dash-row{
   display:grid;
   grid-template-columns:1fr auto auto;
   align-items:center;
   gap:12px;
-  padding:11px 0;
+  padding:12px 0;
   border-top:1px solid rgba(255,255,255,.07);
   font-family:var(--mono);
   font-size:.76rem;
@@ -618,7 +621,7 @@ h1,h2,h3,h4,h5{
 /* ── Hero slide nav ── */
 .hero-nav{
   position:absolute; left:0; right:0; bottom:0; z-index:5;
-  padding-bottom:34px;
+  padding-bottom:36px;
 }
 .hero-nav-in{
   width:min(var(--wrap), 92vw);
@@ -626,12 +629,13 @@ h1,h2,h3,h4,h5{
   display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
 }
 
-.slide-tabs{ display:flex; gap:10px; flex:1; max-width:760px; }
+.slide-tabs{ display:flex; gap:10px; flex:1; max-width:800px; }
 .slide-tab{
   flex:1; text-align:left; padding:16px 0 0;
   position:relative;
   color:rgba(255,255,255,.38);
   transition:color .35s var(--e);
+  cursor:pointer;
 }
 .slide-tab::before{
   content:''; position:absolute; top:0; left:0;
@@ -645,7 +649,7 @@ h1,h2,h3,h4,h5{
   box-shadow:0 0 12px rgba(247,147,26,.8);
 }
 .slide-tab.on{ color:#fff; }
-.slide-tab.on::after{ width:100%; animation:tabFill 7s linear; }
+.slide-tab.on::after{ width:100%; animation:tabFill 8s linear; }
 @keyframes tabFill{ from{ width:0; } to{ width:100%; } }
 
 .slide-tab .tn{
@@ -699,7 +703,7 @@ h1,h2,h3,h4,h5{
   grid-template-columns:repeat(4,1fr);
 }
 .stat-cell{
-  padding:34px 28px;
+  padding:36px 30px;
   border-right:1px solid var(--line-d2);
   position:relative;
 }
@@ -733,25 +737,25 @@ h1,h2,h3,h4,h5{
 .light{ background:var(--cloud); color:var(--carbon); }
 
 /* ── Intro ── */
-.intro{ padding:clamp(72px,9vw,120px) 0 clamp(36px,4vw,56px); text-align:center; }
+.intro{ padding:clamp(80px,9vw,130px) 0 clamp(40px,4vw,60px); text-align:center; }
 .intro-kicker{
   display:inline-flex; align-items:center; gap:10px;
   font-family:var(--mono);
   font-size:.64rem; font-weight:600; letter-spacing:.2em;
   text-transform:uppercase; color:var(--gray);
-  margin-bottom:22px;
+  margin-bottom:24px;
 }
 .intro-kicker::before,
 .intro-kicker::after{
   content:''; width:26px; height:1px; background:rgba(23,26,32,.2);
 }
 .intro h2{
-  font-size:clamp(2.1rem,4.6vw,3.6rem);
+  font-size:clamp(2.2rem,4.8vw,3.8rem);
   font-weight:400;
   letter-spacing:-.05em;
   line-height:1.04;
   color:var(--carbon);
-  max-width:880px; margin:0 auto 22px;
+  max-width:920px; margin:0 auto 24px;
 }
 .intro h2 em{
   font-style:normal;
@@ -761,27 +765,25 @@ h1,h2,h3,h4,h5{
 }
 .intro p{
   color:var(--gray);
-  font-size:1.02rem; line-height:1.72;
-  max-width:620px; margin:0 auto;
+  font-size:1.05rem; line-height:1.72;
+  max-width:660px; margin:0 auto;
 }
 
 /* ── Tiers ── */
-.tiers{ padding:clamp(40px,5vw,64px) 0 clamp(80px,9vw,120px); }
+.tiers{ padding:clamp(40px,5vw,70px) 0 clamp(90px,10vw,140px); }
 
 .tiers-head{
   display:flex; align-items:flex-end; justify-content:space-between;
-  gap:28px; flex-wrap:wrap; margin-bottom:40px;
+  gap:28px; flex-wrap:wrap; margin-bottom:48px;
 }
 .tiers-head h3{
-  font-size:clamp(1.5rem,2.6vw,2rem);
+  font-size:clamp(1.6rem,2.8vw,2.2rem);
   font-weight:450; letter-spacing:-.04em; color:var(--carbon);
 }
-.tiers-head h3 em{
-  font-style:normal; color:var(--btc-dk);
-}
-.tiers-head p{ color:var(--gray); font-size:.94rem; max-width:400px; line-height:1.6; }
+.tiers-head h3 em{ font-style:normal; color:var(--btc-dk); }
+.tiers-head p{ color:var(--gray); font-size:.95rem; max-width:440px; line-height:1.6; }
 
-.tier-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.tier-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
 
 .tier{
   position:relative;
@@ -789,33 +791,33 @@ h1,h2,h3,h4,h5{
   background:#fff;
   border:1px solid var(--line-l);
   border-radius:var(--r-lg);
-  padding:30px 26px 26px;
+  padding:30px 24px 26px;
   transition:transform .5s var(--e), box-shadow .5s var(--e), border-color .5s var(--e);
   overflow:hidden;
 }
 .tier:hover{
-  transform:translateY(-6px);
-  box-shadow:0 32px 60px -28px rgba(23,26,32,.30), 0 8px 20px -12px rgba(23,26,32,.16);
-  border-color:rgba(23,26,32,.20);
+  transform:translateY(-7px);
+  box-shadow:0 34px 64px -30px rgba(23,26,32,.32), 0 8px 20px -12px rgba(23,26,32,.18);
+  border-color:rgba(23,26,32,.22);
 }
 
-.tier.pop{ border-color:rgba(247,147,26,.45); box-shadow:0 20px 44px -24px rgba(247,147,26,.35); }
-.tier.pop:hover{ border-color:var(--btc); box-shadow:0 32px 66px -26px rgba(247,147,26,.45); }
+.tier.t2{ border-color:rgba(247,147,26,.35); }
+.tier.t2:hover{ border-color:var(--btc); }
 
-.tier.blk{
+.tier.t3{
   background:linear-gradient(168deg, #1E222A 0%, #0B0D10 100%);
   border-color:#23272F;
   color:#fff;
   box-shadow:0 28px 60px -28px rgba(0,0,0,.7);
 }
-.tier.blk:hover{
+.tier.t3:hover{
   border-color:rgba(247,147,26,.55);
   box-shadow:0 40px 80px -30px rgba(0,0,0,.85);
 }
-.tier.blk::after{
+.tier.t3::after{
   content:''; position:absolute; top:-32%; right:-26%;
   width:240px; height:240px; border-radius:50%;
-  background:radial-gradient(circle, rgba(247,147,26,.16), transparent 66%);
+  background:radial-gradient(circle, rgba(247,147,26,.18), transparent 66%);
   pointer-events:none;
 }
 
@@ -832,22 +834,23 @@ h1,h2,h3,h4,h5{
   box-shadow:0 4px 14px -3px rgba(247,147,26,.6);
 }
 
-.tier-head{ display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:24px; gap:12px; }
+.tier-head{ display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:26px; gap:12px; }
 
 .tier-badge{
-  width:48px; height:48px; border-radius:14px;
+  width:50px; height:50px; border-radius:15px;
   display:grid; place-items:center;
   font-family:var(--disp);
-  font-size:1.15rem; font-weight:600; letter-spacing:-.02em;
+  font-size:1.2rem; font-weight:600; letter-spacing:-.02em;
   transition:transform .5s var(--e);
   flex-shrink:0;
 }
 .tier:hover .tier-badge{ transform:translateY(-2px) rotate(-5deg); }
 
-.tier:nth-child(1) .tier-badge{ background:#F4F4F4; color:var(--steel); border:1px solid rgba(23,26,32,.10); }
-.tier:nth-child(2) .tier-badge{ background:rgba(247,147,26,.12); color:var(--btc-dk); border:1px solid rgba(247,147,26,.28); }
-.tier:nth-child(3) .tier-badge{ background:linear-gradient(140deg,var(--btc-lt),var(--btc)); color:#100A02; box-shadow:0 8px 20px -8px rgba(247,147,26,.7); }
-.tier.blk .tier-badge{ background:linear-gradient(140deg,var(--btc-lt),var(--btc)); color:#100A02; box-shadow:0 10px 24px -8px rgba(247,147,26,.8); }
+.tier.t1 .tier-badge{ background:#F4F4F4; color:var(--steel); border:1px solid rgba(23,26,32,.10); }
+.tier.t2 .tier-badge{ background:rgba(247,147,26,.12); color:var(--btc-dk); border:1px solid rgba(247,147,26,.28); }
+.tier.t3 .tier-badge{ background:linear-gradient(140deg,var(--btc-lt),var(--btc)); color:#100A02; box-shadow:0 8px 20px -8px rgba(247,147,26,.7); }
+.tier.t4 .tier-badge{ background:#1D2027; color:#fff; border:1px solid rgba(255,255,255,.10); }
+.tier.t5 .tier-badge{ background:linear-gradient(140deg,var(--btc-lt),var(--btc)); color:#100A02; box-shadow:0 10px 24px -8px rgba(247,147,26,.8); }
 
 .tier-lv{ display:flex; flex-direction:column; align-items:flex-end; gap:3px; text-align:right; }
 .tier-lv .lv-tag{
@@ -855,13 +858,13 @@ h1,h2,h3,h4,h5{
   font-size:.54rem; font-weight:700; letter-spacing:.18em;
   text-transform:uppercase; color:var(--silver);
 }
-.tier.blk .tier-lv .lv-tag{ color:rgba(255,255,255,.42); }
+.tier.t3 .tier-lv .lv-tag{ color:rgba(255,255,255,.42); }
 .tier-lv .lv-name{
   font-family:var(--mono);
   font-size:.72rem; font-weight:600; color:var(--btc-dk);
   letter-spacing:-.01em;
 }
-.tier.blk .tier-lv .lv-name{ color:var(--btc-lt); }
+.tier.t3 .tier-lv .lv-name{ color:var(--btc-lt); }
 
 .tier-min{
   font-family:var(--mono);
@@ -869,39 +872,39 @@ h1,h2,h3,h4,h5{
   text-transform:uppercase; color:var(--silver);
   margin-bottom:8px;
 }
-.tier.blk .tier-min{ color:rgba(255,255,255,.45); }
+.tier.t3 .tier-min{ color:rgba(255,255,255,.45); }
 
 .tier-amt{
   display:flex; align-items:baseline; gap:1px;
   font-family:var(--disp);
-  font-size:clamp(2.4rem,3.4vw,3rem);
+  font-size:clamp(2.2rem,3vw,2.8rem);
   font-weight:450; letter-spacing:-.055em;
   line-height:1; color:var(--carbon);
   margin-bottom:6px;
 }
-.tier.blk .tier-amt{ color:#fff; }
+.tier.t3 .tier-amt{ color:#fff; }
 .tier-amt .c{ font-size:.46em; color:var(--silver); font-weight:500; }
 
 .tier-suffix{
   font-family:var(--mono);
   font-size:.68rem; color:var(--gray);
-  margin-bottom:20px; letter-spacing:-.01em;
+  margin-bottom:22px; letter-spacing:-.01em;
 }
-.tier.blk .tier-suffix{ color:rgba(255,255,255,.45); }
+.tier.t3 .tier-suffix{ color:rgba(255,255,255,.45); }
 
 .tier-name{
   font-family:var(--disp);
-  font-size:1.3rem; font-weight:550; letter-spacing:-.035em;
+  font-size:1.25rem; font-weight:550; letter-spacing:-.035em;
   color:var(--carbon); margin-bottom:8px;
   display:flex; align-items:center; gap:10px;
 }
-.tier.blk .tier-name{ color:#fff; }
+.tier.t3 .tier-name{ color:#fff; }
 
 .tier-desc{
-  font-size:.86rem; color:var(--gray); line-height:1.6;
-  margin-bottom:20px; min-height:44px;
+  font-size:.85rem; color:var(--gray); line-height:1.6;
+  margin-bottom:22px; min-height:44px;
 }
-.tier.blk .tier-desc{ color:rgba(255,255,255,.62); }
+.tier.t3 .tier-desc{ color:rgba(255,255,255,.62); }
 
 .tier-metrics{
   display:grid; grid-template-columns:1fr 1fr; gap:10px;
@@ -909,10 +912,10 @@ h1,h2,h3,h4,h5{
   border-radius:14px;
   background:#F4F4F4;
   border:1px solid rgba(23,26,32,.07);
-  margin-bottom:22px;
+  margin-bottom:24px;
 }
-.tier.pop .tier-metrics{ background:rgba(247,147,26,.06); border-color:rgba(247,147,26,.18); }
-.tier.blk .tier-metrics{ background:rgba(255,255,255,.055); border-color:rgba(255,255,255,.10); }
+.tier.t2 .tier-metrics{ background:rgba(247,147,26,.06); border-color:rgba(247,147,26,.18); }
+.tier.t3 .tier-metrics{ background:rgba(255,255,255,.055); border-color:rgba(255,255,255,.10); }
 
 .tier-metrics > div span{
   display:block;
@@ -921,31 +924,31 @@ h1,h2,h3,h4,h5{
   text-transform:uppercase; color:var(--silver);
   margin-bottom:6px;
 }
-.tier.blk .tier-metrics > div span{ color:rgba(255,255,255,.5); }
+.tier.t3 .tier-metrics > div span{ color:rgba(255,255,255,.5); }
 
 .tier-metrics > div b{
   font-family:var(--mono);
   font-size:1.15rem; font-weight:600; letter-spacing:-.03em;
   color:var(--carbon); line-height:1;
 }
-.tier.blk .tier-metrics > div b{ color:var(--btc-lt); }
+.tier.t3 .tier-metrics > div b{ color:var(--btc-lt); }
 
 .tier-feats{
   display:grid; gap:11px;
-  padding-top:20px; border-top:1px solid var(--line-l2);
-  margin-bottom:24px; flex:1;
+  padding-top:22px; border-top:1px solid var(--line-l2);
+  margin-bottom:26px; flex:1;
 }
-.tier.blk .tier-feats{ border-top-color:rgba(255,255,255,.10); }
+.tier.t3 .tier-feats{ border-top-color:rgba(255,255,255,.10); }
 
 .tier-feats li{
   display:flex; align-items:flex-start; gap:10px;
   font-size:.81rem; color:var(--gray); line-height:1.5;
 }
-.tier.blk .tier-feats li{ color:rgba(255,255,255,.78); }
+.tier.t3 .tier-feats li{ color:rgba(255,255,255,.78); }
 .tier-feats li.off{ opacity:.42; }
 
 .tier-feats svg{ width:15px; height:15px; flex-shrink:0; margin-top:3px; color:var(--btc-dk); }
-.tier.blk .tier-feats svg{ color:var(--btc-lt); }
+.tier.t3 .tier-feats svg{ color:var(--btc-lt); }
 .tier-feats li.off svg{ color:var(--silver); }
 
 .tier-cta{ display:flex; flex-direction:column; gap:9px; }
@@ -954,10 +957,129 @@ h1,h2,h3,h4,h5{
   font-size:.64rem; text-align:center; color:var(--silver);
   letter-spacing:-.01em;
 }
-.tier.blk .tier-note{ color:rgba(255,255,255,.42); }
+.tier.t3 .tier-note{ color:rgba(255,255,255,.42); }
 
 /* ══════════════════════════════════════════════════════════════
-   PERFORMANCE (dark)
+   PRODUCTS SHOWCASE
+   ══════════════════════════════════════════════════════════════ */
+.products{
+  background:var(--black);
+  padding:clamp(80px,10vw,140px) 0;
+  border-top:1px solid var(--line-d2);
+}
+.products .wrap{ position:relative; z-index:1; }
+
+.prod-head{ max-width:700px; margin-bottom:56px; }
+.prod-head .sec-eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--mono);
+  font-size:.62rem; font-weight:700; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--btc);
+  margin-bottom:22px;
+}
+.prod-head .sec-eyebrow::before{
+  content:''; width:24px; height:1px; background:var(--btc);
+}
+.prod-head h2{
+  font-size:clamp(2rem,4.4vw,3.4rem);
+  font-weight:400; letter-spacing:-.05em; line-height:1.05;
+  color:#fff; margin-bottom:20px;
+}
+.prod-head h2 em{
+  font-style:normal;
+  background:linear-gradient(100deg,var(--btc-lt),var(--btc));
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.prod-head p{
+  color:rgba(255,255,255,.58);
+  font-size:1rem; line-height:1.7;
+}
+
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.pcard{
+  position:relative;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--graphite);
+  border:1px solid rgba(255,255,255,.08);
+  transition:transform .5s var(--e), box-shadow .5s var(--e), border-color .5s var(--e);
+  min-height:420px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.pcard:hover{
+  transform:translateY(-6px);
+  border-color:rgba(247,147,26,.35);
+  box-shadow:0 32px 64px -28px rgba(0,0,0,.8);
+}
+
+.pcard-media{
+  position:absolute; inset:0;
+  background-size:cover;
+  background-position:center;
+  transform:scale(1.02);
+  transition:transform .8s var(--e);
+}
+.pcard:hover .pcard-media{ transform:scale(1.07); }
+
+.pcard-veil{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.92) 100%);
+}
+
+.pcard-body{
+  position:relative; z-index:1;
+  padding:26px 24px 24px;
+}
+
+.pcard-tag{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 10px; border-radius:99px;
+  font-family:var(--mono);
+  font-size:.56rem; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.pcard-tag.tesla{ background:rgba(232,33,39,.18); border:1px solid rgba(232,33,39,.35); color:#FF6B6B; }
+.pcard-tag.spacex{ background:rgba(247,147,26,.15); border:1px solid rgba(247,147,26,.3); color:var(--btc-lt); }
+.pcard-tag.energy{ background:rgba(0,214,143,.12); border:1px solid rgba(0,214,143,.28); color:var(--gain); }
+.pcard-tag.neuralink{ background:rgba(62,106,225,.15); border:1px solid rgba(62,106,225,.3); color:#8BA8FF; }
+.pcard-tag.boring{ background:rgba(138,141,147,.15); border:1px solid rgba(138,141,147,.3); color:var(--mist); }
+
+.pcard h4{
+  font-size:1.25rem; font-weight:550; letter-spacing:-.035em;
+  color:#fff; margin-bottom:8px;
+}
+.pcard p{
+  font-size:.82rem; color:rgba(255,255,255,.6);
+  line-height:1.55; margin-bottom:18px;
+}
+
+.pcard-stats{
+  display:flex; gap:20px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.10);
+}
+.pcard-stats > div span{
+  display:block;
+  font-family:var(--mono);
+  font-size:.54rem; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:rgba(255,255,255,.4);
+  margin-bottom:4px;
+}
+.pcard-stats > div b{
+  font-family:var(--mono);
+  font-size:.88rem; font-weight:600; color:#fff;
+  letter-spacing:-.02em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PERFORMANCE
    ══════════════════════════════════════════════════════════════ */
 .perf{
   position:relative;
@@ -980,21 +1102,11 @@ h1,h2,h3,h4,h5{
 }
 .perf .wrap{ position:relative; z-index:1; }
 
-.sec-head{ max-width:700px; margin-bottom:52px; }
-.sec-eyebrow{
-  display:inline-flex; align-items:center; gap:10px;
-  font-family:var(--mono);
-  font-size:.62rem; font-weight:700; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--btc);
-  margin-bottom:20px;
-}
-.sec-eyebrow::before{
-  content:''; width:24px; height:1px; background:var(--btc);
-}
+.sec-head{ max-width:720px; margin-bottom:56px; }
 .sec-head h2{
-  font-size:clamp(2rem,4.4vw,3.3rem);
+  font-size:clamp(2rem,4.4vw,3.4rem);
   font-weight:400; letter-spacing:-.05em; line-height:1.05;
-  color:#fff; margin-bottom:18px;
+  color:#fff; margin-bottom:20px;
 }
 .sec-head h2 em{
   font-style:normal;
@@ -1018,7 +1130,7 @@ h1,h2,h3,h4,h5{
   background:linear-gradient(165deg, rgba(30,34,42,.9), rgba(11,13,16,.95));
   border:1px solid rgba(255,255,255,.09);
   border-radius:var(--r-xl);
-  padding:28px 28px 22px;
+  padding:30px 30px 24px;
   position:relative;
   overflow:hidden;
 }
@@ -1047,7 +1159,7 @@ h1,h2,h3,h4,h5{
 }
 .pill.up{ background:rgba(0,214,143,.12); border:1px solid rgba(0,214,143,.28); color:var(--gain); }
 
-.bigchart{ width:100%; height:clamp(200px,26vw,290px); margin-top:22px; }
+.bigchart{ width:100%; height:clamp(200px,26vw,300px); margin-top:24px; }
 .bigchart .grid line{ stroke:rgba(255,255,255,.055); stroke-width:1; }
 
 .perf-x{
@@ -1064,7 +1176,7 @@ h1,h2,h3,h4,h5{
   background:linear-gradient(160deg, rgba(30,34,42,.8), rgba(14,16,20,.9));
   border:1px solid rgba(255,255,255,.08);
   border-radius:var(--r);
-  padding:22px 22px 20px;
+  padding:24px 24px 22px;
   transition:border-color .4s var(--e), transform .4s var(--e);
 }
 .pstat:hover{ border-color:rgba(247,147,26,.35); transform:translateY(-2px); }
@@ -1151,10 +1263,10 @@ h1,h2,h3,h4,h5{
 .cta-in{
   position:relative; z-index:1;
   text-align:center;
-  max-width:760px; margin-inline:auto;
+  max-width:780px; margin-inline:auto;
 }
 .cta-in h2{
-  font-size:clamp(2.2rem,5.2vw,3.9rem);
+  font-size:clamp(2.2rem,5.2vw,4rem);
   font-weight:400; letter-spacing:-.055em; line-height:1.03;
   color:#fff; margin-bottom:22px;
 }
@@ -1166,14 +1278,14 @@ h1,h2,h3,h4,h5{
 }
 .cta-in p{
   color:rgba(255,255,255,.6);
-  font-size:1.02rem; line-height:1.7;
-  max-width:540px; margin:0 auto 36px;
+  font-size:1.05rem; line-height:1.7;
+  max-width:560px; margin:0 auto 38px;
 }
 .cta-btns{
   display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
 }
 .cta-fine{
-  margin-top:26px;
+  margin-top:28px;
   font-family:var(--mono);
   font-size:.66rem; letter-spacing:.06em;
   color:rgba(255,255,255,.35);
@@ -1212,7 +1324,7 @@ h1,h2,h3,h4,h5{
 }
 .foot-band p{
   color:rgba(255,255,255,.5);
-  font-size:.94rem; line-height:1.65; max-width:440px;
+  font-size:.94rem; line-height:1.65; max-width:460px;
 }
 
 .foot-form{
@@ -1256,22 +1368,22 @@ h1,h2,h3,h4,h5{
   border-bottom:1px solid var(--line-d2);
 }
 
-.foot-brand .brand-mark{ width:42px; height:42px; border-radius:12px; }
-.foot-brand .brand-mark svg{ width:22px; height:22px; }
+.foot-brand .brand-mark{ width:44px; height:44px; border-radius:13px; }
+.foot-brand .brand-mark svg{ width:23px; height:23px; }
 .foot-brand .bn{
   font-family:var(--disp);
-  font-size:1.3rem; font-weight:500; letter-spacing:-.04em;
+  font-size:1.35rem; font-weight:550; letter-spacing:-.04em;
   color:#fff; margin:18px 0 12px;
 }
 .foot-brand .bn em{ font-style:normal; color:var(--btc); }
 .foot-brand p{
   color:rgba(255,255,255,.48);
-  font-size:.87rem; line-height:1.65; max-width:300px; margin-bottom:24px;
+  font-size:.87rem; line-height:1.65; max-width:310px; margin-bottom:26px;
 }
 
 .foot-social{ display:flex; gap:8px; }
 .foot-social a{
-  width:38px; height:38px; border-radius:11px;
+  width:40px; height:40px; border-radius:12px;
   display:grid; place-items:center;
   background:rgba(255,255,255,.045);
   border:1px solid rgba(255,255,255,.10);
@@ -1282,17 +1394,17 @@ h1,h2,h3,h4,h5{
   background:var(--btc); border-color:var(--btc);
   color:#100A02; transform:translateY(-3px);
 }
-.foot-social a svg{ width:15px; height:15px; }
+.foot-social a svg{ width:16px; height:16px; }
 
 .foot-col h5{
   font-family:var(--mono);
   font-size:.62rem; font-weight:700; letter-spacing:.2em;
   text-transform:uppercase; color:var(--btc);
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
-.foot-col ul{ display:grid; gap:11px; }
+.foot-col ul{ display:grid; gap:12px; }
 .foot-col a{
-  font-size:.86rem; color:rgba(255,255,255,.55);
+  font-size:.87rem; color:rgba(255,255,255,.55);
   transition:color .3s, padding-left .3s var(--e);
   display:inline-block;
 }
@@ -1301,7 +1413,7 @@ h1,h2,h3,h4,h5{
 .foot-bottom{
   display:flex; align-items:center; justify-content:space-between;
   gap:24px; flex-wrap:wrap;
-  padding:26px 0 36px;
+  padding:28px 0 40px;
   font-size:.78rem;
   color:rgba(255,255,255,.38);
 }
@@ -1343,8 +1455,9 @@ h1,h2,h3,h4,h5{
 /* ══════════════════════════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════════════════════════ */
-@media (max-width:1180px){
-  .tier-grid{ grid-template-columns:repeat(2,1fr); }
+@media (max-width:1200px){
+  .tier-grid{ grid-template-columns:repeat(3,1fr); }
+  .prod-grid{ grid-template-columns:repeat(2,1fr); }
   .foot-grid{ grid-template-columns:1.5fr 1fr 1fr 1fr; }
   .foot-grid .foot-col:last-child{ grid-column:2 / -1; }
 }
@@ -1352,8 +1465,8 @@ h1,h2,h3,h4,h5{
 @media (max-width:1024px){
   .hero-grid{ grid-template-columns:1fr; gap:0; }
   .dash{ display:none; }
-  .hero{ padding:150px 0 220px; }
-  .hero-lede{ max-width:560px; }
+  .hero{ padding:160px 0 260px; }
+  .hero-lede{ max-width:600px; }
   .perf-grid{ grid-template-columns:1fr; }
   .perf-stats{ grid-template-columns:repeat(3,1fr); }
 }
@@ -1368,11 +1481,11 @@ h1,h2,h3,h4,h5{
   .stat-cell:nth-child(1),
   .stat-cell:nth-child(2){ border-bottom:1px solid var(--line-d2); }
 
-  .hero{ padding:140px 0 250px; }
-  .hero-title{ font-size:clamp(2.3rem,9vw,3.4rem); }
+  .hero{ padding:150px 0 280px; }
+  .hero-title{ font-size:clamp(2.4rem,9vw,3.6rem); }
   .hero-cta .btn{ flex:1 1 auto; }
 
-  .hero-nav{ padding-bottom:26px; }
+  .hero-nav{ padding-bottom:28px; }
   .slide-tabs{
     max-width:none;
     overflow-x:auto;
@@ -1380,10 +1493,12 @@ h1,h2,h3,h4,h5{
     gap:6px;
   }
   .slide-tabs::-webkit-scrollbar{ display:none; }
-  .slide-tab{ min-width:132px; flex:none; padding-top:14px; }
+  .slide-tab{ min-width:140px; flex:none; padding-top:14px; }
   .slide-tab .tc{ display:none; }
   .hero-arrows{ display:none; }
 
+  .tier-grid{ grid-template-columns:repeat(2,1fr); }
+  .prod-grid{ grid-template-columns:1fr; }
   .market-row{ grid-template-columns:repeat(2,1fr); }
   .perf-stats{ grid-template-columns:1fr; }
 
@@ -1432,7 +1547,7 @@ h1,h2,h3,h4,h5{
 <body>
 
 <!-- ═══════════════════════════════════════════════════════════
-     HEADER — ticker + nav
+     HEADER
      ═══════════════════════════════════════════════════════════ -->
 <header class="hdr" id="hdr">
 
@@ -1444,13 +1559,13 @@ h1,h2,h3,h4,h5{
         <span class="sep">/</span>
         <span class="tk"><i>ETH</i><b>$3,642.88</b><em class="up">+1.12%</em></span>
         <span class="sep">/</span>
-        <span class="tk"><i>SOL</i><b>$218.44</b><em class="down">−0.74%</em></span>
-        <span class="sep">/</span>
         <span class="tk"><i>TSLA</i><b>$412.06</b><em class="up">+3.28%</em></span>
         <span class="sep">/</span>
         <span class="tk"><i>FRONTIER</i><b>1,284.60</b><em class="up">+1.85%</em></span>
         <span class="sep">/</span>
         <span class="tk"><i>AUM</i><b>$2.41B</b><em class="up">+34% YoY</em></span>
+        <span class="sep">/</span>
+        <span class="tk"><i>STARLINK</i><b>12.0M</b><em class="up">subscribers</em></span>
         <span class="sep">/</span>
       </div>
       <div class="tk-group">
@@ -1458,13 +1573,13 @@ h1,h2,h3,h4,h5{
         <span class="sep">/</span>
         <span class="tk"><i>ETH</i><b>$3,642.88</b><em class="up">+1.12%</em></span>
         <span class="sep">/</span>
-        <span class="tk"><i>SOL</i><b>$218.44</b><em class="down">−0.74%</em></span>
-        <span class="sep">/</span>
         <span class="tk"><i>TSLA</i><b>$412.06</b><em class="up">+3.28%</em></span>
         <span class="sep">/</span>
         <span class="tk"><i>FRONTIER</i><b>1,284.60</b><em class="up">+1.85%</em></span>
         <span class="sep">/</span>
         <span class="tk"><i>AUM</i><b>$2.41B</b><em class="up">+34% YoY</em></span>
+        <span class="sep">/</span>
+        <span class="tk"><i>STARLINK</i><b>12.0M</b><em class="up">subscribers</em></span>
         <span class="sep">/</span>
       </div>
     </div>
@@ -1481,14 +1596,14 @@ h1,h2,h3,h4,h5{
         </span>
         <span class="brand-txt">
           <b>Frontier</b>
-          <small>Bitcoin &amp; Investment</small>
+          <small>Bitcoin &amp; Musk Economy</small>
         </span>
       </a>
 
       <ul class="nav-links">
         <li><a href="#tiers">Investment levels</a></li>
+        <li><a href="#products">Products</a></li>
         <li><a href="#performance">Performance</a></li>
-        <li><a href="#">Markets</a></li>
         <li><a href="#">Custody</a></li>
         <li><a href="#">Help</a></li>
       </ul>
@@ -1510,8 +1625,8 @@ h1,h2,h3,h4,h5{
 <!-- Mobile menu -->
 <div class="mmenu" id="mmenu">
   <a href="#tiers">Investment levels</a>
+  <a href="#products">Products</a>
   <a href="#performance">Performance</a>
-  <a href="#">Markets</a>
   <a href="#">Custody</a>
   <a href="#">Help</a>
   <div class="mmenu-foot">
@@ -1529,18 +1644,11 @@ h1,h2,h3,h4,h5{
 <section class="hero" id="hero">
 
   <div class="slides" id="slides">
-    <div class="slide s1 on">
-      <div class="slide-media"></div>
-    </div>
-    <div class="slide s2">
-      <div class="slide-media"></div>
-    </div>
-    <div class="slide s3">
-      <div class="slide-media"></div>
-    </div>
-    <div class="slide s4">
-      <div class="slide-media"></div>
-    </div>
+    <div class="slide s1 on"><div class="slide-media"></div></div>
+    <div class="slide s2"><div class="slide-media"></div></div>
+    <div class="slide s3"><div class="slide-media"></div></div>
+    <div class="slide s4"><div class="slide-media"></div></div>
+    <div class="slide s5"><div class="slide-media"></div></div>
   </div>
 
   <div class="hero-veil" aria-hidden="true"></div>
@@ -1556,12 +1664,12 @@ h1,h2,h3,h4,h5{
         </span>
 
         <h1 class="hero-title" id="heroTitle">
-          Trade Bitcoin.<br><em>Own the frontier.</em>
+          Trade Bitcoin.<br><em>Own the Musk Economy.</em>
         </h1>
 
         <p class="hero-lede" id="heroLede">
-          Institutional-grade BTC trading with fractional exposure to the real-world
-          economy. Engineered with the precision of a Tesla — from $500.
+          Institutional-grade BTC trading with fractional exposure to Tesla vehicles,
+          Optimus robots, SpaceX Starship &amp; Starlink, Neuralink and Boring Company — from $1,000.
         </p>
 
         <div class="hero-cta">
@@ -1596,16 +1704,16 @@ h1,h2,h3,h4,h5{
         </div>
         <div class="dash-sub">Total value · settled 2s ago</div>
 
-        <svg class="dash-chart" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
+        <svg class="dash-chart" viewBox="0 0 320 100" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#F7931A" stop-opacity=".34"/>
               <stop offset="100%" stop-color="#F7931A" stop-opacity="0"/>
             </linearGradient>
           </defs>
-          <path d="M0,74 L20,66 L40,70 L60,58 L80,62 L100,48 L120,52 L140,40 L160,46 L180,30 L200,36 L220,24 L240,32 L260,18 L280,26 L300,13 L320,20 L320,96 L0,96 Z"
+          <path d="M0,78 L20,70 L40,74 L60,62 L80,66 L100,52 L120,56 L140,44 L160,50 L180,34 L200,40 L220,28 L240,36 L260,22 L280,30 L300,17 L320,24 L320,100 L0,100 Z"
                 fill="url(#sparkFill)"/>
-          <path d="M0,74 L20,66 L40,70 L60,58 L80,62 L100,48 L120,52 L140,40 L160,46 L180,30 L200,36 L220,24 L240,32 L260,18 L280,26 L300,13 L320,20"
+          <path d="M0,78 L20,70 L40,74 L60,62 L80,66 L100,52 L120,56 L140,44 L160,50 L180,34 L200,40 L220,28 L240,36 L260,22 L280,30 L300,17 L320,24"
                 fill="none" stroke="#F7931A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
                 vector-effect="non-scaling-stroke"/>
         </svg>
@@ -1617,12 +1725,12 @@ h1,h2,h3,h4,h5{
             <span class="ch up">+2.41%</span>
           </div>
           <div class="dash-row">
-            <span class="sym">FLEET</span>
+            <span class="sym">TESLA FLEET</span>
             <span class="px">$61,204.88</span>
             <span class="ch up">+1.08%</span>
           </div>
           <div class="dash-row">
-            <span class="sym">ENERGY</span>
+            <span class="sym">STARLINK</span>
             <span class="px">$42,110.02</span>
             <span class="ch up">+0.64%</span>
           </div>
@@ -1643,18 +1751,23 @@ h1,h2,h3,h4,h5{
         </button>
         <button class="slide-tab" data-index="1" role="tab" aria-selected="false">
           <span class="tn">02</span>
-          <span class="tl">Model S Fleets</span>
-          <span class="tc">Vehicles</span>
+          <span class="tl">Model S Plaid</span>
+          <span class="tc">Tesla</span>
         </button>
         <button class="slide-tab" data-index="2" role="tab" aria-selected="false">
           <span class="tn">03</span>
-          <span class="tl">Optimus Program</span>
-          <span class="tc">Robotics</span>
+          <span class="tl">Starship</span>
+          <span class="tc">SpaceX</span>
         </button>
         <button class="slide-tab" data-index="3" role="tab" aria-selected="false">
           <span class="tn">04</span>
-          <span class="tl">Solar Roof</span>
-          <span class="tc">Energy</span>
+          <span class="tl">Optimus</span>
+          <span class="tc">Robotics</span>
+        </button>
+        <button class="slide-tab" data-index="4" role="tab" aria-selected="false">
+          <span class="tn">05</span>
+          <span class="tl">Energy</span>
+          <span class="tc">Solar + Storage</span>
         </button>
       </div>
 
@@ -1688,7 +1801,7 @@ h1,h2,h3,h4,h5{
     </div>
     <div class="stat-cell rv" style="--d:160ms">
       <span>Avg. annual yield</span>
-      <b>5.3%</b>
+      <b>5.8%</b>
       <em>Paid daily</em>
     </div>
     <div class="stat-cell rv" style="--d:240ms">
@@ -1700,17 +1813,17 @@ h1,h2,h3,h4,h5{
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
-     INTRO + TIERS (light)
+     INTRO + TIERS
      ═══════════════════════════════════════════════════════════ -->
 <div class="light">
 
   <section class="intro">
     <div class="wrap">
       <span class="intro-kicker rv">Investment levels</span>
-      <h2 class="rv" style="--d:60ms">Four ways to <em>own the frontier.</em></h2>
+      <h2 class="rv" style="--d:60ms">Five ways to <em>own the frontier.</em></h2>
       <p class="rv" style="--d:120ms">
-        From a $500 starter position to a $250K institutional mandate. Live Bitcoin markets,
-        real-world asset exposure, daily yield and same-day liquidity — scaled to your ambition.
+        From a $1,000 starter position to a $250K institutional mandate. Live Bitcoin markets,
+        real-world Tesla &amp; SpaceX asset exposure, daily yield and same-day liquidity — scaled to your ambition.
       </p>
     </div>
   </section>
@@ -1728,8 +1841,8 @@ h1,h2,h3,h4,h5{
 
       <div class="tier-grid">
 
-        <!-- LEVEL I -->
-        <article class="tier rv">
+        <!-- LEVEL I — $1,000 -->
+        <article class="tier t1 rv">
           <div class="tier-head">
             <div class="tier-badge">I</div>
             <div class="tier-lv">
@@ -1739,7 +1852,7 @@ h1,h2,h3,h4,h5{
           </div>
 
           <div class="tier-min">Minimum investment</div>
-          <div class="tier-amt"><span class="c">$</span>500</div>
+          <div class="tier-amt"><span class="c">$</span>1,000</div>
           <div class="tier-suffix">USD · No lock-in</div>
 
           <h4 class="tier-name">Starter</h4>
@@ -1760,15 +1873,15 @@ h1,h2,h3,h4,h5{
 
           <div class="tier-cta">
             <a href="#" class="btn btn-ghost-l btn-block">
-              Start with $500
+              Start with $1,000
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <span class="tier-note">Funded in under 5 minutes</span>
           </div>
         </article>
 
-        <!-- LEVEL II -->
-        <article class="tier rv" style="--d:80ms">
+        <!-- LEVEL II — $5,000 -->
+        <article class="tier t2 rv" style="--d:80ms">
           <div class="tier-head">
             <div class="tier-badge">II</div>
             <div class="tier-lv">
@@ -1785,7 +1898,7 @@ h1,h2,h3,h4,h5{
           <p class="tier-desc">For investors building meaningful positions across multiple product lines.</p>
 
           <div class="tier-metrics">
-            <div><span>Est. yield</span><b>4.7%</b></div>
+            <div><span>Est. yield</span><b>4.9%</b></div>
             <div><span>Platform fee</span><b>0.40%</b></div>
           </div>
 
@@ -1806,8 +1919,9 @@ h1,h2,h3,h4,h5{
           </div>
         </article>
 
-        <!-- LEVEL III — POPULAR -->
-        <article class="tier pop rv" style="--d:160ms">
+        <!-- LEVEL III — $25,000 (POPULAR) -->
+        <article class="tier t3 rv" style="--d:160ms">
+          <span class="tier-ribbon">Popular</span>
           <div class="tier-head">
             <div class="tier-badge">III</div>
             <div class="tier-lv">
@@ -1824,7 +1938,7 @@ h1,h2,h3,h4,h5{
           <p class="tier-desc">Serious investors wanting higher yield, priority access and a dedicated relationship.</p>
 
           <div class="tier-metrics">
-            <div><span>Est. yield</span><b>5.3%</b></div>
+            <div><span>Est. yield</span><b>5.6%</b></div>
             <div><span>Platform fee</span><b>0.30%</b></div>
           </div>
 
@@ -1845,9 +1959,8 @@ h1,h2,h3,h4,h5{
           </div>
         </article>
 
-        <!-- LEVEL IV — BLACK -->
-        <article class="tier blk rv" style="--d:240ms">
-          <span class="tier-ribbon">Invite only</span>
+        <!-- LEVEL IV — $100,000 -->
+        <article class="tier t4 rv" style="--d:240ms">
           <div class="tier-head">
             <div class="tier-badge">IV</div>
             <div class="tier-lv">
@@ -1857,31 +1970,71 @@ h1,h2,h3,h4,h5{
           </div>
 
           <div class="tier-min">Minimum investment</div>
-          <div class="tier-amt"><span class="c">$</span>250,000</div>
+          <div class="tier-amt"><span class="c">$</span>100,000</div>
           <div class="tier-suffix">USD · By application</div>
 
-          <h4 class="tier-name">Black</h4>
-          <p class="tier-desc">For family offices and institutional mandates requiring bespoke structures.</p>
+          <h4 class="tier-name">Private</h4>
+          <p class="tier-desc">For high-net-worth investors requiring bespoke structures and segregated accounts.</p>
 
           <div class="tier-metrics">
-            <div><span>Est. yield</span><b>6.1%</b></div>
-            <div><span>Platform fee</span><b>0.15%</b></div>
+            <div><span>Est. yield</span><b>6.2%</b></div>
+            <div><span>Platform fee</span><b>0.22%</b></div>
           </div>
 
           <ul class="tier-feats">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Everything in Premium</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Bespoke 0.15% fee structure</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Segregated account option</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Direct line to investment team</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Custom reporting &amp; SLA</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Early access to new products</li>
+          </ul>
+
+          <div class="tier-cta">
+            <a href="#" class="btn btn-dark btn-block">
+              Request invite
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <span class="tier-note">Responded within 24 hours</span>
+          </div>
+        </article>
+
+        <!-- LEVEL V — $250,000 (BLACK) -->
+        <article class="tier t5 rv" style="--d:320ms">
+          <span class="tier-ribbon">Black</span>
+          <div class="tier-head">
+            <div class="tier-badge">V</div>
+            <div class="tier-lv">
+              <span class="lv-tag">Level 05</span>
+              <span class="lv-name">Institutional</span>
+            </div>
+          </div>
+
+          <div class="tier-min">Minimum investment</div>
+          <div class="tier-amt"><span class="c">$</span>250,000</div>
+          <div class="tier-suffix">USD · By invitation</div>
+
+          <h4 class="tier-name">Black</h4>
+          <p class="tier-desc">Institutional mandates, family offices and sovereign wealth structures.</p>
+
+          <div class="tier-metrics">
+            <div><span>Est. yield</span><b>6.8%</b></div>
+            <div><span>Platform fee</span><b>0.12%</b></div>
+          </div>
+
+          <ul class="tier-feats">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Everything in Private</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Bespoke 0.12% fee structure</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Sovereign-grade custody</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Custom mandate &amp; compliance</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Board-level advisory access</li>
           </ul>
 
           <div class="tier-cta">
             <a href="#" class="btn btn-btc btn-block">
-              Request invite
+              Request mandate
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <span class="tier-note">Responded within 24 hours</span>
+            <span class="tier-note">Dedicated institutional desk</span>
           </div>
         </article>
 
@@ -1889,6 +2042,118 @@ h1,h2,h3,h4,h5{
     </div>
   </section>
 </div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PRODUCTS SHOWCASE — Tesla, SpaceX, Neuralink, Boring Co.
+     ═══════════════════════════════════════════════════════════ -->
+<section class="products" id="products">
+  <div class="wrap">
+
+    <div class="prod-head">
+      <span class="sec-eyebrow rv">Real-world assets</span>
+      <h2 class="rv" style="--d:60ms">Own a piece of <em>the Musk economy.</em></h2>
+      <p class="rv" style="--d:120ms">
+        Fractional positions across every Elon Musk venture — from Tesla's vehicle fleet
+        and humanoid robots to SpaceX's Starship &amp; Starlink, Neuralink's brain-computer
+        interfaces and Boring Company's tunnel infrastructure.
+      </p>
+    </div>
+
+    <div class="prod-grid">
+
+      <!-- Tesla Model S Plaid -->
+      <article class="pcard rv">
+        <div class="pcard-media" style="background-image:url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-S-Desktop-LHD-6.22.jpg')"></div>
+        <div class="pcard-veil"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag tesla">Tesla</span>
+          <h4>Model S Plaid Fleet</h4>
+          <p>Fractional ownership across managed Model S Plaid fleets. Daily yield from premium ride-share, corporate leasing and long-term contracts.</p>
+          <div class="pcard-stats">
+            <div><span>Est. yield</span><b>5.2%</b></div>
+            <div><span>Fleet size</span><b>1,240</b></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tesla Optimus -->
+      <article class="pcard rv" style="--d:80ms">
+        <div class="pcard-media" style="background-image:url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Cybertruck-Desktop.jpg')"></div>
+        <div class="pcard-veil"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag tesla">Tesla</span>
+          <h4>Optimus Robot Program</h4>
+          <p>The humanoid robot program opening for fractional ownership. Reserve your position in the future of physical AI and general-purpose robotics.</p>
+          <div class="pcard-stats">
+            <div><span>Target price</span><b>$22K</b></div>
+            <div><span>Generation</span><b>Gen 3</b></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SpaceX Starship -->
+      <article class="pcard rv" style="--d:160ms">
+        <div class="pcard-media" style="background-image:url('https://cdnph.upi.com/pv/upi/3e380473ca0e65166f3c80785f6bfdde/SPACEX-STARSHIP-LAUNCH.jpg')"></div>
+        <div class="pcard-veil"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag spacex">SpaceX</span>
+          <h4>Starship &amp; Super Heavy</h4>
+          <p>Exposure to the world's most powerful launch system — the fully reusable rocket designed to carry humans to Mars and deploy the Starlink constellation.</p>
+          <div class="pcard-stats">
+            <div><span>Payload</span><b>150t</b></div>
+            <div><span>Flights</span><b>14+</b></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SpaceX Starlink -->
+      <article class="pcard rv" style="--d:240ms">
+        <div class="pcard-media" style="background-image:url('https://cdnph.upi.com/pv/upi/3e1160290d97562d1728a76691a875ca/SPACEX-STARLINK-LAUNCH.jpg')"></div>
+        <div class="pcard-veil"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag spacex">SpaceX</span>
+          <h4>Starlink Constellation</h4>
+          <p>The satellite network delivering global broadband internet to 12 million subscribers across 100+ countries — with contracted recurring revenue.</p>
+          <div class="pcard-stats">
+            <div><span>Subscribers</span><b>12.0M</b></div>
+            <div><span>Revenue</span><b>$4.29B</b></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Neuralink -->
+      <article class="pcard rv" style="--d:320ms">
+        <div class="pcard-media" style="background-image:url('https://media.istockphoto.com/id/1499037406/photo/neuralink-logo-on-smartphone-screen.jpg')"></div>
+        <div class="pcard-veil"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag neuralink">Neuralink</span>
+          <h4>Brain-Computer Interface</h4>
+          <p>Back the neurotechnology company developing implantable brain-computer interfaces to restore autonomy for those with unmet medical needs.</p>
+          <div class="pcard-stats">
+            <div><span>Focus</span><b>BCI</b></div>
+            <div><span>Status</span><b>Clinical</b></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Boring Company -->
+      <article class="pcard rv" style="--d:400ms">
+        <div class="pcard-media" style="background-image:url('https://media.istockphoto.com/id/1499037409/photo/boring-company-logo-on-smartphone-screen.jpg')"></div>
+        <div class="pcard-veil"></div>
+        <div class="pcard-body">
+          <span class="pcard-tag boring">Boring Co.</span>
+          <h4>Tunnel Infrastructure</h4>
+          <p>Back the company constructing safe, fast-to-dig, low-cost transportation and freight tunnels — including the Vegas Loop and Prufrock boring machines.</p>
+          <div class="pcard-stats">
+            <div><span>Focus</span><b>Tunnels</b></div>
+            <div><span>Machines</span><b>Prufrock III</b></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════════════════════════════════════════════════════
      PERFORMANCE
@@ -2077,7 +2342,7 @@ h1,h2,h3,h4,h5{
           </svg>
         </span>
         <div class="bn">Frontier <em>Capital</em></div>
-        <p>Institutional-grade Bitcoin trading and fractional exposure to the real-world economy.</p>
+        <p>Institutional-grade Bitcoin trading and fractional exposure to the Tesla, SpaceX, Neuralink and Boring Company product economy.</p>
 
         <div class="foot-social">
           <a href="#" aria-label="X">
@@ -2099,10 +2364,11 @@ h1,h2,h3,h4,h5{
         <h5>Products</h5>
         <ul>
           <li><a href="#">Bitcoin trading</a></li>
-          <li><a href="#">Managed fleets</a></li>
+          <li><a href="#">Model S Plaid</a></li>
+          <li><a href="#">Starship &amp; Starlink</a></li>
           <li><a href="#">Optimus program</a></li>
-          <li><a href="#">Energy systems</a></li>
-          <li><a href="#">Solar Roof</a></li>
+          <li><a href="#">Neuralink</a></li>
+          <li><a href="#">Boring Company</a></li>
         </ul>
       </div>
 
@@ -2174,7 +2440,7 @@ h1,h2,h3,h4,h5{
       "@id": "https://frontier.example/#organization",
       "name": "Frontier Capital",
       "url": "https://frontier.example/",
-      "description": "Institutional-grade Bitcoin trading and fractional investment platform.",
+      "description": "Institutional-grade Bitcoin trading and fractional investment platform spanning Tesla, SpaceX, Neuralink and Boring Company.",
       "sameAs": [
         "https://twitter.com/frontier",
         "https://www.linkedin.com/company/frontier"
@@ -2191,15 +2457,15 @@ h1,h2,h3,h4,h5{
       "@type": "FinancialService",
       "name": "Frontier Capital",
       "url": "https://frontier.example/",
-      "description": "Bitcoin trading and fractional investment platform with institutional custody.",
+      "description": "Bitcoin trading and fractional investment platform with institutional custody across the Elon Musk product economy.",
       "areaServed": "Worldwide",
       "currenciesAccepted": "USD, BTC, ETH",
       "makesOffer": [
         {
           "@type": "Offer",
           "name": "Starter — Level 01",
-          "description": "Minimum $500. Full catalogue access, daily yield, same-day liquidity.",
-          "price": "500",
+          "description": "Minimum $1,000. Full catalogue access, daily yield, same-day liquidity.",
+          "price": "1000",
           "priceCurrency": "USD"
         },
         {
@@ -2218,8 +2484,15 @@ h1,h2,h3,h4,h5{
         },
         {
           "@type": "Offer",
-          "name": "Black — Level 04",
-          "description": "Minimum $250,000 by application. Bespoke structures and segregated accounts.",
+          "name": "Private — Level 04",
+          "description": "Minimum $100,000 by application. Bespoke structures and segregated accounts.",
+          "price": "100000",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Black — Level 05",
+          "description": "Minimum $250,000 by invitation. Institutional mandates and sovereign custody.",
           "price": "250000",
           "priceCurrency": "USD"
         }
@@ -2238,7 +2511,7 @@ h1,h2,h3,h4,h5{
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ══════════════════════════════════════════════════
-     HEADER — scroll state
+     HEADER SCROLL
      ══════════════════════════════════════════════════ */
   const hdr = $('#hdr');
   let ticking = false;
@@ -2266,7 +2539,6 @@ h1,h2,h3,h4,h5{
     mmenu.classList.toggle('open', open);
     document.body.classList.toggle('lock', open);
 
-    // stagger links
     $$('#mmenu a').forEach((a, i) => {
       a.style.transitionDelay = open ? `${80 + i * 55}ms` : '0ms';
     });
@@ -2290,23 +2562,28 @@ h1,h2,h3,h4,h5{
   const SLIDES = [
     {
       eyebrow: 'Live · Bitcoin markets open',
-      title:   'Trade Bitcoin.<br><em>Own the frontier.</em>',
-      lede:    'Institutional-grade BTC trading with fractional exposure to the real-world economy. Engineered with the precision of a Tesla — from $500.'
+      title:   'Trade Bitcoin.<br><em>Own the Musk Economy.</em>',
+      lede:    'Institutional-grade BTC trading with fractional exposure to Tesla vehicles, Optimus robots, SpaceX Starship &amp; Starlink, Neuralink and Boring Company — from $1,000.'
     },
     {
-      eyebrow: 'Managed fleets · Model S',
+      eyebrow: 'Tesla · Model S Plaid fleet',
       title:   'Every mile.<br><em>Yours to own.</em>',
-      lede:    'Fractional ownership across managed Model S fleets. Daily yield from premium ride-share, corporate leasing and long-term contracts.'
+      lede:    'Fractional ownership across managed Model S Plaid fleets. Daily yield from premium ride-share, corporate leasing and long-term contracts.'
+    },
+    {
+      eyebrow: 'SpaceX · Starship & Starlink',
+      title:   'The largest rocket<br><em>in history.</em>',
+      lede:    'Exposure to the world\'s most powerful launch system and the satellite constellation delivering global internet to 12 million subscribers.'
     },
     {
       eyebrow: 'Robotics · Optimus program',
       title:   'Own a share of<br><em>the Optimus age.</em>',
-      lede:    'The humanoid robot program is opening for fractional ownership. Reserve your position in the future of physical AI.'
+      lede:    'The humanoid robot program is opening for fractional ownership. Reserve your position in the future of physical AI and general-purpose robotics.'
     },
     {
-      eyebrow: 'Energy · Solar Roof',
+      eyebrow: 'Energy · Powerwall + Solar Roof',
       title:   'Own the sun<br><em>on every roof.</em>',
-      lede:    'Back the rooftop network generating clean power across 18 states. Contracted 25-year power purchase revenue, paid monthly.'
+      lede:    'Back the rooftop network and home battery systems generating clean power across 18 states. Contracted 25-year power purchase revenue, paid monthly.'
     }
   ];
 
@@ -2316,7 +2593,7 @@ h1,h2,h3,h4,h5{
   const elTitle    = $('#heroTitle');
   const elLede     = $('#heroLede');
 
-  const DURATION = 7000;
+  const DURATION = 8000;
   let current = 0;
   let timer = null;
 
@@ -2338,14 +2615,12 @@ h1,h2,h3,h4,h5{
       t.classList.toggle('on', on);
       t.setAttribute('aria-selected', String(on));
       if (on){
-        // restart the progress bar animation
         t.style.animation = 'none';
         void t.offsetWidth;
         t.style.animation = '';
       }
     });
 
-    // copy cross-fade
     const els = [elEyebrow, elTitle, elLede];
     els.forEach(el => {
       el.style.transition = 'opacity .3s ease, transform .3s ease';
@@ -2379,7 +2654,6 @@ h1,h2,h3,h4,h5{
     if (e.key === 'ArrowLeft')  goTo(current - 1);
   });
 
-  // Pause when tab hidden
   document.addEventListener('visibilitychange', () => {
     if (document.hidden){
       if (timer) clearTimeout(timer);
@@ -2388,7 +2662,6 @@ h1,h2,h3,h4,h5{
     }
   });
 
-  // Pause on hover of the hero nav
   const heroNav = $('.hero-nav');
   heroNav?.addEventListener('mouseenter', () => { if (timer) clearTimeout(timer); });
   heroNav?.addEventListener('mouseleave', restartTimer);
@@ -2416,7 +2689,7 @@ h1,h2,h3,h4,h5{
   }
 
   /* ══════════════════════════════════════════════════
-     LIVE PRICE JITTER (subtle, believable)
+     LIVE PRICE JITTER
      ══════════════════════════════════════════════════ */
   const priceEls = $$('.tk b');
   if (priceEls.length && !reduced){
