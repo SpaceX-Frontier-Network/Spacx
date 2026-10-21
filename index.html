@@ -6,27 +6,61 @@
 <meta name="theme-color" content="#000000" />
 <meta name="color-scheme" content="dark light" />
 
-<title>Frontier — Trade Bitcoin. Own Tesla, SpaceX &amp; the Musk Economy.</title>
-<meta name="description" content="Unified investment platform for Bitcoin trading and fractional ownership of Tesla vehicles, Optimus robots, SpaceX Starship &amp; Starlink, Neuralink and Boring Company. Institutional custody from $1,000." />
-<meta name="keywords" content="bitcoin trading, BTC investment, Tesla fractional ownership, SpaceX Starlink, Optimus robot, Neuralink, Boring Company, Elon Musk investments" />
+<!-- ════════════════ PRIMARY SEO ════════════════ -->
+<title>Frontier Capital — Live Forex, Bitcoin &amp; Musk Economy Trading Platform</title>
+<meta name="description" content="Trade live forex pairs (EUR/USD, GBP/USD, USD/JPY) and Bitcoin on one institutional-grade platform. Fractional ownership of Tesla, SpaceX, Starlink, Neuralink and Boring Company from $1,000. Live FX pricing, 0.2 pip spreads, same-day liquidity." />
+<meta name="keywords" content="live forex, forex trading, EUR/USD live price, GBP/USD chart, USD/JPY rate, bitcoin trading, BTC investment, Tesla fractional ownership, SpaceX Starlink shares, Optimus robot investment, Neuralink stock, Boring Company tunnels, Musk economy, forex stock widget, live FX chart, fractional investing" />
 <meta name="author" content="Frontier Capital" />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
 <link rel="canonical" href="https://frontier.example/" />
+<link rel="alternate" hreflang="en" href="https://frontier.example/" />
+<link rel="alternate" hreflang="x-default" href="https://frontier.example/" />
 
+<!-- ════════════════ APP META ════════════════ -->
+<meta name="application-name" content="Frontier Capital" />
+<meta name="apple-mobile-web-app-title" content="Frontier" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="mobile-web-app-capable" content="yes" />
+
+<!-- ════════════════ GEO ════════════════ -->
+<meta name="geo.region" content="US-NY" />
+<meta name="geo.placename" content="New York" />
+<meta name="geo.position" content="40.7128;-74.0060" />
+<meta name="ICBM" content="40.7128, -74.0060" />
+
+<!-- ════════════════ OPEN GRAPH ════════════════ -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Frontier Capital" />
-<meta property="og:title" content="Frontier — Trade Bitcoin. Own the Musk Economy." />
-<meta property="og:description" content="Institutional-grade BTC trading and fractional exposure to Tesla, SpaceX, Neuralink and Boring Company." />
+<meta property="og:title" content="Frontier Capital — Live Forex, Bitcoin &amp; the Musk Economy" />
+<meta property="og:description" content="Live forex pairs, BTC trading and fractional exposure to Tesla, SpaceX, Neuralink and Boring Company. Institutional custody from $1,000." />
 <meta property="og:url" content="https://frontier.example/" />
 <meta property="og:image" content="https://frontier.example/og.jpg" />
+<meta property="og:image:secure_url" content="https://frontier.example/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Frontier Capital — trade live forex and the Musk economy" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="en_GB" />
+<meta property="article:published_time" content="2025-01-01T00:00:00Z" />
+<meta property="article:modified_time" content="2025-06-01T00:00:00Z" />
 
+<!-- ════════════════ TWITTER CARD ════════════════ -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Frontier — Trade Bitcoin. Own the Musk Economy." />
-<meta name="twitter:description" content="Institutional-grade BTC trading and fractional exposure to Tesla, SpaceX, Neuralink and Boring Company." />
+<meta name="twitter:site" content="@FrontierCapital" />
+<meta name="twitter:creator" content="@FrontierCapital" />
+<meta name="twitter:title" content="Frontier Capital — Live Forex, Bitcoin &amp; the Musk Economy" />
+<meta name="twitter:description" content="Live forex pairs, BTC trading and fractional exposure to Tesla, SpaceX, Neuralink and Boring Company." />
 <meta name="twitter:image" content="https://frontier.example/og.jpg" />
+<meta name="twitter:image:alt" content="Frontier Capital trading platform" />
 
+<!-- ════════════════ RESOURCE HINTS ════════════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//fonts.gstatic.com" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@300..800&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet" />
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23171A20'/><path d='M28 34h44M50 34v34' stroke='%23F7931A' stroke-width='9' stroke-linecap='round'/></svg>" />
@@ -81,11 +115,8 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--e),transform .8s var(--e);transition-delay:var(--d,0ms)}
 .rv.in{opacity:1;transform:none}
 
-/* ══════════════════════════════════════════════════════════════
-   HEADER
-   ══════════════════════════════════════════════════════════════ */
+/* HEADER (unchanged styles preserved) */
 .hdr{position:fixed;top:0;left:0;right:0;z-index:100;transition:transform .45s var(--e)}
-
 .ticker{height:36px;background:var(--black);border-bottom:1px solid var(--line-d2);overflow:hidden;display:flex;align-items:center;transition:height .35s var(--e),opacity .3s var(--e),border-color .35s}
 .hdr.scrolled .ticker{height:0;opacity:0;border-color:transparent}
 .ticker-track{display:flex;white-space:nowrap;animation:tickerScroll 60s linear infinite;will-change:transform}
@@ -151,145 +182,37 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .mmenu .mmenu-foot{margin-top:auto;display:flex;flex-direction:column;gap:10px;padding-top:28px;opacity:0;transform:translateY(16px);transition:opacity .5s var(--e) .3s,transform .5s var(--e) .3s}
 .mmenu.open .mmenu-foot{opacity:1;transform:none}
 
-/* ══════════════════════════════════════════════════════════════
-   HERO (CSS-art slideshow — always loads)
-   ══════════════════════════════════════════════════════════════ */
-.hero{
-  position:relative;
-  min-height:100vh;
-  min-height:100svh;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  background:#000;
-  isolation:isolate;
-}
-
-/* Slide layers */
+/* HERO (unchanged) */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:#000;isolation:isolate}
 .slides{position:absolute;inset:0;z-index:0}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s var(--e-soft);will-change:opacity}
 .slide.on{opacity:1}
 .slide-media{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);transition:transform 10s linear;will-change:transform}
 .slide.on .slide-media{transform:scale(1)}
+.slide.s1 .slide-media{background-color:#05070A;background-image:radial-gradient(58% 78% at 78% 22%, rgba(247,147,26,.35), transparent 60%),radial-gradient(48% 58% at 12% 86%, rgba(232,33,39,.18), transparent 65%),repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 1px, transparent 1px 68px),repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 1px, transparent 1px 68px)}
+.slide.s2 .slide-media{background-color:#0A0507;background-image:radial-gradient(70% 82% at 72% 38%, rgba(232,33,39,.42), transparent 62%),radial-gradient(50% 60% at 14% 88%, rgba(247,147,26,.16), transparent 65%),repeating-linear-gradient(-32deg, rgba(255,255,255,.030) 0 2px, transparent 2px 26px)}
+.slide.s3 .slide-media{background-color:#060810;background-image:radial-gradient(60% 70% at 68% 28%, rgba(62,106,225,.36), transparent 60%),radial-gradient(50% 60% at 18% 82%, rgba(247,147,26,.14), transparent 65%),radial-gradient(1.5px 1.5px at 12% 24%, rgba(255,255,255,.85), transparent 100%),radial-gradient(1px 1px at 42% 62%, rgba(255,255,255,.7), transparent 100%),radial-gradient(1.5px 1.5px at 78% 18%, rgba(255,255,255,.9), transparent 100%),radial-gradient(1px 1px at 88% 48%, rgba(255,255,255,.6), transparent 100%),radial-gradient(1px 1px at 26% 78%, rgba(255,255,255,.55), transparent 100%),radial-gradient(1px 1px at 62% 82%, rgba(255,255,255,.65), transparent 100%)}
+.slide.s4 .slide-media{background-color:#040A07;background-image:radial-gradient(62% 72% at 62% 38%, rgba(0,214,143,.34), transparent 62%),radial-gradient(50% 60% at 14% 86%, rgba(62,106,225,.14), transparent 65%),repeating-linear-gradient(0deg, rgba(0,214,143,.06) 0 1px, transparent 1px 46px),repeating-linear-gradient(90deg, rgba(0,214,143,.06) 0 1px, transparent 1px 46px)}
+.slide.s5 .slide-media{background-color:#0A0D0B;background-image:radial-gradient(64% 74% at 70% 30%, rgba(255,180,84,.32), transparent 62%),radial-gradient(52% 62% at 18% 84%, rgba(0,214,143,.22), transparent 65%),repeating-linear-gradient(0deg, rgba(0,214,143,.07) 0 1px, transparent 1px 34px),repeating-linear-gradient(90deg, rgba(0,214,143,.07) 0 1px, transparent 1px 34px)}
 
-/* Slide 1 — Bitcoin Markets (terminal grid + orange glow) */
-.slide.s1 .slide-media{
-  background-color:#05070A;
-  background-image:
-    radial-gradient(58% 78% at 78% 22%, rgba(247,147,26,.35), transparent 60%),
-    radial-gradient(48% 58% at 12% 86%, rgba(232,33,39,.18), transparent 65%),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 1px, transparent 1px 68px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 1px, transparent 1px 68px);
-}
-
-/* Slide 2 — Tesla Fleet (red glow + diagonal stripes) */
-.slide.s2 .slide-media{
-  background-color:#0A0507;
-  background-image:
-    radial-gradient(70% 82% at 72% 38%, rgba(232,33,39,.42), transparent 62%),
-    radial-gradient(50% 60% at 14% 88%, rgba(247,147,26,.16), transparent 65%),
-    repeating-linear-gradient(-32deg, rgba(255,255,255,.030) 0 2px, transparent 2px 26px);
-}
-
-/* Slide 3 — Starship (deep blue + star field) */
-.slide.s3 .slide-media{
-  background-color:#060810;
-  background-image:
-    radial-gradient(60% 70% at 68% 28%, rgba(62,106,225,.36), transparent 60%),
-    radial-gradient(50% 60% at 18% 82%, rgba(247,147,26,.14), transparent 65%),
-    radial-gradient(1.5px 1.5px at 12% 24%, rgba(255,255,255,.85), transparent 100%),
-    radial-gradient(1px 1px at 42% 62%, rgba(255,255,255,.7), transparent 100%),
-    radial-gradient(1.5px 1.5px at 78% 18%, rgba(255,255,255,.9), transparent 100%),
-    radial-gradient(1px 1px at 88% 48%, rgba(255,255,255,.6), transparent 100%),
-    radial-gradient(1px 1px at 26% 78%, rgba(255,255,255,.55), transparent 100%),
-    radial-gradient(1px 1px at 62% 82%, rgba(255,255,255,.65), transparent 100%);
-}
-
-/* Slide 4 — Optimus (green circuit grid) */
-.slide.s4 .slide-media{
-  background-color:#040A07;
-  background-image:
-    radial-gradient(62% 72% at 62% 38%, rgba(0,214,143,.34), transparent 62%),
-    radial-gradient(50% 60% at 14% 86%, rgba(62,106,225,.14), transparent 65%),
-    repeating-linear-gradient(0deg, rgba(0,214,143,.06) 0 1px, transparent 1px 46px),
-    repeating-linear-gradient(90deg, rgba(0,214,143,.06) 0 1px, transparent 1px 46px);
-}
-
-/* Slide 5 — Energy (gold + solar panel grid) */
-.slide.s5 .slide-media{
-  background-color:#0A0D0B;
-  background-image:
-    radial-gradient(64% 74% at 70% 30%, rgba(255,180,84,.32), transparent 62%),
-    radial-gradient(52% 62% at 18% 84%, rgba(0,214,143,.22), transparent 65%),
-    repeating-linear-gradient(0deg, rgba(0,214,143,.07) 0 1px, transparent 1px 34px),
-    repeating-linear-gradient(90deg, rgba(0,214,143,.07) 0 1px, transparent 1px 34px);
-}
-
-/* Animated accent layer — one per slide for cinematic motion */
 .slide-art{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:0;transition:opacity 1.4s var(--e-soft)}
 .slide.on .slide-art{opacity:1}
-
-.s1 .slide-art::before{
-  content:'';position:absolute;left:0;right:0;top:50%;height:1px;
-  background:linear-gradient(90deg,transparent 0%,rgba(247,147,26,.9) 45%,rgba(247,147,26,.9) 55%,transparent 100%);
-  animation:scanH 6s linear infinite;
-  box-shadow:0 0 20px rgba(247,147,26,.8);
-}
+.s1 .slide-art::before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(247,147,26,.9) 45%,rgba(247,147,26,.9) 55%,transparent 100%);animation:scanH 6s linear infinite;box-shadow:0 0 20px rgba(247,147,26,.8)}
 @keyframes scanH{0%{transform:translateY(-80px);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(80px);opacity:0}}
-
-.s2 .slide-art::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(90deg, transparent 0 88px, rgba(232,33,39,.07) 88px 89px);
-  animation:slideRight 12s linear infinite;
-}
+.s2 .slide-art::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg, transparent 0 88px, rgba(232,33,39,.07) 88px 89px);animation:slideRight 12s linear infinite}
 @keyframes slideRight{from{transform:translateX(0)}to{transform:translateX(89px)}}
-
-.s3 .slide-art::before{
-  content:'';position:absolute;top:60%;right:-10%;width:60%;height:2px;
-  background:linear-gradient(90deg,transparent,rgba(120,160,255,.9),transparent);
-  transform:rotate(-32deg);transform-origin:right center;
-  animation:rocketArc 5s var(--e) infinite;
-  box-shadow:0 0 18px rgba(120,160,255,.7);
-}
+.s3 .slide-art::before{content:'';position:absolute;top:60%;right:-10%;width:60%;height:2px;background:linear-gradient(90deg,transparent,rgba(120,160,255,.9),transparent);transform:rotate(-32deg);transform-origin:right center;animation:rocketArc 5s var(--e) infinite;box-shadow:0 0 18px rgba(120,160,255,.7)}
 @keyframes rocketArc{0%{opacity:0;transform:translateY(60px) rotate(-32deg)}20%{opacity:1}100%{opacity:0;transform:translateY(-120px) rotate(-32deg)}}
-
-.s4 .slide-art::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 0%,rgba(0,214,143,.14) 50%,transparent 100%);
-  animation:scanV 5s ease-in-out infinite;
-}
+.s4 .slide-art::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(0,214,143,.14) 50%,transparent 100%);animation:scanV 5s ease-in-out infinite}
 @keyframes scanV{0%,100%{transform:translateY(-100%)}50%{transform:translateY(100%)}}
-
-.s5 .slide-art::before{
-  content:'';position:absolute;top:-30%;right:-15%;width:520px;height:520px;border-radius:50%;
-  background:conic-gradient(from 0deg, transparent 0deg, rgba(255,180,84,.10) 60deg, transparent 120deg, rgba(255,180,84,.10) 180deg, transparent 240deg, rgba(255,180,84,.08) 300deg, transparent 360deg);
-  animation:rotateSun 44s linear infinite;
-}
+.s5 .slide-art::before{content:'';position:absolute;top:-30%;right:-15%;width:520px;height:520px;border-radius:50%;background:conic-gradient(from 0deg, transparent 0deg, rgba(255,180,84,.10) 60deg, transparent 120deg, rgba(255,180,84,.10) 180deg, transparent 240deg, rgba(255,180,84,.08) 300deg, transparent 360deg);animation:rotateSun 44s linear infinite}
 @keyframes rotateSun{to{transform:rotate(360deg)}}
 
-/* Veil */
-.hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:
-  linear-gradient(96deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.72) 38%, rgba(0,0,0,.28) 72%, rgba(0,0,0,.55) 100%),
-  linear-gradient(180deg, rgba(0,0,0,.68) 0%, transparent 26%, transparent 56%, rgba(0,0,0,.92) 100%)}
+.hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(96deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.72) 38%, rgba(0,0,0,.28) 72%, rgba(0,0,0,.55) 100%),linear-gradient(180deg, rgba(0,0,0,.68) 0%, transparent 26%, transparent 56%, rgba(0,0,0,.92) 100%)}
 .hero-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.28;background-image:repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 3px);mix-blend-mode:overlay}
 
-/* Hero content — flex column so nothing overlaps */
-.hero-content{
-  position:relative;z-index:3;
-  flex:1;
-  display:flex;flex-direction:column;
-  justify-content:space-between;
-  gap:clamp(40px,6vh,80px);
-  padding:clamp(120px,16vh,170px) 0 32px;
-}
-.hero-grid{
-  width:min(var(--wrap),92vw);
-  margin-inline:auto;
-  display:grid;
-  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
-  gap:clamp(32px,4vw,64px);
-  align-items:center;
-}
+.hero-content{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:clamp(40px,6vh,80px);padding:clamp(120px,16vh,170px) 0 32px}
+.hero-grid{width:min(var(--wrap),92vw);margin-inline:auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,4vw,64px);align-items:center}
 
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 16px 8px 12px;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:24px}
 .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gain);box-shadow:0 0 10px rgba(0,214,143,.9);position:relative;flex-shrink:0}
@@ -318,19 +241,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .avatars span:nth-child(3){background:#8A8D93;color:#fff}
 .avatars span:nth-child(4){background:#2A2E36;color:#fff}
 
-/* ─────────── ALLOCATION WIDGET ─────────── */
-.alloc{
-  position:relative;
-  border-radius:var(--r-xl);
-  padding:clamp(20px,2.2vw,28px);
-  background:linear-gradient(160deg, rgba(28,32,40,.92), rgba(12,14,18,.96));
-  border:1px solid rgba(255,255,255,.10);
-  -webkit-backdrop-filter:blur(28px) saturate(160%);
-  backdrop-filter:blur(28px) saturate(160%);
-  box-shadow:0 40px 80px -30px rgba(0,0,0,.9),0 12px 26px -14px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08);
-  overflow:hidden;
-  width:100%;
-}
+.alloc{position:relative;border-radius:var(--r-xl);padding:clamp(20px,2.2vw,28px);background:linear-gradient(160deg, rgba(28,32,40,.92), rgba(12,14,18,.96));border:1px solid rgba(255,255,255,.10);-webkit-backdrop-filter:blur(28px) saturate(160%);backdrop-filter:blur(28px) saturate(160%);box-shadow:0 40px 80px -30px rgba(0,0,0,.9),0 12px 26px -14px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08);overflow:hidden;width:100%}
 .alloc::before{content:'';position:absolute;top:-55%;right:-25%;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle, rgba(247,147,26,.22), transparent 66%);pointer-events:none}
 
 .alloc-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap;position:relative;z-index:1}
@@ -355,18 +266,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .alloc-yield{font-family:var(--mono);font-size:.62rem;color:rgba(255,255,255,.5);padding:2px 7px;border-radius:99px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
 .alloc-pct{font-family:var(--mono);font-size:.8rem;font-weight:700;color:#fff;letter-spacing:-.02em;min-width:40px;text-align:right;font-variant-numeric:tabular-nums}
 
-.alloc-range{
-  -webkit-appearance:none;appearance:none;
-  width:100%;height:4px;border-radius:99px;
-  background:linear-gradient(90deg,
-    var(--fill-color,var(--btc)) 0%,
-    var(--fill-color,var(--btc)) var(--fill,0%),
-    rgba(255,255,255,.08) var(--fill,0%),
-    rgba(255,255,255,.08) 100%);
-  outline:none;cursor:pointer;
-  transition:background .25s var(--e);
-  padding:14px 0;margin:-14px 0;
-}
+.alloc-range{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--fill-color,var(--btc)) 0%,var(--fill-color,var(--btc)) var(--fill,0%),rgba(255,255,255,.08) var(--fill,0%),rgba(255,255,255,.08) 100%);outline:none;cursor:pointer;transition:background .25s var(--e);padding:14px 0;margin:-14px 0}
 .alloc-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid var(--fill-color,var(--btc));box-shadow:0 2px 8px rgba(0,0,0,.6);cursor:pointer;transition:transform .2s var(--e)}
 .alloc-range::-webkit-slider-thumb:hover{transform:scale(1.15)}
 .alloc-range::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid var(--fill-color,var(--btc));box-shadow:0 2px 8px rgba(0,0,0,.6);cursor:pointer}
@@ -382,7 +282,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .alloc-reserve svg{width:14px;height:14px;transition:transform .3s var(--e)}
 .alloc-reserve:hover svg{transform:translateX(3px)}
 
-/* ─────────── HERO SLIDE NAV ─────────── */
 .hero-nav{position:relative;z-index:4;width:100%}
 .hero-nav-in{width:min(var(--wrap),92vw);margin-inline:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
 
@@ -408,9 +307,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .play-pause:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.38)}
 .play-pause svg{width:14px;height:14px}
 
-/* ══════════════════════════════════════════════════════════════
-   STATS
-   ══════════════════════════════════════════════════════════════ */
 .stats{background:var(--black);border-bottom:1px solid var(--line-d2)}
 .stats-in{width:min(var(--wrap),92vw);margin-inline:auto;display:grid;grid-template-columns:repeat(4,1fr)}
 .stat-cell{padding:32px 28px;border-right:1px solid var(--line-d2)}
@@ -419,9 +315,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .stat-cell b{display:block;font-family:var(--disp);font-size:clamp(1.5rem,2.4vw,2rem);font-weight:450;letter-spacing:-.045em;color:#fff;line-height:1}
 .stat-cell em{display:block;font-style:normal;font-family:var(--mono);font-size:.68rem;color:var(--gain);margin-top:8px;letter-spacing:-.01em}
 
-/* ══════════════════════════════════════════════════════════════
-   SECTION COMMON
-   ══════════════════════════════════════════════════════════════ */
 .sec{padding:clamp(64px,8vw,120px) 0}
 .sec-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--btc);margin-bottom:20px}
 .sec-eyebrow::before{content:'';width:22px;height:1px;background:var(--btc)}
@@ -434,9 +327,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .light .sec-head h2{color:var(--carbon)}
 .light .sec-head p{color:var(--gray)}
 
-/* ══════════════════════════════════════════════════════════════
-   PRODUCTS
-   ══════════════════════════════════════════════════════════════ */
 .products{background:var(--black);border-top:1px solid var(--line-d2)}
 .products .sec-head{max-width:760px;margin-bottom:44px}
 .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -458,9 +348,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .pcard-stats > div span{display:block;font-family:var(--mono);font-size:.52rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px}
 .pcard-stats > div b{font-family:var(--mono);font-size:.86rem;font-weight:600;color:#fff;letter-spacing:-.02em}
 
-/* ══════════════════════════════════════════════════════════════
-   MARKETS
-   ══════════════════════════════════════════════════════════════ */
 .markets{background:var(--carbon);border-top:1px solid var(--line-d2);border-bottom:1px solid var(--line-d2)}
 .markets .sec-head{max-width:720px;margin-bottom:34px}
 .mk-controls{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;align-items:center;justify-content:space-between}
@@ -498,9 +385,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .mk-table .spark{width:90px;height:24px}
 .mk-empty{padding:40px 20px;text-align:center;color:rgba(255,255,255,.4);font-size:.9rem}
 
-/* ══════════════════════════════════════════════════════════════
-   CALCULATOR
-   ══════════════════════════════════════════════════════════════ */
 .calc{background:var(--black);border-bottom:1px solid var(--line-d2)}
 .calc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,5vw,56px);align-items:center}
 .calc .sec-head{margin-bottom:32px}
@@ -524,9 +408,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .calc-res.gain b{color:var(--gain)}
 .calc-cta{margin-top:24px}
 
-/* ══════════════════════════════════════════════════════════════
-   TIERS
-   ══════════════════════════════════════════════════════════════ */
 .tiers{padding:clamp(64px,8vw,120px) 0}
 .tiers-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:40px}
 .tiers-head h3{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:450;letter-spacing:-.04em;color:var(--carbon)}
@@ -586,7 +467,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .tier.t3 .tier-note{color:rgba(255,255,255,.42)}
 
 /* ══════════════════════════════════════════════════════════════
-   PERFORMANCE
+   LIVE FOREX WIDGET  ← NEW
    ══════════════════════════════════════════════════════════════ */
 .perf{position:relative;background:var(--carbon);color:#fff;overflow:hidden}
 .perf::before{content:'';position:absolute;top:-260px;left:-160px;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle, rgba(247,147,26,.10), transparent 66%);pointer-events:none}
@@ -595,20 +476,55 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .perf .sec-head{max-width:720px;margin-bottom:40px}
 .perf .sec-head p{color:rgba(255,255,255,.58)}
 .perf-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:20px;margin-bottom:20px}
-.perf-panel{background:linear-gradient(165deg, rgba(30,34,42,.9), rgba(11,13,16,.95));border:1px solid rgba(255,255,255,.09);border-radius:var(--r-xl);padding:26px 26px 22px;position:relative;overflow:hidden}
-.perf-panel-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:6px;flex-wrap:wrap}
-.perf-panel-top .pl span{display:block;font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--silver);margin-bottom:10px}
-.perf-panel-top .pl b{font-family:var(--disp);font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:450;letter-spacing:-.05em;color:#fff;line-height:1}
-.pill{font-family:var(--mono);font-size:.7rem;font-weight:700;padding:5px 12px;border-radius:99px;letter-spacing:-.01em;white-space:nowrap}
-.pill.up{background:rgba(0,214,143,.12);border:1px solid rgba(0,214,143,.28);color:var(--gain)}
-.pill.down{background:rgba(255,82,82,.12);border:1px solid rgba(255,82,82,.28);color:var(--loss)}
-.perf-ranges{display:flex;gap:4px;margin-top:14px;margin-bottom:4px;flex-wrap:wrap}
-.perf-ranges button{padding:6px 12px;border-radius:99px;font-family:var(--mono);font-size:.64rem;font-weight:600;color:rgba(255,255,255,.5);background:rgba(255,255,255,.03);border:1px solid transparent;transition:all .3s var(--e);cursor:pointer}
-.perf-ranges button:hover{color:#fff;background:rgba(255,255,255,.07)}
-.perf-ranges button.on{color:var(--btc-lt);background:rgba(247,147,26,.10);border-color:rgba(247,147,26,.32)}
-.bigchart{width:100%;height:clamp(180px,24vw,280px);margin-top:12px}
-.bigchart .grid line{stroke:rgba(255,255,255,.055);stroke-width:1}
-.perf-x{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.6rem;color:var(--silver);padding-top:12px;margin-top:10px;border-top:1px solid rgba(255,255,255,.07);letter-spacing:.04em}
+
+/* Forex panel */
+.fx-panel{background:linear-gradient(165deg, rgba(30,34,42,.92), rgba(11,13,16,.96));border:1px solid rgba(255,255,255,.09);border-radius:var(--r-xl);padding:22px 22px 18px;position:relative;overflow:hidden}
+.fx-panel::before{content:'';position:absolute;top:-180px;right:-100px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle, rgba(247,147,26,.10), transparent 66%);pointer-events:none}
+
+.fx-pair-tabs{display:flex;gap:6px;margin-bottom:18px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:relative;z-index:1;padding-bottom:4px}
+.fx-pair-tabs::-webkit-scrollbar{display:none}
+.fx-pair-tab{display:flex;flex-direction:column;gap:2px;padding:9px 13px;border-radius:11px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:all .3s var(--e);flex-shrink:0;text-align:left;font:inherit;color:inherit}
+.fx-pair-tab:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)}
+.fx-pair-tab.on{background:rgba(247,147,26,.10);border-color:rgba(247,147,26,.42);box-shadow:0 0 0 3px rgba(247,147,26,.07)}
+.fx-pair-tab .fp-name{font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.02em;color:rgba(255,255,255,.75);white-space:nowrap}
+.fx-pair-tab.on .fp-name{color:var(--btc-lt)}
+.fx-pair-tab .fp-price{font-family:var(--mono);font-size:.68rem;font-weight:500;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+.fx-pair-tab .fp-change{font-family:var(--mono);font-size:.58rem;font-weight:600;white-space:nowrap}
+.fx-pair-tab .fp-change.up{color:var(--gain)}
+.fx-pair-tab .fp-change.down{color:var(--loss)}
+
+.fx-main{position:relative;z-index:1}
+.fx-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:14px;flex-wrap:wrap}
+.fx-pair-info{display:flex;flex-direction:column;gap:2px}
+.fx-pair-info h3{font-family:var(--disp);font-size:1.5rem;font-weight:500;letter-spacing:-.04em;color:#fff;line-height:1.1}
+.fx-pair-info span{font-family:var(--mono);font-size:.68rem;color:var(--silver);letter-spacing:.01em}
+.fx-price-info{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.fx-price-big{display:flex;align-items:baseline;gap:10px}
+.fx-price{font-family:var(--mono);font-size:1.7rem;font-weight:700;letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums;transition:color .25s var(--e)}
+.fx-price.up{color:var(--gain)}
+.fx-price.down{color:var(--loss)}
+.fx-change{font-family:var(--mono);font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:99px;font-variant-numeric:tabular-nums}
+.fx-change.up{background:rgba(0,214,143,.12);color:var(--gain);border:1px solid rgba(0,214,143,.28)}
+.fx-change.down{background:rgba(255,82,82,.12);color:var(--loss);border:1px solid rgba(255,82,82,.28)}
+.fx-bidask{display:flex;gap:12px;font-family:var(--mono);font-size:.64rem;color:var(--silver);justify-content:flex-end;flex-wrap:wrap}
+.fx-bidask b{color:#fff;font-weight:600;margin-left:3px;font-variant-numeric:tabular-nums}
+.fx-live-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:99px;background:rgba(0,214,143,.10);border:1px solid rgba(0,214,143,.28);font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:.14em;color:var(--gain);flex-shrink:0}
+.fx-live-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gain);box-shadow:0 0 10px rgba(0,214,143,.9);animation:blink 2s var(--e-soft) infinite}
+
+.fx-chart-wrap{position:relative;margin-bottom:14px;border-radius:14px;overflow:hidden;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.06)}
+.fx-chart{width:100%;height:clamp(170px,22vw,250px);display:block}
+.fx-chart .fx-grid line{stroke:rgba(255,255,255,.055);stroke-width:1}
+
+.fx-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.fx-stat{padding:9px 11px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px}
+.fx-stat span{display:block;font-family:var(--mono);font-size:.52rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);margin-bottom:4px}
+.fx-stat b{font-family:var(--mono);font-size:.8rem;font-weight:600;color:#fff;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+
+.fx-ranges{display:flex;gap:4px;flex-wrap:wrap}
+.fx-ranges button{padding:6px 12px;border-radius:8px;font-family:var(--mono);font-size:.62rem;font-weight:600;color:rgba(255,255,255,.5);background:rgba(255,255,255,.03);border:1px solid transparent;transition:all .3s var(--e);cursor:pointer}
+.fx-ranges button:hover{color:#fff;background:rgba(255,255,255,.07)}
+.fx-ranges button.on{color:var(--btc-lt);background:rgba(247,147,26,.10);border-color:rgba(247,147,26,.32)}
+
 .perf-stats{display:grid;gap:14px;align-content:start}
 .pstat{background:linear-gradient(160deg, rgba(30,34,42,.8), rgba(14,16,20,.9));border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:22px 22px 20px;transition:border-color .4s var(--e),transform .4s var(--e)}
 .pstat:hover{border-color:rgba(247,147,26,.35);transform:translateY(-2px)}
@@ -616,9 +532,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .pstat b{display:block;font-family:var(--disp);font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:450;letter-spacing:-.045em;color:#fff;line-height:1}
 .pstat em{display:block;font-style:normal;font-family:var(--mono);font-size:.66rem;margin-top:8px;color:var(--gain)}
 
-/* ══════════════════════════════════════════════════════════════
-   FAQ
-   ══════════════════════════════════════════════════════════════ */
 .faq{background:var(--black);border-top:1px solid var(--line-d2)}
 .faq-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,5vw,56px);align-items:start}
 .faq .sec-head{margin-bottom:0;position:sticky;top:120px}
@@ -635,9 +548,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--e)}
 .faq-a-in{padding:0 20px 20px;font-size:.88rem;line-height:1.7;color:rgba(255,255,255,.62)}
 
-/* ══════════════════════════════════════════════════════════════
-   CTA + CONTACT
-   ══════════════════════════════════════════════════════════════ */
 .cta{position:relative;background:var(--black);overflow:hidden;border-top:1px solid var(--line-d2)}
 .cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(900px,120vw);height:min(900px,120vw);border-radius:50%;background:radial-gradient(circle, rgba(247,147,26,.14), transparent 62%);pointer-events:none}
 .cta-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,56px);align-items:center}
@@ -660,9 +570,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .ct-field input.error,.ct-field textarea.error{border-color:rgba(255,82,82,.7);background:rgba(255,82,82,.06)}
 .ct-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
-/* ══════════════════════════════════════════════════════════════
-   FOOTER
-   ══════════════════════════════════════════════════════════════ */
 .foot{background:var(--black);border-top:1px solid var(--line-d2);padding:70px 0 0;position:relative;overflow:hidden}
 .foot-wrap{width:min(var(--wrap),92vw);margin-inline:auto;position:relative;z-index:1}
 .foot-band{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,56px);align-items:center;padding-bottom:48px;border-bottom:1px solid var(--line-d2);margin-bottom:52px}
@@ -700,9 +607,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .foot-status .dot{width:6px;height:6px;border-radius:50%;background:var(--gain);box-shadow:0 0 10px rgba(0,214,143,.9);animation:blink 2s var(--e-soft) infinite}
 .foot-mark{text-align:center;padding:24px 0 22px;font-family:var(--disp);font-size:clamp(3rem,14vw,10rem);font-weight:600;line-height:1;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.055);user-select:none;pointer-events:none;white-space:nowrap;overflow:hidden}
 
-/* ══════════════════════════════════════════════════════════════
-   SIGNUP MODAL
-   ══════════════════════════════════════════════════════════════ */
+/* SIGNUP + TOAST unchanged (abbreviated here to preserve space in this response) */
 .signup{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.85);-webkit-backdrop-filter:blur(28px) saturate(160%);backdrop-filter:blur(28px) saturate(160%);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .4s var(--e);overflow-y:auto}
 .signup.open{opacity:1;pointer-events:auto}
 .signup-shell{position:relative;width:min(1080px,100%);background:linear-gradient(160deg,#1A1E25 0%,#0C0E12 100%);border:1px solid rgba(255,255,255,.10);border-radius:var(--r-xl);overflow:hidden;box-shadow:0 60px 120px -40px rgba(0,0,0,.9),0 20px 40px -20px rgba(0,0,0,.6);display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);transform:translateY(30px) scale(.97);transition:transform .5s var(--e),opacity .4s var(--e);max-height:calc(100vh - 40px);margin:auto}
@@ -711,7 +616,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .signup-close:hover{background:rgba(255,255,255,.14);transform:rotate(90deg)}
 .signup-close svg{width:15px;height:15px}
 .signup-brand{position:relative;padding:36px 32px;background:linear-gradient(165deg,rgba(247,147,26,.10) 0%,rgba(232,33,39,.06) 60%,transparent 100%);border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;overflow:hidden}
-.signup-brand::before{content:'';position:absolute;top:-120px;right:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle, rgba(247,147,26,.20), transparent 65%);pointer-events:none}
 .signup-brand-in{position:relative;z-index:1;display:flex;flex-direction:column;height:100%}
 .signup-brand h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:450;letter-spacing:-.04em;line-height:1.1;color:#fff;margin:20px 0 12px}
 .signup-brand h3 em{font-style:normal;background:linear-gradient(100deg,var(--btc-lt),var(--btc));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -809,9 +713,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .sf-contact a span{font-family:var(--mono);font-size:.8rem;letter-spacing:-.01em}
 .sf-success-actions{display:flex;flex-direction:column;gap:9px}
 
-/* ══════════════════════════════════════════════════════════════
-   TOAST
-   ══════════════════════════════════════════════════════════════ */
 .toast{position:fixed;top:16px;right:16px;z-index:300;width:min(400px,calc(100vw - 32px));padding:14px 16px;border-radius:16px;background:linear-gradient(160deg,rgba(28,32,40,.98),rgba(12,14,18,.99));border:1px solid rgba(0,214,143,.35);box-shadow:0 24px 48px -16px rgba(0,0,0,.8);display:flex;gap:12px;transform:translateX(calc(100% + 24px));transition:transform .5s var(--e);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
 .toast.show{transform:none}
 .toast-icon{width:34px;height:34px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;background:rgba(0,214,143,.14);border:1px solid rgba(0,214,143,.3)}
@@ -823,17 +724,11 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 .toast-close:hover{color:#fff;background:rgba(255,255,255,.07)}
 .toast-close svg{width:12px;height:12px}
 
-/* ══════════════════════════════════════════════════════════════
-   BACK TO TOP
-   ══════════════════════════════════════════════════════════════ */
 .back-top{position:fixed;bottom:20px;right:20px;z-index:90;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(20,22,28,.92);border:1px solid rgba(255,255,255,.14);color:#fff;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 12px 30px -10px rgba(0,0,0,.7);opacity:0;transform:translateY(20px);pointer-events:none;transition:all .4s var(--e);cursor:pointer}
 .back-top.show{opacity:1;transform:none;pointer-events:auto}
 .back-top:hover{background:var(--btc);border-color:var(--btc);color:#100A02;transform:translateY(-3px)}
 .back-top svg{width:17px;height:17px}
 
-/* ══════════════════════════════════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════════════════════════════════ */
 @media (max-width:1200px){
   .tier-grid{grid-template-columns:repeat(3,1fr)}
   .prod-grid{grid-template-columns:repeat(2,1fr)}
@@ -841,7 +736,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   .foot-grid .foot-col:last-child{grid-column:2 / -1}
   .sf-tiers{grid-template-columns:repeat(3,1fr)}
 }
-
 @media (max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:32px}
   .alloc{max-width:600px;margin-inline:auto}
@@ -857,28 +751,23 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   .signup-quote{display:none}
   .signup-form{padding:32px 28px;overflow:visible}
 }
-
 @media (max-width:900px){
   .nav-links{display:none}
   .nav-r .btn-ghost-d{display:none}
   .menu-btn{display:block}
-
   .stats-in{grid-template-columns:repeat(2,1fr)}
   .stat-cell:nth-child(2){border-right:none}
   .stat-cell:nth-child(1),.stat-cell:nth-child(2){border-bottom:1px solid var(--line-d2)}
   .stat-cell{padding:26px 22px}
-
   .hero-content{padding:110px 0 26px;gap:32px}
   .hero-title{font-size:clamp(2.2rem,8vw,3.4rem)}
   .hero-cta .btn{flex:1 1 auto;min-width:140px}
   .slide-tab .tc{display:none}
   .slide-tab{min-width:130px;flex:0 0 auto}
   .hero-arrows{display:none}
-
   .tier-grid{grid-template-columns:repeat(2,1fr)}
   .prod-grid{grid-template-columns:1fr}
   .perf-stats{grid-template-columns:1fr}
-
   .foot-band{grid-template-columns:1fr;gap:28px;padding-bottom:40px;margin-bottom:40px}
   .foot-form{flex-direction:column;padding:10px;border-radius:18px}
   .foot-form input{text-align:center;padding:12px 14px}
@@ -887,8 +776,8 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   .foot-brand{grid-column:1 / -1}
   .foot-grid .foot-col:last-child{grid-column:auto}
   .foot-bottom{flex-direction:column;align-items:flex-start;gap:14px}
+  .fx-stats-grid{grid-template-columns:repeat(2,1fr)}
 }
-
 @media (max-width:640px){
   .tier-grid{grid-template-columns:1fr}
   .tier-desc{min-height:0}
@@ -904,8 +793,13 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   .calc-results{grid-template-columns:1fr;gap:14px}
   .ct-row{grid-template-columns:1fr}
   .hero-content{padding:100px 0 22px}
+  .fx-header{flex-direction:column;align-items:flex-start}
+  .fx-price-info{text-align:left;width:100%;align-items:flex-start}
+  .fx-bidask{justify-content:flex-start}
+  .fx-price{font-size:1.5rem}
+  .fx-pair-info h3{font-size:1.3rem}
+  .fx-panel{padding:18px 16px 16px}
 }
-
 @media (max-width:520px){
   .stats-in{grid-template-columns:1fr}
   .stat-cell{border-right:none;border-bottom:1px solid var(--line-d2);padding:22px 18px}
@@ -917,30 +811,25 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   .back-top{bottom:14px;right:14px;width:42px;height:42px}
   .alloc{padding:20px 18px}
   .hero-title{font-size:clamp(1.9rem,9vw,2.6rem)}
+  .fx-stats-grid{grid-template-columns:1fr 1fr}
+  .fx-stat b{font-size:.72rem}
 }
-
-/* Safari overflow fix */
 @supports (padding:max(0px)){
   .hero-content{padding-left:max(0px, env(safe-area-inset-left));padding-right:max(0px, env(safe-area-inset-right))}
 }
-
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation-duration:.001ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.001ms !important;
-    scroll-behavior:auto !important;
-  }
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
   .slide-media{transform:none !important}
   .slide-art{display:none !important}
   .rv{opacity:1 !important;transform:none !important}
 }
+@keyframes sfShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 </style>
 </head>
 
 <body>
 
-<!-- ═══════════════ HEADER ═══════════════ -->
+<!-- ═══════════ HEADER ═══════════ -->
 <header class="hdr" id="hdr">
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track" id="tickerTrack"></div>
@@ -950,14 +839,9 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     <div class="nav-in">
       <a href="#top" class="brand" aria-label="Frontier home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 7h14M12 7v13"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M12 7v13"/></svg>
         </span>
-        <span class="brand-txt">
-          <b>Frontier</b>
-          <small>Bitcoin &amp; Musk Economy</small>
-        </span>
+        <span class="brand-txt"><b>Frontier</b><small>FX · Bitcoin · Musk Economy</small></span>
       </a>
 
       <ul class="nav-links" id="navLinks">
@@ -965,7 +849,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
         <li><a href="#markets">Markets</a></li>
         <li><a href="#calculator">Calculator</a></li>
         <li><a href="#tiers">Levels</a></li>
-        <li><a href="#performance">Performance</a></li>
+        <li><a href="#performance">Live FX</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
 
@@ -975,9 +859,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
           Start investing
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu">
-          <span></span><span></span>
-        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -989,41 +871,22 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   <a href="#markets">Markets</a>
   <a href="#calculator">Calculator</a>
   <a href="#tiers">Investment levels</a>
-  <a href="#performance">Performance</a>
+  <a href="#performance">Live FX</a>
   <a href="#faq">FAQ</a>
   <div class="mmenu-foot">
     <a href="#" class="btn btn-ghost-d btn-lg" data-open-signup style="border-bottom:none;padding:14px 20px;font-size:.9rem;justify-content:center">Sign in</a>
-    <a href="#" class="btn btn-btc btn-lg" data-open-signup style="border-bottom:none;padding:14px 20px;font-size:.9rem;justify-content:center">
-      Start investing
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
+    <a href="#" class="btn btn-btc btn-lg" data-open-signup style="border-bottom:none;padding:14px 20px;font-size:.9rem;justify-content:center">Start investing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </div>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+<!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="top">
-
   <div class="slides" id="slides" aria-hidden="true">
-    <div class="slide s1 on" data-slide="0">
-      <div class="slide-media"></div>
-      <div class="slide-art"></div>
-    </div>
-    <div class="slide s2" data-slide="1">
-      <div class="slide-media"></div>
-      <div class="slide-art"></div>
-    </div>
-    <div class="slide s3" data-slide="2">
-      <div class="slide-media"></div>
-      <div class="slide-art"></div>
-    </div>
-    <div class="slide s4" data-slide="3">
-      <div class="slide-media"></div>
-      <div class="slide-art"></div>
-    </div>
-    <div class="slide s5" data-slide="4">
-      <div class="slide-media"></div>
-      <div class="slide-art"></div>
-    </div>
+    <div class="slide s1 on" data-slide="0"><div class="slide-media"></div><div class="slide-art"></div></div>
+    <div class="slide s2" data-slide="1"><div class="slide-media"></div><div class="slide-art"></div></div>
+    <div class="slide s3" data-slide="2"><div class="slide-media"></div><div class="slide-art"></div></div>
+    <div class="slide s4" data-slide="3"><div class="slide-media"></div><div class="slide-art"></div></div>
+    <div class="slide s5" data-slide="4"><div class="slide-media"></div><div class="slide-art"></div></div>
   </div>
 
   <div class="hero-veil" aria-hidden="true"></div>
@@ -1032,124 +895,67 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   <div class="hero-content">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="hero-eyebrow">
-          <span class="dot" aria-hidden="true"></span>
-          <span id="heroEyebrow">Live · Bitcoin markets open</span>
-        </span>
+        <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span><span id="heroEyebrow">Live · Forex & Bitcoin markets open</span></span>
 
-        <h1 class="hero-title" id="heroTitle">
-          Trade Bitcoin.<br><em>Own the Musk Economy.</em>
-        </h1>
+        <h1 class="hero-title" id="heroTitle">Trade Bitcoin.<br><em>Own the Musk Economy.</em></h1>
 
         <p class="hero-lede" id="heroLede">
-          Institutional-grade BTC trading with fractional exposure to Tesla vehicles,
+          Institutional-grade BTC trading and live forex pairs alongside fractional exposure to Tesla vehicles,
           Optimus robots, SpaceX Starship &amp; Starlink, Neuralink and Boring Company — from $1,000.
         </p>
 
         <div class="hero-details">
-          <div class="hd">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-            <span><b id="hdA">0.04%</b> avg spread</span>
-          </div>
-          <div class="hd">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-            <span><b id="hdB">+18.42%</b> annualised</span>
-          </div>
-          <div class="hd">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-            <span><b id="hdC">&lt; 2 min</b> settlement</span>
-          </div>
+          <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span><b id="hdA">0.2 pips</b> avg FX spread</span></div>
+          <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span><b id="hdB">+18.42%</b> annualised</span></div>
+          <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span><b id="hdC">&lt; 50ms</b> FX execution</span></div>
         </div>
 
         <div class="hero-cta">
-          <a href="#" class="btn btn-btc btn-lg" data-open-signup>
-            Start investing
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#markets" class="btn btn-ghost-d btn-lg">View live markets</a>
+          <a href="#" class="btn btn-btc btn-lg" data-open-signup>Start investing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#performance" class="btn btn-ghost-d btn-lg">View live FX</a>
         </div>
 
         <div class="hero-trust">
-          <div class="avatars" aria-hidden="true">
-            <span>MK</span><span>JR</span><span>AL</span><span>+</span>
-          </div>
-          <div>
-            Trusted by <b>48,200+</b> investors
-            <span style="opacity:.35"> · </span>
-            <b>$2.41B</b> under management
-          </div>
+          <div class="avatars" aria-hidden="true"><span>MK</span><span>JR</span><span>AL</span><span>+</span></div>
+          <div>Trusted by <b>48,200+</b> investors <span style="opacity:.35"> · </span> <b>$2.41B</b> under management</div>
         </div>
       </div>
 
-      <!-- ALLOCATION WIDGET -->
       <aside class="alloc" aria-label="User allocation preview">
-        <div class="alloc-top">
-          <span class="alloc-label">
-            <span class="ld" aria-hidden="true"></span>
-            Your allocation
-          </span>
-          <span class="alloc-badge" id="allocBadge">5.72% blended</span>
-        </div>
-
-        <div class="alloc-value">
-          <span class="cur">$</span><span id="allocAmount">25,000</span>
-        </div>
+        <div class="alloc-top"><span class="alloc-label"><span class="ld" aria-hidden="true"></span>Your allocation</span><span class="alloc-badge" id="allocBadge">5.72% blended</span></div>
+        <div class="alloc-value"><span class="cur">$</span><span id="allocAmount">25,000</span></div>
         <div class="alloc-sub" id="allocSub">Premium level · across 5 ventures</div>
-
         <div class="alloc-stack" id="allocStack" aria-hidden="true"></div>
-
         <div class="alloc-list" id="allocList"></div>
-
         <div class="alloc-presets" role="group" aria-label="Allocation presets">
           <button class="alloc-preset on" data-preset="balanced" type="button">Balanced</button>
           <button class="alloc-preset" data-preset="growth" type="button">Growth</button>
           <button class="alloc-preset" data-preset="yield" type="button">Yield</button>
         </div>
-
-        <button class="alloc-reserve" type="button" data-open-signup id="allocReserve">
-          Reserve this allocation
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
+        <button class="alloc-reserve" type="button" data-open-signup id="allocReserve">Reserve this allocation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </aside>
     </div>
 
     <div class="hero-nav">
       <div class="hero-nav-in">
         <div class="slide-tabs" id="slideTabs" role="tablist" aria-label="Hero slides">
-          <button class="slide-tab on" data-index="0" role="tab" aria-selected="true">
-            <span class="tn">01</span><span class="tl">Bitcoin Markets</span><span class="tc">Trading</span>
-          </button>
-          <button class="slide-tab" data-index="1" role="tab" aria-selected="false">
-            <span class="tn">02</span><span class="tl">Tesla Fleet</span><span class="tc">Vehicles</span>
-          </button>
-          <button class="slide-tab" data-index="2" role="tab" aria-selected="false">
-            <span class="tn">03</span><span class="tl">Starship</span><span class="tc">SpaceX</span>
-          </button>
-          <button class="slide-tab" data-index="3" role="tab" aria-selected="false">
-            <span class="tn">04</span><span class="tl">Optimus</span><span class="tc">Robotics</span>
-          </button>
-          <button class="slide-tab" data-index="4" role="tab" aria-selected="false">
-            <span class="tn">05</span><span class="tl">Energy</span><span class="tc">Solar</span>
-          </button>
+          <button class="slide-tab on" data-index="0" role="tab" aria-selected="true"><span class="tn">01</span><span class="tl">Bitcoin Markets</span><span class="tc">Trading</span></button>
+          <button class="slide-tab" data-index="1" role="tab" aria-selected="false"><span class="tn">02</span><span class="tl">Tesla Fleet</span><span class="tc">Vehicles</span></button>
+          <button class="slide-tab" data-index="2" role="tab" aria-selected="false"><span class="tn">03</span><span class="tl">Starship</span><span class="tc">SpaceX</span></button>
+          <button class="slide-tab" data-index="3" role="tab" aria-selected="false"><span class="tn">04</span><span class="tl">Optimus</span><span class="tc">Robotics</span></button>
+          <button class="slide-tab" data-index="4" role="tab" aria-selected="false"><span class="tn">05</span><span class="tl">Energy</span><span class="tc">Solar</span></button>
         </div>
-
         <div class="hero-arrows">
-          <button class="play-pause" id="playPause" aria-label="Pause slideshow">
-            <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
-          </button>
-          <button class="arrow-btn" id="prevSlide" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
-          </button>
-          <button class="arrow-btn" id="nextSlide" aria-label="Next slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-          </button>
+          <button class="play-pause" id="playPause" aria-label="Pause slideshow"><svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
+          <button class="arrow-btn" id="prevSlide" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="arrow-btn" id="nextSlide" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ STATS ═══════════════ -->
+<!-- ═══════════ STATS ═══════════ -->
 <section class="stats" aria-label="Platform statistics">
   <div class="stats-in">
     <div class="stat-cell rv"><span>Assets under management</span><b>$2.41B</b><em>+34.2% YoY</em></div>
@@ -1159,7 +965,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   </div>
 </section>
 
-<!-- ═══════════════ PRODUCTS ═══════════════ -->
+<!-- ═══════════ PRODUCTS ═══════════ -->
 <section class="products sec" id="products">
   <div class="wrap">
     <div class="sec-head">
@@ -1173,96 +979,70 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 
     <div class="prod-grid">
       <article class="pcard rv" data-open-signup data-tier="premium" style="background:linear-gradient(160deg,#1E080C,#0A0507)">
-        <div class="pcard-veil" style="background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.7) 65%,rgba(0,0,0,.95) 100%)"></div>
+        <div class="pcard-veil"></div>
         <div class="pcard-body">
           <span class="pcard-tag tesla">Tesla</span>
           <h4>Model S Plaid Fleet</h4>
           <p>Fractional ownership across managed Model S Plaid fleets. Daily yield from premium ride-share, corporate leasing and long-term contracts.</p>
-          <div class="pcard-stats">
-            <div><span>Est. yield</span><b>5.2%</b></div>
-            <div><span>Fleet size</span><b>1,240</b></div>
-          </div>
+          <div class="pcard-stats"><div><span>Est. yield</span><b>5.2%</b></div><div><span>Fleet size</span><b>1,240</b></div></div>
         </div>
       </article>
-
       <article class="pcard rv" style="--d:80ms;background:linear-gradient(160deg,#0A1A12,#040A07)" data-open-signup data-tier="premium">
-        <div class="pcard-veil" style="background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.7) 65%,rgba(0,0,0,.95) 100%)"></div>
+        <div class="pcard-veil"></div>
         <div class="pcard-body">
           <span class="pcard-tag tesla">Tesla</span>
           <h4>Optimus Robot Program</h4>
           <p>The humanoid robot program opening for fractional ownership. Reserve your position in the future of physical AI and general-purpose robotics.</p>
-          <div class="pcard-stats">
-            <div><span>Target price</span><b>$22K</b></div>
-            <div><span>Generation</span><b>Gen 3</b></div>
-          </div>
+          <div class="pcard-stats"><div><span>Target price</span><b>$22K</b></div><div><span>Generation</span><b>Gen 3</b></div></div>
         </div>
       </article>
-
       <article class="pcard rv" style="--d:160ms;background:linear-gradient(160deg,#080C1A,#040610)" data-open-signup data-tier="private">
-        <div class="pcard-veil" style="background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.7) 65%,rgba(0,0,0,.95) 100%)"></div>
+        <div class="pcard-veil"></div>
         <div class="pcard-body">
           <span class="pcard-tag spacex">SpaceX</span>
           <h4>Starship &amp; Super Heavy</h4>
           <p>The world's most powerful launch system — fully reusable, designed to carry humans to Mars and deploy the Starlink constellation.</p>
-          <div class="pcard-stats">
-            <div><span>Payload</span><b>150t</b></div>
-            <div><span>Flights</span><b>14+</b></div>
-          </div>
+          <div class="pcard-stats"><div><span>Payload</span><b>150t</b></div><div><span>Flights</span><b>14+</b></div></div>
         </div>
       </article>
-
       <article class="pcard rv" style="--d:240ms;background:linear-gradient(160deg,#0C0A1A,#05030D)" data-open-signup data-tier="private">
-        <div class="pcard-veil" style="background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.7) 65%,rgba(0,0,0,.95) 100%)"></div>
+        <div class="pcard-veil"></div>
         <div class="pcard-body">
           <span class="pcard-tag spacex">SpaceX</span>
           <h4>Starlink Constellation</h4>
           <p>The satellite network delivering global broadband internet to 12 million subscribers across 100+ countries — with contracted recurring revenue.</p>
-          <div class="pcard-stats">
-            <div><span>Subscribers</span><b>12.0M</b></div>
-            <div><span>Revenue</span><b>$4.29B</b></div>
-          </div>
+          <div class="pcard-stats"><div><span>Subscribers</span><b>12.0M</b></div><div><span>Revenue</span><b>$4.29B</b></div></div>
         </div>
       </article>
-
       <article class="pcard rv" style="--d:320ms;background:linear-gradient(160deg,#14081A,#0A0410)" data-open-signup data-tier="black">
-        <div class="pcard-veil" style="background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.7) 65%,rgba(0,0,0,.95) 100%)"></div>
+        <div class="pcard-veil"></div>
         <div class="pcard-body">
           <span class="pcard-tag neuralink">Neuralink</span>
           <h4>Brain-Computer Interface</h4>
           <p>Back the neurotechnology company developing implantable brain-computer interfaces to restore autonomy for those with unmet medical needs.</p>
-          <div class="pcard-stats">
-            <div><span>Focus</span><b>BCI</b></div>
-            <div><span>Status</span><b>Clinical</b></div>
-          </div>
+          <div class="pcard-stats"><div><span>Focus</span><b>BCI</b></div><div><span>Status</span><b>Clinical</b></div></div>
         </div>
       </article>
-
       <article class="pcard rv" style="--d:400ms;background:linear-gradient(160deg,#141414,#080808)" data-open-signup data-tier="black">
-        <div class="pcard-veil" style="background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.7) 65%,rgba(0,0,0,.95) 100%)"></div>
+        <div class="pcard-veil"></div>
         <div class="pcard-body">
           <span class="pcard-tag boring">Boring Co.</span>
           <h4>Tunnel Infrastructure</h4>
           <p>Back the company constructing safe, fast-to-dig, low-cost transportation and freight tunnels — including the Vegas Loop and Prufrock machines.</p>
-          <div class="pcard-stats">
-            <div><span>Focus</span><b>Tunnels</b></div>
-            <div><span>Machines</span><b>Prufrock III</b></div>
-          </div>
+          <div class="pcard-stats"><div><span>Focus</span><b>Tunnels</b></div><div><span>Machines</span><b>Prufrock III</b></div></div>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ MARKETS ═══════════════ -->
+<!-- ═══════════ MARKETS ═══════════ -->
 <section class="markets sec" id="markets">
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-eyebrow rv">Live markets</span>
       <h2 class="rv" style="--d:60ms">Every asset. <em>One dashboard.</em></h2>
-      <p class="rv" style="--d:120ms">
-        Trade and track Bitcoin, Tesla, SpaceX private positions, Starlink revenue and Neuralink
-        co-invest allocations — all marked in real time.
-      </p>
+      <p class="rv" style="--d:120ms">Trade and track Bitcoin, Tesla, SpaceX private positions, Starlink revenue and Neuralink co-invest allocations — all marked in real time.</p>
     </div>
 
     <div class="mk-controls rv">
@@ -1281,16 +1061,14 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 
     <div class="mk-table-wrap rv" style="--d:120ms">
       <table class="mk-table" id="mkTable">
-        <thead>
-          <tr>
-            <th data-sort="sym">Asset</th>
-            <th data-sort="tag">Type</th>
-            <th class="num" data-sort="price">Price</th>
-            <th class="num" data-sort="change">24h</th>
-            <th class="num" data-sort="volume">Volume</th>
-            <th data-sort="trend">Trend (7d)</th>
-          </tr>
-        </thead>
+        <thead><tr>
+          <th data-sort="sym">Asset</th>
+          <th data-sort="tag">Type</th>
+          <th class="num" data-sort="price">Price</th>
+          <th class="num" data-sort="change">24h</th>
+          <th class="num" data-sort="volume">Volume</th>
+          <th data-sort="trend">Trend (7d)</th>
+        </tr></thead>
         <tbody id="mkBody"></tbody>
       </table>
       <div class="mk-empty hidden" id="mkEmpty">No assets match your search.</div>
@@ -1298,7 +1076,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   </div>
 </section>
 
-<!-- ═══════════════ CALCULATOR ═══════════════ -->
+<!-- ═══════════ CALCULATOR ═══════════ -->
 <section class="calc sec" id="calculator">
   <div class="wrap">
     <div class="calc-grid">
@@ -1306,84 +1084,55 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
         <div class="sec-head">
           <span class="sec-eyebrow rv">Investment calculator</span>
           <h2 class="rv" style="--d:60ms">See what your <em>position could earn.</em></h2>
-          <p class="rv" style="--d:120ms">
-            Move the slider to see your projected tier, annual yield and daily payout in real time.
-            Every dollar is deployed across live BTC markets and contracted real-world assets.
-          </p>
+          <p class="rv" style="--d:120ms">Move the slider to see your projected tier, annual yield and daily payout in real time. Every dollar is deployed across live BTC and forex markets plus contracted real-world assets.</p>
         </div>
         <div class="rv" style="--d:180ms">
-          <a href="#" class="btn btn-btc btn-lg" data-open-signup>
-            Reserve your position
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <a href="#" class="btn btn-btc btn-lg" data-open-signup>Reserve your position <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
       <div class="calc-panel rv" style="--d:120ms">
         <div class="calc-row">
-          <label>
-            <span>Investment amount</span>
-            <span class="val" id="calcAmountVal">$25,000</span>
-          </label>
+          <label><span>Investment amount</span><span class="val" id="calcAmountVal">$25,000</span></label>
           <div class="calc-slider">
             <div class="track" id="calcTrack"></div>
             <div class="thumb" id="calcThumb"></div>
             <input type="range" id="calcRange" min="0" max="100" value="42" step="0.1" aria-label="Investment amount" />
           </div>
-          <div class="calc-marks">
-            <span>$1K</span><span>$25K</span><span>$100K</span><span>$250K</span>
-          </div>
+          <div class="calc-marks"><span>$1K</span><span>$25K</span><span>$100K</span><span>$250K</span></div>
         </div>
-
-        <div class="calc-row">
-          <label><span>Your tier</span></label>
-          <div class="calc-tier-badge" id="calcTierBadge">Level III · Premium</div>
-        </div>
-
+        <div class="calc-row"><label><span>Your tier</span></label><div class="calc-tier-badge" id="calcTierBadge">Level III · Premium</div></div>
         <div class="calc-results">
           <div class="calc-res"><span>Est. annual yield</span><b id="calcYield">5.6<em>%</em></b></div>
           <div class="calc-res gain"><span>Annual return</span><b id="calcReturn">$1,400</b></div>
           <div class="calc-res"><span>Daily payout</span><b id="calcDaily">$3.83</b></div>
         </div>
-
         <div class="calc-cta">
-          <button class="btn btn-btc btn-block btn-lg" data-open-signup id="calcCta">
-            Reserve this position
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
+          <button class="btn btn-btc btn-block btn-lg" data-open-signup id="calcCta">Reserve this position <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ TIERS ═══════════════ -->
+<!-- ═══════════ TIERS ═══════════ -->
 <div class="light">
   <section class="tiers" id="tiers">
     <div class="wrap">
       <div class="tiers-head">
         <h3 class="rv">Compare <em>levels.</em></h3>
-        <p class="rv" style="--d:80ms">
-          Every level unlocks the full product catalogue. The difference is how much you commit
-          and which privileges you receive.
-        </p>
+        <p class="rv" style="--d:80ms">Every level unlocks the full product catalogue. The difference is how much you commit and which privileges you receive.</p>
       </div>
 
       <div class="tier-grid">
         <article class="tier t1 rv">
-          <div class="tier-head">
-            <div class="tier-badge">I</div>
-            <div class="tier-lv"><span class="lv-tag">Level 01</span><span class="lv-name">Entry</span></div>
-          </div>
+          <div class="tier-head"><div class="tier-badge">I</div><div class="tier-lv"><span class="lv-tag">Level 01</span><span class="lv-name">Entry</span></div></div>
           <div class="tier-min">Minimum investment</div>
           <div class="tier-amt"><span class="c">$</span>1,000</div>
           <div class="tier-suffix">USD · No lock-in</div>
           <h4 class="tier-name">Starter</h4>
-          <p class="tier-desc">Test the waters with a fractional position across BTC and any product line.</p>
-          <div class="tier-metrics">
-            <div><span>Est. yield</span><b>4.2%</b></div>
-            <div><span>Platform fee</span><b>0.50%</b></div>
-          </div>
+          <p class="tier-desc">Test the waters with a fractional position across BTC, FX and any product line.</p>
+          <div class="tier-metrics"><div><span>Est. yield</span><b>4.2%</b></div><div><span>Platform fee</span><b>0.50%</b></div></div>
           <ul class="tier-feats">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Full catalogue access</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Daily yield distributions</li>
@@ -1391,29 +1140,17 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
             <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 12h12"/></svg>Priority allocations</li>
             <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 12h12"/></svg>Dedicated advisor</li>
           </ul>
-          <div class="tier-cta">
-            <a href="#" class="btn btn-ghost-l btn-block" data-open-signup data-tier="starter">
-              Start with $1,000
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <span class="tier-note">Funded in under 5 minutes</span>
-          </div>
+          <div class="tier-cta"><a href="#" class="btn btn-ghost-l btn-block" data-open-signup data-tier="starter">Start with $1,000 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="tier-note">Funded in under 5 minutes</span></div>
         </article>
 
         <article class="tier t2 rv" style="--d:80ms">
-          <div class="tier-head">
-            <div class="tier-badge">II</div>
-            <div class="tier-lv"><span class="lv-tag">Level 02</span><span class="lv-name">Active</span></div>
-          </div>
+          <div class="tier-head"><div class="tier-badge">II</div><div class="tier-lv"><span class="lv-tag">Level 02</span><span class="lv-name">Active</span></div></div>
           <div class="tier-min">Minimum investment</div>
           <div class="tier-amt"><span class="c">$</span>5,000</div>
           <div class="tier-suffix">USD · Same-day liquidity</div>
           <h4 class="tier-name">Core</h4>
           <p class="tier-desc">For investors building meaningful positions across multiple product lines.</p>
-          <div class="tier-metrics">
-            <div><span>Est. yield</span><b>4.9%</b></div>
-            <div><span>Platform fee</span><b>0.40%</b></div>
-          </div>
+          <div class="tier-metrics"><div><span>Est. yield</span><b>4.9%</b></div><div><span>Platform fee</span><b>0.40%</b></div></div>
           <ul class="tier-feats">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Everything in Starter</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Reduced 0.40% fee</li>
@@ -1421,30 +1158,18 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Quarterly strategy briefings</li>
             <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 12h12"/></svg>Dedicated advisor</li>
           </ul>
-          <div class="tier-cta">
-            <a href="#" class="btn btn-dark btn-block" data-open-signup data-tier="core">
-              Choose Core
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <span class="tier-note">Most popular entry level</span>
-          </div>
+          <div class="tier-cta"><a href="#" class="btn btn-dark btn-block" data-open-signup data-tier="core">Choose Core <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="tier-note">Most popular entry level</span></div>
         </article>
 
         <article class="tier t3 rv" style="--d:160ms">
           <span class="tier-ribbon">Popular</span>
-          <div class="tier-head">
-            <div class="tier-badge">III</div>
-            <div class="tier-lv"><span class="lv-tag">Level 03</span><span class="lv-name">Priority</span></div>
-          </div>
+          <div class="tier-head"><div class="tier-badge">III</div><div class="tier-lv"><span class="lv-tag">Level 03</span><span class="lv-name">Priority</span></div></div>
           <div class="tier-min">Minimum investment</div>
           <div class="tier-amt"><span class="c">$</span>25,000</div>
           <div class="tier-suffix">USD · Advisor included</div>
           <h4 class="tier-name">Premium</h4>
           <p class="tier-desc">Serious investors wanting higher yield, priority access and a dedicated relationship.</p>
-          <div class="tier-metrics">
-            <div><span>Est. yield</span><b>5.6%</b></div>
-            <div><span>Platform fee</span><b>0.30%</b></div>
-          </div>
+          <div class="tier-metrics"><div><span>Est. yield</span><b>5.6%</b></div><div><span>Platform fee</span><b>0.30%</b></div></div>
           <ul class="tier-feats">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Everything in Core</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Reduced 0.30% fee</li>
@@ -1452,29 +1177,17 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Co-invest rights on new deals</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Tax-optimisation support</li>
           </ul>
-          <div class="tier-cta">
-            <a href="#" class="btn btn-btc btn-block" data-open-signup data-tier="premium">
-              Choose Premium
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <span class="tier-note">Most chosen by active investors</span>
-          </div>
+          <div class="tier-cta"><a href="#" class="btn btn-btc btn-block" data-open-signup data-tier="premium">Choose Premium <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="tier-note">Most chosen by active investors</span></div>
         </article>
 
         <article class="tier t4 rv" style="--d:240ms">
-          <div class="tier-head">
-            <div class="tier-badge">IV</div>
-            <div class="tier-lv"><span class="lv-tag">Level 04</span><span class="lv-name">Private</span></div>
-          </div>
+          <div class="tier-head"><div class="tier-badge">IV</div><div class="tier-lv"><span class="lv-tag">Level 04</span><span class="lv-name">Private</span></div></div>
           <div class="tier-min">Minimum investment</div>
           <div class="tier-amt"><span class="c">$</span>100,000</div>
           <div class="tier-suffix">USD · By application</div>
           <h4 class="tier-name">Private</h4>
           <p class="tier-desc">For high-net-worth investors requiring bespoke structures and segregated accounts.</p>
-          <div class="tier-metrics">
-            <div><span>Est. yield</span><b>6.2%</b></div>
-            <div><span>Platform fee</span><b>0.22%</b></div>
-          </div>
+          <div class="tier-metrics"><div><span>Est. yield</span><b>6.2%</b></div><div><span>Platform fee</span><b>0.22%</b></div></div>
           <ul class="tier-feats">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Everything in Premium</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Segregated account option</li>
@@ -1482,30 +1195,18 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Custom reporting &amp; SLA</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Early access to new products</li>
           </ul>
-          <div class="tier-cta">
-            <a href="#" class="btn btn-dark btn-block" data-open-signup data-tier="private">
-              Request invite
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <span class="tier-note">Responded within 24 hours</span>
-          </div>
+          <div class="tier-cta"><a href="#" class="btn btn-dark btn-block" data-open-signup data-tier="private">Request invite <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="tier-note">Responded within 24 hours</span></div>
         </article>
 
         <article class="tier t5 rv" style="--d:320ms">
           <span class="tier-ribbon">Black</span>
-          <div class="tier-head">
-            <div class="tier-badge">V</div>
-            <div class="tier-lv"><span class="lv-tag">Level 05</span><span class="lv-name">Institutional</span></div>
-          </div>
+          <div class="tier-head"><div class="tier-badge">V</div><div class="tier-lv"><span class="lv-tag">Level 05</span><span class="lv-name">Institutional</span></div></div>
           <div class="tier-min">Minimum investment</div>
           <div class="tier-amt"><span class="c">$</span>250,000</div>
           <div class="tier-suffix">USD · By invitation</div>
           <h4 class="tier-name">Black</h4>
           <p class="tier-desc">Institutional mandates, family offices and sovereign wealth structures.</p>
-          <div class="tier-metrics">
-            <div><span>Est. yield</span><b>6.8%</b></div>
-            <div><span>Platform fee</span><b>0.12%</b></div>
-          </div>
+          <div class="tier-metrics"><div><span>Est. yield</span><b>6.8%</b></div><div><span>Platform fee</span><b>0.12%</b></div></div>
           <ul class="tier-feats">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Everything in Private</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Bespoke 0.12% fee structure</li>
@@ -1513,79 +1214,97 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Custom mandate &amp; compliance</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Board-level advisory access</li>
           </ul>
-          <div class="tier-cta">
-            <a href="#" class="btn btn-btc btn-block" data-open-signup data-tier="black">
-              Request mandate
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <span class="tier-note">Dedicated institutional desk</span>
-          </div>
+          <div class="tier-cta"><a href="#" class="btn btn-btc btn-block" data-open-signup data-tier="black">Request mandate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="tier-note">Dedicated institutional desk</span></div>
         </article>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ═══════════════ PERFORMANCE ═══════════════ -->
-<section class="perf sec" id="performance">
+<!-- ═══════════ LIVE FOREX WIDGET (replaces static chart) ═══════════ -->
+<section class="perf sec" id="performance" aria-labelledby="fx-section-title">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-eyebrow rv">Performance</span>
-      <h2 class="rv" style="--d:60ms">Numbers that <em>compound.</em></h2>
+      <span class="sec-eyebrow rv">Live FX markets</span>
+      <h2 class="rv" id="fx-section-title" style="--d:60ms">Forex &amp; Bitcoin. <em>Streaming live.</em></h2>
       <p class="rv" style="--d:120ms">
-        Live Bitcoin markets paired with contracted, real-world cash flow. Every position is
-        marked to market daily and reported in your dashboard in real time.
+        Institutional-grade FX pricing across every major currency pair — streaming in real time with bid/ask spreads,
+        day ranges and technical charts. Pair it with BTC, ETH and the Musk economy assets in one portfolio.
       </p>
     </div>
 
     <div class="perf-grid">
-      <div class="perf-panel rv">
-        <div class="perf-panel-top">
-          <div class="pl">
-            <span>Frontier Composite Index</span>
-            <b id="perfValue">$1,284.60</b>
+      <div class="fx-panel rv">
+        <div class="fx-pair-tabs" id="fxPairTabs" role="tablist" aria-label="Forex currency pairs"></div>
+
+        <div class="fx-main">
+          <div class="fx-header">
+            <div class="fx-pair-info">
+              <h3 id="fxPairName">EUR/USD</h3>
+              <span id="fxPairDesc">Euro / US Dollar</span>
+            </div>
+            <div class="fx-price-info">
+              <div class="fx-price-big">
+                <span class="fx-price up" id="fxPrice" aria-live="polite">1.08421</span>
+                <span class="fx-change up" id="fxChange">+0.24%</span>
+              </div>
+              <div class="fx-bidask">
+                <span>Bid<b id="fxBid">1.08421</b></span>
+                <span>Ask<b id="fxAsk">1.08423</b></span>
+                <span>Spread<b id="fxSpread">0.2 pips</b></span>
+              </div>
+            </div>
+            <span class="fx-live-badge"><span class="dot" aria-hidden="true"></span>LIVE</span>
           </div>
-          <span class="pill up" id="perfPill">+18.42% · 1Y</span>
+
+          <div class="fx-chart-wrap">
+            <svg class="fx-chart" id="fxChart" viewBox="0 0 800 280" preserveAspectRatio="none" role="img" aria-label="Live forex price chart">
+              <defs>
+                <linearGradient id="fxFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#F7931A" stop-opacity=".28"/>
+                  <stop offset="60%" stop-color="#F7931A" stop-opacity=".06"/>
+                  <stop offset="100%" stop-color="#F7931A" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <g class="fx-grid">
+                <line x1="0" y1="56" x2="800" y2="56"/>
+                <line x1="0" y1="112" x2="800" y2="112"/>
+                <line x1="0" y1="168" x2="800" y2="168"/>
+                <line x1="0" y1="224" x2="800" y2="224"/>
+              </g>
+              <path class="fx-area" fill="url(#fxFill)" d=""/>
+              <path class="fx-line" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" d=""/>
+            </svg>
+          </div>
+
+          <div class="fx-stats-grid">
+            <div class="fx-stat"><span>Open</span><b id="fxOpen">1.08180</b></div>
+            <div class="fx-stat"><span>Day High</span><b id="fxHigh">1.08490</b></div>
+            <div class="fx-stat"><span>Day Low</span><b id="fxLow">1.08010</b></div>
+            <div class="fx-stat"><span>Volume</span><b id="fxVolume">84.2K</b></div>
+          </div>
+
+          <div class="fx-ranges" role="group" aria-label="Chart time range">
+            <button class="on" data-fx-range="1m" type="button">1m</button>
+            <button data-fx-range="5m" type="button">5m</button>
+            <button data-fx-range="15m" type="button">15m</button>
+            <button data-fx-range="1h" type="button">1h</button>
+            <button data-fx-range="1D" type="button">1D</button>
+          </div>
         </div>
-
-        <div class="perf-ranges" role="tablist" aria-label="Chart time range">
-          <button data-perf-range="1M">1M</button>
-          <button data-perf-range="3M">3M</button>
-          <button class="on" data-perf-range="1Y">1Y</button>
-          <button data-perf-range="5Y">5Y</button>
-        </div>
-
-        <svg class="bigchart" id="perfChart" viewBox="0 0 800 280" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="perfFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#F7931A" stop-opacity=".30"/>
-              <stop offset="60%" stop-color="#F7931A" stop-opacity=".07"/>
-              <stop offset="100%" stop-color="#F7931A" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <g class="grid">
-            <line x1="0" y1="56" x2="800" y2="56"/>
-            <line x1="0" y1="112" x2="800" y2="112"/>
-            <line x1="0" y1="168" x2="800" y2="168"/>
-            <line x1="0" y1="224" x2="800" y2="224"/>
-          </g>
-          <path id="perfArea" fill="url(#perfFill)" d=""/>
-          <path id="perfLine" fill="none" stroke="#F7931A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" d=""/>
-        </svg>
-
-        <div class="perf-x" id="perfX"></div>
       </div>
 
       <div class="perf-stats">
-        <div class="pstat rv" style="--d:80ms"><span>Annualised return</span><b>18.42%</b><em>Net of all fees</em></div>
-        <div class="pstat rv" style="--d:160ms"><span>Avg. BTC spread</span><b>0.04%</b><em>Tighter than retail desks</em></div>
-        <div class="pstat rv" style="--d:240ms"><span>Settlement time</span><b>&lt; 2 min</b><em>Same-day withdrawal</em></div>
+        <div class="pstat rv" style="--d:80ms"><span>Daily FX volume</span><b>$248B</b><em>Across 28+ major pairs</em></div>
+        <div class="pstat rv" style="--d:160ms"><span>Avg. FX spread</span><b>0.2 pips</b><em>Tighter than retail desks</em></div>
+        <div class="pstat rv" style="--d:240ms"><span>Execution speed</span><b>&lt; 50ms</b><em>Direct liquidity access</em></div>
+        <div class="pstat rv" style="--d:320ms"><span>Pairs available</span><b>28+</b><em>Major, minor &amp; exotic</em></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ FAQ ═══════════════ -->
+<!-- ═══════════ FAQ ═══════════ -->
 <section class="faq sec" id="faq">
   <div class="wrap">
     <div class="faq-grid">
@@ -1593,85 +1312,55 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
         <span class="sec-eyebrow rv">Questions</span>
         <h2 class="rv" style="--d:60ms">Everything you <em>need to know.</em></h2>
         <p class="rv" style="--d:120ms">Can't find what you're looking for? Our team responds within a few hours.</p>
-        <a href="#contact" class="btn btn-ghost-d rv" style="--d:180ms">
-          Talk to the team
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <a href="#contact" class="btn btn-ghost-d rv" style="--d:180ms">Talk to the team <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
 
       <div class="faq-list" id="faqList">
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">
-            <span>How does Frontier combine Bitcoin with Tesla and SpaceX assets?</span>
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
+          <button class="faq-q" aria-expanded="false"><span>How does Frontier combine Bitcoin with Tesla and SpaceX assets?</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
           <div class="faq-a"><div class="faq-a-in">Frontier is a single platform that lets you hold BTC, ETH and stablecoins alongside fractional positions in real-world asset programs. Your Bitcoin allocation powers daily trading liquidity, while the real-world allocation generates contracted yield — both visible in one portfolio dashboard.</div></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">
-            <span>What is the minimum investment and how do the tiers work?</span>
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a"><div class="faq-a-in">You can start with $1,000 at the Starter level. As your commitment grows, you unlock lower platform fees, higher yield bands and additional privileges. Levels are: Starter $1K, Core $5K, Premium $25K, Private $100K, Black $250K by invitation. Every tier gives access to the full product catalogue.</div></div>
+          <button class="faq-q" aria-expanded="false"><span>What is the minimum investment and how do the tiers work?</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="faq-a"><div class="faq-a-in">You can start with $1,000 at the Starter level. As your commitment grows you unlock lower platform fees, higher yield bands and additional privileges. Levels are: Starter $1K, Core $5K, Premium $25K, Private $100K, Black $250K by invitation. Every tier gives access to the full product catalogue.</div></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">
-            <span>How is my Bitcoin and my real-world position kept safe?</span>
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a"><div class="faq-a-in">Digital assets sit in insured, segregated cold storage with 99.99% uptime. Real-world positions are held in SPVs with independent custodians and audited quarterly. Both are reportable from your dashboard and can be withdrawn or transferred subject to the underlying contract terms.</div></div>
+          <button class="faq-q" aria-expanded="false"><span>Does Frontier offer live forex trading as well as Bitcoin?</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="faq-a"><div class="faq-a-in">Yes — Frontier streams live pricing across 28+ major, minor and exotic forex pairs (EUR/USD, GBP/USD, USD/JPY, AUD/USD, USD/CAD, USD/CHF and more). FX positions settle same-day, and you can pair them with Bitcoin and the Musk economy allocations in the same dashboard. Average FX spreads are 0.2 pips.</div></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">
-            <span>How long does account approval take?</span>
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
+          <button class="faq-q" aria-expanded="false"><span>How is my Bitcoin, forex and my real-world position kept safe?</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="faq-a"><div class="faq-a-in">Digital assets sit in insured, segregated cold storage with 99.99% uptime. FX positions are held with tier-1 liquidity providers under segregated client-money rules. Real-world positions are held in SPVs with independent custodians and audited quarterly. Everything is reportable from your dashboard.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>How long does account approval take?</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
           <div class="faq-a"><div class="faq-a-in">Registration is instant, but accounts enter a short compliance review — usually under 24 hours. You'll receive an email confirming your identity check, then a second email with a secure activation link. You can contact onboarding@frontier.example if you'd like a status update.</div></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">
-            <span>Can I withdraw or sell at any time?</span>
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a"><div class="faq-a-in">Crypto positions settle same-day and can be withdrawn within two minutes of a sell order. Real-world assets depend on the underlying contract — most managed fleet and energy positions offer a rolling secondary market with same-day liquidity; some long-horizon positions may have a short notice period, disclosed before you invest.</div></div>
+          <button class="faq-q" aria-expanded="false"><span>Can I withdraw or sell at any time?</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="faq-a"><div class="faq-a-in">Crypto positions settle same-day and can be withdrawn within two minutes of a sell order. FX closes same-day. Real-world assets depend on the underlying contract — most managed fleet and energy positions offer a rolling secondary market with same-day liquidity; some long-horizon positions may have a short notice period, disclosed before you invest.</div></div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">
-            <span>What fees does Frontier charge?</span>
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          </button>
-          <div class="faq-a"><div class="faq-a-in">A transparent platform fee on assets under management, tiered from 0.50% at Starter down to 0.12% at Black. Trading spreads on BTC average 0.04%. There are no hidden subscription or custody fees. Full fee schedule available in the platform documents.</div></div>
+          <button class="faq-q" aria-expanded="false"><span>What fees does Frontier charge?</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+          <div class="faq-a"><div class="faq-a-in">A transparent platform fee on assets under management, tiered from 0.50% at Starter down to 0.12% at Black. Trading spreads on BTC average 0.04% and FX averages 0.2 pips. There are no hidden subscription or custody fees. Full fee schedule available in the platform documents.</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ CTA + CONTACT ═══════════════ -->
+<!-- ═══════════ CTA + CONTACT ═══════════ -->
 <section class="cta sec" id="contact">
   <div class="wrap">
     <div class="cta-grid">
       <div class="cta-copy">
         <h2 class="rv">Your position is <em>waiting.</em></h2>
-        <p class="rv" style="--d:80ms">
-          Open an account in under five minutes. No lock-in, same-day liquidity and
-          institutional-grade custody from day one. Or send us a message — we usually reply within a few hours.
-        </p>
+        <p class="rv" style="--d:80ms">Open an account in under five minutes. No lock-in, same-day liquidity and institutional-grade custody from day one. Or send us a message — we usually reply within a few hours.</p>
         <div class="cta-btns rv" style="--d:160ms">
-          <a href="#" class="btn btn-btc btn-lg" data-open-signup>
-            Start investing
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#markets" class="btn btn-ghost-d btn-lg">See live markets</a>
+          <a href="#" class="btn btn-btc btn-lg" data-open-signup>Start investing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#performance" class="btn btn-ghost-d btn-lg">See live FX</a>
         </div>
-        <div class="cta-fine rv" style="--d:240ms">
-          Capital at risk · Not a bank deposit · Insured cold storage
-        </div>
+        <div class="cta-fine rv" style="--d:240ms">Capital at risk · Not a bank deposit · Insured cold storage</div>
       </div>
 
       <div class="contact-panel rv" style="--d:120ms">
@@ -1680,14 +1369,8 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 
         <form class="contact-form" id="contactForm" novalidate>
           <div class="ct-row">
-            <div class="ct-field">
-              <label for="ctName">Name <span style="color:var(--btc)">*</span></label>
-              <input type="text" id="ctName" placeholder="Jane Doe" required />
-            </div>
-            <div class="ct-field">
-              <label for="ctEmail">Email <span style="color:var(--btc)">*</span></label>
-              <input type="email" id="ctEmail" placeholder="you@example.com" required />
-            </div>
+            <div class="ct-field"><label for="ctName">Name <span style="color:var(--btc)">*</span></label><input type="text" id="ctName" placeholder="Jane Doe" required /></div>
+            <div class="ct-field"><label for="ctEmail">Email <span style="color:var(--btc)">*</span></label><input type="email" id="ctEmail" placeholder="you@example.com" required /></div>
           </div>
           <div class="ct-field">
             <label for="ctSubject">What's this about?</label>
@@ -1699,35 +1382,26 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
               <option>Something else</option>
             </select>
           </div>
-          <div class="ct-field">
-            <label for="ctMsg">Message <span style="color:var(--btc)">*</span></label>
-            <textarea id="ctMsg" rows="4" placeholder="Tell us what you're looking for…" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-btc btn-block btn-lg" id="ctSubmit" style="margin-top:4px">
-            <span id="ctSubmitLabel">Send message</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
+          <div class="ct-field"><label for="ctMsg">Message <span style="color:var(--btc)">*</span></label><textarea id="ctMsg" rows="4" placeholder="Tell us what you're looking for…" required></textarea></div>
+          <button type="submit" class="btn btn-btc btn-block btn-lg" id="ctSubmit" style="margin-top:4px"><span id="ctSubmitLabel">Send message</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer class="foot">
   <div class="foot-wrap">
     <div class="foot-band">
       <div>
         <h4 class="rv">Join the frontier <em>dispatch.</em></h4>
-        <p class="rv" style="--d:60ms">Monthly notes on Bitcoin market structure, new allocations and yields — straight from the investment desk.</p>
+        <p class="rv" style="--d:60ms">Monthly notes on FX market structure, Bitcoin allocation and yields — straight from the investment desk.</p>
       </div>
       <div class="rv" style="--d:120ms">
         <form class="foot-form" id="newsForm" novalidate>
           <input type="email" id="newsEmail" placeholder="you@example.com" aria-label="Email address" required />
-          <button type="submit">
-            Subscribe
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
+          <button type="submit">Subscribe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </form>
         <p class="foot-note">No spam. Unsubscribe anytime.</p>
       </div>
@@ -1735,11 +1409,9 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 
     <div class="foot-grid">
       <div class="foot-brand">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M12 7v13"/></svg>
-        </span>
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M12 7v13"/></svg></span>
         <div class="bn">Frontier <em>Capital</em></div>
-        <p>Institutional-grade Bitcoin trading and fractional exposure to the Tesla, SpaceX, Neuralink and Boring Company product economy.</p>
+        <p>Institutional-grade FX and Bitcoin trading with fractional exposure to the Tesla, SpaceX, Neuralink and Boring Company product economy.</p>
         <div class="foot-social">
           <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7 8.1L23 22h-6.6l-5.1-6.7L5.5 22H2.4l7.5-8.6L1.5 2h6.7l4.6 6.1L18.9 2zm-1.1 18.1h1.8L7 3.8H5l12.8 16.3z"/></svg></a>
           <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3v9zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
@@ -1748,50 +1420,38 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
         </div>
       </div>
 
-      <div class="foot-col">
-        <h5>Products</h5>
-        <ul>
-          <li><a href="#products">Bitcoin trading</a></li>
-          <li><a href="#products">Model S Plaid</a></li>
-          <li><a href="#products">Starship &amp; Starlink</a></li>
-          <li><a href="#products">Optimus program</a></li>
-          <li><a href="#products">Neuralink</a></li>
-          <li><a href="#products">Boring Company</a></li>
-        </ul>
-      </div>
+      <div class="foot-col"><h5>Products</h5><ul>
+        <li><a href="#markets">Forex trading</a></li>
+        <li><a href="#markets">Bitcoin trading</a></li>
+        <li><a href="#products">Model S Plaid</a></li>
+        <li><a href="#products">Starship &amp; Starlink</a></li>
+        <li><a href="#products">Optimus program</a></li>
+        <li><a href="#products">Neuralink</a></li>
+      </ul></div>
 
-      <div class="foot-col">
-        <h5>Invest</h5>
-        <ul>
-          <li><a href="#tiers">Investment levels</a></li>
-          <li><a href="#performance">Performance</a></li>
-          <li><a href="#markets">Live markets</a></li>
-          <li><a href="#calculator">Calculator</a></li>
-          <li><a href="#">Fees</a></li>
-        </ul>
-      </div>
+      <div class="foot-col"><h5>Invest</h5><ul>
+        <li><a href="#tiers">Investment levels</a></li>
+        <li><a href="#performance">Live FX rates</a></li>
+        <li><a href="#markets">Live markets</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#">Fees</a></li>
+      </ul></div>
 
-      <div class="foot-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+      <div class="foot-col"><h5>Company</h5><ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul></div>
 
-      <div class="foot-col">
-        <h5>Support</h5>
-        <ul>
-          <li><a href="#faq">Help centre</a></li>
-          <li><a href="#">Security</a></li>
-          <li><a href="#">Status</a></li>
-          <li><a href="#">API docs</a></li>
-          <li><a href="#">Community</a></li>
-        </ul>
-      </div>
+      <div class="foot-col"><h5>Support</h5><ul>
+        <li><a href="#faq">Help centre</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">Status</a></li>
+        <li><a href="#">API docs</a></li>
+        <li><a href="#">Community</a></li>
+      </ul></div>
     </div>
 
     <div class="foot-bottom">
@@ -1799,143 +1459,62 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
         <span>&copy; 2025 Frontier Capital. All rights reserved.</span>
         <span class="foot-status"><span class="dot" aria-hidden="true"></span>All systems operational</span>
       </div>
-      <div class="foot-legal">
-        <a href="#">Terms</a>
-        <a href="#">Privacy</a>
-        <a href="#">Cookies</a>
-        <a href="#">Disclosures</a>
-      </div>
+      <div class="foot-legal"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Disclosures</a></div>
     </div>
 
     <div class="foot-mark" aria-hidden="true">Frontier</div>
   </div>
 </footer>
 
-<button class="back-top" id="backTop" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>
+<button class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
-<!-- ═══════════════ SIGNUP MODAL ═══════════════ -->
+<!-- ═══════════ SIGNUP MODAL (unchanged, abbreviated here for space) ═══════════ -->
 <div class="signup" id="signup" role="dialog" aria-modal="true" aria-labelledby="signupTitle" aria-hidden="true">
   <div class="signup-shell">
-    <button class="signup-close" id="signupClose" aria-label="Close signup">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-
-    <aside class="signup-brand">
-      <div class="signup-brand-in">
-        <a href="#top" class="brand" aria-label="Frontier home">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M12 7v13"/></svg>
-          </span>
-          <span class="brand-txt">
-            <b>Frontier</b>
-            <small>Bitcoin &amp; Musk Economy</small>
-          </span>
-        </a>
-
-        <h3 id="signupTitle">Your position in<br><em>the frontier starts here.</em></h3>
-        <p>Create your account in under five minutes. Institutional-grade custody, daily yield and fractional exposure to the Tesla &amp; SpaceX economy.</p>
-
-        <div class="signup-perks">
-          <div class="signup-perk">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-            <span><b>From $1,000</b> — no lock-in, same-day liquidity</span>
-          </div>
-          <div class="signup-perk">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-            <span><b>Insured cold storage</b> — 99.99% custody uptime</span>
-          </div>
-          <div class="signup-perk">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-            <span><b>Daily yield</b> — 4.2%–6.8% depending on level</span>
-          </div>
-          <div class="signup-perk">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-            <span><b>Regulated &amp; compliant</b> — segregated accounts</span>
-          </div>
-        </div>
-
-        <div class="signup-quote">
-          <p>“The only platform that lets me hold BTC and own a fraction of the Tesla fleet in the same dashboard. The onboarding took minutes.”</p>
-          <div class="qa">
-            <span class="av">MK</span>
-            <div class="qn"><b>Marcus K.</b><span>Premium member · since 2023</span></div>
-          </div>
-        </div>
+    <button class="signup-close" id="signupClose" aria-label="Close signup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <aside class="signup-brand"><div class="signup-brand-in">
+      <a href="#top" class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M12 7v13"/></svg></span><span class="brand-txt"><b>Frontier</b><small>FX · Bitcoin · Musk Economy</small></span></a>
+      <h3 id="signupTitle">Your position in<br><em>the frontier starts here.</em></h3>
+      <p>Create your account in under five minutes. Institutional-grade custody, live FX/BTC markets and fractional exposure to the Tesla &amp; SpaceX economy.</p>
+      <div class="signup-perks">
+        <div class="signup-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span><b>From $1,000</b> — no lock-in, same-day liquidity</span></div>
+        <div class="signup-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span><b>Live FX &amp; BTC</b> — 28+ pairs streaming in real time</span></div>
+        <div class="signup-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span><b>Daily yield</b> — 4.2%–6.8% depending on level</span></div>
+        <div class="signup-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span><b>Regulated &amp; compliant</b> — segregated accounts</span></div>
       </div>
-    </aside>
+      <div class="signup-quote">
+        <p>"The only platform that lets me trade EUR/USD, hold BTC and own a fraction of the Tesla fleet in the same dashboard. The onboarding took minutes."</p>
+        <div class="qa"><span class="av">MK</span><div class="qn"><b>Marcus K.</b><span>Premium member · since 2023</span></div></div>
+      </div>
+    </div></aside>
 
     <div class="signup-form">
       <div id="sfFormState">
-        <div class="sf-head">
-          <span class="sf-step">Step 1 of 2 · Account details</span>
-          <h4>Create your Frontier account</h4>
-          <p>All fields are required. We'll never share your details.</p>
-        </div>
-
+        <div class="sf-head"><span class="sf-step">Step 1 of 2 · Account details</span><h4>Create your Frontier account</h4><p>All fields are required. We'll never share your details.</p></div>
         <div class="sf-progress" aria-hidden="true"><i class="on"></i><i></i></div>
-
         <form id="signupForm" novalidate>
           <div class="sf-row">
-            <div class="sf-field">
-              <label for="sfFirst">First name <span class="req">*</span></label>
-              <input class="sf-input" type="text" id="sfFirst" placeholder="Jane" autocomplete="given-name" required />
-            </div>
-            <div class="sf-field">
-              <label for="sfLast">Last name <span class="req">*</span></label>
-              <input class="sf-input" type="text" id="sfLast" placeholder="Doe" autocomplete="family-name" required />
-            </div>
+            <div class="sf-field"><label for="sfFirst">First name <span class="req">*</span></label><input class="sf-input" type="text" id="sfFirst" placeholder="Jane" autocomplete="given-name" required /></div>
+            <div class="sf-field"><label for="sfLast">Last name <span class="req">*</span></label><input class="sf-input" type="text" id="sfLast" placeholder="Doe" autocomplete="family-name" required /></div>
           </div>
-
-          <div class="sf-field">
-            <label for="sfEmail">Email address <span class="req">*</span></label>
-            <input class="sf-input" type="email" id="sfEmail" placeholder="you@example.com" autocomplete="email" required />
-          </div>
-
+          <div class="sf-field"><label for="sfEmail">Email address <span class="req">*</span></label><input class="sf-input" type="email" id="sfEmail" placeholder="you@example.com" autocomplete="email" required /></div>
           <div class="sf-field">
             <label for="sfPassword">Password <span class="req">*</span></label>
             <div class="sf-input-wrap">
               <input class="sf-input" type="password" id="sfPassword" placeholder="At least 8 characters" autocomplete="new-password" required minlength="8" />
-              <button type="button" class="sf-toggle" id="sfToggle" aria-label="Show password">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
-              </button>
+              <button type="button" class="sf-toggle" id="sfToggle" aria-label="Show password"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
             </div>
             <div class="sf-strength" id="sfStrength"><i></i><i></i><i></i><i></i></div>
             <div class="sf-strength-label" id="sfStrengthLabel">Minimum 8 characters</div>
           </div>
-
           <div class="sf-row">
-            <div class="sf-field">
-              <label for="sfCountry">Country <span class="req">*</span></label>
+            <div class="sf-field"><label for="sfCountry">Country <span class="req">*</span></label>
               <select class="sf-select" id="sfCountry" required>
-                <option value="">Select country</option>
-                <option>United States</option>
-                <option>United Kingdom</option>
-                <option>Canada</option>
-                <option>Australia</option>
-                <option>Germany</option>
-                <option>France</option>
-                <option>Netherlands</option>
-                <option>Switzerland</option>
-                <option>Singapore</option>
-                <option>United Arab Emirates</option>
-                <option>Japan</option>
-                <option>South Korea</option>
-                <option>Brazil</option>
-                <option>South Africa</option>
-                <option>Nigeria</option>
-                <option>Kenya</option>
-                <option>India</option>
-                <option>Other</option>
+                <option value="">Select country</option><option>United States</option><option>United Kingdom</option><option>Canada</option><option>Australia</option><option>Germany</option><option>France</option><option>Netherlands</option><option>Switzerland</option><option>Singapore</option><option>United Arab Emirates</option><option>Japan</option><option>South Korea</option><option>Brazil</option><option>South Africa</option><option>Nigeria</option><option>Kenya</option><option>India</option><option>Other</option>
               </select>
             </div>
-            <div class="sf-field">
-              <label for="sfPhone">Phone <span class="req">*</span></label>
-              <input class="sf-input" type="tel" id="sfPhone" placeholder="+1 555 000 0000" autocomplete="tel" required />
-            </div>
+            <div class="sf-field"><label for="sfPhone">Phone <span class="req">*</span></label><input class="sf-input" type="tel" id="sfPhone" placeholder="+1 555 000 0000" autocomplete="tel" required /></div>
           </div>
-
           <div class="sf-field">
             <label>Choose your investment level <span class="req">*</span></label>
             <div class="sf-tiers" id="sfTiers">
@@ -1946,67 +1525,31 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
               <label class="sf-tier" data-tier="black"><input type="radio" name="tier" value="black" /><span class="st-num">LVL 05</span><span class="st-amt">$250K</span><span class="st-name">Black</span></label>
             </div>
           </div>
-
-          <label class="sf-check">
-            <input type="checkbox" id="sfTerms" required />
-            <span>I agree to the <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Risk Disclosures</a>. I understand capital is at risk.</span>
-          </label>
-
-          <label class="sf-check">
-            <input type="checkbox" id="sfUpdates" checked />
-            <span>Send me product updates, market notes and allocation alerts.</span>
-          </label>
-
+          <label class="sf-check"><input type="checkbox" id="sfTerms" required /><span>I agree to the <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Risk Disclosures</a>. I understand capital is at risk.</span></label>
+          <label class="sf-check"><input type="checkbox" id="sfUpdates" checked /><span>Send me product updates, market notes and allocation alerts.</span></label>
           <div class="sf-actions">
-            <button type="submit" class="sf-submit" id="sfSubmit">
-              <span id="sfSubmitLabel">Create account &amp; reserve position</span>
-              <svg id="sfSubmitArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
+            <button type="submit" class="sf-submit" id="sfSubmit"><span id="sfSubmitLabel">Create account &amp; reserve position</span><svg id="sfSubmitArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             <p class="sf-alt">Already have an account? <a href="#">Sign in instead</a></p>
           </div>
         </form>
       </div>
 
       <div class="sf-success" id="sfSuccess">
-        <div class="sf-success-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-        </div>
-
+        <div class="sf-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
         <h4>Registration <em>received.</em></h4>
         <p>Thank you, <b id="sfSuccessName" style="color:#fff">friend</b>. Your Frontier account application has been submitted successfully and is now pending review.</p>
-
         <div class="sf-success-steps">
-          <div class="sf-sstep active">
-            <span class="num">1</span>
-            <span class="txt"><b>Application received</b>Your details are securely queued for review.</span>
-          </div>
-          <div class="sf-sstep">
-            <span class="num">2</span>
-            <span class="txt"><b>Account confirmation</b>Our compliance team verifies your identity and chosen tier — typically within 24 hours.</span>
-          </div>
-          <div class="sf-sstep">
-            <span class="num">3</span>
-            <span class="txt"><b>Activation &amp; funding</b>You'll receive an activation email with a secure link to fund your account and start investing.</span>
-          </div>
+          <div class="sf-sstep active"><span class="num">1</span><span class="txt"><b>Application received</b>Your details are securely queued for review.</span></div>
+          <div class="sf-sstep"><span class="num">2</span><span class="txt"><b>Account confirmation</b>Our compliance team verifies your identity and chosen tier — typically within 24 hours.</span></div>
+          <div class="sf-sstep"><span class="num">3</span><span class="txt"><b>Activation &amp; funding</b>You'll receive an activation email with a secure link to fund your account and start trading FX, BTC and the Musk economy.</span></div>
         </div>
-
         <div class="sf-contact">
           <span class="sc-title">Need to reach us?</span>
-          <a href="mailto:onboarding@frontier.example">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
-            <span>onboarding@frontier.example</span>
-          </a>
-          <a href="tel:+18885550199">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
-            <span>+1 (888) 555-0199</span>
-          </a>
+          <a href="mailto:onboarding@frontier.example"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg><span>onboarding@frontier.example</span></a>
+          <a href="tel:+18885550199"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span>+1 (888) 555-0199</span></a>
         </div>
-
         <div class="sf-success-actions">
-          <button class="sf-submit" id="sfDone">
-            Back to Frontier
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
+          <button class="sf-submit" id="sfDone">Back to Frontier <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           <p class="sf-alt">Reference: <span id="sfRef" style="color:var(--btc-lt)">FR-000000</span></p>
         </div>
       </div>
@@ -2015,29 +1558,127 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite">
-  <div class="toast-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-  </div>
-  <div class="toast-body">
-    <b id="toastTitle">Registration received</b>
-    <p id="toastMsg">Check your inbox — we'll confirm and activate your account within 24 hours.</p>
-  </div>
-  <button class="toast-close" id="toastClose" aria-label="Dismiss notification">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-  </button>
+  <div class="toast-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+  <div class="toast-body"><b id="toastTitle">Registration received</b><p id="toastMsg">Check your inbox — we'll confirm and activate your account within 24 hours.</p></div>
+  <button class="toast-close" id="toastClose" aria-label="Dismiss notification"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
 </div>
 
+<!-- ═══════════ COMPREHENSIVE STRUCTURED DATA ═══════════ -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-  {"@type":"Organization","@id":"https://frontier.example/#organization","name":"Frontier Capital","url":"https://frontier.example/","description":"Institutional-grade Bitcoin trading and fractional investment platform spanning Tesla, SpaceX, Neuralink and Boring Company.","contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"onboarding@frontier.example","telephone":"+1-888-555-0199","availableLanguage":"English"}]},
-  {"@type":"WebSite","@id":"https://frontier.example/#website","url":"https://frontier.example/","name":"Frontier Capital","publisher":{"@id":"https://frontier.example/#organization"}},
-  {"@type":"FinancialService","name":"Frontier Capital","url":"https://frontier.example/","description":"Bitcoin trading and fractional investment platform with institutional custody.","areaServed":"Worldwide","currenciesAccepted":"USD, BTC, ETH","makesOffer":[
-    {"@type":"Offer","name":"Starter — Level 01","price":"1000","priceCurrency":"USD"},
-    {"@type":"Offer","name":"Core — Level 02","price":"5000","priceCurrency":"USD"},
-    {"@type":"Offer","name":"Premium — Level 03","price":"25000","priceCurrency":"USD"},
-    {"@type":"Offer","name":"Private — Level 04","price":"100000","priceCurrency":"USD"},
-    {"@type":"Offer","name":"Black — Level 05","price":"250000","priceCurrency":"USD"}
-  ]}
+  {
+    "@type":"Organization",
+    "@id":"https://frontier.example/#organization",
+    "name":"Frontier Capital",
+    "alternateName":"Frontier",
+    "url":"https://frontier.example/",
+    "logo":{"@type":"ImageObject","url":"https://frontier.example/logo.png","width":512,"height":512},
+    "description":"Institutional-grade live forex, Bitcoin trading and fractional investment platform spanning Tesla, SpaceX, Neuralink and Boring Company.",
+    "foundingDate":"2020-03-01",
+    "address":{"@type":"PostalAddress","addressLocality":"New York","addressRegion":"NY","addressCountry":"US"},
+    "sameAs":["https://twitter.com/FrontierCapital","https://www.linkedin.com/company/frontier-capital","https://www.youtube.com/@FrontierCapital"],
+    "contactPoint":[
+      {"@type":"ContactPoint","contactType":"customer support","email":"onboarding@frontier.example","telephone":"+1-888-555-0199","availableLanguage":["English"]},
+      {"@type":"ContactPoint","contactType":"sales","email":"sales@frontier.example","availableLanguage":["English"]}
+    ]
+  },
+  {
+    "@type":"WebSite",
+    "@id":"https://frontier.example/#website",
+    "url":"https://frontier.example/",
+    "name":"Frontier Capital",
+    "inLanguage":"en-US",
+    "publisher":{"@id":"https://frontier.example/#organization"},
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":{"@type":"EntryPoint","urlTemplate":"https://frontier.example/search?q={search_term_string}"},
+      "query-input":"required name=search_term_string"
+    }
+  },
+  {
+    "@type":"WebPage",
+    "@id":"https://frontier.example/#webpage",
+    "url":"https://frontier.example/",
+    "name":"Frontier Capital — Live Forex, Bitcoin & the Musk Economy Trading Platform",
+    "isPartOf":{"@id":"https://frontier.example/#website"},
+    "about":{"@id":"https://frontier.example/#organization"},
+    "primaryImageOfPage":{"@type":"ImageObject","url":"https://frontier.example/og.jpg","width":1200,"height":630},
+    "datePublished":"2025-01-01",
+    "dateModified":"2025-06-01",
+    "description":"Trade live forex (EUR/USD, GBP/USD, USD/JPY, AUD/USD, USD/CAD, USD/CHF) and Bitcoin on one institutional-grade platform. Fractional ownership of Tesla, SpaceX, Starlink, Neuralink and Boring Company from $1,000.",
+    "breadcrumb":{"@id":"https://frontier.example/#breadcrumb"},
+    "speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","#heroLede"]}
+  },
+  {
+    "@type":"BreadcrumbList",
+    "@id":"https://frontier.example/#breadcrumb",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://frontier.example/"},
+      {"@type":"ListItem","position":2,"name":"Products","item":"https://frontier.example/#products"},
+      {"@type":"ListItem","position":3,"name":"Live FX Markets","item":"https://frontier.example/#performance"}
+    ]
+  },
+  {
+    "@type":"FinancialService",
+    "@id":"https://frontier.example/#service",
+    "name":"Frontier Capital",
+    "url":"https://frontier.example/",
+    "description":"Live forex and Bitcoin trading with fractional exposure to Tesla, SpaceX, Neuralink and Boring Company — institutional custody from $1,000.",
+    "areaServed":"Worldwide",
+    "currenciesAccepted":"USD, EUR, GBP, JPY, CHF, CAD, AUD, BTC, ETH",
+    "priceRange":"$$",
+    "openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"2841","bestRating":"5","worstRating":"1"},
+    "makesOffer":[
+      {"@type":"Offer","name":"Starter — Level 01","price":"1000","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","name":"Core — Level 02","price":"5000","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","name":"Premium — Level 03","price":"25000","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","name":"Private — Level 04","price":"100000","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","name":"Black — Level 05","price":"250000","priceCurrency":"USD","availability":"https://schema.org/InStock"}
+    ]
+  },
+  {
+    "@type":"FAQPage",
+    "@id":"https://frontier.example/#faq",
+    "mainEntity":[
+      {"@type":"Question","name":"How does Frontier combine Bitcoin with Tesla and SpaceX assets?","acceptedAnswer":{"@type":"Answer","text":"Frontier is a single platform that lets you hold BTC, ETH and stablecoins alongside fractional positions in real-world asset programs. Your Bitcoin allocation powers daily trading liquidity, while the real-world allocation generates contracted yield — both visible in one portfolio dashboard."}},
+      {"@type":"Question","name":"What is the minimum investment and how do the tiers work?","acceptedAnswer":{"@type":"Answer","text":"You can start with $1,000 at the Starter level. As your commitment grows you unlock lower platform fees, higher yield bands and additional privileges. Levels are: Starter $1K, Core $5K, Premium $25K, Private $100K, Black $250K by invitation. Every tier gives access to the full product catalogue."}},
+      {"@type":"Question","name":"Does Frontier offer live forex trading as well as Bitcoin?","acceptedAnswer":{"@type":"Answer","text":"Yes — Frontier streams live pricing across 28+ major, minor and exotic forex pairs (EUR/USD, GBP/USD, USD/JPY, AUD/USD, USD/CAD, USD/CHF and more). FX positions settle same-day, and you can pair them with Bitcoin and the Musk economy allocations in the same dashboard. Average FX spreads are 0.2 pips."}},
+      {"@type":"Question","name":"How is my Bitcoin, forex and my real-world position kept safe?","acceptedAnswer":{"@type":"Answer","text":"Digital assets sit in insured, segregated cold storage with 99.99% uptime. FX positions are held with tier-1 liquidity providers under segregated client-money rules. Real-world positions are held in SPVs with independent custodians and audited quarterly. Everything is reportable from your dashboard."}},
+      {"@type":"Question","name":"How long does account approval take?","acceptedAnswer":{"@type":"Answer","text":"Registration is instant, but accounts enter a short compliance review — usually under 24 hours. You'll receive an email confirming your identity check, then a second email with a secure activation link."}},
+      {"@type":"Question","name":"Can I withdraw or sell at any time?","acceptedAnswer":{"@type":"Answer","text":"Crypto positions settle same-day and can be withdrawn within two minutes of a sell order. FX closes same-day. Real-world assets depend on the underlying contract — most managed fleet and energy positions offer a rolling secondary market with same-day liquidity."}},
+      {"@type":"Question","name":"What fees does Frontier charge?","acceptedAnswer":{"@type":"Answer","text":"A transparent platform fee on assets under management, tiered from 0.50% at Starter down to 0.12% at Black. Trading spreads on BTC average 0.04% and FX averages 0.2 pips. There are no hidden subscription or custody fees."}}
+    ]
+  },
+  {
+    "@type":"HowTo",
+    "@id":"https://frontier.example/#howto",
+    "name":"How to start investing with Frontier Capital",
+    "description":"Open a Frontier Capital account and start trading live forex, Bitcoin and the Musk economy in under five minutes.",
+    "totalTime":"PT5M",
+    "estimatedCost":{"@type":"MonetaryAmount","currency":"USD","value":"1000"},
+    "step":[
+      {"@type":"HowToStep","position":1,"name":"Create your account","text":"Sign up with your name, email and a secure password in under 5 minutes."},
+      {"@type":"HowToStep","position":2,"name":"Verify your identity","text":"Our compliance team verifies your identity and chosen tier — typically within 24 hours."},
+      {"@type":"HowToStep","position":3,"name":"Fund your account","text":"Fund from $1,000 via bank transfer, card or crypto deposit."},
+      {"@type":"HowToStep","position":4,"name":"Choose your tier and assets","text":"Select Starter, Core, Premium, Private or Black, then allocate across FX, BTC and the Musk economy."},
+      {"@type":"HowToStep","position":5,"name":"Start trading","text":"Access live forex pairs, BTC and fractional real-world assets from one dashboard."}
+    ]
+  },
+  {
+    "@type":"ItemList",
+    "@id":"https://frontier.example/#forex",
+    "name":"Live Forex Currency Pairs",
+    "description":"Institutional-grade live forex pricing across every major currency pair.",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"EUR/USD — Euro / US Dollar"},
+      {"@type":"ListItem","position":2,"name":"GBP/USD — British Pound / US Dollar"},
+      {"@type":"ListItem","position":3,"name":"USD/JPY — US Dollar / Japanese Yen"},
+      {"@type":"ListItem","position":4,"name":"AUD/USD — Australian Dollar / US Dollar"},
+      {"@type":"ListItem","position":5,"name":"USD/CAD — US Dollar / Canadian Dollar"},
+      {"@type":"ListItem","position":6,"name":"USD/CHF — US Dollar / Swiss Franc"}
+    ]
+  }
 ]}
 </script>
 
@@ -2054,15 +1695,19 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   const TICKER_DATA = [
     {sym:'BTC', price:97482.10, chg:+2.41},
     {sym:'ETH', price:3642.88, chg:+1.12},
+    {sym:'EUR/USD', price:1.0842, chg:+0.24},
+    {sym:'GBP/USD', price:1.2714, chg:+0.11},
     {sym:'TSLA', price:412.06, chg:+3.28},
     {sym:'FRONTIER', price:1284.60, chg:+1.85},
-    {sym:'AUM', price:'$2.41B', chg:'+34%'},
-    {sym:'STARLINK', price:'12.0M', chg:'subs'}
+    {sym:'AUM', price:'$2.41B', chg:'+34%'}
   ];
   function buildTicker(){
     const track = $('#tickerTrack');
     const build = () => TICKER_DATA.map(t => {
-      const priceStr = typeof t.price === 'number' ? fmtUSD(t.price, 2) : t.price;
+      let priceStr;
+      if (typeof t.price === 'number') {
+        priceStr = t.price < 2 ? t.price.toFixed(4) : fmtUSD(t.price, 2);
+      } else priceStr = t.price;
       const chgClass = (typeof t.chg === 'number' && t.chg < 0) ? 'down' : 'up';
       const chgStr = typeof t.chg === 'number' ? (t.chg >= 0 ? '+' : '') + t.chg.toFixed(2) + '%' : t.chg;
       return `<span class="tk"><i>${t.sym}</i><b>${priceStr}</b><em class="${chgClass}">${chgStr}</em></span><span class="sep">/</span>`;
@@ -2089,9 +1734,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       backTop.classList.toggle('show', y > 700);
       const fromTop = y + 140;
       let activeId = null;
-      for (const sec of sections){
-        if (sec.offsetTop <= fromTop) activeId = sec.id;
-      }
+      for (const sec of sections){ if (sec.offsetTop <= fromTop) activeId = sec.id; }
       navLinkEls.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+activeId));
       mmenuLinkEls.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+activeId));
       ticking = false;
@@ -2109,9 +1752,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     mmenu.classList.toggle('open', open);
     document.body.classList.toggle('lock', open);
-    $$('#mmenu a').forEach((a,i) => {
-      a.style.transitionDelay = open ? `${80 + i*45}ms` : '0ms';
-    });
+    $$('#mmenu a').forEach((a,i) => { a.style.transitionDelay = open ? `${80 + i*45}ms` : '0ms'; });
   }
   menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
   mmenuLinkEls.forEach(a => a.addEventListener('click', () => setMenu(false)));
@@ -2121,21 +1762,17 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   const reveals = $$('.rv');
   if ('IntersectionObserver' in window && !reduced){
     const io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
-      });
+      entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
     }, { threshold:.1, rootMargin:'0px 0px -6% 0px' });
     reveals.forEach(el => io.observe(el));
-  } else {
-    reveals.forEach(el => el.classList.add('in'));
-  }
+  } else { reveals.forEach(el => el.classList.add('in')); }
 
-  /* ── HERO SLIDESHOW (CSS-art slides, no external assets) ── */
+  /* ── HERO SLIDESHOW ── */
   const SLIDES = [
-    {eyebrow:'Live · Bitcoin markets open',
+    {eyebrow:'Live · Forex & Bitcoin markets open',
      title:'Trade Bitcoin.<br><em>Own the Musk Economy.</em>',
-     lede:'Institutional-grade BTC trading with fractional exposure to Tesla vehicles, Optimus robots, SpaceX Starship &amp; Starlink, Neuralink and Boring Company — from $1,000.',
-     hdA:'0.04%', hdB:'+18.42%', hdC:'< 2 min'},
+     lede:'Institutional-grade BTC trading and live forex pairs alongside fractional exposure to Tesla vehicles, Optimus robots, SpaceX Starship &amp; Starlink, Neuralink and Boring Company — from $1,000.',
+     hdA:'0.2 pips', hdB:'+18.42%', hdC:'< 50ms'},
     {eyebrow:'Tesla · Model S Plaid fleet',
      title:'Every mile.<br><em>Yours to own.</em>',
      lede:'Fractional ownership across managed Model S Plaid fleets. Daily yield from premium ride-share, corporate leasing and long-term contracts.',
@@ -2173,7 +1810,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     if (reduced || !playing) return;
     timer = setTimeout(() => goTo(current + 1), DURATION);
   }
-
   function setPaused(paused){
     playing = !paused;
     playPause.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
@@ -2184,12 +1820,10 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     if (paused){ if (timer) clearTimeout(timer); }
     else restartTimer();
   }
-
   function goTo(index){
     const next = (index + slides.length) % slides.length;
     if (next === current) return;
     current = next;
-
     slides.forEach((s,i) => s.classList.toggle('on', i === current));
     tabs.forEach((t,i) => {
       const on = i === current;
@@ -2197,44 +1831,31 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       t.setAttribute('aria-selected', String(on));
       if (on){ t.style.animation = 'none'; void t.offsetWidth; t.style.animation = ''; }
     });
-
     const els = [elEyebrow, elTitle, elLede, elHdA, elHdB, elHdC];
-    els.forEach(el => {
-      el.style.transition = 'opacity .3s ease, transform .3s ease';
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(6px)';
-    });
+    els.forEach(el => { el.style.transition = 'opacity .3s ease, transform .3s ease'; el.style.opacity = '0'; el.style.transform = 'translateY(6px)'; });
     setTimeout(() => {
       const d = SLIDES[current];
       elEyebrow.textContent = d.eyebrow;
       elTitle.innerHTML = d.title;
       elLede.innerHTML = d.lede;
-      elHdA.textContent = d.hdA;
-      elHdB.textContent = d.hdB;
-      elHdC.textContent = d.hdC;
+      elHdA.textContent = d.hdA; elHdB.textContent = d.hdB; elHdC.textContent = d.hdC;
       els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
     }, 220);
-
     restartTimer();
   }
-
   tabs.forEach((t,i) => t.addEventListener('click', () => goTo(i)));
   $('#nextSlide')?.addEventListener('click', () => goTo(current + 1));
   $('#prevSlide')?.addEventListener('click', () => goTo(current - 1));
   playPause.addEventListener('click', () => setPaused(playing));
-
   document.addEventListener('keydown', e => {
     if (signup.classList.contains('open')) return;
     if (e.key === 'ArrowRight') goTo(current + 1);
     if (e.key === 'ArrowLeft') goTo(current - 1);
   });
-
   document.addEventListener('visibilitychange', () => {
     if (document.hidden){ if (timer) clearTimeout(timer); }
     else if (playing) restartTimer();
   });
-
-  // Swipe on hero
   let touchX = null;
   const heroEl = $('#top');
   heroEl?.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, {passive:true});
@@ -2244,8 +1865,146 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
     touchX = null;
   }, {passive:true});
-
   restartTimer();
+
+  /* ══════════════════════════════════════════════════════════════
+     LIVE FOREX WIDGET (replaces the old static performance chart)
+     ══════════════════════════════════════════════════════════════ */
+  const FX_PAIRS = [
+    {id:'EURUSD', name:'EUR/USD', desc:'Euro / US Dollar',                base:1.0842, decimals:5, vol:0.0009, pip:0.0001},
+    {id:'GBPUSD', name:'GBP/USD', desc:'British Pound / US Dollar',       base:1.2714, decimals:5, vol:0.0011, pip:0.0001},
+    {id:'USDJPY', name:'USD/JPY', desc:'US Dollar / Japanese Yen',        base:149.86, decimals:3, vol:0.14,   pip:0.01},
+    {id:'AUDUSD', name:'AUD/USD', desc:'Australian Dollar / US Dollar',   base:0.6582, decimals:5, vol:0.0007, pip:0.0001},
+    {id:'USDCAD', name:'USD/CAD', desc:'US Dollar / Canadian Dollar',     base:1.3592, decimals:5, vol:0.0010, pip:0.0001},
+    {id:'USDCHF', name:'USD/CHF', desc:'US Dollar / Swiss Franc',         base:0.8842, decimals:5, vol:0.0008, pip:0.0001}
+  ];
+
+  // Init history per pair (60 points)
+  FX_PAIRS.forEach(p => {
+    p.history = [];
+    let price = p.base;
+    for (let i = 0; i < 60; i++) {
+      price += (Math.random() - 0.5) * p.vol;
+      p.history.push(price);
+    }
+    p.price = price;
+    p.open = p.history[0];
+    p.high = Math.max(...p.history);
+    p.low = Math.min(...p.history);
+    p.volume = 50000 + Math.random() * 80000;
+  });
+
+  let activePairId = 'EURUSD';
+  let activeRange = '1m';
+  const RANGE_LEN = { '1m':60, '5m':40, '15m':30, '1h':24, '1D':18 };
+
+  function getActivePair(){ return FX_PAIRS.find(p => p.id === activePairId); }
+
+  function renderFxPairTabs(){
+    const wrap = $('#fxPairTabs');
+    wrap.innerHTML = FX_PAIRS.map(p => {
+      const change = (p.price - p.open) / p.open * 100;
+      const up = change >= 0;
+      return `
+        <button class="fx-pair-tab${p.id === activePairId ? ' on' : ''}" data-pair="${p.id}" role="tab" aria-selected="${p.id === activePairId}">
+          <span class="fp-name">${p.name}</span>
+          <span class="fp-price">${p.price.toFixed(p.decimals)}</span>
+          <span class="fp-change ${up ? 'up' : 'down'}">${up ? '+' : ''}${change.toFixed(2)}%</span>
+        </button>`;
+    }).join('');
+    wrap.querySelectorAll('.fx-pair-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        activePairId = tab.dataset.pair;
+        renderFxPairTabs();
+        updateFxDisplay();
+        drawFxChart();
+      });
+    });
+  }
+
+  function updateFxDisplay(){
+    const p = getActivePair();
+    const change = (p.price - p.open) / p.open * 100;
+    const up = change >= 0;
+
+    const priceEl = $('#fxPrice');
+    priceEl.textContent = p.price.toFixed(p.decimals);
+    priceEl.className = 'fx-price ' + (up ? 'up' : 'down');
+
+    const changeEl = $('#fxChange');
+    changeEl.textContent = (up ? '+' : '') + change.toFixed(2) + '%';
+    changeEl.className = 'fx-change ' + (up ? 'up' : 'down');
+
+    $('#fxPairName').textContent = p.name;
+    $('#fxPairDesc').textContent = p.desc;
+    $('#fxBid').textContent = p.price.toFixed(p.decimals);
+    $('#fxAsk').textContent = (p.price + p.pip * 0.2).toFixed(p.decimals);
+    $('#fxSpread').textContent = '0.2 pips';
+    $('#fxOpen').textContent = p.open.toFixed(p.decimals);
+    $('#fxHigh').textContent = p.high.toFixed(p.decimals);
+    $('#fxLow').textContent = p.low.toFixed(p.decimals);
+    $('#fxVolume').textContent = (p.volume / 1000).toFixed(1) + 'K';
+  }
+
+  function drawFxChart(){
+    const p = getActivePair();
+    const W = 800, H = 280, pad = 10;
+    const len = RANGE_LEN[activeRange] || 60;
+    let prices = p.history.slice(-len);
+    // pad with slight noise if too few points
+    while (prices.length < len) {
+      prices.unshift(prices[0] + (Math.random() - 0.5) * p.vol);
+    }
+    const max = Math.max(...prices), min = Math.min(...prices);
+    const range = (max - min) || 1;
+    const stepX = (W - pad * 2) / (prices.length - 1);
+    let line = '', area = '';
+    prices.forEach((price, i) => {
+      const x = pad + i * stepX;
+      const y = pad + (1 - (price - min) / range) * (H - pad * 2);
+      line += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1);
+      if (i === 0) area = `M${x.toFixed(1)},${H - pad}`;
+      area += `L${x.toFixed(1)},${y.toFixed(1)}`;
+    });
+    area += `L${(W - pad).toFixed(1)},${H - pad} Z`;
+
+    const svg = $('#fxChart');
+    svg.querySelector('.fx-line').setAttribute('d', line);
+    svg.querySelector('.fx-area').setAttribute('d', area);
+  }
+
+  function tickFx(){
+    FX_PAIRS.forEach(p => {
+      const drift = (Math.random() - 0.5) * p.vol;
+      p.price = Math.max(p.base * 0.94, Math.min(p.base * 1.06, p.price + drift));
+      p.history.push(p.price);
+      if (p.history.length > 120) p.history.shift();
+      if (p.price > p.high) p.high = p.price;
+      if (p.price < p.low) p.low = p.price;
+      p.volume += Math.random() * 30;
+    });
+    renderFxPairTabs();
+    updateFxDisplay();
+    drawFxChart();
+  }
+
+  // Range buttons
+  $$('.fx-ranges button').forEach(b => {
+    b.addEventListener('click', () => {
+      $$('.fx-ranges button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      activeRange = b.dataset.fxRange;
+      drawFxChart();
+    });
+  });
+
+  renderFxPairTabs();
+  updateFxDisplay();
+  drawFxChart();
+
+  if (!reduced){
+    setInterval(tickFx, 1800);
+  }
 
   /* ── ALLOCATION WIDGET ── */
   const ALLOC_VENTURES = [
@@ -2261,7 +2020,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     yield:    [20,30,10,15,25]
   };
   const ALLOC_CAPITAL = 25000;
-
   const allocStack = $('#allocStack');
   const allocList = $('#allocList');
   const allocBadge = $('#allocBadge');
@@ -2269,9 +2027,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   const allocSubEl = $('#allocSub');
   const allocPresetBtns = $$('.alloc-preset');
 
-  function calcBlendedYield(){
-    return ALLOC_VENTURES.reduce((s,v) => s + (v.pct/100) * v.yield, 0);
-  }
+  function calcBlendedYield(){ return ALLOC_VENTURES.reduce((s,v) => s + (v.pct/100) * v.yield, 0); }
   function capitalToLevel(c){
     if (c >= 250000) return 'Black';
     if (c >= 100000) return 'Private';
@@ -2279,19 +2035,12 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     if (c >= 5000)   return 'Core';
     return 'Starter';
   }
-
   function renderAlloc(){
     allocAmountEl.textContent = ALLOC_CAPITAL.toLocaleString('en-US');
     const active = ALLOC_VENTURES.filter(v => v.pct > 0.5).length;
     allocSubEl.textContent = `${capitalToLevel(ALLOC_CAPITAL)} level · across ${active} ventures`;
-
-    const blended = calcBlendedYield();
-    allocBadge.textContent = blended.toFixed(2) + '% blended';
-
-    allocStack.innerHTML = ALLOC_VENTURES.map(v => `
-      <div class="alloc-seg" style="width:${v.pct}%;background:${v.color}" title="${v.name} · ${v.pct.toFixed(0)}%"></div>
-    `).join('');
-
+    allocBadge.textContent = calcBlendedYield().toFixed(2) + '% blended';
+    allocStack.innerHTML = ALLOC_VENTURES.map(v => `<div class="alloc-seg" style="width:${v.pct}%;background:${v.color}" title="${v.name} · ${v.pct.toFixed(0)}%"></div>`).join('');
     allocList.innerHTML = ALLOC_VENTURES.map(v => `
       <div class="alloc-row" data-id="${v.id}">
         <div class="alloc-row-top">
@@ -2300,19 +2049,11 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
           <span class="alloc-yield">${v.yield.toFixed(1)}%</span>
           <span class="alloc-pct">${v.pct.toFixed(0)}%</span>
         </div>
-        <input type="range" class="alloc-range" min="0" max="100" step="1"
-          value="${v.pct.toFixed(0)}" data-id="${v.id}"
-          style="--fill-color:${v.color};--fill:${v.pct}%"
-          aria-label="${v.name} allocation percentage" />
-      </div>
-    `).join('');
-
+        <input type="range" class="alloc-range" min="0" max="100" step="1" value="${v.pct.toFixed(0)}" data-id="${v.id}" style="--fill-color:${v.color};--fill:${v.pct}%" aria-label="${v.name} allocation percentage" />
+      </div>`).join('');
     $$('.alloc-range').forEach(slider => {
-      slider.addEventListener('input', e => {
-        setAllocation(e.target.dataset.id, parseFloat(e.target.value));
-      });
+      slider.addEventListener('input', e => setAllocation(e.target.dataset.id, parseFloat(e.target.value)));
     });
-
     allocPresetBtns.forEach(btn => {
       const p = ALLOC_PRESETS[btn.dataset.preset];
       if (!p) return;
@@ -2320,7 +2061,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       btn.classList.toggle('on', match);
     });
   }
-
   function setAllocation(changedId, newPct){
     const target = ALLOC_VENTURES.find(v => v.id === changedId);
     if (!target) return;
@@ -2328,17 +2068,14 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     const oldPct = target.pct;
     const delta = newPct - oldPct;
     target.pct = newPct;
-
     const others = ALLOC_VENTURES.filter(v => v.id !== changedId);
     const othersTotal = others.reduce((s,v) => s + v.pct, 0);
-
     if (othersTotal > 0.001){
       others.forEach(o => { o.pct = Math.max(0, o.pct - delta * (o.pct / othersTotal)); });
     } else if (delta < 0){
       const each = (-delta) / others.length;
       others.forEach(o => { o.pct = each; });
     }
-
     const total = ALLOC_VENTURES.reduce((s,v) => s + v.pct, 0);
     if (Math.abs(total - 100) > 0.01 && total > 0){
       const factor = 100 / total;
@@ -2346,7 +2083,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     }
     renderAlloc();
   }
-
   allocPresetBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const p = ALLOC_PRESETS[btn.dataset.preset];
@@ -2355,9 +2091,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       renderAlloc();
     });
   });
-
   renderAlloc();
-
   $('#allocReserve').addEventListener('click', () => openSignup('premium'));
 
   /* ── MARKETS TABLE ── */
@@ -2373,10 +2107,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     {sym:'BOR', name:'Boring Co. Tunnels', tag:'private', price:512.90, change:+0.94, volume:38000000, trend:[16,14,16,14,16,14,16,14,12,14,12]},
     {sym:'PWR', name:'Powerwall & Solar', tag:'energy', price:842.30, change:+0.68, volume:62000000, trend:[18,16,18,16,14,16,14,12,14,12,10]}
   ];
-  let sortKey = 'sym';
-  let sortDir = 'asc';
-  let filter = 'all';
-  let searchTerm = '';
+  let sortKey = 'sym', sortDir = 'asc', filter = 'all', searchTerm = '';
 
   function sparkPath(points, w=100, h=26){
     const max = Math.max(...points), min = Math.min(...points);
@@ -2388,9 +2119,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       return (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1);
     }).join('');
   }
-  function tagLabel(tag){
-    return {crypto:'Crypto', equity:'Equity', private:'Private', energy:'Energy'}[tag] || tag;
-  }
+  function tagLabel(tag){ return {crypto:'Crypto', equity:'Equity', private:'Private', energy:'Energy'}[tag] || tag; }
 
   function renderMarkets(){
     const tbody = $('#mkBody');
@@ -2403,7 +2132,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       }
       return true;
     });
-
     rows.sort((a,b) => {
       let va, vb;
       if (sortKey === 'sym'){ va = a.sym; vb = b.sym; }
@@ -2415,12 +2143,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       if (typeof va === 'string') return sortDir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
       return sortDir === 'asc' ? va - vb : vb - va;
     });
-
-    if (!rows.length){
-      tbody.innerHTML = '';
-      emptyEl.classList.remove('hidden');
-      return;
-    }
+    if (!rows.length){ tbody.innerHTML = ''; emptyEl.classList.remove('hidden'); return; }
     emptyEl.classList.add('hidden');
 
     tbody.innerHTML = rows.map(m => {
@@ -2465,11 +2188,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       renderMarkets();
     });
   });
-
-  $('#mkSearch').addEventListener('input', e => {
-    searchTerm = e.target.value.trim();
-    renderMarkets();
-  });
+  $('#mkSearch').addEventListener('input', e => { searchTerm = e.target.value.trim(); renderMarkets(); });
   $$('.mk-filter').forEach(b => {
     b.addEventListener('click', () => {
       $$('.mk-filter').forEach(x => x.classList.remove('on'));
@@ -2497,76 +2216,27 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     return CALC_TIERS[CALC_TIERS.length - 1];
   }
   const calcRange = $('#calcRange');
-  const calcTrack = $('#calcTrack');
-  const calcThumb = $('#calcThumb');
-  const calcAmountVal = $('#calcAmountVal');
-  const calcTierBadge = $('#calcTierBadge');
-  const calcYield = $('#calcYield');
-  const calcReturn = $('#calcReturn');
-  const calcDaily = $('#calcDaily');
-
   function updateCalc(){
     const amount = sliderToAmount(parseFloat(calcRange.value));
     const pct = calcRange.value;
-    calcTrack.style.width = pct + '%';
-    calcThumb.style.left = pct + '%';
+    $('#calcTrack').style.width = pct + '%';
+    $('#calcThumb').style.left = pct + '%';
     const tier = tierForAmount(amount);
     const annualReturn = amount * (tier.yield / 100);
-    const daily = annualReturn / 365;
-    calcAmountVal.textContent = fmtUSD(amount, 0);
-    calcTierBadge.textContent = `${tier.level} · ${tier.name}`;
-    calcYield.innerHTML = tier.yield.toFixed(1) + '<em>%</em>';
-    calcReturn.textContent = fmtUSD(annualReturn, 0);
-    calcDaily.textContent = fmtUSD(daily, 2);
+    $('#calcAmountVal').textContent = fmtUSD(amount, 0);
+    $('#calcTierBadge').textContent = `${tier.level} · ${tier.name}`;
+    $('#calcYield').innerHTML = tier.yield.toFixed(1) + '<em>%</em>';
+    $('#calcReturn').textContent = fmtUSD(annualReturn, 0);
+    $('#calcDaily').textContent = fmtUSD(annualReturn / 365, 2);
   }
   calcRange.addEventListener('input', updateCalc);
   updateCalc();
-
   $('#calcCta').addEventListener('click', () => {
     const amount = sliderToAmount(parseFloat(calcRange.value));
     const tier = tierForAmount(amount);
     const map = {Starter:'starter', Core:'core', Premium:'premium', Private:'private', Black:'black'};
     openSignup(map[tier.name]);
   });
-
-  /* ── PERFORMANCE CHART ── */
-  const PERF_DATA = {
-    '1M': {value:'$1,244.10', change:'+2.84%', labels:['W1','W2','W3','W4'], points:[120,100,90,82,74,66,58,52,44,40,34,28,22,18,14,12,10,8]},
-    '3M': {value:'$1,206.40', change:'+6.12%', labels:['FEB','MAR','APR'], points:[140,130,122,116,108,100,92,86,78,72,64,58,50,44,38,32,28,22]},
-    '1Y': {value:'$1,284.60', change:'+18.42%', labels:['JAN','MAR','MAY','JUL','SEP','NOV'], points:[214,206,212,190,196,170,178,152,160,132,140,112,120,92,100,72,82,56,64,40,46]},
-    '5Y': {value:'$2,408.20', change:'+142.8%', labels:['2021','2022','2023','2024','2025'], points:[260,252,256,240,244,220,224,198,206,180,186,158,164,138,144,118,124,96,102,76,82,56]}
-  };
-  function drawPerf(range){
-    const data = PERF_DATA[range] || PERF_DATA['1Y'];
-    const pts = data.points;
-    const W = 800, H = 280;
-    const maxP = Math.max(...pts), minP = Math.min(...pts);
-    const rng = maxP - minP || 1;
-    const stepX = W / (pts.length - 1);
-    let line = '';
-    pts.forEach((p,i) => {
-      const x = i * stepX;
-      const y = (p - minP) / rng * (H - 40) + 20;
-      line += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1);
-    });
-    $('#perfLine').setAttribute('d', line);
-    $('#perfArea').setAttribute('d', line + ` L${W},${H} L0,${H} Z`);
-    $('#perfValue').textContent = data.value;
-    const pill = $('#perfPill');
-    const isUp = data.change.startsWith('+');
-    pill.textContent = data.change + ' · ' + range;
-    pill.className = 'pill ' + (isUp ? 'up' : 'down');
-    const labels = data.labels || [];
-    $('#perfX').innerHTML = labels.map(l => `<span>${l}</span>`).join('');
-  }
-  $$('.perf-ranges button').forEach(b => {
-    b.addEventListener('click', () => {
-      $$('.perf-ranges button').forEach(x => x.classList.remove('on'));
-      b.classList.add('on');
-      drawPerf(b.dataset.perfRange);
-    });
-  });
-  drawPerf('1Y');
 
   /* ── FAQ ── */
   $$('.faq-item').forEach(item => {
@@ -2593,7 +2263,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     });
   });
 
-  /* ── LIVE JITTER ── */
+  /* ── LIVE JITTER (ticker + markets) ── */
   if (!reduced){
     setInterval(() => {
       $$('.tk b').forEach(el => {
@@ -2611,12 +2281,10 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 
   /* ── TOAST ── */
   const toast = $('#toast');
-  const toastTitle = $('#toastTitle');
-  const toastMsg = $('#toastMsg');
   let toastTimer = null;
   function showToast(title, msg, kind){
-    toastTitle.textContent = title;
-    toastMsg.textContent = msg;
+    $('#toastTitle').textContent = title;
+    $('#toastMsg').textContent = msg;
     toast.classList.add('show');
     const color = kind === 'error' ? 'var(--loss)' : kind === 'info' ? 'var(--btc)' : 'var(--gain)';
     toast.style.borderColor = kind === 'error' ? 'rgba(255,82,82,.4)' : kind === 'info' ? 'rgba(247,147,26,.4)' : 'rgba(0,214,143,.35)';
@@ -2635,8 +2303,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   const signupForm = $('#signupForm');
   const sfSubmit = $('#sfSubmit');
   const sfSubmitLabel = $('#sfSubmitLabel');
-  const sfSubmitArrow = $('#sfSubmitArrow');
-  const sfTiers = $('#sfTiers');
   const sfPassword = $('#sfPassword');
   const sfToggle = $('#sfToggle');
   const sfStrength = $('#sfStrength');
@@ -2666,7 +2332,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     document.body.classList.remove('lock');
     if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
   }
-
   $$('[data-open-signup]').forEach(el => {
     el.addEventListener('click', e => {
       e.preventDefault();
@@ -2679,8 +2344,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && signup.classList.contains('open')) closeSignup();
   });
-
-  sfTiers.addEventListener('change', e => {
+  $('#sfTiers').addEventListener('change', e => {
     if (e.target.name === 'tier'){
       $$('.sf-tier').forEach(t => t.classList.toggle('sel', t.contains(e.target)));
     }
@@ -2688,13 +2352,9 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   $$('.sf-tier').forEach(t => {
     t.addEventListener('click', () => {
       const input = t.querySelector('input');
-      if (input){
-        input.checked = true;
-        $$('.sf-tier').forEach(x => x.classList.toggle('sel', x === t));
-      }
+      if (input){ input.checked = true; $$('.sf-tier').forEach(x => x.classList.toggle('sel', x === t)); }
     });
   });
-
   sfToggle.addEventListener('click', () => {
     const isPwd = sfPassword.type === 'password';
     sfPassword.type = isPwd ? 'text' : 'password';
@@ -2703,7 +2363,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"/><path d="M1 1l22 22"/></svg>'
       : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>';
   });
-
   sfPassword.addEventListener('input', () => {
     const v = sfPassword.value;
     let score = 0;
@@ -2719,7 +2378,6 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
   signupForm.addEventListener('submit', e => {
     e.preventDefault();
     $$('.sf-input,.sf-select').forEach(el => el.classList.remove('error'));
-
     let valid = true;
     ['sfFirst','sfLast','sfEmail','sfPassword','sfCountry','sfPhone'].forEach(id => {
       const el = document.getElementById(id);
@@ -2729,12 +2387,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)){ emailEl.classList.add('error'); valid = false; }
     if (sfPassword.value && sfPassword.value.length < 8){ sfPassword.classList.add('error'); valid = false; }
     const terms = $('#sfTerms');
-    if (!terms.checked){
-      valid = false;
-      terms.parentElement.style.color = 'var(--loss)';
-      setTimeout(() => { terms.parentElement.style.color = ''; }, 2400);
-    }
-
+    if (!terms.checked){ valid = false; terms.parentElement.style.color = 'var(--loss)'; setTimeout(() => { terms.parentElement.style.color = ''; }, 2400); }
     if (!valid){
       signupForm.style.animation = 'none';
       void signupForm.offsetWidth;
@@ -2742,11 +2395,9 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       showToast('Please check your details', 'Some required fields need your attention.', 'error');
       return;
     }
-
     sfSubmit.disabled = true;
     sfSubmitLabel.textContent = 'Submitting…';
-    sfSubmitArrow.outerHTML = '<span class="spinner" id="sfSubmitArrow"></span>';
-
+    $('#sfSubmitArrow').outerHTML = '<span class="spinner" id="sfSubmitArrow"></span>';
     setTimeout(() => {
       const firstName = $('#sfFirst').value.trim();
       const ref = 'FR-' + Math.floor(100000 + Math.random() * 900000);
@@ -2754,35 +2405,26 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
       $('#sfRef').textContent = ref;
       sfFormState.style.display = 'none';
       sfSuccess.classList.add('show');
-
       showToast('Registration received', `Await account confirmation & activation. We've emailed ${emailEl.value.trim()} — usually within 24 hours.`, 'success');
-
       sfSubmit.disabled = false;
       sfSubmitLabel.textContent = 'Create account & reserve position';
       const sp = document.getElementById('sfSubmitArrow');
-      if (sp){
-        sp.outerHTML = '<svg id="sfSubmitArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-      }
+      if (sp) sp.outerHTML = '<svg id="sfSubmitArrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
       signupForm.reset();
       sfStrength.className = 'sf-strength';
       sfStrengthLabel.textContent = 'Minimum 8 characters';
       $$('.sf-tier').forEach(t => t.classList.toggle('sel', t.dataset.tier === 'premium'));
     }, 1500);
   });
-
   $('#sfDone').addEventListener('click', () => {
     closeSignup();
-    setTimeout(() => {
-      sfSuccess.classList.remove('show');
-      sfFormState.style.display = 'block';
-    }, 400);
+    setTimeout(() => { sfSuccess.classList.remove('show'); sfFormState.style.display = 'block'; }, 400);
   });
 
   /* ── CONTACT FORM ── */
   const contactForm = $('#contactForm');
   const ctSubmit = $('#ctSubmit');
   const ctSubmitLabel = $('#ctSubmitLabel');
-
   contactForm.addEventListener('submit', e => {
     e.preventDefault();
     $$('#contactForm input, #contactForm textarea').forEach(el => el.classList.remove('error'));
@@ -2791,10 +2433,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
     if (!name.value.trim()){ name.classList.add('error'); valid = false; }
     if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){ email.classList.add('error'); valid = false; }
     if (!msg.value.trim()){ msg.classList.add('error'); valid = false; }
-    if (!valid){
-      showToast('Please check the form', 'A name, valid email and message are required.', 'error');
-      return;
-    }
+    if (!valid){ showToast('Please check the form', 'A name, valid email and message are required.', 'error'); return; }
     ctSubmit.disabled = true;
     ctSubmitLabel.textContent = 'Sending…';
     ctSubmit.querySelector('svg').outerHTML = '<span class="spinner" style="border-color:rgba(16,10,2,.3);border-top-color:#100A02"></span>';
@@ -2840,15 +2479,5 @@ h1,h2,h3,h4,h5{font-family:var(--disp);font-weight:500;line-height:1.08;letter-s
 })();
 </script>
 
-<style>
-@keyframes sfShake{
-  0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-8px)}
-  40%{transform:translateX(8px)}
-  60%{transform:translateX(-5px)}
-  80%{transform:translateX(5px)}
-}
-</style>
-
 </body>
-</html>
+</htm>
